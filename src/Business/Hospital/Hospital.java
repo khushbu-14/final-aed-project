@@ -11,5 +11,6 @@ package Business.Hospital;
  */
 public class Hospital {
     String hospitalName;
+    String contact;
     
 }
