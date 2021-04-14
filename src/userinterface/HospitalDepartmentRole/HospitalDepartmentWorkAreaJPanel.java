@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.DeliveryManRole;
+package userinterface.HospitalDepartmentRole;
 
 
-import userinterface.RestaurantAdminRole.*;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
@@ -18,7 +17,7 @@ import javax.swing.JPanel;
  *
  * @author khushbu
  */
-public class DeliveryManAdminWorkAreaPanel extends javax.swing.JPanel {
+public class HospitalDepartmentWorkAreaJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form RestaurantAdminWorkAreaPanel
@@ -28,7 +27,7 @@ public class DeliveryManAdminWorkAreaPanel extends javax.swing.JPanel {
     UserAccount userAccount;
 
 
-    public DeliveryManAdminWorkAreaPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem) {
+    public HospitalDepartmentWorkAreaJPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
