@@ -8,12 +8,13 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.FitnessCenteAdminrRole.FitnessCenterAdminWorkAreaJPanel;
+import userinterface.SysAdminReqHandlerRole.SystemAdminReqHandlerWorkAreaJPanel;
 
-public class FitnessCenterRole extends Role {
+public class SystemAdminReqHandlerRole extends Role {
 
     @Override
+
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new FitnessCenterAdminWorkAreaJPanel(userProcessContainer, account, business);
+        return new SystemAdminReqHandlerWorkAreaJPanel(userProcessContainer, account, business);
     }
 }

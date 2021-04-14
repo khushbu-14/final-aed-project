@@ -1,6 +1,6 @@
 
 
-package userinterface.RestaurantAdminRole;
+package userinterface.HospitalAdminRole;
 
 
 import java.awt.CardLayout;
@@ -10,12 +10,12 @@ import javax.swing.JPanel;
  *
  * @author  raunak
  */
-public class AdminWorkAreaJPanel extends javax.swing.JPanel {
+public class HospitalAdminWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
     
     /** Creates new form AdminWorkAreaJPanel */
-    public AdminWorkAreaJPanel(JPanel userProcessContainer) {
+    public HospitalAdminWorkAreaJPanel(JPanel userProcessContainer) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
       

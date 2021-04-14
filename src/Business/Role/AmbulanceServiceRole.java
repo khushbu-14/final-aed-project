@@ -8,9 +8,8 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.DeliveryManRole.DeliveryManAdminWorkAreaPanel;
+import userinterface.AmbulanceRole.AmbulanceWorkAreaJPanel;
 //import userinterface.DeliveryManRole.DeliveryManWorkAreaJPanel;
-
 /**
  *
  * @author khushbu
@@ -19,11 +18,8 @@ import userinterface.DeliveryManRole.DeliveryManAdminWorkAreaPanel;
 public class AmbulanceServiceRole extends Role {
 
     @Override
-//    public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-//        return new DeliveryManWorkAreaJPanel(userProcessContainer,account,business);//To change body of generated methods, choose Tools | Templates.
-//    }
 
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new DeliveryManAdminWorkAreaPanel(userProcessContainer, account, business);
+        return new AmbulanceWorkAreaJPanel(userProcessContainer, account, business);
     }
 }
