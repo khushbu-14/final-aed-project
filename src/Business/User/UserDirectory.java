@@ -6,6 +6,7 @@
 package Business.User;
 
 
+import Business.Staff.Staff;
 import java.util.ArrayList;
 
 /**
@@ -34,17 +35,21 @@ public class UserDirectory {
         return user;
     }
 
-     public void deleteUser(String userName){
-         User user=null;
-         for(User us: userList){
-         if(us.getUsername().equals(userName)){
-             user=us;
-         }
-         }
-         userList.remove(user);
-     }
+//     public void deleteUser(String userName){
+//         User user=null;
+//         for(User us: userList){
+//         if(us.getUsername().equals(userName)){
+//             user=us;
+//         }
+//         }
+//         userList.remove(user);
+//     }
      
-     
+       public void deleteUser(User usr){
+        if(userList != null){
+            userList.remove(usr);
+        }
+    }
       public User getUserByUserName(String userName){
          User user = null;
          for(User usr: userList){
