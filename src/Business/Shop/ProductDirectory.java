@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author kunal
  */
 public class ProductDirectory {
-    ArrayList<Product> productList;
+    private ArrayList<Product> productList;
 
     public ArrayList<Product> getProductList() {
         if(productList==null){
@@ -25,8 +25,8 @@ public class ProductDirectory {
         this.productList = productList;
     }
     
-    public Product addNewProduct(String productID, String productName,Double calories, Double price, String description){
-        Product product = new Product(productID,productName,calories,price,description);
+    public Product addNewProduct(String productName,Double calories, Double price, String description){
+        Product product = new Product(productName,calories,price,description);
         productList.add(product);
         return product;
     }

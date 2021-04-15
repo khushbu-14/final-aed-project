@@ -5,21 +5,24 @@
  */
 package Business.Shop;
 
+import java.util.UUID;
+
 /**
  *
  * @author kunal
  */
 public class Shop extends Business.UserAccount.UserAccount {
-    String shopId;
-    String shopName;
-    String shopType;
-    String contactNo;
-    String address;
-        String zipcode;
-    String email;
+    private String shopId;
+    private String shopName;
+    private String shopType;
+    private String contactNo;
+    private String address;
+    private String zipcode;
+    private String email;
 
-    public Shop(String shopId, String shopName, String shopType, String contactNo, String address, String email, String zipcode) {
-        this.shopId = shopId;
+    public Shop(String shopName, String shopType, String contactNo, String address, String email, String zipcode) {
+         UUID uid = UUID.randomUUID();
+        this.shopId = uid.toString();
         this.shopName = shopName;
         this.shopType = shopType;
         this.contactNo = contactNo;

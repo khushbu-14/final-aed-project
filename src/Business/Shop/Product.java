@@ -5,19 +5,22 @@
  */
 package Business.Shop;
 
+import java.util.UUID;
+
 /**
  *
  * @author kunal
  */
 public class Product {
-    String productId;
-    String productName;
-    Double calories;
-    Double price;
-    String description;
+    private String productId;
+    private String productName;
+    private Double calories;
+    private Double price;
+    private String description;
 
-    public Product(String productId, String productName, Double calories, Double price, String description) {
-        this.productId = productId;
+    public Product(String productName, Double calories, Double price, String description) {
+        UUID uid = UUID.randomUUID();
+        this.productId = uid.toString();
         this.productName = productName;
         this.calories = calories;
         this.price = price;

@@ -5,7 +5,6 @@
  */
 package Business.Hospital;
 
-import Business.Shop.Shop;
 import java.util.ArrayList;
 
 /**
@@ -26,8 +25,8 @@ public class HospitalDirectory {
         this.hospitalList = hospitalList;
     }
     
-     public Hospital addNewHospital(String hospitalID, String hospitalName, String contact, String address, String zipcode, String userId, String password ){
-        Hospital hospital = new Hospital(hospitalID,hospitalName,contact,address,zipcode);
+     public Hospital addNewHospital(String hospitalName, String contact, String address, String zipcode, String userId, String password ){
+        Hospital hospital = new Hospital(hospitalName,contact,address,zipcode);
         hospital.setUsername(userId);
         hospital.setPassword(password);
         hospitalList.add(hospital);

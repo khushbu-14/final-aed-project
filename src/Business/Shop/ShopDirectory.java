@@ -13,7 +13,7 @@ import java.util.ArrayList;
  * @author kunal
  */
 public class ShopDirectory {
-    ArrayList<Shop> shopList;
+    private ArrayList<Shop> shopList;
 
     public ArrayList<Shop> getShopList() {
         if(shopList == null){
@@ -26,8 +26,8 @@ public class ShopDirectory {
         this.shopList = shopList;
     }
     
-    public Shop addNewShop(String shopID, String shopName,String shopType, String contact, String address, String email, String zipcode, String userId, String password ){
-        Shop shop = new Shop(shopID,shopName,shopType,contact,address,email,zipcode);
+    public Shop addNewShop(String shopName,String shopType, String contact, String address, String email, String zipcode, String userId, String password ){
+        Shop shop = new Shop(shopName,shopType,contact,address,email,zipcode);
         shop.setUsername(userId);
         shop.setPassword(password);
         shopList.add(shop);

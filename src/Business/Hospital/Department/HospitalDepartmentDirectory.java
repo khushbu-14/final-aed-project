@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Hospital;
+package Business.Hospital.Department;
 
 import java.util.ArrayList;
 
@@ -25,8 +25,8 @@ public class HospitalDepartmentDirectory {
         this.departmentList = departmentList;
     }
     
-    public HospitalDepartment addNewHospitalDepartment(String departmentID, String departmentName,String type, String contact, Double numberOfStaffs, Double numberOfBeds, String userId, String password ){
-        HospitalDepartment hospitalDept = new HospitalDepartment(departmentID,departmentName,type,contact,numberOfStaffs,numberOfBeds);
+    public HospitalDepartment addNewHospitalDepartment(String departmentName,String type, String contact, Double numberOfStaffs, Double numberOfBeds, String userId, String password ){
+        HospitalDepartment hospitalDept = new HospitalDepartment(departmentName,type,contact,numberOfStaffs,numberOfBeds);
         hospitalDept.setUsername(userId);
         hospitalDept.setPassword(password);
         departmentList.add(hospitalDept);
