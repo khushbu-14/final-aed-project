@@ -34,16 +34,21 @@ public class ShopDirectory {
         return shop;
     }
 
-     public void deleteShop(String userName){
-         Shop shop=null;
-         for(Shop shp: shopList){
-         if(shp.getUsername().equals(userName)){
-             shop=shp;
-         }
-         }
-         shopList.remove(shop);
-     }
+//     public void deleteShop(String userName){
+//         Shop shop=null;
+//         for(Shop shp: shopList){
+//         if(shp.getUsername().equals(userName)){
+//             shop=shp;
+//         }
+//         }
+//         shopList.remove(shop);
+//     }
      
+      public void deleteShop(Shop shp){
+        if(shopList != null){
+            shopList.remove(shp);
+        }
+    }
      
      public Shop getShopById(String id){
          Shop shop = null;

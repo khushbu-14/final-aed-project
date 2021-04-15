@@ -5,6 +5,7 @@
  */
 package Business.Staff;
 
+import Business.Shop.Shop;
 import Business.User.User;
 import java.util.ArrayList;
 
@@ -34,16 +35,21 @@ public class StaffDirectory {
         return staff;
     }
 
-     public void deleteStaff(String userName){
-         Staff staff=null;
-         for(Staff st: staffList){
-         if(st.getUsername().equals(userName)){
-             staff=st;
-         }
-         }
-         staffList.remove(staff);
-     }
+//     public void deleteStaff(String userName){
+//         Staff staff=null;
+//         for(Staff st: staffList){
+//         if(st.getUsername().equals(userName)){
+//             staff=st;
+//         }
+//         }
+//         staffList.remove(staff);
+//     }
      
+      public void deleteStaff(Staff stf){
+        if(staffList != null){
+            staffList.remove(stf);
+        }
+    }
      
       public Staff getStaffByUserName(String userName){
          Staff staff = null;
