@@ -5,6 +5,7 @@
  */
 package Business.User;
 
+import Business.Staff.Staff;
 import java.util.ArrayList;
 
 /**
@@ -34,37 +35,61 @@ public class UserDirectory {
 //        userList.add(user);
 //        return user;
 //    }
+  
     public void addNewUser(User user) {
         userList.add(user);
     }
 
-    public void deleteUser(String userName) {
-        User user = null;
-        for (User us : userList) {
-            if (us.getUsername().equals(userName)) {
-                user = us;
-            }
+//     public void deleteUser(String userName) {
+//         User user = null;
+//         for (User us : userList) {
+//             if (us.getUsername().equals(userName)) {
+//                 user = us;
+//             }
+//         }
+//         userList.remove(user);
+//     }
+
+//     public User getUserByUserName(String userName) {
+//         User user = null;
+//         for (User usr : userList) {
+//             if (usr.getUsername().equals(userName)) {
+//                 user = usr;
+//             }
+//         }
+//         return user;
+//     }
+
+//     public void deleteUser(String userName){
+//         User user=null;
+//         for(User us: userList){
+//         if(us.getUsername().equals(userName)){
+//             user=us;
+//         }
+//         }
+//         userList.remove(user);
+//     }
+     
+       public void deleteUser(User usr){
+        if(userList != null){
+            userList.remove(usr);
         }
-        userList.remove(user);
     }
-
-    public User getUserByUserName(String userName) {
-        User user = null;
-        for (User usr : userList) {
-            if (usr.getUsername().equals(userName)) {
-                user = usr;
-            }
-        }
-        return user;
-    }
-
-    public void updateShopByUserName(String userName, String name, String contact, String address, String email, String password) {
-        User usr = getUserByUserName(userName);
-        usr.setName(name);
-        usr.setContact(contact);
-        usr.setAddress(address);
-        usr.setEmail(email);
-        usr.setPassword(password);
-    }
-
+      public User getUserByUserName(String userName){
+         User user = null;
+         for(User usr: userList){
+             if(usr.getUsername().equals(userName)){
+                 user = usr;
+             }    
+         }
+         return user;
+     }
+      public void updateShopByUserName(String userName, String name,String contact, String address, String email,String password){
+          User usr = getUserByUserName(userName);
+          usr.setName(name);
+          usr.setContact(contact);
+          usr.setAddress(address);
+          usr.setEmail(email);
+          usr.setPassword(password);
+      }
 }

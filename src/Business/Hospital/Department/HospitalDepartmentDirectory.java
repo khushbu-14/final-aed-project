@@ -5,6 +5,7 @@
  */
 package Business.Hospital.Department;
 
+import Business.AmbulanceService.AmbulanceService;
 import java.util.ArrayList;
 
 /**
@@ -33,16 +34,21 @@ public class HospitalDepartmentDirectory {
         return hospitalDept;
     }
 
-     public void deleteHospitalDepartment(String userName){
-         HospitalDepartment hospitalDept=null;
-         for(HospitalDepartment hospD: departmentList){
-         if(hospD.getUsername().equals(userName)){
-             hospitalDept=hospD;
-         }
-         }
-         departmentList.remove(hospitalDept);
-     }
+//     public void deleteHospitalDepartment(String userName){
+//         HospitalDepartment hospitalDept=null;
+//         for(HospitalDepartment hospD: departmentList){
+//         if(hospD.getUsername().equals(userName)){
+//             hospitalDept=hospD;
+//         }
+//         }
+//         departmentList.remove(hospitalDept);
+//     }
      
+       public void deleteHospitalDepartment(HospitalDepartment dpt){
+        if(departmentList != null){
+            departmentList.remove(dpt);
+        }
+    }
      
      public HospitalDepartment getHospitalDepartmentById(String id){
          HospitalDepartment hospitalDept = null;
