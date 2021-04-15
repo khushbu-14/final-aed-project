@@ -5,6 +5,7 @@
  */
 package Business;
 
+import Business.Hospital.HospitalDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
 import java.util.ArrayList;
@@ -16,7 +17,14 @@ import java.util.ArrayList;
 public class EcoSystem extends Organization {
 
     private static EcoSystem business;
+    private HospitalDirectory hospitalDirectory;
 
+    public EcoSystem(HospitalDirectory hospitalDirectory) {
+        this.hospitalDirectory = hospitalDirectory;
+    }
+
+    
+    
     public static EcoSystem getInstance() {
         if (business == null) {
             business = new EcoSystem();
@@ -33,10 +41,23 @@ public class EcoSystem extends Organization {
 
     private EcoSystem() {
         super(null);
-        // networkList=new ArrayList<Network>();
+        hospitalDirectory = new HospitalDirectory();
     }
 
     public boolean checkIfUserIsUnique(String userName) {
         return false;
     }
+
+    public HospitalDirectory getHospitalDirectory() {
+        if(hospitalDirectory==null){
+        hospitalDirectory=new HospitalDirectory();
+        }
+        return hospitalDirectory;
+    }
+
+    public void setHospitalDirectory(HospitalDirectory hospitalDirectory) {
+        this.hospitalDirectory = hospitalDirectory;
+    }
+    
+    
 }

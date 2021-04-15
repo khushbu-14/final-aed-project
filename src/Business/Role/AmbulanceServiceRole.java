@@ -9,11 +9,6 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.AmbulanceRole.AmbulanceWorkAreaJPanel;
-//import userinterface.DeliveryManRole.DeliveryManWorkAreaJPanel;
-/**
- *
- * @author khushbu
- */
 
 public class AmbulanceServiceRole extends Role {
 

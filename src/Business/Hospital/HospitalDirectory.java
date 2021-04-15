@@ -15,6 +15,9 @@ public class HospitalDirectory {
     private ArrayList<Hospital> hospitalList;
 
     public ArrayList<Hospital> getHospitalList() {
+        if(hospitalList==null){
+        hospitalList = new ArrayList<>();
+        }
         return hospitalList;
     }
 

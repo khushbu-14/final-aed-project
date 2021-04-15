@@ -29,4 +29,13 @@ public class Utils {
         }
         return result;
     }
+    public int countOfString(String val){
+        int count=0;
+        for(int i=0;i<val.length();i++){
+            if(val.charAt(i)!=' '){
+            count++;
+        }
+        }
+    return count;
+    }
 }
