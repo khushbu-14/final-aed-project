@@ -3,22 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.Hospital;
+package Business.Hospital.Department;
+
+import java.util.UUID;
 
 /**
  *
  * @author kunal
  */
 public class HospitalDepartment extends Business.UserAccount.UserAccount {
-    String departmentID;
-    String departmentName;
-    String type;
-    String contact;
-    int numberOfStaffs;
-    int numberOfBeds;
+    private String departmentID;
+    private String departmentName;
+    private String type;
+    private String contact;
+    private Double numberOfStaffs;
+    private Double numberOfBeds;
 
-    public HospitalDepartment(String departmentID, String departmentName, String type, String contact, int numberOfStaffs, int numberOfBeds) {
-        this.departmentID = departmentID;
+    public HospitalDepartment(String departmentName, String type, String contact, Double numberOfStaffs, Double numberOfBeds) {
+        UUID uid = UUID.randomUUID();
+        this.departmentID = uid.toString();
         this.departmentName = departmentName;
         this.type = type;
         this.contact = contact;
@@ -58,19 +61,19 @@ public class HospitalDepartment extends Business.UserAccount.UserAccount {
         this.contact = contact;
     }
 
-    public int getNumberOfStaffs() {
+    public Double getNumberOfStaffs() {
         return numberOfStaffs;
     }
 
-    public void setNumberOfStaffs(int numberOfStaffs) {
+    public void setNumberOfStaffs(Double numberOfStaffs) {
         this.numberOfStaffs = numberOfStaffs;
     }
 
-    public int getNumberOfBeds() {
+    public Double getNumberOfBeds() {
         return numberOfBeds;
     }
 
-    public void setNumberOfBeds(int numberOfBeds) {
+    public void setNumberOfBeds(Double numberOfBeds) {
         this.numberOfBeds = numberOfBeds;
     }
      public String toString() {

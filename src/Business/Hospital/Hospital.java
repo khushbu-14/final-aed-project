@@ -5,19 +5,22 @@
  */
 package Business.Hospital;
 
+import java.util.UUID;
+
 /**
  *
  * @author kunal
  */
 public class Hospital extends Business.UserAccount.UserAccount{
-    String hospitalID;
-    String hospitalName;
-    String contact;
-    String address;
-    String zipcode;
+    private String hospitalID;
+    private String hospitalName;
+    private String contact;
+    private String address;
+    private String zipcode;
 
-    public Hospital(String hospitalID, String hospitalName, String contact, String address, String zipcode) {
-        this.hospitalID = hospitalID;
+    public Hospital(String hospitalName, String contact, String address, String zipcode) {
+        UUID uid = UUID.randomUUID();
+        this.hospitalID = uid.toString();
         this.hospitalName = hospitalName;
         this.contact = contact;
         this.address = address;
