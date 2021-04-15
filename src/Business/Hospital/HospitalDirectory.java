@@ -5,6 +5,7 @@
  */
 package Business.Hospital;
 
+import Business.Shop.Shop;
 import java.util.ArrayList;
 
 /**
@@ -53,7 +54,7 @@ public class HospitalDirectory {
          }
          return hospital;
      }
-      public Hospital getHospitalByUsserName(String userName){
+      public Hospital getHospitalByUserName(String userName){
          Hospital hospital = null;
          for(Hospital hosp: hospitalList){
              if(hosp.getUsername().equals(userName)){
@@ -62,4 +63,13 @@ public class HospitalDirectory {
          }
          return hospital;
      }
+      
+      public void updateHospitalByUserName(String userName,String hospitalName, String contact, String address, String zipcode, String password){
+          Hospital hosp = getHospitalByUserName(userName);
+          hosp.setHospitalName(hospitalName);
+          hosp.setContact(contact);
+          hosp.setAddress(address);
+          hosp.setZipcode(zipcode);
+          hosp.setPassword(password);
+      }
 }

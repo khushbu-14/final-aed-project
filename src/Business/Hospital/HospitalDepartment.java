@@ -14,10 +14,10 @@ public class HospitalDepartment extends Business.UserAccount.UserAccount {
     String departmentName;
     String type;
     String contact;
-    int numberOfStaffs;
-    int numberOfBeds;
+    Double numberOfStaffs;
+    Double numberOfBeds;
 
-    public HospitalDepartment(String departmentID, String departmentName, String type, String contact, int numberOfStaffs, int numberOfBeds) {
+    public HospitalDepartment(String departmentID, String departmentName, String type, String contact, Double numberOfStaffs, Double numberOfBeds) {
         this.departmentID = departmentID;
         this.departmentName = departmentName;
         this.type = type;
@@ -58,19 +58,19 @@ public class HospitalDepartment extends Business.UserAccount.UserAccount {
         this.contact = contact;
     }
 
-    public int getNumberOfStaffs() {
+    public Double getNumberOfStaffs() {
         return numberOfStaffs;
     }
 
-    public void setNumberOfStaffs(int numberOfStaffs) {
+    public void setNumberOfStaffs(Double numberOfStaffs) {
         this.numberOfStaffs = numberOfStaffs;
     }
 
-    public int getNumberOfBeds() {
+    public Double getNumberOfBeds() {
         return numberOfBeds;
     }
 
-    public void setNumberOfBeds(int numberOfBeds) {
+    public void setNumberOfBeds(Double numberOfBeds) {
         this.numberOfBeds = numberOfBeds;
     }
      public String toString() {
