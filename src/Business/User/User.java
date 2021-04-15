@@ -5,25 +5,30 @@
  */
 package Business.User;
 
+import Business.Role.UserRole;
+
 /**
  *
  * @author kunal
  */
-public class User extends Business.UserAccount.UserAccount{
+
+public class User extends Business.UserAccount.UserAccount {
+
     private String name;
     private String contact;
     private String email;
     private String address;
 
-    public User(String name, String contact, String email, String address) {
+    public User(String username, String password, String name, String contact, String email, String address) {
         this.name = name;
         this.contact = contact;
         this.email = email;
         this.address = address;
+        setPassword(password);
+        setUsername(username);
+        setRole(new UserRole());
     }
 
-    
-    
     public String getName() {
         return name;
     }
@@ -56,10 +61,9 @@ public class User extends Business.UserAccount.UserAccount{
         this.address = address;
     }
 
-    
-     @Override
+    @Override
     public String toString() {
         return name;
     }
-    
+
 }

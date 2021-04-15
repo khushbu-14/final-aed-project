@@ -28,18 +28,18 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
     EcoSystem ecosystem;
     UserAccountDirectory userAccountList;
     Utils utils;
-    int hospitalId = 1;
-    
+//    int hospitalId = 1;
+
     public ManageHospitalsPanel(JPanel parentContainerPanel, EcoSystem ecosystem) {
         this.userProcessContainer = parentContainerPanel;
         this.ecosystem = ecosystem;
         utils = new Utils();
         initComponents();
-        
+
         btnSave.setVisible(true);
         btnUpdateSave.setVisible(false);
         txtZipcode.setEditable(true);
-        
+
         populateTable();
     }
 
@@ -110,6 +110,16 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
         lblName.setText("Hospital Name :");
 
         txtName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtNameKeyPressed(evt);
+            }
+        });
 
         btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
         btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/edit.png"))); // NOI18N
@@ -150,6 +160,11 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtPhoneNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPhoneNumberActionPerformed(evt);
+            }
+        });
 
         txtUsername.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
 
@@ -171,6 +186,11 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
         });
 
         txtZipcode.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        txtZipcode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtZipcodeActionPerformed(evt);
+            }
+        });
 
         lblUsername.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -294,23 +314,23 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
         int selectedRowIndex = tblHospitalList.getSelectedRow();
         return selectedRowIndex;
     }
-    
+
     private Hospital getSelectedHospital() {
         int selectedRowIndex = tblHospitalList.getSelectedRow();
-        
+
         if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(this, "Oops! Please select a Hospital first.");
             return null;
         }
-        
+
         Hospital h = (Hospital) tblHospitalList.getValueAt(selectedRowIndex, 1);
-        
+
         return h;
     }
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         Hospital hosp = getSelectedHospital();
-        
+
         if (hosp != null) {
             txtName.setText(hosp.getHospitalName());
             txtAddress.setText(hosp.getAddress());
@@ -326,18 +346,18 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         Hospital hosp = getSelectedHospital();
-        
+
         if (hosp != null) {
             resetForm();
             HospitalDirectory h = ecosystem.getHospitalDirectory();
             h.removeHospital(hosp);
             ecosystem.getUserAccountDirectory().removeUserAccount(hosp);
-            
+
             JOptionPane.showMessageDialog(this, "Hospital deleted successfully!");
             populateTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
-    
+
     private void resetForm() {
         txtName.setText(null);
         txtAddress.setText(null);
@@ -345,7 +365,7 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
         txtPhoneNumber.setText(null);
         txtZipcode.setText(null);
         txtPassword.setText(null);
-        
+
         txtZipcode.setEditable(true);
         btnUpdateSave.setVisible(false);
         btnSave.setVisible(true);
@@ -356,11 +376,11 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
 
         String name = txtName.getText().trim(),
                 address = txtAddress.getText().trim(),
-                password = txtUsername.getText().trim(),
-                username = txtZipcode.getText().trim();
+                password = txtPassword.getText().trim(),
+                username = txtUsername.getText().trim();
         String phoneNo = txtPhoneNumber.getText().trim();
         String zipcode = txtZipcode.getText().trim();
-        
+
         if (!utils.isStringInputValid(name)) {
             JOptionPane.showMessageDialog(this, "Please enter valid name");
         } else if (!utils.isStringInputValid(address)) {
@@ -370,18 +390,19 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
         } else if (!utils.isStringInputValid(password)) {
             JOptionPane.showMessageDialog(this, "Please enter valid password");
         } else if (!utils.isStringInputValid(username) || !ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(username)) {
-            JOptionPane.showMessageDialog(this, "Please enter valid and unique username");
+            JOptionPane.showMessageDialog(this, "Please enter valid unique username");
         } else if (!utils.isStringInputValid(zipcode)) {
             JOptionPane.showMessageDialog(this, "Please enter valid Zipcode");
         } else if (utils.countOfString(zipcode) < 5 || utils.countOfString(zipcode) > 5) {
             JOptionPane.showMessageDialog(this, "Zipcode should be 5 Characters Only");
         } else {
             username = username.toLowerCase();
-            ecosystem.getHospitalDirectory().addNewHospital(name, phoneNo, address, zipcode, username, password);
-
-//            ecosystem.getUserAccountDirectory().addUserAccount(hospital);
-            ecosystem.getUserAccountDirectory().createUserAccount(username, password, null, new HospitalRole());
-            hospitalId++;
+            Hospital hospital = new Hospital(username, password, name, phoneNo, address, zipcode);
+//            Hospital temp = ecosystem.getHospitalDirectory().addNewHospital(name, phoneNo, address, zipcode, username, password);
+            ecosystem.getHospitalDirectory().addNewHospital(hospital);
+            ecosystem.getUserAccountDirectory().addUserAccount(hospital);
+//            ecosystem.getUserAccountDirectory().createUserAccount(username, password, null, new HospitalRole());
+//            hospitalId++;
             populateTable();
             resetForm();
         }
@@ -390,14 +411,14 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
     private void btnUpdateSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSaveActionPerformed
         // TODO add your handling code here:
         Hospital hosp = getSelectedHospital();
-        
+
         if (hosp != null) {
             String name = txtName.getText().trim(),
                     address = txtAddress.getText().trim(),
                     password = txtUsername.getText().trim();
-            
+
             String phoneNo = txtPhoneNumber.getText().trim();
-            
+
             if (!utils.isStringInputValid(name)) {
                 JOptionPane.showMessageDialog(this, "Please enter valid name");
             } else if (!utils.isStringInputValid(address)) {
@@ -407,20 +428,43 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
             } else if (!utils.isStringInputValid(password)) {
                 JOptionPane.showMessageDialog(this, "Please enter valid password");
             } else {
-                
+
                 hosp.setHospitalName(name);
                 hosp.setAddress(address);
                 hosp.setPassword(password);
                 hosp.setContact(phoneNo);
-                
+
                 populateTable();
-                
+
                 JOptionPane.showMessageDialog(this, name + " updated in the list successfully!");
-                
+
                 resetForm();
             }
         }
     }//GEN-LAST:event_btnUpdateSaveActionPerformed
+
+    private void txtPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPhoneNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPhoneNumberActionPerformed
+
+    private void txtZipcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZipcodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtZipcodeActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            txtName.setEditable(false);
+            JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
+        } else {
+            txtName.setEditable(true);
+        }
+    }//GEN-LAST:event_txtNameKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
@@ -446,14 +490,14 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
 
     private void populateTable() {
         HospitalDirectory hospitalDirectory = ecosystem.getHospitalDirectory();
-        
+
         DefaultTableModel model = (DefaultTableModel) tblHospitalList.getModel();
-        
+
         model.setRowCount(0);
         int count = 1;
-        
+
         for (Hospital hospital : hospitalDirectory.getHospitalList()) {
-            
+
             Object[] row = new Object[7];
             row[0] = "" + count++;
             row[1] = hospital;
@@ -462,7 +506,7 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
             row[4] = hospital.getContact();
             row[5] = hospital.getAddress();
             row[6] = hospital.getZipcode();
-            
+
             model.addRow(row);
         }
     }

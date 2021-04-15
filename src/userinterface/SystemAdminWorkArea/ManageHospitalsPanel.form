@@ -228,6 +228,10 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNameActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtNameKeyPressed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnUpdate">
       <Properties>
@@ -318,6 +322,9 @@
           <Format format="##########" subtype="-1" type="5"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtPhoneNumberActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtUsername">
       <Properties>
@@ -375,6 +382,9 @@
           </Border>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtZipcodeActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblUsername">
       <Properties>
