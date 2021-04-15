@@ -45,15 +45,15 @@ public class HospitalDirectory {
         }
     }
 
-    public void deleteHospital(String userName) {
-        Hospital hospital = null;
-        for (Hospital hosp : hospitalList) {
-            if (hosp.getUsername().equals(userName)) {
-                hospital = hosp;
-            }
-        }
-        hospitalList.remove(hospital);
-    }
+//    public void deleteHospital(String userName) {
+//        Hospital hospital = null;
+//        for (Hospital hosp : hospitalList) {
+//            if (hosp.getUsername().equals(userName)) {
+//                hospital = hosp;
+//            }
+//        }
+//        hospitalList.remove(hospital);
+//    }
 
     public Hospital getHospitalById(String id) {
         Hospital hospital = null;

@@ -5,6 +5,7 @@
  */
 package Business.Shop;
 
+import Business.Hospital.Department.HospitalDepartment;
 import Business.Hospital.Hospital;
 import java.util.ArrayList;
 
@@ -13,12 +14,12 @@ import java.util.ArrayList;
  * @author kunal
  */
 public class ShopDirectory {
-    private ArrayList<Shop> shopList;
+    private ArrayList<Shop> shopList = new ArrayList<>();
 
     public ArrayList<Shop> getShopList() {
-        if(shopList == null){
-        shopList = new ArrayList<>();
-        }
+//        if(shopList == null){
+//        shopList = new ArrayList<>();
+//        }
         return shopList;
     }
 
@@ -26,13 +27,18 @@ public class ShopDirectory {
         this.shopList = shopList;
     }
     
-    public Shop addNewShop(String shopName,String shopType, String contact, String address, String email, String zipcode, String userId, String password ){
-        Shop shop = new Shop(shopName,shopType,contact,address,email,zipcode);
-        shop.setUsername(userId);
-        shop.setPassword(password);
+     public Shop addNewShop(Shop shop) {
         shopList.add(shop);
         return shop;
     }
+    
+//    public Shop addNewShop(String shopName,String shopType, String contact, String address, String email, String zipcode, String userId, String password ){
+//        Shop shop = new Shop(shopName,shopType,contact,address,email,zipcode);
+//        shop.setUsername(userId);
+//        shop.setPassword(password);
+//        shopList.add(shop);
+//        return shop;
+//    }
 
 //     public void deleteShop(String userName){
 //         Shop shop=null;

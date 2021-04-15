@@ -6,6 +6,8 @@
 package Business.Shop;
 
 import Business.Hospital.Department.HospitalDepartment;
+import Business.Role.HospitalDepartmentRole;
+import Business.Role.ShopsRole;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -23,8 +25,8 @@ public class Shop extends Business.UserAccount.UserAccount {
     private String email;
     private ArrayList<Product> productList;
 
-    public Shop(String shopName, String shopType, String contactNo, String address, String email, String zipcode) {
-         UUID uid = UUID.randomUUID();
+    public Shop(String userName, String password, String shopName, String shopType, String contactNo, String address, String email, String zipcode) {
+        UUID uid = UUID.randomUUID();
         this.shopId = uid.toString();
         this.shopName = shopName;
         this.shopType = shopType;
@@ -32,6 +34,9 @@ public class Shop extends Business.UserAccount.UserAccount {
         this.address = address;
         this.email = email;
         this.zipcode = zipcode;
+        setPassword(password);
+        setUsername(userName);
+        setRole(new ShopsRole());
     }
 
     public String getShopId() {

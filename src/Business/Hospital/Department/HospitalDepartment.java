@@ -5,6 +5,8 @@
  */
 package Business.Hospital.Department;
 
+import Business.Role.HospitalDepartmentRole;
+import Business.Role.HospitalRole;
 import java.util.UUID;
 
 /**
@@ -19,7 +21,7 @@ public class HospitalDepartment extends Business.UserAccount.UserAccount {
     private Double numberOfStaffs;
     private Double numberOfBeds;
 
-    public HospitalDepartment(String departmentName, String type, String contact, Double numberOfStaffs, Double numberOfBeds) {
+    public HospitalDepartment(String userName, String password,String departmentName, String type, String contact, Double numberOfStaffs, Double numberOfBeds) {
         UUID uid = UUID.randomUUID();
         this.departmentID = uid.toString();
         this.departmentName = departmentName;
@@ -27,6 +29,9 @@ public class HospitalDepartment extends Business.UserAccount.UserAccount {
         this.contact = contact;
         this.numberOfStaffs = numberOfStaffs;
         this.numberOfBeds = numberOfBeds;
+        setPassword(password);
+        setUsername(userName);
+        setRole(new HospitalDepartmentRole());
     }
 
     public String getDepartmentID() {

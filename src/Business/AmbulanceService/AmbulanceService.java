@@ -5,6 +5,8 @@
  */
 package Business.AmbulanceService;
 
+import Business.Role.AmbulanceServiceRole;
+import Business.Role.HospitalDepartmentRole;
 import java.util.UUID;
 
 /**
@@ -18,13 +20,16 @@ public class AmbulanceService extends Business.UserAccount.UserAccount{
     private String address;
     private String email;
 
-    public AmbulanceService(String name, String contact, String address, String email) {
+    public AmbulanceService(String userName, String password, String name, String contact, String address, String email) {
         UUID uid = UUID.randomUUID();
         this.id = uid.toString();
         this.name = name;
         this.contact = contact;
         this.address = address;
         this.email = email;
+        setPassword(password);
+        setUsername(userName);
+        setRole(new AmbulanceServiceRole());
     }
 
     public String getId() {

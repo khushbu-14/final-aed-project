@@ -5,6 +5,9 @@
  */
 package Business.Staff;
 
+import Business.Role.HospitalDepartmentRole;
+import Business.Role.ShopsRole;
+
 /**
  *
  * @author kunal
@@ -16,12 +19,15 @@ public class Staff extends Business.UserAccount.UserAccount{
     private String address;
     private String email;
 
-    public Staff(String name, String designation, String contact, String address, String email) {
+    public Staff(String userName, String password, String name, String designation, String contact, String address, String email) {
         this.name = name;
         this.designation = designation;
         this.contact = contact;
         this.address = address;
         this.email = email;
+        setPassword(password);
+        setUsername(userName);
+        setRole(new HospitalDepartmentRole());
     }
 
     public String getName() {

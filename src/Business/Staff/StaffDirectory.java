@@ -5,6 +5,7 @@
  */
 package Business.Staff;
 
+import Business.Hospital.Department.HospitalDepartment;
 import Business.Shop.Shop;
 import Business.User.User;
 import java.util.ArrayList;
@@ -14,12 +15,12 @@ import java.util.ArrayList;
  * @author kunal
  */
 public class StaffDirectory {
-    private ArrayList<Staff> staffList;
+    private ArrayList<Staff> staffList = new ArrayList<>();
 
     public ArrayList<Staff> getStaffList() {
-        if(staffList==null){
-        staffList = new ArrayList<>();
-        }
+//        if(staffList==null){
+//        staffList = new ArrayList<>();
+//        }
         return staffList;
     }
 
@@ -27,13 +28,13 @@ public class StaffDirectory {
         this.staffList = staffList;
     }
     
-    public Staff addNewStaff(String name,String designation,String contact, String address, String email, String userName, String password ){
-        Staff staff = new Staff(name,designation,contact,address,email);
-        staff.setUsername(userName);
-        staff.setPassword(password);
-        staffList.add(staff);
-        return staff;
-    }
+//    public Staff addNewStaff(String name,String designation,String contact, String address, String email, String userName, String password ){
+//        Staff staff = new Staff(name,designation,contact,address,email);
+//        staff.setUsername(userName);
+//        staff.setPassword(password);
+//        staffList.add(staff);
+//        return staff;
+//    }
 
 //     public void deleteStaff(String userName){
 //         Staff staff=null;
@@ -45,6 +46,10 @@ public class StaffDirectory {
 //         staffList.remove(staff);
 //     }
      
+     public Staff addNewStaff(Staff staff) {
+        staffList.add(staff);
+        return staff;
+    }
       public void deleteStaff(Staff stf){
         if(staffList != null){
             staffList.remove(stf);

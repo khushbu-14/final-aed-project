@@ -84,7 +84,7 @@ public class UserDirectory {
          }
          return user;
      }
-      public void updateShopByUserName(String userName, String name,String contact, String address, String email,String password){
+      public void updateUserByUserName(String userName, String name,String contact, String address, String email,String password){
           User usr = getUserByUserName(userName);
           usr.setName(name);
           usr.setContact(contact);

@@ -5,6 +5,7 @@
  */
 package Business.AmbulanceService;
 
+import Business.Hospital.Department.HospitalDepartment;
 import Business.Hospital.Hospital;
 import java.util.ArrayList;
 
@@ -13,26 +14,30 @@ import java.util.ArrayList;
  * @author kunal
  */
 public class AmbulanceDirectory {
-    private ArrayList<AmbulanceService> ambulanceList;
+    private ArrayList<AmbulanceService> ambulanceList = new ArrayList<>();
 
     public ArrayList<AmbulanceService> getHospitalList() {
-        if(ambulanceList==null){
-        ambulanceList = new ArrayList<>();
-        }
+//        if(ambulanceList==null){
+//        ambulanceList = new ArrayList<>();
+//        }
         return ambulanceList;
     }
 
     public void setHospitalList(ArrayList<AmbulanceService> ambulanceList) {
         this.ambulanceList = ambulanceList;
     }
-    
-     public AmbulanceService addNewAmbulanceService(String name, String contact, String address, String email, String userId, String password ){
-        AmbulanceService amb = new AmbulanceService(name,contact,address,email);
-        amb.setUsername(userId);
-        amb.setPassword(password);
-        ambulanceList.add(amb);
-        return amb;
+     public AmbulanceService addNewAmbulanceService(AmbulanceService ambulanceService) {
+        ambulanceList.add(ambulanceService);
+        return ambulanceService;
     }
+    
+//     public AmbulanceService addNewAmbulanceService(String name, String contact, String address, String email, String userId, String password ){
+//        AmbulanceService amb = new AmbulanceService(name,contact,address,email);
+//        amb.setUsername(userId);
+//        amb.setPassword(password);
+//        ambulanceList.add(amb);
+//        return amb;
+//    }
 
 //     public void deleteHospital(String userName){
 //         Hospital hospital=null;

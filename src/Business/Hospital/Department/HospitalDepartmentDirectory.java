@@ -6,6 +6,7 @@
 package Business.Hospital.Department;
 
 import Business.AmbulanceService.AmbulanceService;
+import Business.Hospital.Hospital;
 import java.util.ArrayList;
 
 /**
@@ -13,12 +14,12 @@ import java.util.ArrayList;
  * @author kunal
  */
 public class HospitalDepartmentDirectory {
-    private ArrayList<HospitalDepartment> departmentList;
+    private ArrayList<HospitalDepartment> departmentList = new ArrayList<>();
 
     public ArrayList<HospitalDepartment> getDepartmentList() {
-        if(departmentList==null){
-        departmentList= new ArrayList<>();
-        }
+//        if(departmentList==null){
+//        departmentList= new ArrayList<>();
+//        }
         return departmentList;
     }
 
@@ -26,13 +27,18 @@ public class HospitalDepartmentDirectory {
         this.departmentList = departmentList;
     }
     
-    public HospitalDepartment addNewHospitalDepartment(String departmentName,String type, String contact, Double numberOfStaffs, Double numberOfBeds, String userId, String password ){
-        HospitalDepartment hospitalDept = new HospitalDepartment(departmentName,type,contact,numberOfStaffs,numberOfBeds);
-        hospitalDept.setUsername(userId);
-        hospitalDept.setPassword(password);
+     public HospitalDepartment addNewHospitalDepartment(HospitalDepartment hospitalDept) {
         departmentList.add(hospitalDept);
         return hospitalDept;
     }
+    
+//    public HospitalDepartment addNewHospitalDepartment(String departmentName,String type, String contact, Double numberOfStaffs, Double numberOfBeds, String userId, String password ){
+//        HospitalDepartment hospitalDept = new HospitalDepartment(departmentName,type,contact,numberOfStaffs,numberOfBeds);
+//        hospitalDept.setUsername(userId);
+//        hospitalDept.setPassword(password);
+//        departmentList.add(hospitalDept);
+//        return hospitalDept;
+//    }
 
 //     public void deleteHospitalDepartment(String userName){
 //         HospitalDepartment hospitalDept=null;
