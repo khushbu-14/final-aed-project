@@ -64,4 +64,8 @@ public class Product {
         this.description = description;
     }
      
+     @Override
+    public String toString() {
+        return productName;
+    }
 }
