@@ -34,6 +34,12 @@ public class HospitalDirectory {
         hospitalList.add(hospital);
         return hospital;
     }
+    
+     public void removeHospital(Hospital h){
+        if(hospitalList != null){
+            hospitalList.remove(h);
+        }
+    }
 
     public void deleteHospital(String userName) {
         Hospital hospital = null;

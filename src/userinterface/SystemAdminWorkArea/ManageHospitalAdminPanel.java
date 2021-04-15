@@ -19,13 +19,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author khushbu
  */
-
 public class ManageHospitalAdminPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageCustomer
      */
-    
     JPanel userProcessContainer;
     EcoSystem ecosystem;
     UserAccountDirectory userAccountList;
@@ -315,18 +313,17 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-//        Restaurant r = getSelectedRestaurant();
-//
-//        if (r != null) {
-//            resetForm();
-//            RestaurantDirectory rd = ecosystem.getRestaurantDirectory();
-//            rd.removeRestaurant(r);
-//
-//            ecosystem.getUserAccountDirectory().removeUserAccount(r);
-//
-//            JOptionPane.showMessageDialog(this, "Restaurant deleted successfully!");
-//            populateTable();
-//        }
+        Hospital hosp = getSelectedHospital();
+
+        if (hosp != null) {
+            resetForm();
+            HospitalDirectory h = ecosystem.getHospitalDirectory();
+            h.removeHospital(hosp);
+            ecosystem.getUserAccountDirectory().removeUserAccount(hosp);
+
+            JOptionPane.showMessageDialog(this, "Hospital deleted successfully!");
+            populateTable();
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void resetForm() {
@@ -368,8 +365,6 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
         } else {
             username = username.toLowerCase();
             ecosystem.getHospitalDirectory().addNewHospital(String.valueOf(hospitalId), name, phoneNo, address, zipcode, username, password);
-
-//            ecosystem.getUserAccountDirectory().addUserAccount(hospital);
             ecosystem.getUserAccountDirectory().createUserAccount(username, password, null, new HospitalRole());
             hospitalId++;
             populateTable();
@@ -379,38 +374,37 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
 
     private void btnUpdateSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSaveActionPerformed
         // TODO add your handling code here:
-//
-//        Restaurant r = getSelectedRestaurant();
-//
-//        if (r != null) {
-//            String name = txtName.getText().trim(),
-//                    address = txtAddress.getText().trim(),
-//                    password = txtUsername.getText().trim();
-//
-//            String phoneNo = txtPhoneNumber.getText().trim();
-//
-//            if (!utils.isStringInputValid(name)) {
-//                JOptionPane.showMessageDialog(this, "Please enter valid name");
-//            } else if (!utils.isStringInputValid(address)) {
-//                JOptionPane.showMessageDialog(this, "Please enter valid address");
-//            } else if (!utils.isStringInputValid(phoneNo) || phoneNo.length() != 10) {
-//                JOptionPane.showMessageDialog(this, "Please enter valid 10 digit phone number");
-//            } else if (!utils.isStringInputValid(password)) {
-//                JOptionPane.showMessageDialog(this, "Please enter valid password");
-//            } else {
-//
-//                r.setName(name);
-//                r.setAddress(address);
-//                r.setPassword(password);
-//                r.setPhone(phoneNo);
-//
-//                populateTable();
-//
-//                JOptionPane.showMessageDialog(this, name + " updated in the list successfully!");
-//
-//                resetForm();
-//            }
-//        }
+        Hospital hosp = getSelectedHospital();
+
+        if (hosp != null) {
+            String name = txtName.getText().trim(),
+                    address = txtAddress.getText().trim(),
+                    password = txtUsername.getText().trim();
+
+            String phoneNo = txtPhoneNumber.getText().trim();
+
+            if (!utils.isStringInputValid(name)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid name");
+            } else if (!utils.isStringInputValid(address)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid address");
+            } else if (!utils.isStringInputValid(phoneNo) || phoneNo.length() != 10) {
+                JOptionPane.showMessageDialog(this, "Please enter valid 10 digit phone number");
+            } else if (!utils.isStringInputValid(password)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid password");
+            } else {
+
+                hosp.setHospitalName(name);
+                hosp.setAddress(address);
+                hosp.setPassword(password);
+                hosp.setContact(phoneNo);
+
+                populateTable();
+
+                JOptionPane.showMessageDialog(this, name + " updated in the list successfully!");
+
+                resetForm();
+            }
+        }
     }//GEN-LAST:event_btnUpdateSaveActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -436,10 +430,10 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
 
     private void populateTable() {
         HospitalDirectory hospitalDirectory = ecosystem.getHospitalDirectory();
-
         DefaultTableModel model = (DefaultTableModel) tblHospitalList.getModel();
 
         model.setRowCount(0);
+        
         for (Hospital hospital : hospitalDirectory.getHospitalList()) {
             Object[] row = new Object[7];
             row[0] = hospital.getHospitalID();
