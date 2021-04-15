@@ -70,6 +70,7 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
         btnUpdateSave = new javax.swing.JButton();
         lblUsername1 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JTextField();
+        btnUpdate1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(244, 249, 249));
 
@@ -194,6 +195,14 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
 
         txtPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
 
+        btnUpdate1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/edit.png"))); // NOI18N
+        btnUpdate1.setText("Update");
+        btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdate1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -226,9 +235,10 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
                                     .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                            .addComponent(btnUpdate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -237,10 +247,12 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUpdate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -285,6 +297,7 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
     }
 
     private Hospital getSelectedHospital() {
+//        System.out.println("in getSelectedHospital method");
         int selectedRowIndex = tblHospitalList.getSelectedRow();
 
         if (selectedRowIndex < 0) {
@@ -298,6 +311,7 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
     }
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+//        System.out.println("in btnUpdateActionPerformed function");
         Hospital hosp = getSelectedHospital();
 
         if (hosp != null) {
@@ -364,7 +378,7 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Zipcode should be 5 Characters Only");
         } else {
             username = username.toLowerCase();
-            ecosystem.getHospitalDirectory().addNewHospital(String.valueOf(hospitalId), name, phoneNo, address, zipcode, username, password);
+            ecosystem.getHospitalDirectory().addNewHospital(name, phoneNo, address, zipcode, username, password);
             ecosystem.getUserAccountDirectory().createUserAccount(username, password, null, new HospitalRole());
             hospitalId++;
             populateTable();
@@ -407,10 +421,28 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnUpdateSaveActionPerformed
 
+    private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
+        // TODO add your handling code here:
+        System.out.println("in btnUpdateActionPerformed function");
+        Hospital hosp = getSelectedHospital();
+
+        if (hosp != null) {
+            txtName.setText(hosp.getHospitalName());
+            txtAddress.setText(hosp.getAddress());
+            txtUsername.setText(hosp.getPassword());
+            txtPhoneNumber.setText(hosp.getContact());
+            txtZipcode.setText(hosp.getUsername());
+            btnUpdateSave.setVisible(true);
+            btnSave.setVisible(false);
+            txtZipcode.setEditable(false);
+        }
+    }//GEN-LAST:event_btnUpdate1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnUpdate1;
     private javax.swing.JButton btnUpdateSave;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAddress;
@@ -429,15 +461,19 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
+
         HospitalDirectory hospitalDirectory = ecosystem.getHospitalDirectory();
         DefaultTableModel model = (DefaultTableModel) tblHospitalList.getModel();
 
         model.setRowCount(0);
-        
+
+        int count = 1;
+
         for (Hospital hospital : hospitalDirectory.getHospitalList()) {
+
             Object[] row = new Object[7];
-            row[0] = hospital.getHospitalID();
-            row[1] = hospital.getHospitalName();
+            row[0] = "" + count++;
+            row[1] = hospital;
             row[2] = hospital.getUsername();
             row[3] = hospital.getPassword();
             row[4] = hospital.getContact();
@@ -445,7 +481,6 @@ public class ManageHospitalAdminPanel extends javax.swing.JPanel {
             row[6] = hospital.getZipcode();
 
             model.addRow(row);
-
         }
     }
 }

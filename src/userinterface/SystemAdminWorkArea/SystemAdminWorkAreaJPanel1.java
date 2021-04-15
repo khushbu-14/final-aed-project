@@ -31,6 +31,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
+        manageHospital();
     }
 
     public void populateTree() {

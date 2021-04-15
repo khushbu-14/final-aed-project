@@ -5,8 +5,6 @@
  */
 package userinterface.SystemAdminWorkArea;
 
-
-
 import Business.EcoSystem;
 import Business.Hospital.Hospital;
 import Business.Hospital.HospitalDirectory;
@@ -30,18 +28,18 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
     EcoSystem ecosystem;
     UserAccountDirectory userAccountList;
     Utils utils;
-    int hospitalId =1;
-
+    int hospitalId = 1;
+    
     public ManageHospitalsPanel(JPanel parentContainerPanel, EcoSystem ecosystem) {
         this.userProcessContainer = parentContainerPanel;
         this.ecosystem = ecosystem;
         utils = new Utils();
         initComponents();
-
+        
         btnSave.setVisible(true);
         btnUpdateSave.setVisible(false);
         txtZipcode.setEditable(true);
-
+        
         populateTable();
     }
 
@@ -296,57 +294,58 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
         int selectedRowIndex = tblHospitalList.getSelectedRow();
         return selectedRowIndex;
     }
-
+    
     private Hospital getSelectedHospital() {
         int selectedRowIndex = tblHospitalList.getSelectedRow();
-
+        
         if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(this, "Oops! Please select a Hospital first.");
             return null;
         }
-
+        
         Hospital h = (Hospital) tblHospitalList.getValueAt(selectedRowIndex, 1);
-
+        
         return h;
     }
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-//        Restaurant r = getSelectedRestaurant();
-//
-//        if (r != null) {
-//            txtName.setText(r.getName());
-//            txtAddress.setText(r.getAddress());
-//            txtUsername.setText(r.getPassword());
-//            txtPhoneNumber.setText(r.getPhone());
-//            txtZipcode.setText(r.getUsername());
-//            btnUpdateSave.setVisible(true);
-//            btnSave.setVisible(false);
-//            txtZipcode.setEditable(false);
-//        }
+        Hospital hosp = getSelectedHospital();
+        
+        if (hosp != null) {
+            txtName.setText(hosp.getHospitalName());
+            txtAddress.setText(hosp.getAddress());
+            txtUsername.setText(hosp.getPassword());
+            txtPhoneNumber.setText(hosp.getContact());
+            txtZipcode.setText(hosp.getUsername());
+            btnUpdateSave.setVisible(true);
+            btnSave.setVisible(false);
+            txtZipcode.setEditable(false);
+            txtPassword.setText(hosp.getPassword());
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-//        Restaurant r = getSelectedRestaurant();
-//
-//        if (r != null) {
-//            resetForm();
-//            RestaurantDirectory rd = ecosystem.getRestaurantDirectory();
-//            rd.removeRestaurant(r);
-//
-//            ecosystem.getUserAccountDirectory().removeUserAccount(r);
-//
-//            JOptionPane.showMessageDialog(this, "Restaurant deleted successfully!");
-//            populateTable();
-//        }
+        Hospital hosp = getSelectedHospital();
+        
+        if (hosp != null) {
+            resetForm();
+            HospitalDirectory h = ecosystem.getHospitalDirectory();
+            h.removeHospital(hosp);
+            ecosystem.getUserAccountDirectory().removeUserAccount(hosp);
+            
+            JOptionPane.showMessageDialog(this, "Hospital deleted successfully!");
+            populateTable();
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
-
+    
     private void resetForm() {
         txtName.setText(null);
         txtAddress.setText(null);
         txtUsername.setText(null);
         txtPhoneNumber.setText(null);
         txtZipcode.setText(null);
-
+        txtPassword.setText(null);
+        
         txtZipcode.setEditable(true);
         btnUpdateSave.setVisible(false);
         btnSave.setVisible(true);
@@ -361,7 +360,7 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
                 username = txtZipcode.getText().trim();
         String phoneNo = txtPhoneNumber.getText().trim();
         String zipcode = txtZipcode.getText().trim();
-
+        
         if (!utils.isStringInputValid(name)) {
             JOptionPane.showMessageDialog(this, "Please enter valid name");
         } else if (!utils.isStringInputValid(address)) {
@@ -374,15 +373,15 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please enter valid and unique username");
         } else if (!utils.isStringInputValid(zipcode)) {
             JOptionPane.showMessageDialog(this, "Please enter valid Zipcode");
-        }else if (utils.countOfString(zipcode)<5 || utils.countOfString(zipcode)>5) {
+        } else if (utils.countOfString(zipcode) < 5 || utils.countOfString(zipcode) > 5) {
             JOptionPane.showMessageDialog(this, "Zipcode should be 5 Characters Only");
-        }else {
+        } else {
             username = username.toLowerCase();
             ecosystem.getHospitalDirectory().addNewHospital(name, phoneNo, address, zipcode, username, password);
 
 //            ecosystem.getUserAccountDirectory().addUserAccount(hospital);
             ecosystem.getUserAccountDirectory().createUserAccount(username, password, null, new HospitalRole());
-            hospitalId ++;
+            hospitalId++;
             populateTable();
             resetForm();
         }
@@ -390,38 +389,37 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
 
     private void btnUpdateSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateSaveActionPerformed
         // TODO add your handling code here:
-//
-//        Restaurant r = getSelectedRestaurant();
-//
-//        if (r != null) {
-//            String name = txtName.getText().trim(),
-//                    address = txtAddress.getText().trim(),
-//                    password = txtUsername.getText().trim();
-//
-//            String phoneNo = txtPhoneNumber.getText().trim();
-//
-//            if (!utils.isStringInputValid(name)) {
-//                JOptionPane.showMessageDialog(this, "Please enter valid name");
-//            } else if (!utils.isStringInputValid(address)) {
-//                JOptionPane.showMessageDialog(this, "Please enter valid address");
-//            } else if (!utils.isStringInputValid(phoneNo) || phoneNo.length() != 10) {
-//                JOptionPane.showMessageDialog(this, "Please enter valid 10 digit phone number");
-//            } else if (!utils.isStringInputValid(password)) {
-//                JOptionPane.showMessageDialog(this, "Please enter valid password");
-//            } else {
-//
-//                r.setName(name);
-//                r.setAddress(address);
-//                r.setPassword(password);
-//                r.setPhone(phoneNo);
-//
-//                populateTable();
-//
-//                JOptionPane.showMessageDialog(this, name + " updated in the list successfully!");
-//
-//                resetForm();
-//            }
-//        }
+        Hospital hosp = getSelectedHospital();
+        
+        if (hosp != null) {
+            String name = txtName.getText().trim(),
+                    address = txtAddress.getText().trim(),
+                    password = txtUsername.getText().trim();
+            
+            String phoneNo = txtPhoneNumber.getText().trim();
+            
+            if (!utils.isStringInputValid(name)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid name");
+            } else if (!utils.isStringInputValid(address)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid address");
+            } else if (!utils.isStringInputValid(phoneNo) || phoneNo.length() != 10) {
+                JOptionPane.showMessageDialog(this, "Please enter valid 10 digit phone number");
+            } else if (!utils.isStringInputValid(password)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid password");
+            } else {
+                
+                hosp.setHospitalName(name);
+                hosp.setAddress(address);
+                hosp.setPassword(password);
+                hosp.setContact(phoneNo);
+                
+                populateTable();
+                
+                JOptionPane.showMessageDialog(this, name + " updated in the list successfully!");
+                
+                resetForm();
+            }
+        }
     }//GEN-LAST:event_btnUpdateSaveActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -448,22 +446,24 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
 
     private void populateTable() {
         HospitalDirectory hospitalDirectory = ecosystem.getHospitalDirectory();
-
+        
         DefaultTableModel model = (DefaultTableModel) tblHospitalList.getModel();
-
+        
         model.setRowCount(0);
+        int count = 1;
+        
         for (Hospital hospital : hospitalDirectory.getHospitalList()) {
+            
             Object[] row = new Object[7];
-            row[0] = hospital.getHospitalID();
-            row[1] = hospital.getHospitalName();
+            row[0] = "" + count++;
+            row[1] = hospital;
             row[2] = hospital.getUsername();
             row[3] = hospital.getPassword();
             row[4] = hospital.getContact();
             row[5] = hospital.getAddress();
             row[6] = hospital.getZipcode();
-
+            
             model.addRow(row);
-
         }
     }
 }
