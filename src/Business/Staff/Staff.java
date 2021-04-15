@@ -3,33 +3,41 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.User;
+package Business.Staff;
 
 /**
  *
  * @author kunal
  */
-public class User extends Business.UserAccount.UserAccount{
+public class Staff extends Business.UserAccount.UserAccount{
     private String name;
+    private String designation;
     private String contact;
-    private String email;
     private String address;
+    private String email;
 
-    public User(String name, String contact, String email, String address) {
+    public Staff(String name, String designation, String contact, String address, String email) {
         this.name = name;
+        this.designation = designation;
         this.contact = contact;
-        this.email = email;
         this.address = address;
+        this.email = email;
     }
 
-    
-    
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
     }
 
     public String getContact() {
@@ -40,14 +48,6 @@ public class User extends Business.UserAccount.UserAccount{
         this.contact = contact;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -56,6 +56,13 @@ public class User extends Business.UserAccount.UserAccount{
         this.address = address;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
     
      @Override
     public String toString() {

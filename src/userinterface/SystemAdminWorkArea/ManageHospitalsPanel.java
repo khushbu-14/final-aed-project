@@ -373,7 +373,7 @@ public class ManageHospitalsPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Zipcode should be 5 Characters Only");
         }else {
             username = username.toLowerCase();
-            ecosystem.getHospitalDirectory().addNewHospital(String.valueOf(hospitalId), name, phoneNo, address, zipcode, username, password);
+            ecosystem.getHospitalDirectory().addNewHospital(name, phoneNo, address, zipcode, username, password);
 
 //            ecosystem.getUserAccountDirectory().addUserAccount(hospital);
             ecosystem.getUserAccountDirectory().createUserAccount(username, password, null, new HospitalRole());
