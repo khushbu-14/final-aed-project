@@ -11,7 +11,8 @@ import java.util.UUID;
  *
  * @author kunal
  */
-public class Hospital extends Business.UserAccount.UserAccount{
+public class Hospital extends Business.UserAccount.UserAccount {
+
     private String hospitalID;
     private String hospitalName;
     private String contact;
@@ -66,8 +67,8 @@ public class Hospital extends Business.UserAccount.UserAccount{
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
-    
-     @Override
+
+    @Override
     public String toString() {
         return hospitalName;
     }

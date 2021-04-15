@@ -11,12 +11,14 @@ import java.util.ArrayList;
  *
  * @author kunal
  */
+
 public class HospitalDirectory {
+
     private ArrayList<Hospital> hospitalList;
 
     public ArrayList<Hospital> getHospitalList() {
-        if(hospitalList==null){
-        hospitalList = new ArrayList<>();
+        if (hospitalList == null) {
+            hospitalList = new ArrayList<>();
         }
         return hospitalList;
     }
@@ -32,7 +34,13 @@ public class HospitalDirectory {
         hospitalList.add(hospital);
         return hospital;
     }
-
+    
+     public void removeHospital(Hospital h){
+        if(hospitalList != null){
+            hospitalList.remove(h);
+        }
+    }
+    
      public void deleteHospital(String userName){
          Hospital hospital=null;
          for(Hospital hosp: hospitalList){

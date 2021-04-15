@@ -36,7 +36,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         // does not create new ecosystem, but uses database to retrieve the system
         system = dB4OUtil.retrieveSystem();
 
-        this.setSize(840, 800);
+//        this.setSize(840, 800);
         this.setResizable(false);
         initalSetup();
     }
@@ -72,10 +72,10 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        navbarPanel.setBackground(new java.awt.Color(204, 255, 204));
+        navbarPanel.setBackground(new java.awt.Color(204, 242, 244));
 
         lblMainTitle.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
-        lblMainTitle.setText("FOODY");
+        lblMainTitle.setText("Care4U");
 
         btnLogout.setBackground(new java.awt.Color(255, 255, 255));
         btnLogout.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
@@ -97,11 +97,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
             .addGroup(navbarPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblMainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblGreeting, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126)
+                .addGap(255, 255, 255)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(43, 43, 43))
         );
         navbarPanelLayout.setVerticalGroup(
             navbarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -126,8 +126,9 @@ public class MainJFrame1 extends javax.swing.JFrame {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitle.setText("Please login to continue!");
 
-        btnLogin.setBackground(new java.awt.Color(204, 255, 204));
+        btnLogin.setBackground(new java.awt.Color(3, 80, 111));
         btnLogin.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("LOGIN");
         btnLogin.setBorder(null);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +138,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         });
 
         imgLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/street-food-1.png"))); // NOI18N
+        imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/login--img.png"))); // NOI18N
         imgLogin.setBounds(new java.awt.Rectangle(0, 0, 100, 100));
 
         lblUsername.setBackground(new java.awt.Color(249, 244, 244));
@@ -164,7 +165,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(imgLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 449, Short.MAX_VALUE)
+                .addComponent(imgLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 632, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
@@ -211,7 +212,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +229,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
             .addComponent(navbarPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(loginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, 840, Short.MAX_VALUE))
+                .addComponent(container, javax.swing.GroupLayout.DEFAULT_SIZE, 1070, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +244,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
                     .addComponent(container, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
-        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 840, 800));
+        getContentPane().add(mainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 1, 1070, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
