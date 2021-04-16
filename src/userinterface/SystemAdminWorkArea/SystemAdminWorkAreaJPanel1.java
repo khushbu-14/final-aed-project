@@ -621,7 +621,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
     }
      private void manageShop(){
         changeBtnBgs("shop");
-        ManageShopsPanel manageShops = new ManageShopsPanel(mainPanel, ecosystem);
+        ManageShopPanel manageShops = new ManageShopPanel(mainPanel, ecosystem);
         mainPanel.add("manageShopsJPanel", manageShops);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
