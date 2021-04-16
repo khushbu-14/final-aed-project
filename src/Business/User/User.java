@@ -11,19 +11,20 @@ import Business.Role.UserRole;
  *
  * @author kunal
  */
-
 public class User extends Business.UserAccount.UserAccount {
 
     private String name;
     private String contact;
     private String email;
     private String address;
+    private String zipcode;
 
-    public User(String username, String password, String name, String contact, String email, String address) {
+    public User(String username, String password, String name, String contact, String email, String address, String zipcode) {
         this.name = name;
         this.contact = contact;
         this.email = email;
         this.address = address;
+        this.zipcode = zipcode;
         setPassword(password);
         setUsername(username);
         setRole(new UserRole());
@@ -59,6 +60,14 @@ public class User extends Business.UserAccount.UserAccount {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getZipcode() {
+        return zipcode;
+    }
+
+    public void setZipcode(String zipcode) {
+        this.zipcode = zipcode;
     }
 
     @Override
