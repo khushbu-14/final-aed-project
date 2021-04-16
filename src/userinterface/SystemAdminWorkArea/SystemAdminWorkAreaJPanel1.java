@@ -684,11 +684,11 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
             manageTypePanel.setBackground(activeColor);
             manageType.setForeground(activeTxtColor);
         } else if ("deliveryman".equalsIgnoreCase(type)) {
-            manageTypePanel.setBackground(activeColor);
-            manageType.setForeground(activeTxtColor);
+            manageDeliveryManPanel.setBackground(activeColor);
+            ManageDeliveryman.setForeground(activeTxtColor);
         }  else if ("ambulanceService".equalsIgnoreCase(type)) {
-            manageTypePanel.setBackground(activeColor);
-            manageType.setForeground(activeTxtColor);
+            manageAmbulancePanel.setBackground(activeColor);
+            manageAmbulance.setForeground(activeTxtColor);
         }
     }
 }
