@@ -390,7 +390,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageDashboardMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardMousePressed
-        
+
     }//GEN-LAST:event_manageDashboardMousePressed
 
     private void manageDashboardPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardPanelMousePressed
@@ -427,10 +427,12 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
 
     private void manageUsersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageUsersMousePressed
         // TODO add your handling code here:
+        manageUser();
     }//GEN-LAST:event_manageUsersMousePressed
 
     private void manageUsersPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageUsersPanelMousePressed
         // TODO add your handling code here:
+        manageUser();
     }//GEN-LAST:event_manageUsersPanelMousePressed
 
     private void manageTypeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageTypeMousePressed
@@ -466,6 +468,14 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
     private javax.swing.JPanel manageUsersPanel;
     private javax.swing.JPanel navbar;
     // End of variables declaration//GEN-END:variables
+
+    private void manageUser() {
+        changeBtnBgs("user");
+        ManageUserPanel manageUserPanel = new ManageUserPanel(mainPanel, ecosystem);
+        mainPanel.add("ManageUserPanel", manageUserPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
 
     private void manageHospital() {
         changeBtnBgs("hospital");

@@ -35,7 +35,7 @@ public class UserDirectory {
 //        userList.add(user);
 //        return user;
 //    }
-  
+    
     public void addNewUser(User user) {
         userList.add(user);
     }
@@ -49,7 +49,6 @@ public class UserDirectory {
 //         }
 //         userList.remove(user);
 //     }
-
 //     public User getUserByUserName(String userName) {
 //         User user = null;
 //         for (User usr : userList) {
@@ -59,7 +58,6 @@ public class UserDirectory {
 //         }
 //         return user;
 //     }
-
 //     public void deleteUser(String userName){
 //         User user=null;
 //         for(User us: userList){
@@ -69,27 +67,28 @@ public class UserDirectory {
 //         }
 //         userList.remove(user);
 //     }
-     
-       public void deleteUser(User usr){
-        if(userList != null){
+    public void deleteUser(User usr) {
+        if (userList != null) {
             userList.remove(usr);
         }
     }
-      public User getUserByUserName(String userName){
-         User user = null;
-         for(User usr: userList){
-             if(usr.getUsername().equals(userName)){
-                 user = usr;
-             }    
-         }
-         return user;
-     }
-      public void updateUserByUserName(String userName, String name,String contact, String address, String email,String password){
-          User usr = getUserByUserName(userName);
-          usr.setName(name);
-          usr.setContact(contact);
-          usr.setAddress(address);
-          usr.setEmail(email);
-          usr.setPassword(password);
-      }
+
+    public User getUserByUserName(String userName) {
+        User user = null;
+        for (User usr : userList) {
+            if (usr.getUsername().equals(userName)) {
+                user = usr;
+            }
+        }
+        return user;
+    }
+
+    public void updateUserByUserName(String userName, String name, String contact, String address, String email, String password) {
+        User usr = getUserByUserName(userName);
+        usr.setName(name);
+        usr.setContact(contact);
+        usr.setAddress(address);
+        usr.setEmail(email);
+        usr.setPassword(password);
+    }
 }
