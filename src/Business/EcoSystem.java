@@ -5,9 +5,13 @@
  */
 package Business;
 
+import Business.AmbulanceService.AmbulanceDirectory;
+import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Hospital.HospitalDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.Shop.ShopDirectory;
+import Business.Type.TypeDirectory;
 import Business.User.UserDirectory;
 import java.util.ArrayList;
 
@@ -20,10 +24,18 @@ public class EcoSystem extends Organization {
     private static EcoSystem business;
     private HospitalDirectory hospitalDirectory;
     private UserDirectory userDirectory;
+    private TypeDirectory typeDirectory;
+    private ShopDirectory shopDirectory;
+    private AmbulanceDirectory ambulanceDirectory;
+    private DeliveryManDirectory deliveryManDirectory;
 
-    public EcoSystem(HospitalDirectory hospitalDirectory, UserDirectory userDirectory) {
+    public EcoSystem(HospitalDirectory hospitalDirectory, UserDirectory userDirectory,TypeDirectory typeDirectory,ShopDirectory shopDirectory, AmbulanceDirectory ambulanceDirectory, DeliveryManDirectory deliveryManDirectory) {
         this.hospitalDirectory = hospitalDirectory;
         this.userDirectory = userDirectory;
+        this.typeDirectory = typeDirectory;
+        this.shopDirectory = shopDirectory;
+        this.ambulanceDirectory = ambulanceDirectory;
+        this.deliveryManDirectory = deliveryManDirectory;
     }
 
     public static EcoSystem getInstance() {
@@ -71,4 +83,49 @@ public class EcoSystem extends Organization {
         this.userDirectory = userDirectory;
     }
 
+    public TypeDirectory getTypeDirectory() {
+        if (typeDirectory == null) {
+            typeDirectory = new TypeDirectory();
+        }
+        return typeDirectory;
+    }
+
+    public void setTypeDirectory(TypeDirectory typeDirectory) {
+        this.typeDirectory = typeDirectory;
+    }
+
+    public ShopDirectory getShopDirectory() {
+        if (shopDirectory == null) {
+            shopDirectory = new ShopDirectory();
+        }
+        return shopDirectory;
+    }
+
+    public void setShopDirectory(ShopDirectory shopDirectory) {
+        this.shopDirectory = shopDirectory;
+    }
+
+    public AmbulanceDirectory getAmbulanceDirectory() {
+         if (ambulanceDirectory == null) {
+            ambulanceDirectory = new AmbulanceDirectory();
+        }
+        return ambulanceDirectory;
+    }
+
+    public void setAmbulanceDirectory(AmbulanceDirectory ambulanceDirectory) {
+        this.ambulanceDirectory = ambulanceDirectory;
+    }
+
+    public DeliveryManDirectory getDeliveryManDirectory() {
+         if (deliveryManDirectory == null) {
+            deliveryManDirectory = new DeliveryManDirectory();
+        }
+        return deliveryManDirectory;
+    }
+
+    public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
+    }
+
+    
 }

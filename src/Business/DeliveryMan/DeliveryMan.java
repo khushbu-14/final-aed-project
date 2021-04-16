@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Business.AmbulanceService;
+package Business.DeliveryMan;
 
-import Business.Role.AmbulanceServiceRole;
-import Business.Role.HospitalDepartmentRole;
+import Business.Role.DeliveryManRole;
 import java.util.UUID;
 
 /**
  *
  * @author kunal
  */
-public class AmbulanceService extends Business.UserAccount.UserAccount{
+public class DeliveryMan extends Business.UserAccount.UserAccount{
     private String id;
     private String name;
     private String contact;
@@ -21,7 +20,7 @@ public class AmbulanceService extends Business.UserAccount.UserAccount{
     private String zipcode;
     private String email;
 
-    public AmbulanceService(String userName, String password, String name, String contact, String address, String zipcode, String email) {
+    public DeliveryMan(String username, String password, String name, String contact, String address, String zipcode, String email) {
         UUID uid = UUID.randomUUID();
         this.id = uid.toString();
         this.name = name;
@@ -29,9 +28,9 @@ public class AmbulanceService extends Business.UserAccount.UserAccount{
         this.address = address;
         this.zipcode = zipcode;
         this.email = email;
+        setUsername(username);
         setPassword(password);
-        setUsername(userName);
-        setRole(new AmbulanceServiceRole());
+        setRole(new DeliveryManRole());
     }
 
     public String getId() {
@@ -66,14 +65,6 @@ public class AmbulanceService extends Business.UserAccount.UserAccount{
         this.address = address;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getZipcode() {
         return zipcode;
     }
@@ -81,11 +72,17 @@ public class AmbulanceService extends Business.UserAccount.UserAccount{
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
     }
-    
-     @Override
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+   
+    @Override
     public String toString() {
         return name;
     }
-    
-    
 }

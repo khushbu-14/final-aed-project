@@ -16,16 +16,15 @@ import java.util.ArrayList;
 public class AmbulanceDirectory {
     private ArrayList<AmbulanceService> ambulanceList = new ArrayList<>();
 
-    public ArrayList<AmbulanceService> getHospitalList() {
-//        if(ambulanceList==null){
-//        ambulanceList = new ArrayList<>();
-//        }
+    public ArrayList<AmbulanceService> getAmbulanceList() {
         return ambulanceList;
     }
 
-    public void setHospitalList(ArrayList<AmbulanceService> ambulanceList) {
+    public void setAmbulanceList(ArrayList<AmbulanceService> ambulanceList) {
         this.ambulanceList = ambulanceList;
     }
+
+ 
      public AmbulanceService addNewAmbulanceService(AmbulanceService ambulanceService) {
         ambulanceList.add(ambulanceService);
         return ambulanceService;

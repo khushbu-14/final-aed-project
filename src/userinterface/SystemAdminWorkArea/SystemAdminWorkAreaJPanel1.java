@@ -64,6 +64,15 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         manageUsersPanel = new javax.swing.JPanel();
         iconUsers = new javax.swing.JLabel();
         manageUsers = new javax.swing.JLabel();
+        manageTypePanel = new javax.swing.JPanel();
+        iconType = new javax.swing.JLabel();
+        manageType = new javax.swing.JLabel();
+        manageAmbulancePanel = new javax.swing.JPanel();
+        iconAmbulance = new javax.swing.JLabel();
+        manageAmbulance = new javax.swing.JLabel();
+        manageDeliveryManPanel = new javax.swing.JPanel();
+        iconDeliveryMan = new javax.swing.JLabel();
+        ManageDeliveryman = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -288,6 +297,133 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
                 .addGap(5, 5, 5))
         );
 
+        manageTypePanel.setBackground(new java.awt.Color(3, 80, 111));
+        manageTypePanel.setToolTipText("Manage Users");
+        manageTypePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageTypePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageTypePanelMousePressed(evt);
+            }
+        });
+
+        iconType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+
+        manageType.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        manageType.setForeground(new java.awt.Color(255, 255, 255));
+        manageType.setText("Type");
+        manageType.setToolTipText("Users");
+        manageType.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageTypeMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout manageTypePanelLayout = new javax.swing.GroupLayout(manageTypePanel);
+        manageTypePanel.setLayout(manageTypePanelLayout);
+        manageTypePanelLayout.setHorizontalGroup(
+            manageTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageTypePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iconType, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageType, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5, 5, 5))
+        );
+        manageTypePanelLayout.setVerticalGroup(
+            manageTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageTypePanelLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(manageTypePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(iconType, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(manageType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
+        );
+
+        manageAmbulancePanel.setBackground(new java.awt.Color(3, 80, 111));
+        manageAmbulancePanel.setToolTipText("Manage Users");
+        manageAmbulancePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageAmbulancePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageAmbulancePanelMousePressed(evt);
+            }
+        });
+
+        iconAmbulance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconAmbulance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+
+        manageAmbulance.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        manageAmbulance.setForeground(new java.awt.Color(255, 255, 255));
+        manageAmbulance.setText("Ambulance Service");
+        manageAmbulance.setToolTipText("Users");
+        manageAmbulance.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageAmbulanceMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout manageAmbulancePanelLayout = new javax.swing.GroupLayout(manageAmbulancePanel);
+        manageAmbulancePanel.setLayout(manageAmbulancePanelLayout);
+        manageAmbulancePanelLayout.setHorizontalGroup(
+            manageAmbulancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageAmbulancePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iconAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        manageAmbulancePanelLayout.setVerticalGroup(
+            manageAmbulancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageAmbulancePanelLayout.createSequentialGroup()
+                .addGroup(manageAmbulancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(iconAmbulance, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manageAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 33, Short.MAX_VALUE))
+        );
+
+        manageDeliveryManPanel.setBackground(new java.awt.Color(3, 80, 111));
+        manageDeliveryManPanel.setToolTipText("Manage Users");
+        manageDeliveryManPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageDeliveryManPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageDeliveryManPanelMousePressed(evt);
+            }
+        });
+
+        iconDeliveryMan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+
+        ManageDeliveryman.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        ManageDeliveryman.setForeground(new java.awt.Color(255, 255, 255));
+        ManageDeliveryman.setText("DeliveryMan");
+        ManageDeliveryman.setToolTipText("Users");
+        ManageDeliveryman.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                ManageDeliverymanMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout manageDeliveryManPanelLayout = new javax.swing.GroupLayout(manageDeliveryManPanel);
+        manageDeliveryManPanel.setLayout(manageDeliveryManPanelLayout);
+        manageDeliveryManPanelLayout.setHorizontalGroup(
+            manageDeliveryManPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageDeliveryManPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iconDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ManageDeliveryman, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        manageDeliveryManPanelLayout.setVerticalGroup(
+            manageDeliveryManPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageDeliveryManPanelLayout.createSequentialGroup()
+                .addGroup(manageDeliveryManPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(iconDeliveryMan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ManageDeliveryman, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout navbarLayout = new javax.swing.GroupLayout(navbar);
         navbar.setLayout(navbarLayout);
         navbarLayout.setHorizontalGroup(
@@ -303,24 +439,34 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
                 .addComponent(manageFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(manageUsersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageTypePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(manageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(manageDeliveryManPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         navbarLayout.setVerticalGroup(
             navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(navbarLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
                 .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(manageUsersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navbarLayout.createSequentialGroup()
-                            .addComponent(manageDashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(5, 5, 5))
-                        .addGroup(navbarLayout.createSequentialGroup()
+                    .addGroup(navbarLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(manageTypePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manageUsersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manageFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(manageDashboardPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(manageShopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(manageHospitalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(5, 5, 5)))))
+                                .addComponent(manageHospitalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(navbarLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(manageDeliveryManPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(5, 5, 5))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -330,15 +476,17 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         adminPanel.setLayout(adminPanelLayout);
         adminPanelLayout.setHorizontalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(navbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(adminPanelLayout.createSequentialGroup()
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         adminPanelLayout.setVerticalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
                 .addComponent(navbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE))
         );
 
         add(adminPanel, java.awt.BorderLayout.CENTER);
@@ -364,10 +512,12 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
 
     private void manageShopMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageShopMousePressed
         // TODO add your handling code here:
+        manageShop();
     }//GEN-LAST:event_manageShopMousePressed
 
     private void manageShopPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageShopPanelMousePressed
         // TODO add your handling code here:
+        manageShop();
     }//GEN-LAST:event_manageShopPanelMousePressed
 
     private void manageFitnessMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageFitnessMousePressed
@@ -388,22 +538,60 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         manageUser();
     }//GEN-LAST:event_manageUsersPanelMousePressed
 
+    private void manageTypeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageTypeMousePressed
+        // TODO add your handling code here:
+        manageType();
+    }//GEN-LAST:event_manageTypeMousePressed
+
+    private void manageTypePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageTypePanelMousePressed
+        // TODO add your handling code here:
+        manageType();
+    }//GEN-LAST:event_manageTypePanelMousePressed
+
+    private void manageAmbulanceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAmbulanceMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageAmbulanceMousePressed
+
+    private void manageAmbulancePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAmbulancePanelMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageAmbulancePanelMousePressed
+
+    private void ManageDeliverymanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageDeliverymanMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ManageDeliverymanMousePressed
+
+    private void manageDeliveryManPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDeliveryManPanelMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_manageDeliveryManPanelMousePressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel ManageDeliveryman;
     private javax.swing.JPanel adminPanel;
+    private javax.swing.JLabel iconAmbulance;
     private javax.swing.JLabel iconDashboard;
+    private javax.swing.JLabel iconDeliveryMan;
     private javax.swing.JLabel iconFitness;
     private javax.swing.JLabel iconHospital;
     private javax.swing.JLabel iconShop;
+    private javax.swing.JLabel iconType;
+    private javax.swing.JLabel iconType1;
     private javax.swing.JLabel iconUsers;
     private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel manageAmbulance;
+    private javax.swing.JPanel manageAmbulancePanel;
     private javax.swing.JLabel manageDashboard;
     private javax.swing.JPanel manageDashboardPanel;
+    private javax.swing.JPanel manageDeliveryManPanel;
     private javax.swing.JLabel manageFitness;
     private javax.swing.JPanel manageFitnessPanel;
     private javax.swing.JLabel manageHospital;
     private javax.swing.JPanel manageHospitalPanel;
     private javax.swing.JLabel manageShop;
     private javax.swing.JPanel manageShopPanel;
+    private javax.swing.JLabel manageType;
+    private javax.swing.JLabel manageType1;
+    private javax.swing.JPanel manageTypePanel;
+    private javax.swing.JPanel manageTypePanel1;
     private javax.swing.JLabel manageUsers;
     private javax.swing.JPanel manageUsersPanel;
     private javax.swing.JPanel navbar;
@@ -421,6 +609,27 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         changeBtnBgs("hospital");
         ManageHospitalsPanel manageHospitals = new ManageHospitalsPanel(mainPanel, ecosystem);
         mainPanel.add("manageHospitalsJPanel", manageHospitals);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+    private void manageType(){
+        changeBtnBgs("type");
+        ManageTypePanel manageTypes = new ManageTypePanel(mainPanel, ecosystem);
+        mainPanel.add("manageTypessJPanel", manageTypes);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+     private void manageShop(){
+        changeBtnBgs("shop");
+        ManageShopsPanel manageShops = new ManageShopsPanel(mainPanel, ecosystem);
+        mainPanel.add("manageShopsJPanel", manageShops);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+      private void managedeliveryMan(){
+        changeBtnBgs("deliveryman");
+        ManageDeliveryManPanel manageDeliveryMan = new ManageDeliveryManPanel(mainPanel, ecosystem);
+        mainPanel.add("manageShopsJPanel", manageDeliveryMan);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
@@ -459,6 +668,12 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         } else if ("fitness".equalsIgnoreCase(type)) {
             manageFitnessPanel.setBackground(activeColor);
             manageFitness.setForeground(activeTxtColor);
+        }else if ("type".equalsIgnoreCase(type)) {
+            manageTypePanel.setBackground(activeColor);
+            manageType.setForeground(activeTxtColor);
+        } else if ("deliveryman".equalsIgnoreCase(type)) {
+            manageTypePanel.setBackground(activeColor);
+            manageType.setForeground(activeTxtColor);
         }
     }
 }
