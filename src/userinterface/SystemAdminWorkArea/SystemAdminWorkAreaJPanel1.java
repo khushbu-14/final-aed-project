@@ -466,7 +466,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
                         .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(manageDeliveryManPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(manageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(5, 5, 5))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -484,9 +484,9 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         adminPanelLayout.setVerticalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, adminPanelLayout.createSequentialGroup()
-                .addComponent(navbar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE))
+                .addComponent(navbar, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE))
         );
 
         add(adminPanel, java.awt.BorderLayout.CENTER);
@@ -574,7 +574,6 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
     private javax.swing.JLabel iconHospital;
     private javax.swing.JLabel iconShop;
     private javax.swing.JLabel iconType;
-    private javax.swing.JLabel iconType1;
     private javax.swing.JLabel iconUsers;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel manageAmbulance;
@@ -589,9 +588,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
     private javax.swing.JLabel manageShop;
     private javax.swing.JPanel manageShopPanel;
     private javax.swing.JLabel manageType;
-    private javax.swing.JLabel manageType1;
     private javax.swing.JPanel manageTypePanel;
-    private javax.swing.JPanel manageTypePanel1;
     private javax.swing.JLabel manageUsers;
     private javax.swing.JPanel manageUsersPanel;
     private javax.swing.JPanel navbar;
