@@ -550,10 +550,12 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
 
     private void manageAmbulanceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAmbulanceMousePressed
         // TODO add your handling code here:
+        manageAmbulanceService();
     }//GEN-LAST:event_manageAmbulanceMousePressed
 
     private void manageAmbulancePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAmbulancePanelMousePressed
         // TODO add your handling code here:
+        manageAmbulanceService();
     }//GEN-LAST:event_manageAmbulancePanelMousePressed
 
     private void ManageDeliverymanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageDeliverymanMousePressed
@@ -618,19 +620,27 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
     }
      private void manageShop(){
         changeBtnBgs("shop");
-        ManageShopsPanel manageShops = new ManageShopsPanel(mainPanel, ecosystem);
+        ManageShopPanel manageShops = new ManageShopPanel(mainPanel, ecosystem);
         mainPanel.add("manageShopsJPanel", manageShops);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
       private void managedeliveryMan(){
         changeBtnBgs("deliveryman");
-        ManageDeliveryManPanel manageDeliveryMan = new ManageDeliveryManPanel(mainPanel, ecosystem);
+        ManageDeliverymanPanel manageDeliveryMan = new ManageDeliverymanPanel(mainPanel, ecosystem);
         mainPanel.add("manageShopsJPanel", manageDeliveryMan);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
+       private void manageAmbulanceService(){
+        changeBtnBgs("ambulanceService");
+        ManageAmbulancePanel manageAmbulance = new ManageAmbulancePanel(mainPanel, ecosystem);
+        mainPanel.add("manageAmbulance", manageAmbulance);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
 
+      
     private void changeBtnBgs(String type) {
         Color activeColor = Color.WHITE;
         Color notActiveColor = Color.getColor("03506F");
@@ -643,12 +653,17 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         manageShopPanel.setBackground(notActiveColor);
         manageUsersPanel.setBackground(notActiveColor);
         manageHospitalPanel.setBackground(notActiveColor);
+        manageAmbulancePanel.setBackground(notActiveColor);
+        manageDeliveryManPanel.setBackground(notActiveColor);
 
         manageDashboard.setForeground(nonActiveTxtColor);
         manageHospital.setForeground(nonActiveTxtColor);
         manageFitness.setForeground(nonActiveTxtColor);
         manageShop.setForeground(nonActiveTxtColor);
         manageUsers.setForeground(nonActiveTxtColor);
+        manageAmbulance.setForeground(nonActiveTxtColor);
+        ManageDeliveryman.setForeground(nonActiveTxtColor);
+       
 
         if ("dashboard".equalsIgnoreCase(type)) {
             manageDashboardPanel.setBackground(activeColor);
@@ -669,6 +684,9 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
             manageTypePanel.setBackground(activeColor);
             manageType.setForeground(activeTxtColor);
         } else if ("deliveryman".equalsIgnoreCase(type)) {
+            manageTypePanel.setBackground(activeColor);
+            manageType.setForeground(activeTxtColor);
+        }  else if ("ambulanceService".equalsIgnoreCase(type)) {
             manageTypePanel.setBackground(activeColor);
             manageType.setForeground(activeTxtColor);
         }

@@ -14,13 +14,15 @@ import java.util.ArrayList;
 public class DeliveryManDirectory {
     private ArrayList<DeliveryMan> deliveryManList = new ArrayList<>();
 
-    public ArrayList<DeliveryMan> getTypeList() {
+    public ArrayList<DeliveryMan> getDeliveryManList() {
         return deliveryManList;
     }
 
-    public void setTypeList(ArrayList<DeliveryMan> deliveryManList) {
+    public void setDeliveryManList(ArrayList<DeliveryMan> deliveryManList) {
         this.deliveryManList = deliveryManList;
     }
+
+   
     
      public DeliveryMan addNewDeliveryMan(DeliveryMan dm) {
         deliveryManList.add(dm);
