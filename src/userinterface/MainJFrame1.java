@@ -123,9 +123,9 @@ public class MainJFrame1 extends javax.swing.JFrame {
             .addGroup(navbarPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(lblMainTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(235, 235, 235)
                 .addComponent(lblGreeting, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(255, 255, 255)
+                .addGap(220, 220, 220)
                 .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
@@ -154,6 +154,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         btnLogin.setBackground(new java.awt.Color(3, 80, 111));
         btnLogin.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("LOGIN");
         btnLogin.setBorder(null);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
