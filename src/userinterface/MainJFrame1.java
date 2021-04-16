@@ -658,7 +658,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
             userAccount = system.getUserAccountDirectory().authenticateUser(userName, password);
 
             if (userAccount == null) {
-
                 util.showErrorToast("Invalid credentials");
 //                JOptionPane.showMessageDialog(this, "Invalid credentials",
 //                        "Error", JOptionPane.ERROR_MESSAGE);

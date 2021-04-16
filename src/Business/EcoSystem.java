@@ -8,6 +8,8 @@ package Business;
 import Business.Hospital.HospitalDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.Shop.ShopDirectory;
+import Business.Type.TypeDirectory;
 import Business.User.UserDirectory;
 import java.util.ArrayList;
 
@@ -20,10 +22,14 @@ public class EcoSystem extends Organization {
     private static EcoSystem business;
     private HospitalDirectory hospitalDirectory;
     private UserDirectory userDirectory;
+    private TypeDirectory typeDirectory;
+    private ShopDirectory shopDirectory;
 
-    public EcoSystem(HospitalDirectory hospitalDirectory, UserDirectory userDirectory) {
+    public EcoSystem(HospitalDirectory hospitalDirectory, UserDirectory userDirectory,TypeDirectory typeDirectory,ShopDirectory shopDirectory) {
         this.hospitalDirectory = hospitalDirectory;
         this.userDirectory = userDirectory;
+        this.typeDirectory = typeDirectory;
+        this.shopDirectory = shopDirectory;
     }
 
     public static EcoSystem getInstance() {
@@ -69,6 +75,28 @@ public class EcoSystem extends Organization {
 
     public void setUserDirectory(UserDirectory userDirectory) {
         this.userDirectory = userDirectory;
+    }
+
+    public TypeDirectory getTypeDirectory() {
+        if (typeDirectory == null) {
+            typeDirectory = new TypeDirectory();
+        }
+        return typeDirectory;
+    }
+
+    public void setTypeDirectory(TypeDirectory typeDirectory) {
+        this.typeDirectory = typeDirectory;
+    }
+
+    public ShopDirectory getShopDirectory() {
+        if (shopDirectory == null) {
+            shopDirectory = new ShopDirectory();
+        }
+        return shopDirectory;
+    }
+
+    public void setShopDirectory(ShopDirectory shopDirectory) {
+        this.shopDirectory = shopDirectory;
     }
 
 }
