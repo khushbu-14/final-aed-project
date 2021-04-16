@@ -734,7 +734,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         } else {
             userName = userName.toLowerCase();
-            User user = new User(userName, password, name, phoneNo, email, address);
+            User user = new User(userName, password, name, phoneNo, email, address, zipcode);
             system.getUserDirectory().addNewUser(user);
             system.getUserAccountDirectory().addUserAccount(user);
 
@@ -905,9 +905,9 @@ public class MainJFrame1 extends javax.swing.JFrame {
         txtSPassword.setText("");
         txtSAddress.setText("");
         txtSName.setText("");
-        txtSPhoneNumber1.setText("");
+        txtSPhoneNumber1.setText(null);
         txtSEmail.setText("");
-        txtZipcode.setText("");
+        txtZipcode.setText(null);
 
         txtPassword.setText("");
         userNameJTextField.setText("");
