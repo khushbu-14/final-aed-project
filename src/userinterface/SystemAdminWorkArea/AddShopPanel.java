@@ -502,13 +502,13 @@ public class AddShopPanel extends javax.swing.JPanel {
         } else {
 
             if (!Character.isDigit(c)) {
-                txtContact.setEditable(false);
+                //txtContact.setEditable(false);
                 errorContactNumber.setText("Sorry! only numbers allowed");
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
                 if (txtContact.getText().length() > 10) {
 //                errorContactNumber.setText("Enter 10 digit valid number");
-                    txtContact.setEditable(false);
+                    //txtContact.setEditable(false);
                 } else {
                     errorContactNumber.setText("");
                     txtContact.setEditable(true);

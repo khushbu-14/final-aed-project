@@ -21,7 +21,7 @@ public class AmbulanceService extends Business.UserAccount.UserAccount{
     private String zipcode;
     private String email;
 
-    public AmbulanceService(String userName, String password, String name, String contact, String address, String zipcode, String email) {
+    public AmbulanceService(String userName, String password, String name, String contact, String email, String address, String zipcode) {
         UUID uid = UUID.randomUUID();
         this.id = uid.toString();
         this.name = name;
