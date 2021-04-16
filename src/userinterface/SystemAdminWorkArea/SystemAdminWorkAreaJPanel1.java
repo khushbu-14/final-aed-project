@@ -488,6 +488,13 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
+      private void managedeliveryMan(){
+        changeBtnBgs("deliveryman");
+        ManageDeliveryManPanel manageDeliveryMan = new ManageDeliveryManPanel(mainPanel, ecosystem);
+        mainPanel.add("manageShopsJPanel", manageDeliveryMan);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
 
     private void changeBtnBgs(String type) {
         Color activeColor = Color.WHITE;
@@ -524,6 +531,9 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
             manageFitnessPanel.setBackground(activeColor);
             manageFitness.setForeground(activeTxtColor);
         }else if ("type".equalsIgnoreCase(type)) {
+            manageTypePanel.setBackground(activeColor);
+            manageType.setForeground(activeTxtColor);
+        } else if ("deliveryman".equalsIgnoreCase(type)) {
             manageTypePanel.setBackground(activeColor);
             manageType.setForeground(activeTxtColor);
         }

@@ -26,7 +26,8 @@ public abstract class Role {
         SysAdmin("Sysadmin"),
         SysAdminReqHandler("SystemAdminReqHandler"),
         HospitalDepartment("HospitalDepartment"),
-        FitnessDepartment("FitnessDepartment"),;
+        FitnessDepartment("FitnessDepartment"),
+        DeliveryMan("DeliveryMan");
 
         private String value;
 
