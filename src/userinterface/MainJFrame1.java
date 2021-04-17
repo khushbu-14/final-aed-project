@@ -510,7 +510,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
                             .addComponent(txtSAddress))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(275, 275, 275))))
         );
@@ -876,6 +875,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
             if (userAccount instanceof Hospital) {
                 greetings = ((Hospital) userAccount).getHospitalName();
+            } else if (userAccount instanceof User) {
+                greetings = ((User) userAccount).getName();
             }
 //            else if (userAccount instanceof Restaurant) {
 //                greetings = ((Restaurant) userAccount).getName();
