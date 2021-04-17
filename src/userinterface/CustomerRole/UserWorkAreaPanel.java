@@ -7,6 +7,8 @@ package userinterface.CustomerRole;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import java.awt.CardLayout;
+import java.awt.Color;
 import javax.swing.JPanel;
 
 /**
@@ -216,7 +218,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
         manageOrderMedicine.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageOrderMedicine.setForeground(new java.awt.Color(255, 255, 255));
-        manageOrderMedicine.setText("Order Medicines");
+        manageOrderMedicine.setText("Order Products");
         manageOrderMedicine.setToolTipText("Dashboard");
         manageOrderMedicine.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -596,35 +598,25 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
             .addGroup(sideBarLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(manageDashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(manageConsultDoctorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(manageOrderMedicinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(manageOrderFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(managePersonalInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(manageAppointmentsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(manageOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
-
-        javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
-        mainPanel.setLayout(mainPanelLayout);
-        mainPanelLayout.setHorizontalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1010, Short.MAX_VALUE)
-        );
-        mainPanelLayout.setVerticalGroup(
-            mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        mainPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -660,10 +652,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageOrderMedicineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderMedicineMousePressed
         // TODO add your handling code here:
+        manageOrderProducts();
     }//GEN-LAST:event_manageOrderMedicineMousePressed
 
     private void manageOrderMedicinePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderMedicinePanelMousePressed
         // TODO add your handling code here:
+        manageOrderProducts();
     }//GEN-LAST:event_manageOrderMedicinePanelMousePressed
 
     private void manageOrderFitnessMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderFitnessMousePressed
@@ -706,7 +700,45 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_manageSessionsPanelMousePressed
 
+    private void manageOrderProducts() {
+        changeBtnBgs("order-products");
 
+        OrderMedicinePanel orderMedicinePanel = new OrderMedicinePanel(mainPanel, ecosystem);
+
+        mainPanel.add("manageHospitalsJPanel", orderMedicinePanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+
+    private void changeBtnBgs(String type) {
+        Color activeColor = Color.WHITE;
+        Color notActiveColor = Color.getColor("03506F");
+
+        Color activeTxtColor = Color.BLACK;
+        Color nonActiveTxtColor = Color.WHITE;
+
+        manageAppointmentsPanel.setBackground(notActiveColor);
+        manageDashboardPanel.setBackground(notActiveColor);
+        manageConsultDoctorPanel.setBackground(notActiveColor);
+        manageOrderFitnessPanel.setBackground(notActiveColor);
+        manageOrderMedicinePanel.setBackground(notActiveColor);
+        managePersonalInfoPanel.setBackground(notActiveColor);
+        manageSessionsPanel.setBackground(notActiveColor);
+
+        manageDashboard.setForeground(nonActiveTxtColor);
+        manageAppointments.setForeground(nonActiveTxtColor);
+        manageConsultDoctor.setForeground(nonActiveTxtColor);
+        manageOrderFitness.setForeground(nonActiveTxtColor);
+        manageOrderMedicine.setForeground(nonActiveTxtColor);
+        manageOrders.setForeground(nonActiveTxtColor);
+        managePersonalInfo.setForeground(nonActiveTxtColor);
+        manageSessions.setForeground(nonActiveTxtColor);
+
+        if ("order-products".equalsIgnoreCase(type)) {
+            manageOrderMedicinePanel.setBackground(activeColor);
+            manageOrderMedicine.setForeground(activeTxtColor);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel border;
     private javax.swing.JPanel border1;
