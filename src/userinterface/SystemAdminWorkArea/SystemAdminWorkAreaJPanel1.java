@@ -26,14 +26,14 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     EcoSystem ecosystem;
-
+    
     public SystemAdminWorkAreaJPanel1(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         manageHospital();
     }
-
+    
     public void populateTree() {
         // Add the code for draw your system structure shown by JTree
     }
@@ -76,6 +76,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         mainPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(1270, 586));
         setLayout(new java.awt.BorderLayout());
 
         adminPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -478,8 +479,8 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(navbar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(adminPanelLayout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1444, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1243, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         adminPanelLayout.setVerticalGroup(
             adminPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -603,7 +604,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-
+    
     private void manageHospital() {
         changeBtnBgs("hospital");
         ManageHospitalsPanel manageHospitals = new ManageHospitalsPanel(mainPanel, ecosystem);
@@ -611,43 +612,46 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-    private void manageType(){
+
+    private void manageType() {
         changeBtnBgs("type");
         ManageTypePanel manageTypes = new ManageTypePanel(mainPanel, ecosystem);
         mainPanel.add("manageTypessJPanel", manageTypes);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-     private void manageShop(){
+
+    private void manageShop() {
         changeBtnBgs("shop");
         ManageShopPanel manageShops = new ManageShopPanel(mainPanel, ecosystem);
         mainPanel.add("manageShopsJPanel", manageShops);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-      private void managedeliveryMan(){
+
+    private void managedeliveryMan() {
         changeBtnBgs("deliveryman");
         ManageDeliverymanPanel manageDeliveryMan = new ManageDeliverymanPanel(mainPanel, ecosystem);
         mainPanel.add("manageShopsJPanel", manageDeliveryMan);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-       private void manageAmbulanceService(){
+
+    private void manageAmbulanceService() {
         changeBtnBgs("ambulanceService");
         ManageAmbulancePanel manageAmbulance = new ManageAmbulancePanel(mainPanel, ecosystem);
         mainPanel.add("manageAmbulance", manageAmbulance);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-
-      
+    
     private void changeBtnBgs(String type) {
         Color activeColor = Color.WHITE;
         Color notActiveColor = Color.getColor("03506F");
-
+        
         Color activeTxtColor = Color.BLACK;
         Color nonActiveTxtColor = Color.WHITE;
-
+        
         manageFitnessPanel.setBackground(notActiveColor);
         manageDashboardPanel.setBackground(notActiveColor);
         manageShopPanel.setBackground(notActiveColor);
@@ -655,7 +659,8 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         manageHospitalPanel.setBackground(notActiveColor);
         manageAmbulancePanel.setBackground(notActiveColor);
         manageDeliveryManPanel.setBackground(notActiveColor);
-
+        manageTypePanel.setBackground(notActiveColor);
+        
         manageDashboard.setForeground(nonActiveTxtColor);
         manageHospital.setForeground(nonActiveTxtColor);
         manageFitness.setForeground(nonActiveTxtColor);
@@ -663,8 +668,8 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         manageUsers.setForeground(nonActiveTxtColor);
         manageAmbulance.setForeground(nonActiveTxtColor);
         ManageDeliveryman.setForeground(nonActiveTxtColor);
-       
-
+        manageType.setForeground(nonActiveTxtColor);
+        
         if ("dashboard".equalsIgnoreCase(type)) {
             manageDashboardPanel.setBackground(activeColor);
             manageDashboard.setForeground(activeTxtColor);
@@ -680,13 +685,13 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         } else if ("fitness".equalsIgnoreCase(type)) {
             manageFitnessPanel.setBackground(activeColor);
             manageFitness.setForeground(activeTxtColor);
-        }else if ("type".equalsIgnoreCase(type)) {
+        } else if ("type".equalsIgnoreCase(type)) {
             manageTypePanel.setBackground(activeColor);
             manageType.setForeground(activeTxtColor);
         } else if ("deliveryman".equalsIgnoreCase(type)) {
             manageDeliveryManPanel.setBackground(activeColor);
             ManageDeliveryman.setForeground(activeTxtColor);
-        }  else if ("ambulanceService".equalsIgnoreCase(type)) {
+        } else if ("ambulanceService".equalsIgnoreCase(type)) {
             manageAmbulancePanel.setBackground(activeColor);
             manageAmbulance.setForeground(activeTxtColor);
         }
