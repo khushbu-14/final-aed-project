@@ -51,7 +51,7 @@ public class AddShopPanel extends javax.swing.JPanel {
         this.isUpdatePage = isUpdatePage;
         util = new Utils();
         setData();
-        
+
     }
 
     /**
@@ -425,7 +425,7 @@ public class AddShopPanel extends javax.swing.JPanel {
         } else if (!util.isStringInputValid(zipcode)) {
             //  JOptionPane.showMessageDialog(this, "Please enter valid Zipcode", "Error", JOptionPane.ERROR_MESSAGE);
             util.showErrorToast("Plesae enter valid and unique zipcode");
-        }  else if (util.countOfString(zipcode) < 5 || util.countOfString(zipcode) > 5) {
+        } else if (util.countOfString(zipcode) < 5 || util.countOfString(zipcode) > 5) {
             //  JOptionPane.showMessageDialog(this, "Zipcode should be 5 characters only", "Error", JOptionPane.ERROR_MESSAGE);
             util.showErrorToast("Zipcode should be 5 characters only");
 
@@ -546,12 +546,12 @@ public class AddShopPanel extends javax.swing.JPanel {
     private javax.swing.JFormattedTextField txtZipcode;
     // End of variables declaration//GEN-END:variables
 
-     public void populateComboBox(){
-            for (Type t:ecosystem.getTypeDirectory().getTypeList()) {
-                if(t.getParent().toLowerCase().equals("shop")){
-                    jComboType.addItem(t.getType());
-                }
-                
-                }
+    public void populateComboBox() {
+        for (Type t : ecosystem.getTypeDirectory().getTypeList()) {
+            if (t.getParent().toLowerCase().equals("shop")) {
+                jComboType.addItem(t.getType());
+            }
+
+        }
     }
 }

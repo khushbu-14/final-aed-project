@@ -6,7 +6,11 @@
 package userinterface.CustomerRole;
 
 import Business.EcoSystem;
+import Business.Shop.Shop;
+import Business.Shop.ShopDirectory;
+import Business.Type.Type;
 import constants.Utils;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,12 +28,13 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
 
     Utils utils;
 
-    DefaultTableModel model;
-
     public OrderMedicinePanel(JPanel mainPanel, EcoSystem ecosystem) {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
+        utils = new Utils();
         initComponents();
+
+        populateData();
     }
 
     /**
@@ -41,34 +46,16 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnBack = new javax.swing.JButton();
         lblPageTitle = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblShopList = new javax.swing.JTable();
         lblPageTitle1 = new javax.swing.JLabel();
         lblPageTitle2 = new javax.swing.JLabel();
         comboBoxDeliveryMan = new javax.swing.JComboBox<>();
+        btnSelectShopType = new javax.swing.JButton();
         btnSelectShop = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(244, 249, 249));
-
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
-        btnBack.setText("Back");
-        btnBack.setToolTipText("");
-        btnBack.setActionCommand("University");
-        btnBack.setAlignmentY(0.0F);
-        btnBack.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true)));
-        btnBack.setBorderPainted(false);
-        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnBack.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnBack.setIconTextGap(10);
-        btnBack.setMargin(new java.awt.Insets(10, 5, 0, 2));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
 
         lblPageTitle.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -122,10 +109,23 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
             }
         });
 
+        btnSelectShopType.setBackground(new java.awt.Color(3, 80, 111));
+        btnSelectShopType.setForeground(new java.awt.Color(255, 255, 255));
+        btnSelectShopType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnSelectShopType.setText("Continue");
+        btnSelectShopType.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
+        btnSelectShopType.setBorderPainted(false);
+        btnSelectShopType.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnSelectShopType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectShopTypeActionPerformed(evt);
+            }
+        });
+
         btnSelectShop.setBackground(new java.awt.Color(3, 80, 111));
         btnSelectShop.setForeground(new java.awt.Color(255, 255, 255));
         btnSelectShop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnSelectShop.setText("Continue");
+        btnSelectShop.setText("Confirm");
         btnSelectShop.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
         btnSelectShop.setBorderPainted(false);
         btnSelectShop.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -142,66 +142,96 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(220, 220, 220)
-                                .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(269, 269, 269)
+                        .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblPageTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPageTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboBoxDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(btnSelectShop, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPageTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboBoxDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnSelectShopType, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(68, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(256, 256, 256)
+                    .addComponent(btnSelectShop, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(264, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(lblPageTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comboBoxDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblPageTitle2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(comboBoxDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSelectShopType, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(50, 50, 50)
                 .addComponent(lblPageTitle1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(btnSelectShop, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addContainerGap(338, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(448, Short.MAX_VALUE)
+                    .addComponent(btnSelectShop, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(255, 255, 255)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // back btn logic
-        backAction();
-    }//GEN-LAST:event_btnBackActionPerformed
+    private Shop getSelectedShop() {
+        int selectedRowIndex = tblShopList.getSelectedRow();
+
+        if (selectedRowIndex < 0) {
+            utils.showErrorToast("Oops! Please select a Shop first.");
+            return null;
+        }
+
+        Shop s = (Shop) tblShopList.getValueAt(selectedRowIndex, 1);
+
+        return s;
+    }
 
     private void comboBoxDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDeliveryManActionPerformed
 
     }//GEN-LAST:event_comboBoxDeliveryManActionPerformed
 
-    private void btnSelectShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectShopActionPerformed
+    private void btnSelectShopTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectShopTypeActionPerformed
         // validations
-        
+        String type = comboBoxDeliveryMan.getSelectedItem().toString();
+
+        if (utils.isStringInputValid(type)) {
+            populateTable(type);
+        } else {
+            utils.showErrorToast("Please select shop type");
+        }
+    }//GEN-LAST:event_btnSelectShopTypeActionPerformed
+
+    private void btnSelectShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectShopActionPerformed
+        // TODO add your handling code here:
+
+        Shop s = getSelectedShop();
+
+        if (s != null) {
+            OrderMedicineCartPanel orderMedicineCartPanel = new OrderMedicineCartPanel(mainWorkArea, ecosystem, s);
+
+            mainWorkArea.add("orderMedicineCartPanel", orderMedicineCartPanel);
+            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+            layout.next(mainWorkArea);
+        }
     }//GEN-LAST:event_btnSelectShopActionPerformed
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSelectShop;
-    private javax.swing.JButton btnSignup;
-    private javax.swing.JButton btnSignup1;
-    private javax.swing.JButton btnSignup2;
+    private javax.swing.JButton btnSelectShopType;
     private javax.swing.JComboBox<Object> comboBoxDeliveryMan;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblPageTitle;
@@ -210,7 +240,36 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
     private javax.swing.JTable tblShopList;
     // End of variables declaration//GEN-END:variables
 
-    private void backAction() {
 
+    private void populateData() {
+
+        for (Type t : ecosystem.getTypeDirectory().getTypeList()) {
+            if (t.getParent().toLowerCase().equals("shop")) {
+                comboBoxDeliveryMan.addItem(t.getType());
+            }
+        }
+    }
+
+    private void populateTable(String type) {
+        ShopDirectory sd = ecosystem.getShopDirectory();
+
+        DefaultTableModel model = (DefaultTableModel) tblShopList.getModel();
+
+        model.setRowCount(0);
+
+        if (sd != null) {
+            int count = 1;
+            for (Shop s : sd.getShopList()) {
+                if (s.getShopType().equalsIgnoreCase(type)) {
+                    Object[] row = new Object[4];
+                    row[0] = "" + count++;
+                    row[1] = s;
+                    row[2] = s.getAddress();
+                    row[3] = s.getZipcode();
+
+                    model.addRow(row);
+                }
+            }
+        }
     }
 }
