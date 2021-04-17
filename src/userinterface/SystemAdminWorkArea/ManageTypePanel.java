@@ -135,7 +135,7 @@ public class ManageTypePanel extends javax.swing.JPanel {
         lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblAddress.setText("Enter Type :");
 
-        txtTypeName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        txtTypeName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
         btnSave.setBackground(new java.awt.Color(3, 80, 111));
         btnSave.setForeground(new java.awt.Color(255, 255, 255));

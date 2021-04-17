@@ -561,10 +561,12 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
 
     private void ManageDeliverymanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageDeliverymanMousePressed
         // TODO add your handling code here:
+        managedeliveryMan();
     }//GEN-LAST:event_ManageDeliverymanMousePressed
 
     private void manageDeliveryManPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDeliveryManPanelMousePressed
         // TODO add your handling code here:
+        managedeliveryMan();
     }//GEN-LAST:event_manageDeliveryManPanelMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
