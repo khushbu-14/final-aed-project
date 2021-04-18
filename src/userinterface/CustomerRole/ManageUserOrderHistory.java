@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.OrderList;
 import Business.WorkQueue.WorkRequest;
+import java.awt.CardLayout;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -154,11 +155,11 @@ public class ManageUserOrderHistory extends javax.swing.JPanel {
         if (request != null && request instanceof OrderList) {
             OrderList orderListData = (OrderList) request;
 
-//            ManageOrderDetailsPanel manageOrderDetails = new ManageOrderDetailsPanel(mainWorkArea, userAccount, ecosystem, orderListData);
-//
-//            mainWorkArea.add("ManageOrderDetailsPanel", manageOrderDetails);
-//            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-//            layout.next(mainWorkArea);
+            ManageUserOrderDetailsPanel manageUserOrderDetailsPanel = new ManageUserOrderDetailsPanel(mainWorkArea, userAccount, ecosystem, orderListData);
+
+            mainWorkArea.add("ManageUserOrderDetailsPanel", manageUserOrderDetailsPanel);
+            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+            layout.next(mainWorkArea);
         }
     }//GEN-LAST:event_btnViewDetailsActionPerformed
 
@@ -173,7 +174,7 @@ public class ManageUserOrderHistory extends javax.swing.JPanel {
     private javax.swing.JTable tblCart;
     // End of variables declaration//GEN-END:variables
 
-    private void populateTable() {
+    public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
 
         workRequestList = ecosystem.getWorkQueue().getUserRequestList(userAccount, "USER-ORDER");
