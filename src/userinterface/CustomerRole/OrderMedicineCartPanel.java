@@ -7,6 +7,7 @@ package userinterface.CustomerRole;
 
 import Business.EcoSystem;
 import Business.Shop.Product;
+import Business.Shop.ProductDirectory;
 import Business.Shop.Shop;
 import constants.Utils;
 import java.awt.CardLayout;
@@ -93,20 +94,20 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         tblProductsList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         tblProductsList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Sr No.", "Name", "Price"
+                "Sr No.", "Name", "Price", "Prescription Needed", "Description", "Calories"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -305,7 +306,7 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
 
-        
+
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -327,17 +328,32 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
     private void backAction() {
         mainWorkArea.remove(this);
-//        Component[] componentArray = mainWorkArea.getComponents();
-//
-//        Component component = componentArray[componentArray.length - 1];
-//
-//        OrderMedicinePanel orderMedicinePanel = (OrderMedicinePanel) component;
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }
 
     private void populateData() {
+
+        ProductDirectory pd = shop.getProductDirectory();
+
+        DefaultTableModel model = (DefaultTableModel) tblProductsList.getModel();
+
+        int count = 1;
+        model.setRowCount(0);
+
+        for (Product p : pd.getProductList()) {
+            Object[] row = new Object[6];
+
+            row[0] = "" + count++;
+            row[1] = p;
+            row[2] = p.getPrice();
+            row[3] = p.getIsPrescriptionNeeded();
+            row[4] = p.getDescription();
+            row[5] = p.getCalories();
+
+            model.addRow(row);
+        }
 
     }
 }

@@ -316,12 +316,11 @@ public class AddProductPanel extends javax.swing.JPanel {
             txtCalories.setText(product.getCalories().toString());
             txtPrice.setText(product.getPrice().toString());
             txtDescription1.setText(product.getDescription());
-            if(product.getIsPrescriptionNeeded()==true){
-            jComboType.setSelectedItem("Yes");
-            }else{
+            if (product.getIsPrescriptionNeeded() == true) {
+                jComboType.setSelectedItem("Yes");
+            } else {
                 jComboType.setSelectedItem("No");
             }
-
 
         } else {
             btnSignup.setText("Add Product");
@@ -351,10 +350,16 @@ public class AddProductPanel extends javax.swing.JPanel {
 
         String name = txtSName.getText(),
                 description = txtDescription1.getText();
-        Double calories = Double.parseDouble(txtCalories.getText()),
-                price = Double.parseDouble(txtPrice.getText());
+        String calorieInput = txtCalories.getText().trim();
+        Double calories = 0.0d;
+
+        if (util.isStringInputValid(calorieInput)) {
+            calories = Double.parseDouble(calorieInput);
+        }
+        
+        //  Double calories = Double.parseDouble(txtCalories.getText()),
+        Double price = Double.parseDouble(txtPrice.getText());
         String isPrescriptionNeeded = jComboType.getSelectedItem().toString();
-                
 
         if (!util.isStringInputValid(name)) {
             util.showErrorToast("Plesae enter valid product name");
@@ -368,7 +373,7 @@ public class AddProductPanel extends javax.swing.JPanel {
             util.showErrorToast("Plesae enter valid description");
             //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
             //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
-        }  else {
+        } else {
             String msg = name + "  created successfully!";
             if (isUpdatePage) {
 
@@ -376,22 +381,22 @@ public class AddProductPanel extends javax.swing.JPanel {
                 product.setCalories(calories);
                 product.setPrice(price);
                 product.setDescription(description);
-                if(isPrescriptionNeeded.equals("Yes")){
+                if (isPrescriptionNeeded.equals("Yes")) {
                     product.setIsPrescriptionNeeded(true);
-                } else{
+                } else {
                     product.setIsPrescriptionNeeded(true);
                 }
 
                 msg = name + " updated successfully!";
             } else {
                 boolean decision = false;
-                if(isPrescriptionNeeded.equals("Yes")){
-                    decision=true;
+                if (isPrescriptionNeeded.equals("Yes")) {
+                    decision = true;
                 }
                 Product product1 = new Product(name, calories, price, description, decision);
                 Shop shp = ecosystem.getShopDirectory().getShopByUserName(userAcount.getUsername());
                 shp.getProductDirectory().addNewProduct(product1);
-                
+
             }
 
             resetForm();
@@ -447,10 +452,10 @@ public class AddProductPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtSName;
     // End of variables declaration//GEN-END:variables
-    public void populateComboBox(){
-            List<String> enterpriseList = Arrays.asList("Yes","No");      
-            for (String i:enterpriseList) {
-                jComboType.addItem(i);
-                }
+    public void populateComboBox() {
+        List<String> enterpriseList = Arrays.asList("Yes", "No");
+        for (String i : enterpriseList) {
+            jComboType.addItem(i);
+        }
     }
 }
