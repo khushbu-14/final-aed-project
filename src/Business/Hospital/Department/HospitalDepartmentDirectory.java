@@ -65,6 +65,15 @@ public class HospitalDepartmentDirectory {
          }
          return hospitalDept;
      }
+      public HospitalDepartment getHospitalDepartmentByName(String type){
+         HospitalDepartment hospitalDept = null;
+         for(HospitalDepartment hospD: departmentList){
+             if(hospD.getDepartmentName().equals(type)){
+                 hospitalDept = hospD;
+             }    
+         }
+         return hospitalDept;
+     }
       public HospitalDepartment getHospitalDepartmentByUserName(String userName){
          HospitalDepartment hospitalDept = null;
          for(HospitalDepartment hospD: departmentList){

@@ -521,6 +521,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
 
     private void manageFitnessMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageFitnessMousePressed
         // TODO add your handling code here:
+        manageFitness();
     }//GEN-LAST:event_manageFitnessMousePressed
 
     private void manageFitnessPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageFitnessPanelMousePressed
@@ -559,10 +560,12 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
 
     private void ManageDeliverymanMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ManageDeliverymanMousePressed
         // TODO add your handling code here:
+        managedeliveryMan();
     }//GEN-LAST:event_ManageDeliverymanMousePressed
 
     private void manageDeliveryManPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDeliveryManPanelMousePressed
         // TODO add your handling code here:
+        managedeliveryMan();
     }//GEN-LAST:event_manageDeliveryManPanelMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -639,6 +642,14 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         changeBtnBgs("ambulanceService");
         ManageAmbulancePanel manageAmbulance = new ManageAmbulancePanel(mainPanel, ecosystem);
         mainPanel.add("manageAmbulance", manageAmbulance);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+    
+    private void manageFitness() {
+        changeBtnBgs("fitness");
+        ManageFitnessPanel managefc = new ManageFitnessPanel(mainPanel, ecosystem);
+        mainPanel.add("manageShopsJPanel", managefc);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }

@@ -135,7 +135,7 @@ public class ManageTypePanel extends javax.swing.JPanel {
         lblAddress.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblAddress.setText("Enter Type :");
 
-        txtTypeName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        txtTypeName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
 
         btnSave.setBackground(new java.awt.Color(3, 80, 111));
         btnSave.setForeground(new java.awt.Color(255, 255, 255));
@@ -371,7 +371,7 @@ public class ManageTypePanel extends javax.swing.JPanel {
         }
     }
     public void populateComboBox(){
-            List<String> enterpriseList = Arrays.asList("Select","Hospital Department","Fitness Department","Shop","Ambulance Service","DeliveryMan");      
+            List<String> enterpriseList = Arrays.asList("Select","HospitalDepartment","FitnessDepartment","Shop","AmbulanceService","DeliveryMan");      
             for (String i:enterpriseList) {
                 jComboBox1.addItem(i);
                 }

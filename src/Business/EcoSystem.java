@@ -7,6 +7,7 @@ package Business;
 
 import Business.AmbulanceService.AmbulanceDirectory;
 import Business.DeliveryMan.DeliveryManDirectory;
+import Business.FitnessCenter.FitnessCenterDirectory;
 import Business.Hospital.HospitalDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
@@ -28,14 +29,16 @@ public class EcoSystem extends Organization {
     private ShopDirectory shopDirectory;
     private AmbulanceDirectory ambulanceDirectory;
     private DeliveryManDirectory deliveryManDirectory;
+    private FitnessCenterDirectory fitnessCenterDirectory;
 
-    public EcoSystem(HospitalDirectory hospitalDirectory, UserDirectory userDirectory,TypeDirectory typeDirectory,ShopDirectory shopDirectory, AmbulanceDirectory ambulanceDirectory, DeliveryManDirectory deliveryManDirectory) {
+    public EcoSystem(HospitalDirectory hospitalDirectory, UserDirectory userDirectory,TypeDirectory typeDirectory,ShopDirectory shopDirectory, AmbulanceDirectory ambulanceDirectory, DeliveryManDirectory deliveryManDirectory, FitnessCenterDirectory fitnessCenterDirectory) {
         this.hospitalDirectory = hospitalDirectory;
         this.userDirectory = userDirectory;
         this.typeDirectory = typeDirectory;
         this.shopDirectory = shopDirectory;
         this.ambulanceDirectory = ambulanceDirectory;
         this.deliveryManDirectory = deliveryManDirectory;
+        this.fitnessCenterDirectory = fitnessCenterDirectory;
     }
 
     public static EcoSystem getInstance() {
@@ -125,6 +128,17 @@ public class EcoSystem extends Organization {
 
     public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
         this.deliveryManDirectory = deliveryManDirectory;
+    }
+
+    public FitnessCenterDirectory getFitnessCenterDirectory() {
+        if (fitnessCenterDirectory == null) {
+            fitnessCenterDirectory = new FitnessCenterDirectory();
+        }
+        return fitnessCenterDirectory;
+    }
+
+    public void setFitnessCenterDirectory(FitnessCenterDirectory fitnessCenterDirectory) {
+        this.fitnessCenterDirectory = fitnessCenterDirectory;
     }
 
     
