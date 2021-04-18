@@ -525,7 +525,7 @@
                       <Color blue="f4" green="f4" red="f9" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="2"/>
-                    <Property name="text" type="java.lang.String" value="Select Type:"/>
+                    <Property name="text" type="java.lang.String" value="Select Department:"/>
                   </Properties>
                 </Component>
               </SubComponents>

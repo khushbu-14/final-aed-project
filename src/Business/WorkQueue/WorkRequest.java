@@ -6,6 +6,7 @@ package Business.WorkQueue;
 
 import Business.DeliveryMan.DeliveryMan;
 import Business.Shop.Shop;
+import Business.Staff.Staff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
 import java.util.Date;
@@ -28,6 +29,7 @@ public abstract class WorkRequest {
     private Shop shop;
     private DeliveryMan deliveryMan;
     private UserAccount userAccount;
+    private Staff staff;
 
     public WorkRequest() {
         requestDate = new Date();
@@ -119,6 +121,14 @@ public abstract class WorkRequest {
 
     public void setRequestType(String requestType) {
         this.requestType = requestType;
+    }
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
     }
 
     @Override

@@ -13,7 +13,8 @@ import Business.Role.ShopsRole;
  *
  * @author kunal
  */
-public class Staff extends Business.UserAccount.UserAccount{
+public class Staff extends Business.UserAccount.UserAccount {
+
     private String name;
     private String designation;
     private String contact;
@@ -90,11 +91,10 @@ public class Staff extends Business.UserAccount.UserAccount{
     public void setDepartment(HospitalDepartment department) {
         this.department = department;
     }
-    
-    
-     @Override
+
+    @Override
     public String toString() {
         return name;
     }
-    
+
 }

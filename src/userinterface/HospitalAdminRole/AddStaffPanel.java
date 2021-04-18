@@ -252,7 +252,7 @@ public class AddStaffPanel extends javax.swing.JPanel {
 
         lblUsername5.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername5.setText("Select Type:");
+        lblUsername5.setText("Select Department:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
