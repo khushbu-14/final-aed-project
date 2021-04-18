@@ -28,11 +28,27 @@ public class WorkQueue {
     }
 
     public ArrayList<WorkRequest> getUserRequestList(UserAccount account, String requestType) {
-        ArrayList<WorkRequest> userRequestList = new ArrayList<WorkRequest>();
+        ArrayList<WorkRequest> userRequestList = new ArrayList<>();
 
         for (WorkRequest wr : workRequestList) {
-            if (wr.getUserAccount() != null) {
-                if (wr.getUserAccount().getUsername().equals(account.getUsername())) {
+            if (wr.getUser() != null) {
+                if (wr.getUser().getUsername().equals(account.getUsername())) {
+                    if (wr.getRequestType().equalsIgnoreCase(requestType)) {
+                        userRequestList.add(wr);
+                    }
+                }
+            }
+        }
+
+        return userRequestList;
+    }
+
+    public ArrayList<WorkRequest> getShopRequestList(UserAccount account, String requestType) {
+        ArrayList<WorkRequest> userRequestList = new ArrayList<>();
+
+        for (WorkRequest wr : workRequestList) {
+            if (wr.getShop() != null) {
+                if (wr.getShop().getUsername().equals(account.getUsername())) {
                     if (wr.getRequestType().equalsIgnoreCase(requestType)) {
                         userRequestList.add(wr);
                     }
