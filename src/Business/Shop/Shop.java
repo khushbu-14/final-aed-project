@@ -23,7 +23,7 @@ public class Shop extends Business.UserAccount.UserAccount {
     private String address;
     private String zipcode;
     private String email;
-    private ArrayList<Product> productList;
+    private ProductDirectory productDirectory;
 
     public Shop(String userName, String password, String shopName, String shopType, String contactNo, String address, String email, String zipcode) {
         UUID uid = UUID.randomUUID();
@@ -94,60 +94,21 @@ public class Shop extends Business.UserAccount.UserAccount {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-     public ArrayList<Product> getProductList() {
-        if(productList==null){
-        productList = new ArrayList<>();
+
+    public ProductDirectory getProductDirectory() {
+        if(productDirectory==null){
+        productDirectory = new ProductDirectory();
         }
-        return productList;
+        return productDirectory;
     }
+
+    public void setProductDirectory(ProductDirectory productDirectory) {
+        this.productDirectory = productDirectory;
+    }
+    
    
      @Override
     public String toString() {
         return shopName;
     }
-    
-     public void setProductList(ArrayList<Product> productList) {
-        this.productList = productList;
-    }
-    
-    public Product addNewProduct(String productName,Double calories, Double price, String description){
-        Product product = new Product(productName,calories,price,description);
-        productList.add(product);
-        return product;
-    }
-
-//     public void deleteProduct(String productID){
-//         Product product=null;
-//         for(Product pr: productList){
-//         if(pr.getProductId().equals(productID)){
-//             product=pr;
-//         }
-//         }
-//         productList.remove(product);
-//     }
-      public void deleteProduct(Product prd){
-        if(productList != null){
-            productList.remove(prd);
-        }
-    }
-     
-     public Product getProductById(String id){
-         Product product = null;
-         for(Product prd: productList){
-             if(prd.getProductId().equals(id)){
-                 product = prd;
-             }    
-         }
-         return product;
-     }
-
-      public void updateProductById(String productID, String productName,Double calories, Double price, String description){
-          Product product = getProductById(productID);
-          product.setProductName(productName);
-          product.setCalories(calories);
-          product.setPrice(price);
-          product.setDescription(description);
-      }
-      
 }

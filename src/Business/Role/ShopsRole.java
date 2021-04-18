@@ -8,6 +8,7 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
+import userinterface.ShopsRole.ShopWorkAreaPanel;
 import userinterface.ShopsRole.ShopsWorkAreaJPanel;
 //import userinterface.DeliveryManRole.DeliveryManWorkAreaJPanel;
 /**
@@ -23,6 +24,6 @@ public class ShopsRole extends Role {
 //    }
 
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new ShopsWorkAreaJPanel(userProcessContainer, account, business);
+        return new ShopWorkAreaPanel(userProcessContainer, account, business);
     }
 }
