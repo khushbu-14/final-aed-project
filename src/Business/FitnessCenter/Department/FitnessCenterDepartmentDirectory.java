@@ -5,7 +5,7 @@
  */
 package Business.FitnessCenter.Department;
 
-import Business.Hospital.Department.HospitalDepartment;
+import Business.FitnessCenter.Department.FitnessCenterDepartment;
 import java.util.ArrayList;
 
 /**
@@ -54,7 +54,7 @@ public class FitnessCenterDepartmentDirectory {
          return fitDept;
      }
       
-       public void updateHospitalByUserName(String userName,String departmentName, String contact,String password, String schedule, String location, Boolean isRemote){
+       public void updateFitnessCenterDepartmentByUserName(String userName,String departmentName, String contact,String password, String schedule, String location, String isRemote){
           FitnessCenterDepartment fit = getFitnessCenterDepartmentByUserName(userName);
           fit.setDepartmentName(departmentName);
           //hosp.setType(type);

@@ -5,6 +5,8 @@
  */
 package Business.FitnessCenter;
 
+import Business.FitnessCenter.Department.FitnessCenterDepartmentDirectory;
+import Business.Hospital.Department.HospitalDepartmentDirectory;
 import Business.Role.FitnessCenterRole;
 import Business.Role.HospitalRole;
 import java.util.UUID;
@@ -21,6 +23,8 @@ public class FitnessCenter extends Business.UserAccount.UserAccount {
     private String address;
     private String zipcode;
     private String email;
+    private FitnessCenterDepartmentDirectory fcdepartmentDirectory;
+
 
     public FitnessCenter(String username, String password, String fitnessCenterName, String contact, String address, String zipcode, String email) {
         UUID uid = UUID.randomUUID();
@@ -82,6 +86,19 @@ public class FitnessCenter extends Business.UserAccount.UserAccount {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public FitnessCenterDepartmentDirectory getFcdepartmentDirectory() {
+        if(fcdepartmentDirectory == null){
+        fcdepartmentDirectory = new FitnessCenterDepartmentDirectory();
+        }
+        return fcdepartmentDirectory;
+    }
+
+    public void setFcdepartmentDirectory(FitnessCenterDepartmentDirectory fcdepartmentDirectory) {
+        this.fcdepartmentDirectory = fcdepartmentDirectory;
+    }
+    
+    
 
     @Override
     public String toString() {
