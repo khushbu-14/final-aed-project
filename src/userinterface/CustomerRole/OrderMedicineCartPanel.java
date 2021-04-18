@@ -6,10 +6,12 @@
 package userinterface.CustomerRole;
 
 import Business.EcoSystem;
+import Business.Shop.Product;
 import Business.Shop.Shop;
 import constants.Utils;
 import java.awt.CardLayout;
 import java.awt.Component;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,7 +36,9 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
         this.shop = shop;
+        utils = new Utils();
         initComponents();
+        populateData();
     }
 
     /**
@@ -49,7 +53,7 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblPageTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblMenuList = new javax.swing.JTable();
+        tblProductsList = new javax.swing.JTable();
         btnAddProduct = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCart = new javax.swing.JTable();
@@ -86,8 +90,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
         lblPageTitle.setText("Cart");
 
-        tblMenuList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        tblMenuList.setModel(new javax.swing.table.DefaultTableModel(
+        tblProductsList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        tblProductsList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -113,8 +117,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblMenuList.setSelectionBackground(new java.awt.Color(0, 102, 204));
-        jScrollPane1.setViewportView(tblMenuList);
+        tblProductsList.setSelectionBackground(new java.awt.Color(0, 102, 204));
+        jScrollPane1.setViewportView(tblProductsList);
 
         btnAddProduct.setBackground(new java.awt.Color(138, 177, 138));
         btnAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/plus.png"))); // NOI18N
@@ -254,6 +258,19 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private Product getSelectedProduct() {
+        int selectedRowIndex = tblProductsList.getSelectedRow();
+
+        if (selectedRowIndex < 0) {
+            utils.showErrorToast("Oops! Please select a product first.");
+            return null;
+        }
+
+        Product p = (Product) tblProductsList.getValueAt(selectedRowIndex, 1);
+
+        return p;
+    }
+
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // back btn logic
         backAction();
@@ -261,11 +278,34 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
     private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
         // TODO add your handling code here:
+        Product p = getSelectedProduct();
+        int qty = 0;
 
+        if (p != null) {
+
+            String response = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
+
+            try {
+                qty = Integer.parseInt(response);
+            } catch (NumberFormatException e) {
+                utils.showErrorToast("Oops! Please provide valid quantity in numbers only");
+            }
+
+            if (qty > 0) {
+//                OrderItem oi = new OrderItem(d, qty);
+//
+//                orderList.add(oi);
+//
+//                populateCartTable();
+            } else {
+                utils.showErrorToast("Only positive numbers allowed");
+            }
+        }
     }//GEN-LAST:event_btnAddProductActionPerformed
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
 
+        
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -279,7 +319,7 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblQty;
     private javax.swing.JTable tblCart;
-    private javax.swing.JTable tblMenuList;
+    private javax.swing.JTable tblProductsList;
     private javax.swing.JTextField txtMessage;
     private javax.swing.JTextField txtTotalPrice;
     private javax.swing.JTextField txtTotalQuantity;
@@ -295,5 +335,9 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
+    }
+
+    private void populateData() {
+
     }
 }
