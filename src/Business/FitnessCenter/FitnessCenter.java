@@ -5,6 +5,7 @@
  */
 package Business.FitnessCenter;
 
+import Business.Role.FitnessCenterRole;
 import Business.Role.HospitalRole;
 import java.util.UUID;
 
@@ -31,7 +32,7 @@ public class FitnessCenter extends Business.UserAccount.UserAccount {
         this.email = email;
         setPassword(password);
         setUsername(username);
-        setRole(new HospitalRole());
+        setRole(new FitnessCenterRole());
     }
 
     public String getFitnessCenterID() {
