@@ -204,7 +204,7 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
     }
 
     private void comboBoxDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDeliveryManActionPerformed
-
+ 
     }//GEN-LAST:event_comboBoxDeliveryManActionPerformed
 
     private void btnSelectShopTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectShopTypeActionPerformed
@@ -242,7 +242,6 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPageTitle2;
     private javax.swing.JTable tblShopList;
     // End of variables declaration//GEN-END:variables
-
 
     private void populateData() {
 

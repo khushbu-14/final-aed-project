@@ -686,10 +686,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageOrdersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrdersMousePressed
         // TODO add your handling code here:
+        manageOrderHistory();
     }//GEN-LAST:event_manageOrdersMousePressed
 
     private void manageOrdersPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrdersPanelMousePressed
         // TODO add your handling code here:
+        manageOrderHistory();
     }//GEN-LAST:event_manageOrdersPanelMousePressed
 
     private void manageSessionsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsMousePressed
@@ -710,7 +712,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         layout.next(mainPanel);
     }
 
-    private void changeBtnBgs(String type) {
+    public void changeBtnBgs(String type) {
         Color activeColor = Color.WHITE;
         Color notActiveColor = Color.getColor("03506F");
 
@@ -722,6 +724,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageConsultDoctorPanel.setBackground(notActiveColor);
         manageOrderFitnessPanel.setBackground(notActiveColor);
         manageOrderMedicinePanel.setBackground(notActiveColor);
+        manageOrdersPanel.setBackground(notActiveColor);
         managePersonalInfoPanel.setBackground(notActiveColor);
         manageSessionsPanel.setBackground(notActiveColor);
 
@@ -737,8 +740,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         if ("order-products".equalsIgnoreCase(type)) {
             manageOrderMedicinePanel.setBackground(activeColor);
             manageOrderMedicine.setForeground(activeTxtColor);
+        } else if ("order-history".equalsIgnoreCase(type)) {
+            manageOrdersPanel.setBackground(activeColor);
+            manageOrders.setForeground(activeTxtColor);
         }
     }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel border;
     private javax.swing.JPanel border1;
@@ -775,4 +782,15 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel manageSessionsPanel;
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
+
+    private void manageOrderHistory() {
+        changeBtnBgs("order-history");
+
+        ManageUserOrderHistory manageUserOrderHistory = new ManageUserOrderHistory(mainPanel, ecosystem, userAccount);
+
+        // OrderMedicinePanel orderMedicinePanel = new OrderMedicinePanel(mainPanel, ecosystem, userAccount);
+        mainPanel.add("ManageUserOrderHistory", manageUserOrderHistory);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
 }

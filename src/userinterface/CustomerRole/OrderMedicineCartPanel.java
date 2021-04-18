@@ -381,6 +381,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                         resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
                     }
 
+                    newOrderList.setRequestType("USER-ORDER");
+
                     ecosystem.getWorkQueue().addWorkRequest(newOrderList);
 
                     JOptionPane.showMessageDialog(this, resultMsg);
@@ -491,5 +493,11 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
     private void openOrderHistory() {
 
+        ManageUserOrderHistory manageUserOrderHistory = new ManageUserOrderHistory(mainWorkArea, ecosystem, userAccount);
+
+        mainWorkArea.add("ManageOrderHistory", manageUserOrderHistory);
+
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
     }
 }

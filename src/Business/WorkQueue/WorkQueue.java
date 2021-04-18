@@ -26,4 +26,20 @@ public class WorkQueue {
     public void addWorkRequest(WorkRequest workRequest) {
         workRequestList.add(workRequest);
     }
+
+    public ArrayList<WorkRequest> getUserRequestList(UserAccount account, String requestType) {
+        ArrayList<WorkRequest> userRequestList = new ArrayList<WorkRequest>();
+
+        for (WorkRequest wr : workRequestList) {
+            if (wr.getUserAccount() != null) {
+                if (wr.getUserAccount().getUsername().equals(account.getUsername())) {
+                    if (wr.getRequestType().equalsIgnoreCase(requestType)) {
+                        userRequestList.add(wr);
+                    }
+                }
+            }
+        }
+
+        return userRequestList;
+    }
 }
