@@ -5,6 +5,11 @@
  */
 package Business.FitnessCenter.Department;
 
+import Business.Role.HospitalDepartmentRole;
+import Business.Staff.FcStaffDirectory;
+import Business.Staff.StaffDirectory;
+import java.util.UUID;
+
 /**
  *
  * @author singh
@@ -17,7 +22,26 @@ public class FitnessCenterDepartment extends Business.UserAccount.UserAccount {
     private String contact;
     private String schedule;
     private String location;
-    private Boolean isRemote;
+    private String isRemote;
+    private FcStaffDirectory staffDirectory;
+
+   
+    
+      public FitnessCenterDepartment(String userName, String password,String departmentName, String type, String contact,String location, String schedule,String isRemote) {
+        UUID uid = UUID.randomUUID();
+        this.departmentID = uid.toString();
+        this.departmentName = departmentName;
+        this.type = type;
+        this.contact = contact;
+        this.location = location;
+        this.schedule = schedule;
+        this.isRemote = isRemote;
+        //this.email = email;
+        //this.numberOfBeds = numberOfBeds;
+        setPassword(password);
+        setUsername(userName);
+        setRole(new HospitalDepartmentRole());
+    }
 
     public String getDepartmentID() {
         return departmentID;
@@ -67,12 +91,23 @@ public class FitnessCenterDepartment extends Business.UserAccount.UserAccount {
         this.location = location;
     }
 
-    public Boolean getIsRemote() {
+    public String getIsRemote() {
         return isRemote;
     }
 
-    public void setIsRemote(Boolean isRemote) {
+    public void setIsRemote(String isRemote) {
         this.isRemote = isRemote;
+    }
+
+    public FcStaffDirectory getStaffDirectory() {
+        if(staffDirectory == null){
+        staffDirectory = new FcStaffDirectory();
+        }
+        return staffDirectory;
+    }
+
+    public void setStaffDirectory(FcStaffDirectory staffDirectory) {
+        this.staffDirectory = staffDirectory;
     }
     
     
