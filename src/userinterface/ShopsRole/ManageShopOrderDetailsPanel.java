@@ -7,6 +7,9 @@ package userinterface.ShopsRole;
 
 import userinterface.CustomerRole.*;
 import Business.EcoSystem;
+import Business.Hospital.Department.HospitalDepartment;
+import Business.Hospital.Department.HospitalDepartmentDirectory;
+import Business.Hospital.Hospital;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.OrderItem;
 import Business.WorkQueue.OrderList;
@@ -74,6 +77,10 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         lblCustomerAddress1 = new javax.swing.JLabel();
         lblOrderStatus = new javax.swing.JLabel();
         lblCustomerAddress3 = new javax.swing.JLabel();
+        btnAssignDoctor = new javax.swing.JButton();
+        assignDoctorPanel = new javax.swing.JPanel();
+        lblRestaurantName8 = new javax.swing.JLabel();
+        lblDoctorName = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(244, 249, 249));
 
@@ -284,6 +291,50 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
+        btnAssignDoctor.setBackground(new java.awt.Color(3, 80, 111));
+        btnAssignDoctor.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnAssignDoctor.setForeground(new java.awt.Color(255, 255, 255));
+        btnAssignDoctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnAssignDoctor.setText("Assign Medical Staff");
+        btnAssignDoctor.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnAssignDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignDoctorActionPerformed(evt);
+            }
+        });
+
+        assignDoctorPanel.setBackground(new java.awt.Color(221, 248, 249));
+
+        lblRestaurantName8.setBackground(new java.awt.Color(249, 244, 244));
+        lblRestaurantName8.setForeground(new java.awt.Color(102, 102, 102));
+        lblRestaurantName8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblRestaurantName8.setText("Assigned Staff Name :");
+
+        lblDoctorName.setBackground(new java.awt.Color(249, 244, 244));
+        lblDoctorName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDoctorName.setText("NA");
+
+        javax.swing.GroupLayout assignDoctorPanelLayout = new javax.swing.GroupLayout(assignDoctorPanel);
+        assignDoctorPanel.setLayout(assignDoctorPanelLayout);
+        assignDoctorPanelLayout.setHorizontalGroup(
+            assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(assignDoctorPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRestaurantName8, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+        assignDoctorPanelLayout.setVerticalGroup(
+            assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(assignDoctorPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblRestaurantName8)
+                .addGap(10, 10, 10)
+                .addComponent(lblDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -303,8 +354,13 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(45, 45, 45)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(318, 318, 318)))
-                        .addGap(0, 551, Short.MAX_VALUE))))
+                                .addGap(63, 63, 63)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnAssignDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(assignDoctorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 17, Short.MAX_VALUE)))))
+                        .addGap(0, 539, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -314,11 +370,17 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
                     .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAssignDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(assignDoctorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -328,7 +390,17 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void btnAssignDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDoctorActionPerformed
+        // TODO add your handling code here:
+        AssignStaffPanel assignStaffPanel = new AssignStaffPanel(mainWorkArea, ecosystem, orderListData);
+        mainWorkArea.add("AssignStaffPanel", assignStaffPanel);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
+    }//GEN-LAST:event_btnAssignDoctorActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel assignDoctorPanel;
+    private javax.swing.JButton btnAssignDoctor;
     private javax.swing.JButton btnBack;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
@@ -337,6 +409,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblCustomerAddress3;
     private javax.swing.JLabel lblCustomerContact1;
     private javax.swing.JLabel lblDeliveryManName;
+    private javax.swing.JLabel lblDoctorName;
     private javax.swing.JLabel lblLastStatusDate;
     private javax.swing.JLabel lblMessage;
     private javax.swing.JLabel lblName1;
@@ -346,6 +419,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblRestaurantName5;
     private javax.swing.JLabel lblRestaurantName6;
     private javax.swing.JLabel lblRestaurantName7;
+    private javax.swing.JLabel lblRestaurantName8;
     private javax.swing.JLabel lblRestaurantNameLable1;
     private javax.swing.JLabel lblShopName;
     private javax.swing.JLabel lblTotalPrice;
@@ -366,7 +440,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
             int qty = item.getQuantity();
             double price = item.getProduct().getPrice();
             String prescription = item.getProduct().getIsPrescriptionNeeded() ? "Yes" : "No";
-            
+
             Object[] row = new Object[6];
             row[0] = "" + count++;
             row[1] = item;
@@ -400,7 +474,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         layout.previous(mainWorkArea);
     }
 
-    private void renderData() {
+    public void renderData() {
         lblShopName.setText(orderListData.getShop().getShopName());
         // lblDataOrderId.setText(orderListData.getOrderId());
         String deliveryManName = "NA";
@@ -418,6 +492,19 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
 
         String orderStatus = orderListData.getStatus();
 
+        if ("PENDING".equals(orderStatus)) {
+            btnAssignDoctor.setVisible(true);
+        } else {
+            btnAssignDoctor.setVisible(false);
+        }
+
+        if (orderListData.getStaff() != null) {
+            assignDoctorPanel.setVisible(true);
+            lblDoctorName.setText(orderListData.getStaff().getName());
+        } else {
+            assignDoctorPanel.setVisible(false);
+        }
+
 //        if (orderStatus.equalsIgnoreCase("COMPLETED") || orderStatus.equalsIgnoreCase("REJECTED")) {
 //            btnUpdateMessage.setVisible(false);
 //            txtMessage.setEditable(false);
@@ -433,4 +520,18 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
 
         populateTable();
     }
+
+//    private void populateComboBox() {
+//        comboBoxDoctor.removeAllItems();
+//        if (ecosystem.getHospitalDirectory() != null) {
+//            for (Hospital h : ecosystem.getHospitalDirectory().getHospitalList()) {
+//                if (h != null) {
+//                    HospitalDepartmentDirectory hd = h.getDepartmentDirectory();
+//                    if(hd != null){
+//                        
+//                    }
+//                }
+//            }
+//        }
+//    }
 }

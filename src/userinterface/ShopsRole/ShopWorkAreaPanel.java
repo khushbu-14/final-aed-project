@@ -690,12 +690,12 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageOrdersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrdersMousePressed
         // TODO add your handling code here:
-        managerOrderHistory();
+        manageOrderHistory();
     }//GEN-LAST:event_manageOrdersMousePressed
 
     private void manageOrdersPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrdersPanelMousePressed
         // TODO add your handling code here:
-        managerOrderHistory();
+        manageOrderHistory();
     }//GEN-LAST:event_manageOrdersPanelMousePressed
 
     private void manageSessionsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsMousePressed
@@ -712,6 +712,16 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         ManageProductPanel prodcutPanel = new ManageProductPanel(mainPanel, ecosystem, userAccount);
 
         mainPanel.add("manageProductsJPanel", prodcutPanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+
+    private void manageOrderHistory() {
+        changeBtnBgs("order-history");
+
+        ManageShopOrderHistory manageShopOrderHistory = new ManageShopOrderHistory(mainPanel, ecosystem, userAccount);
+
+        mainPanel.add("manageShopOrderHistory", manageShopOrderHistory);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
@@ -786,13 +796,4 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
 
-    private void managerOrderHistory() {
-        changeBtnBgs("order-history");
-
-        ManageShopOrderHistory manageShopOrderHistory = new ManageShopOrderHistory(mainPanel, ecosystem, userAccount);
-
-        mainPanel.add("manageShopOrderHistory", manageShopOrderHistory);
-        CardLayout layout = (CardLayout) mainPanel.getLayout();
-        layout.next(mainPanel);
-    }
 }

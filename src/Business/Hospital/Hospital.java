@@ -81,8 +81,8 @@ public class Hospital extends Business.UserAccount.UserAccount {
     }
 
     public HospitalDepartmentDirectory getDepartmentDirectory() {
-        if(departmentDirectory == null){
-        departmentDirectory = new HospitalDepartmentDirectory();
+        if (departmentDirectory == null) {
+            departmentDirectory = new HospitalDepartmentDirectory();
         }
         return departmentDirectory;
     }
@@ -90,5 +90,5 @@ public class Hospital extends Business.UserAccount.UserAccount {
     public void setDepartmentDirectory(HospitalDepartmentDirectory departmentDirectory) {
         this.departmentDirectory = departmentDirectory;
     }
-    
+
 }

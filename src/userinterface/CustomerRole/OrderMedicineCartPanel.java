@@ -372,7 +372,7 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                     for (OrderItem item : orderList) {
                         if (item.getProduct().getIsPrescriptionNeeded()) {
                             isPrescriptionNeeded = true;
-                            return;
+                            break;
                         }
                     }
                     

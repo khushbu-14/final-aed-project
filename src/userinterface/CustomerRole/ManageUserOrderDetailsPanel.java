@@ -65,6 +65,8 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         lblLastStatusDate = new javax.swing.JLabel();
         lblRestaurantName6 = new javax.swing.JLabel();
         lblTotalPrice = new javax.swing.JLabel();
+        lblDoctorName1 = new javax.swing.JLabel();
+        lblDoctorName = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblCustomerContact1 = new javax.swing.JLabel();
         lblShopName = new javax.swing.JLabel();
@@ -177,6 +179,15 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         lblTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTotalPrice.setText("NA");
 
+        lblDoctorName1.setBackground(new java.awt.Color(249, 244, 244));
+        lblDoctorName1.setForeground(new java.awt.Color(102, 102, 102));
+        lblDoctorName1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDoctorName1.setText("Doctor Name :");
+
+        lblDoctorName.setBackground(new java.awt.Color(249, 244, 244));
+        lblDoctorName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDoctorName.setText("NA");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -184,6 +195,8 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDoctorName1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblTotalQty, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRestaurantNameLable1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblLastStatusDate, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -207,7 +220,11 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
                 .addComponent(lblRestaurantName6)
                 .addGap(10, 10, 10)
                 .addComponent(lblLastStatusDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblDoctorName1)
+                .addGap(10, 10, 10)
+                .addComponent(lblDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         jPanel1.setBackground(new java.awt.Color(221, 248, 249));
@@ -362,26 +379,21 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnUpdateMessage;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCustomerAddress1;
     private javax.swing.JLabel lblCustomerAddress3;
     private javax.swing.JLabel lblCustomerContact1;
     private javax.swing.JLabel lblDeliveryManName;
+    private javax.swing.JLabel lblDoctorName;
+    private javax.swing.JLabel lblDoctorName1;
     private javax.swing.JLabel lblLastStatusDate;
     private javax.swing.JLabel lblName1;
     private javax.swing.JLabel lblOrderStatus;
     private javax.swing.JLabel lblPageTitle;
     private javax.swing.JLabel lblRequestDate;
-    private javax.swing.JLabel lblRestaurantAddress;
-    private javax.swing.JLabel lblRestaurantContact;
-    private javax.swing.JLabel lblRestaurantName1;
-    private javax.swing.JLabel lblRestaurantName2;
-    private javax.swing.JLabel lblRestaurantName3;
     private javax.swing.JLabel lblRestaurantName5;
     private javax.swing.JLabel lblRestaurantName6;
-    private javax.swing.JLabel lblRestaurantNameLable;
     private javax.swing.JLabel lblRestaurantNameLable1;
     private javax.swing.JLabel lblShopName;
     private javax.swing.JLabel lblTotalPrice;
@@ -455,6 +467,25 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
 
         String orderStatus = orderListData.getStatus();
 
+        if (orderListData.getStaff() != null) {
+            lblDoctorName.setVisible(true);
+            lblDoctorName1.setVisible(true);
+            lblDoctorName.setText(orderListData.getStaff().getName());
+        } else {
+            lblDoctorName.setVisible(false);
+            lblDoctorName1.setVisible(false);
+
+        }
+
+//        switch (orderStatus) {
+//            case "PENDING":
+//                lblDoctor.setVisible(false);
+//                lblDoctorName.setVisible(false);
+//                break;
+//
+//            default:
+//                break;
+//        }
         if (orderStatus.equalsIgnoreCase("COMPLETED") || orderStatus.equalsIgnoreCase("REJECTED")) {
             btnUpdateMessage.setVisible(false);
             txtMessage.setEditable(false);

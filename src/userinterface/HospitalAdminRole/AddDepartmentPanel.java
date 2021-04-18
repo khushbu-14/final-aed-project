@@ -48,7 +48,7 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
      * @param user
      * @param isUpdatePage
      */
-    public AddDepartmentPanel(JPanel mainWorkArea, EcoSystem ecosystem, HospitalDepartment department, Boolean isUpdatePage,UserAccount userAccount) {
+    public AddDepartmentPanel(JPanel mainWorkArea, EcoSystem ecosystem, HospitalDepartment department, Boolean isUpdatePage, UserAccount userAccount) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
@@ -57,7 +57,7 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         util = new Utils();
         setData();
-        
+
     }
 
     /**
@@ -191,7 +191,7 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
 
         lblUsername3.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername3.setText("number Of Beds:");
+        lblUsername3.setText("Number Of Beds:");
 
         lblPhoneNumber.setBackground(new java.awt.Color(249, 244, 244));
         lblPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -404,7 +404,6 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
             String msg = name + " account created successfully!";
             if (isUpdatePage) {
 
-                
                 department.setContact(phoneNo);
                 department.setEmail(email);
                 department.setDepartmentName(name);
@@ -443,13 +442,17 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
 
     private void NumberOfBedsKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_NumberOfBedsKeyPressed
         // TODO add your handling code here:
-              char c = evt.getKeyChar();
-        if (!Character.isDigit(c)) {
-            //txtSName.setEditable(false);
-            JOptionPane.showMessageDialog(this, "Sorry! only numbers are allowed");
-            NumberOfBeds.setText("");
+        char c = evt.getKeyChar();
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            txtContact.setEditable(true);
         } else {
-            NumberOfBeds.setEditable(true);
+            if (!Character.isDigit(c)) {
+                //txtSName.setEditable(false);
+                JOptionPane.showMessageDialog(this, "Sorry! only numbers are allowed");
+                NumberOfBeds.setText("");
+            } else {
+                NumberOfBeds.setEditable(true);
+            }
         }
     }//GEN-LAST:event_NumberOfBedsKeyPressed
 
@@ -466,9 +469,9 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
                 errorContactNumber.setText("Sorry! only numbers allowed");
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
-                if (txtContact.getText().length() > 10) {
+                if (txtContact.getText().length() > 9) {
 //                errorContactNumber.setText("Enter 10 digit valid number");
-                    //txtContact.setEditable(false);
+                    txtContact.setEditable(false);
                 } else {
                     errorContactNumber.setText("");
                     txtContact.setEditable(true);
@@ -504,12 +507,12 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSUserName;
     // End of variables declaration//GEN-END:variables
 
-     public void populateComboBox(){
-            for (Type t:ecosystem.getTypeDirectory().getTypeList()) {
-                if(t.getParent().toLowerCase().equals("hospitaldepartment")){
-                    jComboType.addItem(t.getType());
-                }
-                
-                }
+    public void populateComboBox() {
+        for (Type t : ecosystem.getTypeDirectory().getTypeList()) {
+            if (t.getParent().toLowerCase().equals("hospitaldepartment")) {
+                jComboType.addItem(t.getType());
+            }
+
+        }
     }
 }
