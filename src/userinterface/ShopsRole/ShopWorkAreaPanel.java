@@ -641,7 +641,7 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageDashboardPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardPanelMousePressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_manageDashboardPanelMousePressed
 
     private void manageProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageProductsMousePressed
@@ -656,12 +656,12 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageOrderMedicineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderMedicineMousePressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_manageOrderMedicineMousePressed
 
     private void manageOrderMedicinePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderMedicinePanelMousePressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_manageOrderMedicinePanelMousePressed
 
     private void manageOrderFitnessMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderFitnessMousePressed
@@ -690,10 +690,12 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageOrdersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrdersMousePressed
         // TODO add your handling code here:
+        managerOrderHistory();
     }//GEN-LAST:event_manageOrdersMousePressed
 
     private void manageOrdersPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrdersPanelMousePressed
         // TODO add your handling code here:
+        managerOrderHistory();
     }//GEN-LAST:event_manageOrdersPanelMousePressed
 
     private void manageSessionsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsMousePressed
@@ -728,6 +730,7 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         manageOrderMedicinePanel.setBackground(notActiveColor);
         managePersonalInfoPanel.setBackground(notActiveColor);
         manageSessionsPanel.setBackground(notActiveColor);
+        manageOrdersPanel.setBackground(notActiveColor);
 
         manageDashboard.setForeground(nonActiveTxtColor);
         manageAppointments.setForeground(nonActiveTxtColor);
@@ -741,6 +744,9 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         if ("manage-products".equalsIgnoreCase(type)) {
             manageProductPanel.setBackground(activeColor);
             manageProducts.setForeground(activeTxtColor);
+        } else if ("order-history".equalsIgnoreCase(type)) {
+            manageOrdersPanel.setBackground(activeColor);
+            manageOrders.setForeground(activeTxtColor);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -779,4 +785,14 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel manageSessionsPanel;
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
+
+    private void managerOrderHistory() {
+        changeBtnBgs("order-history");
+
+        ManageShopOrderHistory manageShopOrderHistory = new ManageShopOrderHistory(mainPanel, ecosystem, userAccount);
+
+        mainPanel.add("manageShopOrderHistory", manageShopOrderHistory);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
 }

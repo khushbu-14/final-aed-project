@@ -113,8 +113,8 @@ public class ManageShopPanel extends javax.swing.JPanel {
 
         btnAddUser.setBackground(new java.awt.Color(255, 255, 255));
         btnAddUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/plus.png"))); // NOI18N
-        btnAddUser.setText("User");
-        btnAddUser.setToolTipText("Add User");
+        btnAddUser.setText("Shop");
+        btnAddUser.setToolTipText("Add Shop");
         btnAddUser.setAlignmentY(0.0F);
         btnAddUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
         btnAddUser.setBorderPainted(false);

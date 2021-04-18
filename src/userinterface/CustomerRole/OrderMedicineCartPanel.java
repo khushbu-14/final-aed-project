@@ -35,20 +35,22 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
     private JPanel mainWorkArea;
     private EcoSystem ecosystem;
     private Shop shop;
-
+    private User user;
+    
     private UserAccount userAccount;
-
+    
     private ArrayList<OrderItem> orderList = new ArrayList<OrderItem>();
-
+    
     Utils utils;
-
+    
     DefaultTableModel model;
-
+    
     public OrderMedicineCartPanel(JPanel mainPanel, EcoSystem ecosystem, Shop shop, UserAccount userAccount) {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
         this.shop = shop;
         this.userAccount = userAccount;
+        this.user = (User) userAccount;
         utils = new Utils();
         initComponents();
         populateData();
@@ -291,14 +293,14 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
     private Product getSelectedProduct() {
         int selectedRowIndex = tblProductsList.getSelectedRow();
-
+        
         if (selectedRowIndex < 0) {
             utils.showErrorToast("Oops! Please select a product first.");
             return null;
         }
-
+        
         Product p = (Product) tblProductsList.getValueAt(selectedRowIndex, 1);
-
+        
         return p;
     }
 
@@ -311,22 +313,22 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Product p = getSelectedProduct();
         int qty = 0;
-
+        
         if (p != null) {
-
+            
             String response = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
-
+            
             try {
                 qty = Integer.parseInt(response);
             } catch (NumberFormatException e) {
                 utils.showErrorToast("Oops! Please provide valid quantity in numbers only");
             }
-
+            
             if (qty > 0) {
                 OrderItem oi = new OrderItem(p, qty);
-
+                
                 orderList.add(oi);
-
+                
                 populateCartTable();
             } else {
                 utils.showErrorToast("Only positive numbers allowed");
@@ -335,44 +337,45 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddProductActionPerformed
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
-
+        
         if (orderList != null && !orderList.isEmpty()) {
             String orderShipmentType = comboOrderShipmentType.getSelectedItem().toString();
-
+            
             if (utils.isStringInputValid(orderShipmentType) || orderShipmentType != null) {
-
+                
                 if (shop != null) {
-
+                    
                     String msg = txtMessage.getText();
-
+                    
                     String resultMsg = "";
-
+                    
                     if (!utils.isStringInputValid(msg)) {
                         msg = "";
                     }
-
+                    
                     OrderList newOrderList = new OrderList();
                     newOrderList.setOrderList(orderList);
-
+                    
                     newOrderList.setShop(shop);
-                    newOrderList.setUserAccount(userAccount);
-
+//                    newOrderList.setUserAccount(userAccount);
+                    newOrderList.setUser(user);
+                    
                     newOrderList.setRequestDate(new Date());
                     newOrderList.setMessage(msg);
-
+                    
                     Boolean isPickup = orderShipmentType.equalsIgnoreCase("PICKUP");
-
+                    
                     newOrderList.setIsPickup(isPickup);
-
+                    
                     Boolean isPrescriptionNeeded = false;
-
+                    
                     for (OrderItem item : orderList) {
                         if (item.getProduct().getIsPrescriptionNeeded()) {
                             isPrescriptionNeeded = true;
                             return;
                         }
                     }
-
+                    
                     if (isPrescriptionNeeded) {
                         newOrderList.setStatus("PENDING");
                         resultMsg = "Since some products in your cart need prescription, a doctor will connect with you soon!";
@@ -380,13 +383,13 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                         newOrderList.setStatus("BOOKED");
                         resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
                     }
-
+                    
                     newOrderList.setRequestType("USER-ORDER");
-
+                    
                     ecosystem.getWorkQueue().addWorkRequest(newOrderList);
-
+                    
                     JOptionPane.showMessageDialog(this, resultMsg);
-
+                    
                     openOrderHistory();
                 } else {
                     utils.showErrorToast("Something went wrong! Please try again.");
@@ -420,83 +423,83 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
     private void backAction() {
         mainWorkArea.remove(this);
-
+        
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }
-
+    
     private void populateData() {
-
+        
         comboOrderShipmentType.removeAllItems();
-
+        
         comboOrderShipmentType.addItem("PICKUP");
-
+        
         comboOrderShipmentType.addItem("DELIVERY");
-
+        
         ProductDirectory pd = shop.getProductDirectory();
-
+        
         DefaultTableModel model = (DefaultTableModel) tblProductsList.getModel();
-
+        
         int count = 1;
         model.setRowCount(0);
-
+        
         for (Product p : pd.getProductList()) {
             Object[] row = new Object[6];
-
+            
             row[0] = "" + count++;
             row[1] = p;
             row[2] = p.getPrice();
             row[3] = p.getIsPrescriptionNeeded();
             row[4] = p.getDescription();
             row[5] = p.getCalories();
-
+            
             model.addRow(row);
         }
-
+        
     }
-
+    
     private void populateCartTable() {
         DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
-
+        
         int count = 1;
         int qtyTotal = 0;
         double sumTotal = 0;
-
+        
         model.setRowCount(0);
-
+        
         for (OrderItem item : orderList) {
-
+            
             int qty = item.getQuantity();
             double price = item.getProduct().getPrice();
-
+            
             double totalPrice = price * qty;
-
+            
             qtyTotal += qty;
             sumTotal += totalPrice;
-
+            
             Object[] row = new Object[5];
             row[0] = "" + count++;
             row[1] = item;
             row[2] = price;
             row[3] = totalPrice;
             row[4] = qty;
-
+            
             model.addRow(row);
-
+            
         }
-
+        
         DecimalFormat df = new DecimalFormat("###.###");
-
+        
         txtTotalPrice.setText(String.valueOf(df.format(sumTotal)));
         txtTotalQuantity.setText(String.valueOf(qtyTotal));
     }
-
+    
     private void openOrderHistory() {
-
+        
         ManageUserOrderHistory manageUserOrderHistory = new ManageUserOrderHistory(mainWorkArea, ecosystem, userAccount);
-
+        
         mainWorkArea.add("ManageOrderHistory", manageUserOrderHistory);
-
+        
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
     }
