@@ -17,14 +17,16 @@ public class Product {
     private Double calories;
     private Double price;
     private String description;
+    private Boolean isPrescriptionNeeded;
 
-    public Product(String productName, Double calories, Double price, String description) {
+    public Product(String productName, Double calories, Double price, String description,Boolean isPrescriptionNeeded) {
         UUID uid = UUID.randomUUID();
         this.productId = uid.toString();
         this.productName = productName;
         this.calories = calories;
         this.price = price;
         this.description = description;
+        this.isPrescriptionNeeded = isPrescriptionNeeded;
     }
 
     public String getProductId() {
@@ -66,7 +68,16 @@ public class Product {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public Boolean getIsPrescriptionNeeded() {
+        return isPrescriptionNeeded;
+    }
+
+    public void setIsPrescriptionNeeded(Boolean isPrescriptionNeeded) {
+        this.isPrescriptionNeeded = isPrescriptionNeeded;
+    }
      
+    
      @Override
     public String toString() {
         return productName;
