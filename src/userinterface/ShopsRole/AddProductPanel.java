@@ -356,7 +356,7 @@ public class AddProductPanel extends javax.swing.JPanel {
         if (util.isStringInputValid(calorieInput)) {
             calories = Double.parseDouble(calorieInput);
         }
-        
+
         //  Double calories = Double.parseDouble(txtCalories.getText()),
         Double price = Double.parseDouble(txtPrice.getText());
         String isPrescriptionNeeded = jComboType.getSelectedItem().toString();

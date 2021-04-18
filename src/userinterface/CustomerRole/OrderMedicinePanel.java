@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Shop.Shop;
 import Business.Shop.ShopDirectory;
 import Business.Type.Type;
+import Business.UserAccount.UserAccount;
 import constants.Utils;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -25,12 +26,14 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
      */
     private JPanel mainWorkArea;
     private EcoSystem ecosystem;
+    UserAccount userAccount;
 
     Utils utils;
 
-    public OrderMedicinePanel(JPanel mainPanel, EcoSystem ecosystem) {
+    public OrderMedicinePanel(JPanel mainPanel, EcoSystem ecosystem, UserAccount userAccount) {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
+        this.userAccount = userAccount;
         utils = new Utils();
         initComponents();
 
@@ -221,7 +224,7 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
         Shop s = getSelectedShop();
 
         if (s != null) {
-            OrderMedicineCartPanel orderMedicineCartPanel = new OrderMedicineCartPanel(mainWorkArea, ecosystem, s);
+            OrderMedicineCartPanel orderMedicineCartPanel = new OrderMedicineCartPanel(mainWorkArea, ecosystem, s, userAccount);
 
             mainWorkArea.add("orderMedicineCartPanel", orderMedicineCartPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();

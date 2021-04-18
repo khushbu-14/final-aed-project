@@ -9,9 +9,16 @@ import Business.EcoSystem;
 import Business.Shop.Product;
 import Business.Shop.ProductDirectory;
 import Business.Shop.Shop;
+import Business.User.User;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.OrderItem;
+import Business.WorkQueue.OrderList;
 import constants.Utils;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -29,14 +36,19 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
     private EcoSystem ecosystem;
     private Shop shop;
 
+    private UserAccount userAccount;
+
+    private ArrayList<OrderItem> orderList = new ArrayList<OrderItem>();
+
     Utils utils;
 
     DefaultTableModel model;
 
-    public OrderMedicineCartPanel(JPanel mainPanel, EcoSystem ecosystem, Shop shop) {
+    public OrderMedicineCartPanel(JPanel mainPanel, EcoSystem ecosystem, Shop shop, UserAccount userAccount) {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
         this.shop = shop;
+        this.userAccount = userAccount;
         utils = new Utils();
         initComponents();
         populateData();
@@ -65,6 +77,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         btnPlaceOrder = new javax.swing.JButton();
         txtTotalQuantity = new javax.swing.JTextField();
         lblQty = new javax.swing.JLabel();
+        comboOrderShipmentType = new javax.swing.JComboBox<>();
+        lblShipmentType = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(244, 249, 249));
 
@@ -136,20 +150,20 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         tblCart.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         tblCart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Sr No.", "Name", "Single Product Price", "Quantity"
+                "Sr No.", "Name", "Unit Price", "Total Price", "Quantity"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -197,6 +211,12 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         lblQty.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblQty.setText("Total Quantity");
 
+        comboOrderShipmentType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
+
+        lblShipmentType.setBackground(new java.awt.Color(249, 244, 244));
+        lblShipmentType.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblShipmentType.setText("Select order shipment type");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -204,31 +224,36 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(32, 32, 32)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtTotalQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(186, 186, 186))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtTotalQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(186, 186, 186))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblShipmentType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(comboOrderShipmentType, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(199, 199, 199)
                         .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +267,12 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblShipmentType)
+                        .addGap(12, 12, 12)
+                        .addComponent(comboOrderShipmentType, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPrice)
@@ -293,11 +323,11 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
             }
 
             if (qty > 0) {
-//                OrderItem oi = new OrderItem(d, qty);
-//
-//                orderList.add(oi);
-//
-//                populateCartTable();
+                OrderItem oi = new OrderItem(p, qty);
+
+                orderList.add(oi);
+
+                populateCartTable();
             } else {
                 utils.showErrorToast("Only positive numbers allowed");
             }
@@ -306,19 +336,79 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
 
+        if (orderList != null && !orderList.isEmpty()) {
+            String orderShipmentType = comboOrderShipmentType.getSelectedItem().toString();
 
+            if (utils.isStringInputValid(orderShipmentType) || orderShipmentType != null) {
+
+                if (shop != null) {
+
+                    String msg = txtMessage.getText();
+
+                    String resultMsg = "";
+
+                    if (!utils.isStringInputValid(msg)) {
+                        msg = "";
+                    }
+
+                    OrderList newOrderList = new OrderList();
+                    newOrderList.setOrderList(orderList);
+
+                    newOrderList.setShop(shop);
+                    newOrderList.setUserAccount(userAccount);
+
+                    newOrderList.setRequestDate(new Date());
+                    newOrderList.setMessage(msg);
+
+                    Boolean isPickup = orderShipmentType.equalsIgnoreCase("PICKUP");
+
+                    newOrderList.setIsPickup(isPickup);
+
+                    Boolean isPrescriptionNeeded = false;
+
+                    for (OrderItem item : orderList) {
+                        if (item.getProduct().getIsPrescriptionNeeded()) {
+                            isPrescriptionNeeded = true;
+                            return;
+                        }
+                    }
+
+                    if (isPrescriptionNeeded) {
+                        newOrderList.setStatus("PENDING");
+                        resultMsg = "Since some products in your cart need prescription, a doctor will connect with you soon!";
+                    } else {
+                        newOrderList.setStatus("BOOKED");
+                        resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
+                    }
+
+                    ecosystem.getWorkQueue().addWorkRequest(newOrderList);
+
+                    JOptionPane.showMessageDialog(this, resultMsg);
+
+                    openOrderHistory();
+                } else {
+                    utils.showErrorToast("Something went wrong! Please try again.");
+                }
+            } else {
+                utils.showErrorToast("Please choose shipment type");
+            }
+        } else {
+            utils.showErrorToast("Oops! Please add atleast 1 product in your cart to proceed.");
+        }
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPlaceOrder;
+    private javax.swing.JComboBox<String> comboOrderShipmentType;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblMsg;
     private javax.swing.JLabel lblPageTitle;
     private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblQty;
+    private javax.swing.JLabel lblShipmentType;
     private javax.swing.JTable tblCart;
     private javax.swing.JTable tblProductsList;
     private javax.swing.JTextField txtMessage;
@@ -334,6 +424,12 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
     }
 
     private void populateData() {
+
+        comboOrderShipmentType.removeAllItems();
+
+        comboOrderShipmentType.addItem("PICKUP");
+
+        comboOrderShipmentType.addItem("DELIVERY");
 
         ProductDirectory pd = shop.getProductDirectory();
 
@@ -354,6 +450,46 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
             model.addRow(row);
         }
+
+    }
+
+    private void populateCartTable() {
+        DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
+
+        int count = 1;
+        int qtyTotal = 0;
+        double sumTotal = 0;
+
+        model.setRowCount(0);
+
+        for (OrderItem item : orderList) {
+
+            int qty = item.getQuantity();
+            double price = item.getProduct().getPrice();
+
+            double totalPrice = price * qty;
+
+            qtyTotal += qty;
+            sumTotal += totalPrice;
+
+            Object[] row = new Object[5];
+            row[0] = "" + count++;
+            row[1] = item;
+            row[2] = price;
+            row[3] = totalPrice;
+            row[4] = qty;
+
+            model.addRow(row);
+
+        }
+
+        DecimalFormat df = new DecimalFormat("###.###");
+
+        txtTotalPrice.setText(String.valueOf(df.format(sumTotal)));
+        txtTotalQuantity.setText(String.valueOf(qtyTotal));
+    }
+
+    private void openOrderHistory() {
 
     }
 }
