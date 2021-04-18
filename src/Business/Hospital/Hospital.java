@@ -5,7 +5,9 @@
  */
 package Business.Hospital;
 
+import Business.Hospital.Department.HospitalDepartmentDirectory;
 import Business.Role.HospitalRole;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /**
@@ -19,6 +21,7 @@ public class Hospital extends Business.UserAccount.UserAccount {
     private String contact;
     private String address;
     private String zipcode;
+    private HospitalDepartmentDirectory departmentDirectory;
 
     public Hospital(String username, String password, String hospitalName, String contact, String address, String zipcode) {
         UUID uid = UUID.randomUUID();
@@ -76,4 +79,16 @@ public class Hospital extends Business.UserAccount.UserAccount {
     public String toString() {
         return hospitalName;
     }
+
+    public HospitalDepartmentDirectory getDepartmentDirectory() {
+        if(departmentDirectory == null){
+        departmentDirectory = new HospitalDepartmentDirectory();
+        }
+        return departmentDirectory;
+    }
+
+    public void setDepartmentDirectory(HospitalDepartmentDirectory departmentDirectory) {
+        this.departmentDirectory = departmentDirectory;
+    }
+    
 }
