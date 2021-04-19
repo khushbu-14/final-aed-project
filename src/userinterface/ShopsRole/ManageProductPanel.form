@@ -76,7 +76,7 @@
                 <Column editable="false" title="Calories" type="java.lang.String"/>
                 <Column editable="false" title="Price" type="java.lang.String"/>
                 <Column editable="false" title="Description" type="java.lang.String"/>
-                <Column editable="false" title="isPrescriptionNeeded" type="java.lang.String"/>
+                <Column editable="false" title="Prescription Needed" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
