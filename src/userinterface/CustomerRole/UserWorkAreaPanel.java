@@ -725,12 +725,14 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-     private void managePersonalInfo() throws ParseException {
+
+    private void managePersonalInfo() throws ParseException {
         changeBtnBgs("managePersonalInfo");
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
 
-        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
+        AddMedicalProfilePanel1 manageInformationPanel = new AddMedicalProfilePanel1(mainPanel, ecosystem, user);
 
+//        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
         mainPanel.add("manageInformationJPanel", manageInformationPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
@@ -772,7 +774,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
             managePersonalInfo.setForeground(activeTxtColor);
         }
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel border;
     private javax.swing.JPanel border1;
