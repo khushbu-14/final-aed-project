@@ -18,6 +18,7 @@ public class User extends Business.UserAccount.UserAccount {
     private String email;
     private String address;
     private String zipcode;
+    private MedicalProfile medicalProfile;
 
     public User(String username, String password, String name, String contact, String email, String address, String zipcode) {
         this.name = name;
@@ -28,6 +29,9 @@ public class User extends Business.UserAccount.UserAccount {
         setPassword(password);
         setUsername(username);
         setRole(new UserRole());
+    }
+
+    public User() {
     }
 
     public String getName() {
@@ -68,6 +72,17 @@ public class User extends Business.UserAccount.UserAccount {
 
     public void setZipcode(String zipcode) {
         this.zipcode = zipcode;
+    }
+
+    public MedicalProfile getMedicalProfile() {
+        if(medicalProfile==null){
+        medicalProfile = new MedicalProfile();
+        }
+        return medicalProfile;
+    }
+
+    public void setMedicalProfile(MedicalProfile medicalProfile) {
+        this.medicalProfile = medicalProfile;
     }
 
     @Override

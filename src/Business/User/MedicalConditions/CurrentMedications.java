@@ -10,17 +10,17 @@ package Business.User.MedicalConditions;
  * @author kunal
  */
 public class CurrentMedications {
-    private String name;
+    private Test name;
 
-    public CurrentMedications(String name) {
+    public CurrentMedications(Test name) {
         this.name = name;
     }
     
-    public String getName() {
+    public Test getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Test name) {
         this.name = name;
     }
     

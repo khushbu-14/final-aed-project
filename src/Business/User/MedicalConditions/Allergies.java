@@ -10,17 +10,17 @@ package Business.User.MedicalConditions;
  * @author kunal
  */
 public class Allergies {
-    private String name;
+    private Test name;
 
-    public Allergies(String name) {
+    public Allergies(Test name) {
         this.name = name;
     }
     
-    public String getName() {
+    public Test getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Test name) {
         this.name = name;
     }
     

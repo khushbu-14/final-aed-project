@@ -9,18 +9,18 @@ package Business.User.MedicalConditions;
  *
  * @author kunal
  */
-public class ChronicDisease {
-    private String name;
+public class Test {
+    private Test name;
 
-    public ChronicDisease(String name) {
+    public Test(Test name) {
         this.name = name;
     }
     
-    public String getName() {
+    public Test getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(Test name) {
         this.name = name;
     }
     
