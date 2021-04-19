@@ -10,6 +10,9 @@ import Business.User.User;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JPanel;
 
 /**
@@ -670,13 +673,21 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageOrderFitnessPanelMousePressed
 
     private void managePersonalInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePersonalInfoMousePressed
-        // TODO add your handling code here:
-        managePersonalInfo();
+        try {
+            // TODO add your handling code here:
+            managePersonalInfo();
+        } catch (ParseException ex) {
+            Logger.getLogger(UserWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_managePersonalInfoMousePressed
 
     private void manageProfilePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageProfilePanelMousePressed
-        // TODO add your handling code here:
-        managePersonalInfo();
+        try {
+            // TODO add your handling code here:
+            managePersonalInfo();
+        } catch (ParseException ex) {
+            Logger.getLogger(UserWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_manageProfilePanelMousePressed
 
     private void manageAppointmentsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAppointmentsMousePressed
@@ -714,7 +725,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-     private void managePersonalInfo() {
+     private void managePersonalInfo() throws ParseException {
         changeBtnBgs("managePersonalInfo");
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
 

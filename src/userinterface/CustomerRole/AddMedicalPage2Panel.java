@@ -46,6 +46,11 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
     private ArrayList<String> pastMedList = new ArrayList<>();
     private ArrayList<String> chronicDiseaseList = new ArrayList<>();
     private ArrayList<String> surgeriesList = new ArrayList<>();
+     private ArrayList<String> allergiesList1 = new ArrayList<>();
+    private ArrayList<String> currentMedList1 = new ArrayList<>();
+    private ArrayList<String> pastMedList1 = new ArrayList<>();
+    private ArrayList<String> chronicDiseaseList1 = new ArrayList<>();
+    private ArrayList<String> surgeriesList1 = new ArrayList<>();
     private String selectedValue;
     
     Boolean flag;
@@ -65,9 +70,15 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         this.detailsList=detailsList;
         this.flag = flag;
         util = new Utils();
-        listTable.setVisible(false);
-        addedTable.setVisible(false);
-        ViewTable.setEnabled(false);
+        this.allergiesList= user.getMedicalProfile().getAllergyList();
+        this.currentMedList = user.getMedicalProfile().getCurrentMedicationList();
+        this.pastMedList = user.getMedicalProfile().getPastMedicationList();
+        this.chronicDiseaseList = user.getMedicalProfile().getChronicDiseaseList();
+        this.surgeriesList = user.getMedicalProfile().getSurgeriesyList();
+        jPanelAdd.setVisible(false);
+        btnSubmit.setVisible(false);
+        btnClose.setVisible(false);
+        btnNext.setVisible(true);
         populateViewTable();
     }
 
@@ -91,13 +102,16 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         ViewTable = new javax.swing.JTable();
         btnNext = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        addedTable = new javax.swing.JTable();
         btnSubmit = new javax.swing.JButton();
+        jcomboBoxList = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jPanelAdd = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         listTable = new javax.swing.JTable();
-        jcomboBoxList = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        addedTable = new javax.swing.JTable();
+        btnAdd = new javax.swing.JButton();
+        btnClose = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(249, 244, 244));
         setLayout(new java.awt.BorderLayout());
@@ -170,37 +184,31 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(ViewTable);
 
-        btnNext.setText("Add New");
+        btnNext.setText("New Record");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
             }
         });
 
-        btnAdd.setText("Add");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
-            }
-        });
-
-        addedTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
-            },
-            new String [] {
-                "Added"
-            }
-        ));
-        jScrollPane2.setViewportView(addedTable);
-
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
+            }
+        });
+
+        jcomboBoxList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allergies", "CurrentMedication", "PastMedication", "ChronicDisease", "Surgeries" }));
+        jcomboBoxList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcomboBoxListActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Delete Record");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -225,10 +233,58 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(listTable);
 
-        jcomboBoxList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allergies", "CurrentMedication", "PastMedication", "ChronicDisease", "Surgeries" }));
-        jcomboBoxList.addActionListener(new java.awt.event.ActionListener() {
+        addedTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Added"
+            }
+        ));
+        jScrollPane2.setViewportView(addedTable);
+
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcomboBoxListActionPerformed(evt);
+                btnAddActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelAddLayout = new javax.swing.GroupLayout(jPanelAdd);
+        jPanelAdd.setLayout(jPanelAddLayout);
+        jPanelAddLayout.setHorizontalGroup(
+            jPanelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAddLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanelAddLayout.setVerticalGroup(
+            jPanelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelAddLayout.createSequentialGroup()
+                .addGroup(jPanelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelAddLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelAddLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
+        );
+
+        btnClose.setText("Close");
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
             }
         });
 
@@ -237,24 +293,25 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         bottomPanelLayout.setHorizontalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jcomboBoxList, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(108, 108, 108)
-                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(59, 59, 59)
+                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jcomboBoxList, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(bottomPanelLayout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1)
+                        .addGap(35, 35, 35)
+                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(bottomPanelLayout.createSequentialGroup()
-                        .addGap(194, 194, 194)
-                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(371, Short.MAX_VALUE))
+                        .addGap(188, 188, 188)
+                        .addComponent(jPanelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, bottomPanelLayout.createSequentialGroup()
+                        .addGap(208, 208, 208)
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(202, 202, 202)
+                        .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(272, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,25 +319,22 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jcomboBoxList, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(60, 60, 60)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bottomPanelLayout.createSequentialGroup()
-                        .addComponent(jcomboBoxList, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(bottomPanelLayout.createSequentialGroup()
-                        .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
+                        .addComponent(jPanelAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(bottomPanelLayout.createSequentialGroup()
-                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(bottomPanelLayout.createSequentialGroup()
-                                        .addGap(39, 39, 39)
-                                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(32, 32, 32)
-                                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(156, Short.MAX_VALUE))
+                            .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnClose, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         splitPanel.setRightComponent(bottomPanel);
@@ -315,30 +369,34 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) addedTable.getModel();
         model.setRowCount(0);
         int selectedRowIndex = listTable.getSelectedRow();
+        
            if (selectedRowIndex < 0) {
             util.showErrorToast("Oops! Please select a record first first.");
+            
         }
+        
         if(selectedValue.toLowerCase().equals("allergies")){
             String s = (String) listTable.getValueAt(selectedRowIndex, 0);
              if(allergiesList.size()>0){
-                if(allergiesList.contains(s)){
-                  util.showErrorToast("Oops! Record is already Present");
-                  for(String st: allergiesList){
+                if(allergiesList.contains(s) || allergiesList1.contains(s)){
+                  util.showErrorToast("Oops! Record is already   Present");
+                for(String st: allergiesList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
+                
                 }
                 }else{
-                allergiesList.add(s);
-                for(String st: allergiesList){
+                allergiesList1.add(s);
+                for(String st: allergiesList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
                 }
             }
             } else {
-                allergiesList.add(s);
-                for(String st: allergiesList){
+                allergiesList1.add(s);
+                for(String st: allergiesList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
@@ -348,24 +406,25 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         } else if(selectedValue.toLowerCase().equals("currentmedication")){
             String s = (String) listTable.getValueAt(selectedRowIndex, 0);
             if(currentMedList.size()>0){
-                if(currentMedList.contains(s)){
-                  util.showErrorToast("Oops! Record is already Present");
-                  for(String st: currentMedList){
+                if(currentMedList.contains(s) || currentMedList1.contains(s)){
+                  util.showErrorToast("Oops! Record is already   Present");
+                  for(String st: currentMedList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
+                
                 }
                 }else{
-                currentMedList.add(s);
-                for(String st: currentMedList){
+                currentMedList1.add(s);
+                for(String st: currentMedList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
                 }
             }
             } else {
-                currentMedList.add(s);
-                for(String st: currentMedList){
+                currentMedList1.add(s);
+                for(String st: currentMedList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
@@ -374,24 +433,25 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         } else if(selectedValue.toLowerCase().equals("pastmedication")){
             String s = (String) listTable.getValueAt(selectedRowIndex, 0);
               if(pastMedList.size()>0){
-                if(pastMedList.contains(s)){
+                if(pastMedList.contains(s) || pastMedList1.contains(s)){
                   util.showErrorToast("Oops! Record is already Present");
-                  for(String st: pastMedList){
+                  for(String st: pastMedList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
+                
                 }
                 }else{
-                pastMedList.add(s);
-                for(String st: pastMedList){
+                pastMedList1.add(s);
+                for(String st: pastMedList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
                 }
             }
             } else {
-                pastMedList.add(s);
-                for(String st: pastMedList){
+                pastMedList1.add(s);
+                for(String st: pastMedList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
@@ -400,24 +460,25 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         } else if(selectedValue.toLowerCase().equals("chronicdisease")){
             String s = (String) listTable.getValueAt(selectedRowIndex, 0);
              if(chronicDiseaseList.size()>0){
-                if(chronicDiseaseList.contains(s)){
+                if(chronicDiseaseList.contains(s) || chronicDiseaseList1.contains(s)){
                   util.showErrorToast("Oops! Record is already Present");
-                  for(String st: chronicDiseaseList){
+                  for(String st: chronicDiseaseList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
+                
                 }
                 }else{
-                chronicDiseaseList.add(s);
-                for(String st: chronicDiseaseList){
+                chronicDiseaseList1.add(s);
+                for(String st: chronicDiseaseList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
                 }
             }
             } else {
-                chronicDiseaseList.add(s);
-                for(String st: chronicDiseaseList){
+                chronicDiseaseList1.add(s);
+                for(String st: chronicDiseaseList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
@@ -426,24 +487,25 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         }  else if(selectedValue.toLowerCase().equals("surgeries")){
             String s = (String) listTable.getValueAt(selectedRowIndex, 0);
              if(surgeriesList.size()>0){
-                if(surgeriesList.contains(s)){
+                if(surgeriesList.contains(s) || surgeriesList1.contains(s)){
                   util.showErrorToast("Oops! Record is already Present");
-                  for(String st: surgeriesList){
+                  for(String st: surgeriesList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
+                
                 }
                 }else{
-                surgeriesList.add(s);
-                for(String st: surgeriesList){
+                surgeriesList1.add(s);
+                for(String st: surgeriesList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
                 }
             }
             } else {
-                surgeriesList.add(s);
-                for(String st: surgeriesList){
+                surgeriesList1.add(s);
+                for(String st: surgeriesList1){
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
@@ -454,89 +516,55 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
         // TODO add your handling code here:
-        listTable.setVisible(true);
-        addedTable.setVisible(true);
-        DefaultTableModel model = (DefaultTableModel) listTable.getModel();
-        model.setRowCount(0);
-        selectedValue = jcomboBoxList.getSelectedItem().toString();
-        listTable.setEnabled(true);
-        addedTable.setEnabled(true);
-        if(selectedValue.toLowerCase().equals("allergies")){
-            List<String> allergyList = Arrays.asList("Lactose","Soy","Seafood","Nuts","Eggs","Fish");
-            for(String st: allergyList){
-                Object[] row = new Object[1];
-                row[0] = st;
-                model.addRow(row);
-            }
-        } else if(selectedValue.toLowerCase().equals("currentmedication")){
-            List<String> allergyList = Arrays.asList("Atm a gel 15gm","Nadoxin a gel 15ml","Calak a lotion 100ml","trump a syrup 100 ml","Alorex a cream 20gm","Glintra a gel 15ml");
-            for(String st: allergyList){
-                
-                Object[] row = new Object[1];
-                row[0] = st;
-                model.addRow(row);
-            }
-        } else if(selectedValue.toLowerCase().equals("pastmedication")){
-            List<String> allergyList = Arrays.asList("Atm a gel 15gm","Nadoxin a gel 15ml","Calak a lotion 100ml","trump a syrup 100 ml","Alorex a cream 20gm","Glintra a gel 15ml");
-            for(String st: allergyList){
-                
-                Object[] row = new Object[1];
-                row[0] = st;
-                model.addRow(row);
-            }
-        } else if(selectedValue.toLowerCase().equals("chronicdisease")){
-            List<String> allergyList = Arrays.asList("Diabetes","Hypertension","PCOS","COPD","Asthama","Heart disease");
-            for(String st: allergyList){
-                
-                Object[] row = new Object[1];
-                row[0] = st;
-                model.addRow(row);
-            }
-        } else if(selectedValue.toLowerCase().equals("surgeries")){
-            List<String> allergyList = Arrays.asList("Heart","Liver","Kidney","Lungs","Brain"," cosmetic");
-            for(String st: allergyList){
-                
-                Object[] row = new Object[1];
-                row[0] = st;
-                model.addRow(row);
-            }
-        }
+        jPanelAdd.setVisible(true);
+        btnSubmit.setVisible(true);
+        btnClose.setVisible(true);
+        btnNext.setVisible(false);
+        populateListTable();
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        for(String st: allergiesList){
+        for(String st: allergiesList1){
             if(!user.getMedicalProfile().getAllergyList().contains(st)){
             user.getMedicalProfile().addAllergies(st);
             }
             
         }
-        for(String st: chronicDiseaseList){
+        for(String st: chronicDiseaseList1){
             if(!user.getMedicalProfile().getChronicDiseaseList().contains(st)){
              user.getMedicalProfile().addChronicDisease(st);
             }
            
         }
-        for(String st: surgeriesList){
+        for(String st: surgeriesList1){
             if(!user.getMedicalProfile().getSurgeriesyList().contains(st)){
             user.getMedicalProfile().addSurgeries(st);
             }
             
         }
-        for(String st: currentMedList){
+        for(String st: currentMedList1){
             if(!user.getMedicalProfile().getCurrentMedicationList().contains(st)){
             user.getMedicalProfile().addCurrentMedication(st);
             }
             
         }
-        for(String st: pastMedList){
+        for(String st: pastMedList1){
             if(!user.getMedicalProfile().getPastMedicationList().contains(st)){
             user.getMedicalProfile().addPastMedications(st);
             }
             
         }
-        JOptionPane.showMessageDialog(this, "Data Added successfully",
+        DefaultTableModel model = (DefaultTableModel) addedTable.getModel();
+        model.setRowCount(0);
+        allergiesList1.clear();
+        currentMedList1.clear();
+        pastMedList1.clear();
+        chronicDiseaseList1.clear();
+        surgeriesList1.clear();
+        JOptionPane.showMessageDialog(this, "Records Added successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
+       
         populateViewTable();
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -544,7 +572,53 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
         // TODO add your handling code here:
         selectedValue = jcomboBoxList.getSelectedItem().toString();
         populateViewTable();
+        populateListTable();
+        
     }//GEN-LAST:event_jcomboBoxListActionPerformed
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        // TODO add your handling code here:
+        jPanelAdd.setVisible(false);
+        btnSubmit.setVisible(false);
+        btnClose.setVisible(false);
+        btnNext.setVisible(true);
+        allergiesList1.clear();
+        currentMedList1.clear();
+        pastMedList1.clear();
+        chronicDiseaseList1.clear();
+        surgeriesList1.clear();
+        DefaultTableModel model = (DefaultTableModel) addedTable.getModel();
+        model.setRowCount(0);
+    }//GEN-LAST:event_btnCloseActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+//        DefaultTableModel model = (DefaultTableModel) ViewTable.getModel();
+//        model.setRowCount(0);
+        int selectedRowIndex = ViewTable.getSelectedRow();
+           if (selectedRowIndex < 0) {
+            util.showErrorToast("Oops! Please select a record first first.");
+            populateViewTable();
+        }else{
+        String s = (String) ViewTable.getValueAt(selectedRowIndex, 0);
+        selectedValue = jcomboBoxList.getSelectedItem().toString();
+        if(selectedValue.toLowerCase().equals("allergies")){
+            user.getMedicalProfile().removeAllergies(s);
+        }else if(selectedValue.toLowerCase().equals("currentmedication")){
+            user.getMedicalProfile().removeCurrentMedication(s);
+        } else if(selectedValue.toLowerCase().equals("pastmedication")){
+            user.getMedicalProfile().removePastMedications(s);
+        } else if(selectedValue.toLowerCase().equals("chronicdisease")){
+            user.getMedicalProfile().removeChronicDisease(s);
+        } else if(selectedValue.toLowerCase().equals("surgeries")){
+            user.getMedicalProfile().removeSurgeries(s);
+        }
+        JOptionPane.showMessageDialog(this, "Record removed successfully",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+        populateViewTable();
+           }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ViewTable;
@@ -552,11 +626,14 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
     private javax.swing.JPanel bottomPanel;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnClose;
     private javax.swing.JButton btnNext;
     private javax.swing.JButton btnSubmit;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanelAdd;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -603,5 +680,52 @@ public class AddMedicalPage2Panel extends javax.swing.JPanel {
             }
         }
         
+    }
+    public void populateListTable(){
+        DefaultTableModel model = (DefaultTableModel) listTable.getModel();
+        model.setRowCount(0);
+        selectedValue = jcomboBoxList.getSelectedItem().toString();
+        listTable.setEnabled(true);
+        addedTable.setEnabled(true);
+        if(selectedValue.toLowerCase().equals("allergies")){
+            List<String> allergyList = Arrays.asList("Lactose","Soy","Seafood","Nuts","Eggs","Fish");
+            for(String st: allergyList){
+                Object[] row = new Object[1];
+                row[0] = st;
+                model.addRow(row);
+            }
+        } else if(selectedValue.toLowerCase().equals("currentmedication")){
+            List<String> allergyList = Arrays.asList("Atm a gel 15gm","Nadoxin a gel 15ml","Calak a lotion 100ml","trump a syrup 100 ml","Alorex a cream 20gm","Glintra a gel 15ml");
+            for(String st: allergyList){
+                
+                Object[] row = new Object[1];
+                row[0] = st;
+                model.addRow(row);
+            }
+        } else if(selectedValue.toLowerCase().equals("pastmedication")){
+            List<String> allergyList = Arrays.asList("Atm a gel 15gm","Nadoxin a gel 15ml","Calak a lotion 100ml","trump a syrup 100 ml","Alorex a cream 20gm","Glintra a gel 15ml");
+            for(String st: allergyList){
+                
+                Object[] row = new Object[1];
+                row[0] = st;
+                model.addRow(row);
+            }
+        } else if(selectedValue.toLowerCase().equals("chronicdisease")){
+            List<String> allergyList = Arrays.asList("Diabetes","Hypertension","PCOS","COPD","Asthama","Heart disease");
+            for(String st: allergyList){
+                
+                Object[] row = new Object[1];
+                row[0] = st;
+                model.addRow(row);
+            }
+        } else if(selectedValue.toLowerCase().equals("surgeries")){
+            List<String> allergyList = Arrays.asList("Heart","Liver","Kidney","Lungs","Brain"," cosmetic");
+            for(String st: allergyList){
+                
+                Object[] row = new Object[1];
+                row[0] = st;
+                model.addRow(row);
+            }
+        }
     }
 }
