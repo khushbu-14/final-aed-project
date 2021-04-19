@@ -11,6 +11,7 @@ import Business.Role.UserRole;
  *
  * @author kunal
  */
+
 public class User extends Business.UserAccount.UserAccount {
 
     private String name;

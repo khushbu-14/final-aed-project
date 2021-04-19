@@ -15,6 +15,7 @@ import java.util.ArrayList;
  * @author kunal
  */
 public class StaffDirectory {
+
     private ArrayList<Staff> staffList = new ArrayList<>();
 
     public ArrayList<Staff> getStaffList() {
@@ -27,7 +28,7 @@ public class StaffDirectory {
     public void setStaffList(ArrayList<Staff> staffList) {
         this.staffList = staffList;
     }
-    
+
 //    public Staff addNewStaff(String name,String designation,String contact, String address, String email, String userName, String password ){
 //        Staff staff = new Staff(name,designation,contact,address,email);
 //        staff.setUsername(userName);
@@ -35,7 +36,6 @@ public class StaffDirectory {
 //        staffList.add(staff);
 //        return staff;
 //    }
-
 //     public void deleteStaff(String userName){
 //         Staff staff=null;
 //         for(Staff st: staffList){
@@ -45,35 +45,35 @@ public class StaffDirectory {
 //         }
 //         staffList.remove(staff);
 //     }
-     
-     public Staff addNewStaff(Staff staff) {
+    public Staff addNewStaff(Staff staff) {
         staffList.add(staff);
         return staff;
     }
-      public void deleteStaff(Staff stf){
-        if(staffList != null){
+
+    public void deleteStaff(Staff stf) {
+        if (staffList != null) {
             staffList.remove(stf);
         }
     }
-     
-      public Staff getStaffByUserName(String userName){
-         Staff staff = null;
-         for(Staff st: staffList){
-             if(st.getUsername().equals(userName)){
-                 staff = st;
-             }    
-         }
-         return staff;
-     }
-      public void updateStaffByUserName(String userName, String name,String designation,String contact, String address, String email,String password){
-          Staff st = getStaffByUserName(userName);
-          st.setName(name);
-          st.setDesignation(designation);
-          st.setContact(contact);
-          st.setAddress(address);
-          st.setEmail(email);
-          st.setPassword(password);
-      }
-      
-    
+
+    public Staff getStaffByUserName(String userName) {
+        Staff staff = null;
+        for (Staff st : staffList) {
+            if (st.getUsername().equals(userName)) {
+                staff = st;
+            }
+        }
+        return staff;
+    }
+
+    public void updateStaffByUserName(String userName, String name, String designation, String contact, String address, String email, String password) {
+        Staff st = getStaffByUserName(userName);
+        st.setName(name);
+        st.setDesignation(designation);
+        st.setContact(contact);
+        st.setAddress(address);
+        st.setEmail(email);
+        st.setPassword(password);
+    }
+
 }

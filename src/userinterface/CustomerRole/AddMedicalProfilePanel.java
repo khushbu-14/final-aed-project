@@ -26,6 +26,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author khushbu
  */
+
 public class AddMedicalProfilePanel extends javax.swing.JPanel {
 
     private JPanel mainWorkArea;
@@ -48,6 +49,7 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
      * @param user
      * @param isUpdatePage
      */
+    
     public AddMedicalProfilePanel(JPanel mainWorkArea, EcoSystem ecosystem, User user) throws ParseException {
         initComponents();
         this.mainWorkArea = mainWorkArea;

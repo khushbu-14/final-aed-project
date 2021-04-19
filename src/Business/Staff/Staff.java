@@ -7,7 +7,7 @@ package Business.Staff;
 
 import Business.Hospital.Department.HospitalDepartment;
 import Business.Role.HospitalDepartmentRole;
-import Business.Role.ShopsRole;
+import Business.Role.StaffRole;
 
 /**
  *
@@ -33,7 +33,7 @@ public class Staff extends Business.UserAccount.UserAccount {
         this.department = department;
         setPassword(password);
         setUsername(userName);
-        setRole(new HospitalDepartmentRole());
+        setRole(new StaffRole());
     }
 
     public String getName() {
@@ -96,5 +96,4 @@ public class Staff extends Business.UserAccount.UserAccount {
     public String toString() {
         return name;
     }
-
 }

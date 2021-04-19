@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.CustomerRole;
+package userinterface.StaffRole;
 
+import userinterface.CustomerRole.*;
 import Business.EcoSystem;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
@@ -19,7 +20,7 @@ import javax.swing.JPanel;
  *
  * @author khushbu
  */
-public class UserWorkAreaPanel extends javax.swing.JPanel {
+public class StaffWorkAreaPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UserWorkAreaPanel
@@ -28,7 +29,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     EcoSystem ecosystem;
     UserAccount userAccount;
 
-    public UserWorkAreaPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem) {
+    public StaffWorkAreaPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem) {
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
@@ -677,7 +678,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
             // TODO add your handling code here:
             managePersonalInfo();
         } catch (ParseException ex) {
-            Logger.getLogger(UserWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StaffWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_managePersonalInfoMousePressed
 
@@ -686,7 +687,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
             // TODO add your handling code here:
             managePersonalInfo();
         } catch (ParseException ex) {
-            Logger.getLogger(UserWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StaffWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_manageProfilePanelMousePressed
 
@@ -725,14 +726,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-
-    private void managePersonalInfo() throws ParseException {
+     private void managePersonalInfo() throws ParseException {
         changeBtnBgs("managePersonalInfo");
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
 
-        AddMedicalProfilePanel1 manageInformationPanel = new AddMedicalProfilePanel1(mainPanel, ecosystem, user);
+        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
 
-//        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
         mainPanel.add("manageInformationJPanel", manageInformationPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
@@ -774,7 +773,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
             managePersonalInfo.setForeground(activeTxtColor);
         }
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel border;
     private javax.swing.JPanel border1;
