@@ -5,21 +5,13 @@
  */
 package Business.User;
 
-import Business.User.MedicalConditions.Allergies;
-import Business.User.MedicalConditions.ChronicDisease;
-import Business.User.MedicalConditions.CurrentMedications;
-import Business.User.MedicalConditions.PastMedications;
-import Business.User.MedicalConditions.Surgeries;
 import java.util.ArrayList;
 
 /**
  *
  * @author kunal
  */
-public class MedicalProfile {
-    private String name;
-    private String contact;
-    private String email;
+public class MedicalProfile extends Business.User.User{
     private String gender;
     private String dob;
     private String bloodGroup;
@@ -33,16 +25,13 @@ public class MedicalProfile {
     private String activityLevel;
     private String foodPreferences;
     private String occupations;
-    private ArrayList<Allergies> allergyList;
-    private ArrayList<ChronicDisease> chronicDiseaseList;
-    private ArrayList<CurrentMedications> currentMedicationList;
-    private ArrayList<PastMedications> pastMedicationList;
-    private ArrayList<Surgeries> surgeriesyList;
+    private ArrayList<String> allergyList;
+    private ArrayList<String> chronicDiseaseList;
+    private ArrayList<String> currentMedicationList;
+    private ArrayList<String> pastMedicationList;
+    private ArrayList<String> surgeryList;
 
-    public MedicalProfile(String name, String contact, String email, String gender, String dob, String bloodGroup, String maritalStatus, String height, String weight, String emergencyContact, String location, String smokingHabits, String alcoholConsumption, String activityLevel, String foodPreferences, String occupations) {
-        this.name = name;
-        this.contact = contact;
-        this.email = email;
+    public MedicalProfile(String name, String contact, String email,String gender, String dob, String bloodGroup, String maritalStatus, String height, String weight, String emergencyContact, String location, String smokingHabits, String alcoholConsumption, String activityLevel, String foodPreferences, String occupations) {
         this.gender = gender;
         this.dob = dob;
         this.bloodGroup = bloodGroup;
@@ -56,35 +45,18 @@ public class MedicalProfile {
         this.activityLevel = activityLevel;
         this.foodPreferences = foodPreferences;
         this.occupations = occupations;
-        this.surgeriesyList=new ArrayList<>();
+        this.allergyList=new ArrayList<>();
         this.chronicDiseaseList = new ArrayList<>();
         this.currentMedicationList = new ArrayList<>();
         this.pastMedicationList = new ArrayList<>();
-        this.surgeriesyList = new ArrayList<>();
+        this.surgeryList = new ArrayList<>();
+        setName(name);
+        setContact(contact);
+        setEmail(email);
+        
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getContact() {
-        return contact;
-    }
-
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public MedicalProfile() {
     }
 
     public String getGender() {
@@ -191,97 +163,94 @@ public class MedicalProfile {
         this.occupations = occupations;
     }
 
-    public ArrayList<Allergies> getAllergyList() {
+    public ArrayList<String> getAllergyList() {
          if(allergyList==null){
         allergyList= new ArrayList<>();
         }
         return allergyList;
     }
 
-    public void setAllergyList(ArrayList<Allergies> allergyList) {
+    public void setAllergyList(ArrayList<String> allergyList) {
         this.allergyList = allergyList;
     }
 
-    public ArrayList<ChronicDisease> getChronicDiseaseList() {
+    public ArrayList<String> getChronicDiseaseList() {
          if(chronicDiseaseList==null){
         chronicDiseaseList= new ArrayList<>();
         }
         return chronicDiseaseList;
     }
 
-    public void setChronicDiseaseList(ArrayList<ChronicDisease> chronicDiseaseList) {
+    public void setChronicDiseaseList(ArrayList<String> chronicDiseaseList) {
         this.chronicDiseaseList = chronicDiseaseList;
     }
 
-    public ArrayList<CurrentMedications> getCurrentMedicationList() {
+    public ArrayList<String> getCurrentMedicationList() {
          if(currentMedicationList==null){
         currentMedicationList= new ArrayList<>();
         }
         return currentMedicationList;
     }
 
-    public void setCurrentMedicationList(ArrayList<CurrentMedications> currentMedicationList) {
+    public void setCurrentMedicationList(ArrayList<String> currentMedicationList) {
         this.currentMedicationList = currentMedicationList;
     }
 
-    public ArrayList<PastMedications> getPastMedicationList() {
+    public ArrayList<String> getPastMedicationList() {
         if(pastMedicationList==null){
         pastMedicationList= new ArrayList<>();
         }
         return pastMedicationList;
     }
 
-    public void setPastMedicationList(ArrayList<PastMedications> pastMedicationList) {
+    public void setPastMedicationList(ArrayList<String> pastMedicationList) {
         this.pastMedicationList = pastMedicationList;
     }
 
-    public ArrayList<Surgeries> getSurgeriesyList() {
-        if(surgeriesyList==null){
-        surgeriesyList= new ArrayList<>();
+    public ArrayList<String> getSurgeriesyList() {
+        if(surgeryList==null){
+        surgeryList= new ArrayList<>();
         }
-        return surgeriesyList;
+        return surgeryList;
     }
 
-    public void setSurgeriesyList(ArrayList<Surgeries> surgeriesyList) {
-        this.surgeriesyList = surgeriesyList;
+    public void setSurgeriesyList(ArrayList<String> surgeryList) {
+        this.surgeryList = surgeryList;
     }
     
-    
-    
-    
-    public void addAllergies(Allergies medC){
+    public void addAllergies(String medC){
         allergyList.add(medC);
     }
-    public void removeAllergies(Allergies medC){
+    public void removeAllergies(String medC){
         allergyList.remove(medC);
     }
     
-    public void addChronicDisease(ChronicDisease medC){
+    public void addChronicDisease(String medC){
         chronicDiseaseList.add(medC);
     }
-    public void removeChronicDisease(ChronicDisease medC){
+    public void removeChronicDisease(String medC){
         chronicDiseaseList.remove(medC);
     }
     
-    public void addCurrentMedication(CurrentMedications medC){
+    public void addCurrentMedication(String medC){
         currentMedicationList.add(medC);
     }
-    public void removeCurrentMedication(CurrentMedications medC){
+    public void removeCurrentMedication(String medC){
         currentMedicationList.remove(medC);
     }
     
-    public void addPastMedications(PastMedications medC){
+    public void addPastMedications(String medC){
         pastMedicationList.add(medC);
     }
-    public void removePastMedications(PastMedications medC){
+    public void removePastMedications(String medC){
         pastMedicationList.remove(medC);
     }
     
-    public void addSurgeries(Surgeries medC){
-        surgeriesyList.add(medC);
+    public void addSurgeries(String medC){
+        surgeryList.add(medC);
     }
-    public void removeSurgeries(Surgeries medC){
-        surgeriesyList.remove(medC);
+    public void removeSurgeries(String medC){
+        surgeryList.remove(medC);
     }
     
 }

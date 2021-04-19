@@ -56,7 +56,7 @@
                       <Component id="manageConsultDoctorPanel" min="-2" max="-2" attributes="0"/>
                       <Component id="manageOrderMedicinePanel" min="-2" max="-2" attributes="0"/>
                       <Component id="manageOrderFitnessPanel" min="-2" max="-2" attributes="0"/>
-                      <Component id="managePersonalInfoPanel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageProfilePanel" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="manageAppointmentsPanel" min="-2" max="-2" attributes="0"/>
                       <Component id="manageOrdersPanel" min="-2" max="-2" attributes="0"/>
                       <Component id="manageSessionsPanel" min="-2" max="-2" attributes="0"/>
@@ -77,7 +77,7 @@
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="manageOrderFitnessPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="managePersonalInfoPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="manageProfilePanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="manageAppointmentsPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -490,7 +490,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="managePersonalInfoPanel">
+        <Container class="javax.swing.JPanel" name="manageProfilePanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
@@ -501,7 +501,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="managePersonalInfoPanelMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageProfilePanelMousePressed"/>
           </Events>
 
           <Layout>
@@ -554,7 +554,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Information"/>
+                <Property name="text" type="java.lang.String" value="Profile"/>
                 <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
               </Properties>
               <Events>
