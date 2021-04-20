@@ -9,12 +9,13 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.FitnessDepartmentRole.FitnessDepartmentWorkAreaJPanel;
+import userinterface.FitnessDepartmentRole.FitnessStaffWorkAreaPanel;
 
 public class FitnessDepartmentRole extends Role {
 
     @Override
 
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new FitnessDepartmentWorkAreaJPanel(userProcessContainer, account, business);
+        return new FitnessStaffWorkAreaPanel(userProcessContainer, account, business);
     }
 }

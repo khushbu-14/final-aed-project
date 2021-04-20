@@ -9,12 +9,13 @@ import Business.FitnessCenter.Department.FitnessCenterDepartment;
 import Business.FitnessCenter.FitnessCenter;
 import Business.Hospital.Department.HospitalDepartment;
 import Business.Role.FitnessDepartmentRole;
-import Business.Role.FitnessStaffRole;
 import Business.Role.HospitalDepartmentRole;
+import Business.Role.ShopsRole;
+import java.util.ArrayList;
 
 /**
  *
- * @author kunal
+ * @author singh
  */
 public class FcStaff extends Business.UserAccount.UserAccount{
     private String name;
@@ -24,6 +25,7 @@ public class FcStaff extends Business.UserAccount.UserAccount{
     private String email;
     private String zipcode;
     private FitnessCenterDepartment department;
+    private SessionsDirectory sdir;
 
     public FcStaff(String userName, String password, String name, String designation, String contact, String address, String email, String zipcode, FitnessCenterDepartment department) {
         this.name = name;
@@ -35,7 +37,7 @@ public class FcStaff extends Business.UserAccount.UserAccount{
         this.department = department;
         setPassword(password);
         setUsername(userName);
-        setRole(new FitnessStaffRole());
+        setRole(new FitnessDepartmentRole());
     }
 
     public String getName() {
@@ -92,6 +94,17 @@ public class FcStaff extends Business.UserAccount.UserAccount{
 
     public void setDepartment(FitnessCenterDepartment department) {
         this.department = department;
+    }
+
+    public SessionsDirectory getSdir() {
+        if(sdir==null){
+       sdir = new SessionsDirectory();
+       }
+        return sdir;
+    }
+
+    public void setSdir(SessionsDirectory sdir) {
+        this.sdir = sdir;
     }
     
     
