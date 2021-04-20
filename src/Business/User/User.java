@@ -5,6 +5,7 @@
  */
 package Business.User;
 
+import Business.Hospital.ConsultationForm;
 import Business.Role.UserRole;
 
 /**
@@ -20,6 +21,7 @@ public class User extends Business.UserAccount.UserAccount {
     private String address;
     private String zipcode;
     private MedicalProfile medicalProfile;
+    private ConsultationForm consultationForm;
 
     public User(String username, String password, String name, String contact, String email, String address, String zipcode) {
         this.name = name;
@@ -86,6 +88,18 @@ public class User extends Business.UserAccount.UserAccount {
         this.medicalProfile = medicalProfile;
     }
 
+    public ConsultationForm getConsultationForm() {
+        if(consultationForm==null){
+        consultationForm = new ConsultationForm();
+        }
+        return consultationForm;
+    }
+
+    public void setConsultationForm(ConsultationForm consultationForm) {
+        this.consultationForm = consultationForm;
+    }
+
+    
     @Override
     public String toString() {
         return name;

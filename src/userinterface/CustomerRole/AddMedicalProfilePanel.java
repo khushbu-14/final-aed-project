@@ -11,6 +11,7 @@ import Business.User.User;
 import constants.Utils;
 
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
 import java.text.ParseException;
@@ -18,6 +19,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -26,7 +29,6 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author khushbu
  */
-
 public class AddMedicalProfilePanel extends javax.swing.JPanel {
 
     private JPanel mainWorkArea;
@@ -49,7 +51,6 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
      * @param user
      * @param isUpdatePage
      */
-    
     public AddMedicalProfilePanel(JPanel mainWorkArea, EcoSystem ecosystem, User user) throws ParseException {
         initComponents();
         this.mainWorkArea = mainWorkArea;
@@ -59,7 +60,7 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
         util = new Utils();
         detailsList = new ArrayList<>();
         setData();
-        btnNext.setVisible(false);
+        managePersonalInformation();
     }
 
     /**
@@ -78,45 +79,16 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblUserAction = new javax.swing.JLabel();
         bottomPanel = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        txtHeight = new javax.swing.JTextField();
-        lblPassword1 = new javax.swing.JLabel();
-        lblPhoneNumber2 = new javax.swing.JLabel();
-        lblPhoneNumber1 = new javax.swing.JLabel();
-        errorEmail = new javax.swing.JLabel();
-        lblPhoneNumber = new javax.swing.JLabel();
-        lblUsername2 = new javax.swing.JLabel();
-        txtContact = new javax.swing.JTextField();
-        txtSEmail = new javax.swing.JTextField();
-        lblUsername3 = new javax.swing.JLabel();
-        errorContactNumber = new javax.swing.JLabel();
-        txtSName = new javax.swing.JTextField();
-        lblUsername1 = new javax.swing.JLabel();
-        txtWeight = new javax.swing.JTextField();
-        lblUsername4 = new javax.swing.JLabel();
-        dobChooser = new com.toedter.calendar.JDateChooser();
-        selectGenderCombo = new javax.swing.JComboBox<>();
-        btnEdit = new javax.swing.JButton();
-        btnNext = new javax.swing.JButton();
-        lblUsername5 = new javax.swing.JLabel();
-        lblUsername6 = new javax.swing.JLabel();
-        jComboMaritalStatus = new javax.swing.JComboBox<>();
-        jComboSmokingHabbits = new javax.swing.JComboBox<>();
-        lblUsername7 = new javax.swing.JLabel();
-        jComboAlcohol = new javax.swing.JComboBox<>();
-        txtContactEmergency = new javax.swing.JTextField();
-        lblPhoneNumber3 = new javax.swing.JLabel();
-        errorContactNumber1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jComboActivity = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        jComboFood = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        jComboOccupation = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
-        jComboCity = new javax.swing.JComboBox<>();
-        buttonNextPage = new javax.swing.JButton();
-        jComboBlood = new javax.swing.JComboBox<>();
+        managePersonalInfoPanel = new javax.swing.JPanel();
+        iconDashboard = new javax.swing.JLabel();
+        managePerosnalInfo = new javax.swing.JLabel();
+        manageHealthPanel = new javax.swing.JPanel();
+        iconHospital = new javax.swing.JLabel();
+        manageHealth = new javax.swing.JLabel();
+        manageMedicalConditionPanel = new javax.swing.JPanel();
+        iconShop = new javax.swing.JLabel();
+        manageMedicalCondition = new javax.swing.JLabel();
+        formPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(249, 244, 244));
         setLayout(new java.awt.BorderLayout());
@@ -174,336 +146,168 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
 
         bottomPanel.setBackground(new java.awt.Color(243, 241, 249));
 
-        jPanel1.setBackground(new java.awt.Color(243, 241, 249));
-
-        txtHeight.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        txtHeight.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtHeightKeyPressed(evt);
+        managePersonalInfoPanel.setBackground(new java.awt.Color(3, 80, 111));
+        managePersonalInfoPanel.setToolTipText("Manage Personal Information");
+        managePersonalInfoPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        managePersonalInfoPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                managePersonalInfoPanelMousePressed(evt);
             }
         });
 
-        lblPassword1.setBackground(new java.awt.Color(249, 244, 244));
-        lblPassword1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPassword1.setText("Date of Birth:");
+        iconDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
 
-        lblPhoneNumber2.setBackground(new java.awt.Color(249, 244, 244));
-        lblPhoneNumber2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPhoneNumber2.setText("Height (in cm):");
-
-        lblPhoneNumber1.setBackground(new java.awt.Color(249, 244, 244));
-        lblPhoneNumber1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPhoneNumber1.setText("Gender:");
-
-        errorEmail.setForeground(new java.awt.Color(255, 0, 0));
-
-        lblPhoneNumber.setBackground(new java.awt.Color(249, 244, 244));
-        lblPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPhoneNumber.setText("Contact Number :");
-
-        lblUsername2.setBackground(new java.awt.Color(249, 244, 244));
-        lblUsername2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername2.setText("Weight (in Kg)");
-
-        txtContact.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        txtContact.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContactActionPerformed(evt);
-            }
-        });
-        txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtContactKeyPressed(evt);
+        managePerosnalInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        managePerosnalInfo.setForeground(new java.awt.Color(255, 255, 255));
+        managePerosnalInfo.setText("Personal Information");
+        managePerosnalInfo.setToolTipText("Dashboard");
+        managePerosnalInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                managePerosnalInfoMousePressed(evt);
             }
         });
 
-        txtSEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        txtSEmail.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSEmailKeyPressed(evt);
-            }
-        });
-
-        lblUsername3.setBackground(new java.awt.Color(249, 244, 244));
-        lblUsername3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername3.setText("E-mail Id :");
-
-        errorContactNumber.setForeground(new java.awt.Color(255, 0, 0));
-
-        txtSName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-
-        lblUsername1.setBackground(new java.awt.Color(249, 244, 244));
-        lblUsername1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername1.setText("Full Name");
-
-        txtWeight.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        txtWeight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtWeightActionPerformed(evt);
-            }
-        });
-        txtWeight.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtWeightKeyPressed(evt);
-            }
-        });
-
-        lblUsername4.setBackground(new java.awt.Color(249, 244, 244));
-        lblUsername4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername4.setText("Blood group");
-
-        selectGenderCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other", "PreferNotToSay", " " }));
-
-        btnEdit.setBackground(new java.awt.Color(3, 80, 111));
-        btnEdit.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnEdit.setForeground(new java.awt.Color(255, 255, 255));
-        btnEdit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnEdit.setText("Edit");
-        btnEdit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
-
-        btnNext.setBackground(new java.awt.Color(3, 80, 111));
-        btnNext.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnNext.setForeground(new java.awt.Color(255, 255, 255));
-        btnNext.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnNext.setText("Save &Next: Medical Records ");
-        btnNext.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
-            }
-        });
-
-        lblUsername5.setBackground(new java.awt.Color(249, 244, 244));
-        lblUsername5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername5.setText("Marital Status:");
-
-        lblUsername6.setBackground(new java.awt.Color(249, 244, 244));
-        lblUsername6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername6.setText("Smoking habbits:");
-
-        jComboMaritalStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Other" }));
-
-        jComboSmokingHabbits.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "I don't smoke", "I used to, but I've quit", "1-2/day", "3-5/day", "5-10/day", ">10/day" }));
-
-        lblUsername7.setBackground(new java.awt.Color(249, 244, 244));
-        lblUsername7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername7.setText("Alcohol consumption:");
-
-        jComboAlcohol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non-drinker", "Rare", "Social", "Regular", "Heavy" }));
-
-        txtContactEmergency.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        txtContactEmergency.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContactEmergencyActionPerformed(evt);
-            }
-        });
-        txtContactEmergency.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtContactEmergencyKeyPressed(evt);
-            }
-        });
-
-        lblPhoneNumber3.setBackground(new java.awt.Color(249, 244, 244));
-        lblPhoneNumber3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPhoneNumber3.setText("EmergencyContact  Number :");
-
-        errorContactNumber1.setForeground(new java.awt.Color(255, 0, 0));
-
-        jLabel1.setText("Activity Level:");
-
-        jComboActivity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sedentary (low)", "Moderately active (Normal)", "Active (High)", "Athletic (Very High)" }));
-
-        jLabel2.setText("Food Preference:");
-
-        jComboFood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vegetarian", "Non-Vegetarian", "Eggetarian", "Vegan" }));
-
-        jLabel3.setText("Occupation:");
-
-        jComboOccupation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IT Professional", "Medical professional", "Banking professional", "Education", "Student", "Home-maker", "Other" }));
-
-        jLabel4.setText("Location:");
-
-        jComboCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "Syracuse", "New York", "San Francisco", "New Jersey", "Chicago", "San Diego", "Dallas", "San Jose", "Houston", " " }));
-
-        buttonNextPage.setFont(new java.awt.Font("Tahoma", 1, 13)); // NOI18N
-        buttonNextPage.setText("Next Page");
-        buttonNextPage.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonNextPageActionPerformed(evt);
-            }
-        });
-
-        jComboBlood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lblPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 225, Short.MAX_VALUE)
-                                .addComponent(txtContact, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(lblUsername1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(selectGenderCombo, javax.swing.GroupLayout.Alignment.LEADING, 0, 225, Short.MAX_VALUE)
-                                .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtHeight, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtSName)))
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(errorEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 62, Short.MAX_VALUE)
-                                .addGap(163, 163, 163))
-                            .addComponent(txtSEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUsername3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtWeight, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUsername2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblUsername4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(dobChooser, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPassword1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBlood, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(60, 60, 60)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblUsername5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jComboMaritalStatus, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblUsername6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboSmokingHabbits, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblUsername7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jComboAlcohol, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblPhoneNumber3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                .addComponent(txtContactEmergency, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(errorContactNumber1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(47, 47, 47))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(242, 242, 242)
-                                .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(buttonNextPage, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboOccupation, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboFood, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jComboActivity, 0, 187, Short.MAX_VALUE)
-                    .addComponent(jComboCity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(65, 65, 65))
+        javax.swing.GroupLayout managePersonalInfoPanelLayout = new javax.swing.GroupLayout(managePersonalInfoPanel);
+        managePersonalInfoPanel.setLayout(managePersonalInfoPanelLayout);
+        managePersonalInfoPanelLayout.setHorizontalGroup(
+            managePersonalInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(managePersonalInfoPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iconDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(managePerosnalInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword1)
-                    .addComponent(lblUsername5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(lblUsername1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(dobChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(23, 23, 23)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lblUsername6, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel2))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jComboSmokingHabbits)
-                                            .addComponent(jComboFood)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(lblUsername4)
-                                            .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(selectGenderCombo, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                                            .addComponent(jComboBlood))))
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblUsername2)
-                                    .addComponent(lblUsername7, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboAlcohol, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboOccupation, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jComboMaritalStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jComboActivity, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblUsername3)
-                                    .addComponent(lblPhoneNumber3, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel4)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(7, 7, 7)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(txtSEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btnEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(buttonNextPage, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtContactEmergency, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboCity, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(7, 7, 7)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(errorContactNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
-                .addGap(38, 38, 38))
+        managePersonalInfoPanelLayout.setVerticalGroup(
+            managePersonalInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(managePersonalInfoPanelLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(managePersonalInfoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(iconDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(managePerosnalInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
         );
+
+        manageHealthPanel.setBackground(new java.awt.Color(3, 80, 111));
+        manageHealthPanel.setToolTipText("Manage Health Profile");
+        manageHealthPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageHealthPanel.setPreferredSize(new java.awt.Dimension(242, 53));
+        manageHealthPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageHealthPanelMousePressed(evt);
+            }
+        });
+
+        iconHospital.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+
+        manageHealth.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        manageHealth.setForeground(new java.awt.Color(255, 255, 255));
+        manageHealth.setText("Health Profile");
+        manageHealth.setToolTipText("Hospital");
+        manageHealth.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageHealthMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout manageHealthPanelLayout = new javax.swing.GroupLayout(manageHealthPanel);
+        manageHealthPanel.setLayout(manageHealthPanelLayout);
+        manageHealthPanelLayout.setHorizontalGroup(
+            manageHealthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageHealthPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iconHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageHealth, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        manageHealthPanelLayout.setVerticalGroup(
+            manageHealthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageHealthPanelLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(manageHealthPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(iconHospital, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(manageHealth, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
+        );
+
+        manageMedicalConditionPanel.setBackground(new java.awt.Color(3, 80, 111));
+        manageMedicalConditionPanel.setToolTipText("Manage Medical Condition");
+        manageMedicalConditionPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageMedicalConditionPanel.setPreferredSize(new java.awt.Dimension(242, 53));
+        manageMedicalConditionPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageMedicalConditionPanelMousePressed(evt);
+            }
+        });
+
+        iconShop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconShop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+
+        manageMedicalCondition.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        manageMedicalCondition.setForeground(new java.awt.Color(255, 255, 255));
+        manageMedicalCondition.setText("Medical Conditions");
+        manageMedicalCondition.setToolTipText("Shop");
+        manageMedicalCondition.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageMedicalConditionMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout manageMedicalConditionPanelLayout = new javax.swing.GroupLayout(manageMedicalConditionPanel);
+        manageMedicalConditionPanel.setLayout(manageMedicalConditionPanelLayout);
+        manageMedicalConditionPanelLayout.setHorizontalGroup(
+            manageMedicalConditionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageMedicalConditionPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iconShop, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageMedicalCondition, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        manageMedicalConditionPanelLayout.setVerticalGroup(
+            manageMedicalConditionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageMedicalConditionPanelLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(manageMedicalConditionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(iconShop, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(manageMedicalCondition, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(5, 5, 5))
+        );
+
+        formPanel.setBackground(new java.awt.Color(243, 241, 249));
+        formPanel.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(bottomPanelLayout.createSequentialGroup()
+                .addGap(0, 216, Short.MAX_VALUE)
+                .addComponent(managePersonalInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(manageHealthPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(manageMedicalConditionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(170, 170, 170))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+                .addGap(2, 2, 2)
+                .addComponent(formPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(2, 2, 2))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(93, 93, 93))
+                .addContainerGap()
+                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(managePersonalInfoPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageMedicalConditionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageHealthPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addComponent(formPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         splitPanel.setRightComponent(bottomPanel);
@@ -511,50 +315,11 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
         add(splitPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setFields(Boolean bool) {
 
-public void setFields(Boolean bool){
-    txtSName.setEditable(bool);
-    selectGenderCombo.setEnabled(bool);
-    txtHeight.setEditable(bool);
-    txtContact.setEditable(bool);
-    dobChooser.setEnabled(bool);
-    jComboBlood.setEnabled(bool);
-    txtWeight.setEditable(bool);
-    txtSEmail.setEditable(bool);
-    jComboMaritalStatus.setEnabled(bool);
-    jComboSmokingHabbits.setEnabled(bool);
-    jComboAlcohol.setEnabled(bool);
-    txtContactEmergency.setEditable(bool);
-    jComboActivity.setEnabled(bool);
-    jComboFood.setEnabled(bool);
-    jComboOccupation.setEnabled(bool);
-    jComboCity.setEnabled(bool);
-    
-    
-}
+    }
+
     private void setData() throws ParseException {
-        txtSName.setText(user.getName());
-        selectGenderCombo.setSelectedItem(user.getMedicalProfile().getGender());
-        txtHeight.setText(user.getMedicalProfile().getHeight());
-        txtContact.setText(user.getContact());
-        String string = user.getMedicalProfile().getDob();
-        SimpleDateFormat formatNew = new SimpleDateFormat("MMM dd, yyyy", Locale.US);
-        Date date = formatNew.parse(string);
-        dobChooser.setDate(date);
-        jComboBlood.setSelectedItem(user.getMedicalProfile().getBloodGroup());
-        txtWeight.setText(user.getMedicalProfile().getWeight());
-        txtSEmail.setText(user.getEmail());
-        jComboMaritalStatus.setSelectedItem(user.getMedicalProfile().getMaritalStatus());
-        jComboSmokingHabbits.setSelectedItem(user.getMedicalProfile().getSmokingHabits());
-        jComboAlcohol.setSelectedItem(user.getMedicalProfile().getAlcoholConsumption());
-        txtContactEmergency.setText(user.getMedicalProfile().getEmergencyContact());
-        jComboActivity.setSelectedItem(user.getMedicalProfile().getActivityLevel());
-        jComboFood.setSelectedItem(user.getMedicalProfile().getFoodPreferences());
-        jComboOccupation.setSelectedItem(user.getMedicalProfile().getOccupations());
-        jComboCity.setSelectedItem(user.getMedicalProfile().getLocation());
-        setFields(false);
-        
-        
 
     }
 
@@ -575,260 +340,126 @@ public void setFields(Boolean bool){
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-        setFields(true);
-        flag = true;
-        btnNext.setVisible(true);
-        btnEdit.setVisible(false);
-    }//GEN-LAST:event_btnEditActionPerformed
-
-    private void txtSEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSEmailKeyPressed
-        // TODO add your handling code here:
-        String val = txtSEmail.getText();
-
-        if (!util.isEmailValid(val)) {
-            errorEmail.setText("Enter valid e-mail");
-        } else {
-            errorEmail.setText("");
+    private void managePerosnalInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePerosnalInfoMousePressed
+        try {
+            managePersonalInformation();
+        } catch (ParseException ex) {
+            Logger.getLogger(AddMedicalProfilePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_txtSEmailKeyPressed
+    }//GEN-LAST:event_managePerosnalInfoMousePressed
 
-    private void txtContactKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactKeyPressed
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-
-        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-            txtContact.setEditable(true);
-        } else {
-
-            if (!Character.isDigit(c)) {
-                txtContact.setText("");
-                errorContactNumber.setText("Sorry! only numbers allowed");
-//            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
-            } else {
-                if (util.countOfString(txtContact.getText())>10 || util.countOfString(txtContact.getText())<10 ) {
-//                errorContactNumber.setText("Enter 10 digit valid number");
-                     errorContactNumber.setText("Contact number must be of 10 digits");
-                    txtContact.setText("");
-                }
-            }
+    private void managePersonalInfoPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePersonalInfoPanelMousePressed
+        try {
+            // TODO add your handling code here:
+            managePersonalInformation();
+        } catch (ParseException ex) {
+            Logger.getLogger(AddMedicalProfilePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_txtContactKeyPressed
+    }//GEN-LAST:event_managePersonalInfoPanelMousePressed
 
-    private void txtHeightKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHeightKeyPressed
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-
-        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-            txtHeight.setEditable(true);
-        } else {
-
-            if (!Character.isDigit(c)) {
-                txtHeight.setText("");
-//                errorZipcode.setText("Sorry! only numbers allowed");
-                JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
-            }
+    private void manageHealthMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageHealthMousePressed
+        try {
+            // TODO add your handling code here:
+            manageHealthInformation();
+        } catch (ParseException ex) {
+            Logger.getLogger(AddMedicalProfilePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_txtHeightKeyPressed
+    }//GEN-LAST:event_manageHealthMousePressed
 
-    private void txtWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWeightActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtWeightActionPerformed
-
-    private void txtWeightKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtWeightKeyPressed
-        // TODO add your handling code here:
-        char c = evt.getKeyChar();
-
-        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-            txtContact.setEditable(true);
-        } else {
-
-            if (!Character.isDigit(c)) {
-                txtContact.setText("");
-                errorContactNumber.setText("Sorry! only numbers allowed");
-//            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
-            }
+    private void manageHealthPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageHealthPanelMousePressed
+        try {
+            // TODO add your handling code here:
+            manageHealthInformation();
+        } catch (ParseException ex) {
+            Logger.getLogger(AddMedicalProfilePanel.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_txtWeightKeyPressed
+    }//GEN-LAST:event_manageHealthPanelMousePressed
 
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+    private void manageMedicalConditionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageMedicalConditionMousePressed
         // TODO add your handling code here:
-     // TODO add your handling code here:
-        String name = txtSName.getText(),
-                height = txtHeight.getText(),
-                gender = selectGenderCombo.getSelectedItem().toString(),
-                contactNo = txtContact.getText(),
-                bloodGroup = jComboBlood.getSelectedItem().toString(),
-                weight = txtWeight.getText(),
-                email = txtSEmail.getText(),
-                maritalStatus = jComboMaritalStatus.getSelectedItem().toString(),
-                smokingHabbits = jComboSmokingHabbits.getSelectedItem().toString(),
-                alcoholConsuption = jComboAlcohol.getSelectedItem().toString(),
-                emergencyContact = txtContactEmergency.getText(),
-                activityLevel = jComboActivity.getSelectedItem().toString(),
-                foodPreference = jComboFood.getSelectedItem().toString(),
-                occupation = jComboOccupation.getSelectedItem().toString(),
-                location = jComboCity.getSelectedItem().toString();
-        SimpleDateFormat formatNew = new SimpleDateFormat("MMM dd, yyyy", Locale.US);
-        String dob = formatNew.format(dobChooser.getDate());
+        manageMedicalInformation();
+    }//GEN-LAST:event_manageMedicalConditionMousePressed
 
-        if (!util.isStringInputValid(name)) {
-            util.showErrorToast("Plesae enter valid user name");
-            
-        } else if (!util.isStringInputValid(bloodGroup)) {
-            util.showErrorToast("Plesae enter valid password");
-            
-        } else if (!util.isStringInputValid(weight)) {
-            util.showErrorToast("Plesae enter valid name");
-            
-        } else if (!util.isStringInputValid(height)) {
-            util.showErrorToast("Plesae enter valid name");
-            
-        } else if (!util.isStringInputValid(email) || !util.isEmailValid(email)) {
-            util.showErrorToast("Plesae enter valid email-id");
-            
-        } else if (!util.isStringInputValid(contactNo) || contactNo.length() != 10) {
-            util.showErrorToast("Plesae enter valid 10 digit phone number");
-            
-        } else if (!util.isStringInputValid(emergencyContact) || emergencyContact.length() != 10) {
-            util.showErrorToast("Plesae enter valid 10 digit phone number");
-            
-        } else if (gender.toLowerCase().equals("selct")) {
-            util.showErrorToast("Plesae enter valid Gender");
-            
-        } else if (maritalStatus.toLowerCase().equals("selct")) {
-            util.showErrorToast("Plesae enter valid Marital status");
-            
-        }  else if (smokingHabbits.toLowerCase().equals("selct")) {
-            util.showErrorToast("Plesae enter valid Smoking heights");
-            
-        } else if (alcoholConsuption.toLowerCase().equals("selct")) {
-            util.showErrorToast("Plesae enter valid Alcohol consumptions");
-            
-        } else if (activityLevel.toLowerCase().equals("selct")) {
-            util.showErrorToast("Plesae enter valid Activity level");
-            
-        } else if (foodPreference.toLowerCase().equals("selct")) {
-            util.showErrorToast("Plesae enter valid Food Preference");
-            
-        } else if (occupation.toLowerCase().equals("selct")) {
-            util.showErrorToast("Plesae enter valid Occupation");
-            
-        } else if (location.toLowerCase().equals("selct")) {
-            util.showErrorToast("Plesae enter valid location");
-            
-        } else { 
-        user.setName(name);
-        user.getMedicalProfile().setHeight(height);
-        user.getMedicalProfile().setGender(gender);
-        user.setContact(contactNo);
-        user.getMedicalProfile().setBloodGroup(bloodGroup);
-        user.getMedicalProfile().setWeight(weight);
-        user.setEmail(email);
-        user.getMedicalProfile().setMaritalStatus(maritalStatus);
-        user.getMedicalProfile().setSmokingHabits(smokingHabbits);
-        user.getMedicalProfile().setAlcoholConsumption(alcoholConsuption);
-        user.getMedicalProfile().setEmergencyContact(emergencyContact);
-        user.getMedicalProfile().setActivityLevel(activityLevel);
-        user.getMedicalProfile().setFoodPreferences(foodPreference);
-        user.getMedicalProfile().setOccupations(occupation);
-        user.getMedicalProfile().setLocation(location);
-        user.getMedicalProfile().setDob(dob);
-        JOptionPane.showMessageDialog(this, "Records Updates successfully",
-                    "Success", JOptionPane.INFORMATION_MESSAGE);
-           AddMedicalPage2Panel addMedicalRecords = new AddMedicalPage2Panel(mainWorkArea, ecosystem,detailsList,user,flag);
-            mainWorkArea.add("AddUserPanel", addMedicalRecords);
-            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-            layout.next(mainWorkArea);
-         
-        }
-    }//GEN-LAST:event_btnNextActionPerformed
-
-    private void txtContactEmergencyKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactEmergencyKeyPressed
+    private void manageMedicalConditionPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageMedicalConditionPanelMousePressed
         // TODO add your handling code here:
-        char c = evt.getKeyChar();
 
-        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-            txtContactEmergency.setEditable(true);
-        } else {
-
-            if (!Character.isDigit(c)) {
-                txtContactEmergency.setText("");
-                errorContactNumber.setText("Sorry! only numbers allowed");
-//            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
-            } else {
-                if (util.countOfString(txtContactEmergency.getText())>10 || util.countOfString(txtContactEmergency.getText())<10 ) {
-//                errorContactNumber.setText("Enter 10 digit valid number");
-                     errorContactNumber.setText("Contact number must be of 10 digits");
-                    txtContactEmergency.setText("");
-                }
-            }
-        }
-    }//GEN-LAST:event_txtContactEmergencyKeyPressed
-
-    private void buttonNextPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNextPageActionPerformed
-        // TODO add your handling code here:
-        AddMedicalPage2Panel addMedicalRecords = new AddMedicalPage2Panel(mainWorkArea, ecosystem,detailsList,user,flag);
-            mainWorkArea.add("AddUserPanel", addMedicalRecords);
-            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-            layout.next(mainWorkArea);
-    }//GEN-LAST:event_buttonNextPageActionPerformed
-
-    private void txtContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContactActionPerformed
-
-    private void txtContactEmergencyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactEmergencyActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txtContactEmergencyActionPerformed
+    }//GEN-LAST:event_manageMedicalConditionPanelMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnEdit;
-    private javax.swing.JButton btnNext;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JButton buttonNextPage;
-    private com.toedter.calendar.JDateChooser dobChooser;
-    private javax.swing.JLabel errorContactNumber;
-    private javax.swing.JLabel errorContactNumber1;
-    private javax.swing.JLabel errorEmail;
-    private javax.swing.JComboBox<String> jComboActivity;
-    private javax.swing.JComboBox<String> jComboAlcohol;
-    private javax.swing.JComboBox<String> jComboBlood;
-    private javax.swing.JComboBox<String> jComboCity;
-    private javax.swing.JComboBox<String> jComboFood;
-    private javax.swing.JComboBox<String> jComboMaritalStatus;
-    private javax.swing.JComboBox<String> jComboOccupation;
-    private javax.swing.JComboBox<String> jComboSmokingHabbits;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblPassword1;
-    private javax.swing.JLabel lblPhoneNumber;
-    private javax.swing.JLabel lblPhoneNumber1;
-    private javax.swing.JLabel lblPhoneNumber2;
-    private javax.swing.JLabel lblPhoneNumber3;
+    private javax.swing.JPanel formPanel;
+    private javax.swing.JLabel iconDashboard;
+    private javax.swing.JLabel iconHospital;
+    private javax.swing.JLabel iconShop;
     private javax.swing.JLabel lblUserAction;
-    private javax.swing.JLabel lblUsername1;
-    private javax.swing.JLabel lblUsername2;
-    private javax.swing.JLabel lblUsername3;
-    private javax.swing.JLabel lblUsername4;
-    private javax.swing.JLabel lblUsername5;
-    private javax.swing.JLabel lblUsername6;
-    private javax.swing.JLabel lblUsername7;
-    private javax.swing.JComboBox<String> selectGenderCombo;
+    private javax.swing.JLabel manageHealth;
+    private javax.swing.JPanel manageHealthPanel;
+    private javax.swing.JLabel manageMedicalCondition;
+    private javax.swing.JPanel manageMedicalConditionPanel;
+    private javax.swing.JLabel managePerosnalInfo;
+    private javax.swing.JPanel managePersonalInfoPanel;
     private javax.swing.JSplitPane splitPanel;
     private javax.swing.JPanel topPanel;
-    private javax.swing.JTextField txtContact;
-    private javax.swing.JTextField txtContactEmergency;
-    private javax.swing.JTextField txtHeight;
-    private javax.swing.JTextField txtSEmail;
-    private javax.swing.JTextField txtSName;
-    private javax.swing.JTextField txtWeight;
     // End of variables declaration//GEN-END:variables
+
+    private void managePersonalInformation() throws ParseException {
+
+//        formPanel
+        changeBtnBgs("personal");
+        AddPersonalInfoPanel addPersonalInfoPanel = new AddPersonalInfoPanel(formPanel, ecosystem, user);
+
+        formPanel.add("addPersonalInfoPanel", addPersonalInfoPanel);
+        CardLayout layout = (CardLayout) formPanel.getLayout();
+        layout.next(formPanel);
+    }
+    private void manageHealthInformation() throws ParseException {
+
+//        formPanel
+        changeBtnBgs("health");
+        AddHealthInfoPanel addHealthInfoPanel = new AddHealthInfoPanel(formPanel, ecosystem, user);
+
+        formPanel.add("addLifeStyleInfoPanel", addHealthInfoPanel);
+        CardLayout layout = (CardLayout) formPanel.getLayout();
+        layout.next(formPanel);
+    }
+        private void manageMedicalInformation() {
+
+//        formPanel
+        changeBtnBgs("medical");
+        AddMedicalInfoPanel addMedicalInfoPanel = new AddMedicalInfoPanel(formPanel, ecosystem, user);
+
+        formPanel.add("addMedicalInfoPanel", addMedicalInfoPanel);
+        CardLayout layout = (CardLayout) formPanel.getLayout();
+        layout.next(formPanel);
+    }
+    private void changeBtnBgs(String type) {
+        
+        Color activeColor = Color.getHSBColor(3, 80, 111);
+        Color notActiveColor = Color.WHITE;
+        //Color.getColor("03506F");
+        Color activeTxtColor = Color.WHITE;
+        Color nonActiveTxtColor = Color.BLACK;
+
+        managePersonalInfoPanel.setBackground(notActiveColor);
+        manageMedicalConditionPanel.setBackground(notActiveColor);
+        manageHealthPanel.setBackground(notActiveColor);
+
+        managePerosnalInfo.setForeground(nonActiveTxtColor);
+        manageHealth.setForeground(nonActiveTxtColor);
+        manageMedicalCondition.setForeground(nonActiveTxtColor);
+
+        if ("personal".equalsIgnoreCase(type)) {
+            managePersonalInfoPanel.setBackground(activeColor);
+            managePerosnalInfo.setForeground(activeTxtColor);
+        } else if ("health".equalsIgnoreCase(type)) {
+            manageHealthPanel.setBackground(activeColor);
+            manageHealth.setForeground(activeTxtColor);
+        } else if ("medical".equalsIgnoreCase(type)) {
+            manageMedicalConditionPanel.setBackground(activeColor);
+            manageMedicalCondition.setForeground(activeTxtColor);
+        }
+    }
 }
