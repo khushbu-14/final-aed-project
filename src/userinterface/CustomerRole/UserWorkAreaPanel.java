@@ -796,6 +796,20 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         layout.next(mainPanel);
     }
 
+<<<<<<< HEAD
+=======
+ //   private void managePersonalInfo() throws ParseException {
+//        changeBtnBgs("managePersonalInfo");
+//        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+//        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
+//
+////        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
+//        mainPanel.add("manageInformationJPanel", manageInformationPanel);
+//        CardLayout layout = (CardLayout) mainPanel.getLayout();
+//        layout.next(mainPanel);
+//    }
+
+>>>>>>> main
     public void changeBtnBgs(String type) {
         Color activeColor = Color.WHITE;
         Color notActiveColor = Color.getColor("03506F");
