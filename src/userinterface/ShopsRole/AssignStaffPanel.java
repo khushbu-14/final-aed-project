@@ -91,7 +91,7 @@ public class AssignStaffPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Sr No.", "Designation", "Staff Name", "Hospital", "Department"
+                "Sr No.", "Staff Name", "Designation", "Hospital", "Department"
             }
         ) {
             Class[] types = new Class [] {
@@ -116,7 +116,7 @@ public class AssignStaffPanel extends javax.swing.JPanel {
         btnAssignDoctor.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnAssignDoctor.setForeground(new java.awt.Color(255, 255, 255));
         btnAssignDoctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnAssignDoctor.setText("Save");
+        btnAssignDoctor.setText("Confirm");
         btnAssignDoctor.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnAssignDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -139,9 +139,9 @@ public class AssignStaffPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(300, 300, 300)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAssignDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(255, 255, 255))
+                .addGap(271, 271, 271))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

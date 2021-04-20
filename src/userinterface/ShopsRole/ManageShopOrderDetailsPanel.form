@@ -73,7 +73,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="btnAssignDoctor" min="-2" pref="45" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="assignDoctorPanel" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -472,10 +472,21 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblDoctorName" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
-                      <Component id="lblRestaurantName8" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblShipmentTypeName" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
+                              <Component id="lblShipmentType" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblAssignedStaffName" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
+                              <Component id="lblAssignedStaff" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -485,16 +496,41 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblRestaurantName8" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblShipmentType" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="lblDoctorName" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblShipmentTypeName" min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="lblAssignedStaff" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                  <Component id="lblAssignedStaffName" min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace pref="22" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblRestaurantName8">
+        <Component class="javax.swing.JLabel" name="lblShipmentType">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f4" green="f4" red="f9" type="rgb"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="66" green="66" red="66" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+            <Property name="text" type="java.lang.String" value="Shiptment Type :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblShipmentTypeName">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f4" green="f4" red="f9" type="rgb"/>
+            </Property>
+            <Property name="horizontalAlignment" type="int" value="2"/>
+            <Property name="text" type="java.lang.String" value="NA"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAssignedStaff">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="f4" red="f9" type="rgb"/>
@@ -506,7 +542,7 @@
             <Property name="text" type="java.lang.String" value="Assigned Staff Name :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblDoctorName">
+        <Component class="javax.swing.JLabel" name="lblAssignedStaffName">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="f4" red="f9" type="rgb"/>

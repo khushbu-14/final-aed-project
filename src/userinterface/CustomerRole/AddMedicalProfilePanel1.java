@@ -323,11 +323,11 @@ public class AddMedicalProfilePanel1 extends javax.swing.JPanel {
 
     private void backAction() {
         mainWorkArea.remove(this);
-        Component[] componentArray = mainWorkArea.getComponents();
-        Component component = componentArray[componentArray.length - 1];
-        ManageUserPanel manageUserPanel = (ManageUserPanel) component;
-
-        manageUserPanel.refreshTable();
+//        Component[] componentArray = mainWorkArea.getComponents();
+//        Component component = componentArray[componentArray.length - 1];
+//        ManageUserPanel manageUserPanel = (ManageUserPanel) component;
+//
+//        manageUserPanel.refreshTable();
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);

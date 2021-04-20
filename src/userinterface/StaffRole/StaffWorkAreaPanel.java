@@ -161,7 +161,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
 
         manageConsultDoctor.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageConsultDoctor.setForeground(new java.awt.Color(255, 255, 255));
-        manageConsultDoctor.setText("Consult Doctor");
+        manageConsultDoctor.setText("Consultations");
         manageConsultDoctor.setToolTipText("Dashboard");
         manageConsultDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
