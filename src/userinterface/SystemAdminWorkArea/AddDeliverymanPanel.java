@@ -451,7 +451,7 @@ public class AddDeliverymanPanel extends javax.swing.JPanel {
             } else {
 
                 DeliveryMan dlvTemp = new DeliveryMan(userName, password, name, phoneNo, address, zipcode, email);
-                ecosystem.getDeliveryManDirectory().addNewDeliveryMan(dlvm);
+                ecosystem.getDeliveryManDirectory().addNewDeliveryMan(dlvTemp);
                 ecosystem.getUserAccountDirectory().addUserAccount(dlvTemp);
             }
 
@@ -499,12 +499,12 @@ public class AddDeliverymanPanel extends javax.swing.JPanel {
                 errorContactNumber.setText("Sorry! only numbers allowed");
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
-                if (txtContact.getText().length() > 9) {
-//                errorContactNumber.setText("Enter 10 digit valid number");
-                    //txtContact.setEditable(false);
+                if (txtContact.getText().length() > 10) {
+                    txtContact.setEditable(false);
+                    errorContactNumber.setText("Enter 10 digit valid number");
                 } else {
-                    errorContactNumber.setText("");
                     txtContact.setEditable(true);
+                    errorContactNumber.setText("");
                 }
             }
         }

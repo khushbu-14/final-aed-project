@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author kunal
  */
 public class DeliveryManDirectory {
+
     private ArrayList<DeliveryMan> deliveryManList = new ArrayList<>();
 
     public ArrayList<DeliveryMan> getDeliveryManList() {
@@ -22,14 +23,13 @@ public class DeliveryManDirectory {
         this.deliveryManList = deliveryManList;
     }
 
-   
-    
-     public DeliveryMan addNewDeliveryMan(DeliveryMan dm) {
+    public DeliveryMan addNewDeliveryMan(DeliveryMan dm) {
         deliveryManList.add(dm);
         return dm;
     }
-      public void deleteDeliveryMan(DeliveryMan dm){
-        if(deliveryManList != null){
+
+    public void deleteDeliveryMan(DeliveryMan dm) {
+        if (deliveryManList != null) {
             deliveryManList.remove(dm);
         }
     }
