@@ -226,7 +226,7 @@ public class ManageDeliverymanPanel extends javax.swing.JPanel {
             int count = 1;
 
             for (DeliveryMan dlv : dDir.getDeliveryManList()) {
-
+//                if (dlv != null) {
                 Object[] row = new Object[8];
                 row[0] = "" + count++;
                 row[1] = dlv;
@@ -238,6 +238,7 @@ public class ManageDeliverymanPanel extends javax.swing.JPanel {
                 row[7] = dlv.getZipcode();
 
                 model.addRow(row);
+//                }
             }
         }
     }
