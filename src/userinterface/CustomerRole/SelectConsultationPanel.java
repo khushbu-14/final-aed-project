@@ -231,7 +231,7 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
         int selectedRowIndex = tblConsultaionSlot.getSelectedRow();
 
         if (selectedRowIndex < 0) {
-            utils.showErrorToast("Oops! Please select a product first.");
+            utils.showErrorToast("Oops! Please select a Session first.");
             return null;
         }
 
@@ -246,30 +246,30 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnAddSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotActionPerformed
-        // TODO add your handling code here:
-        Product p = getSelectedProduct();
-        int qty = 0;
-
-        if (p != null) {
-
-            String response = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
-
-            try {
-                qty = Integer.parseInt(response);
-            } catch (NumberFormatException e) {
-                utils.showErrorToast("Oops! Please provide valid quantity in numbers only");
-            }
-
-            if (qty > 0) {
-                OrderItem oi = new OrderItem(p, qty);
-
-                orderList.add(oi);
-
-                populateCartTable();
-            } else {
-                utils.showErrorToast("Only positive numbers allowed");
-            }
-        }
+//        // TODO add your handling code here:
+//        Product p = getSelectedProduct();
+//        int qty = 0;
+//
+//        if (p != null) {
+//
+//            String response = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
+//
+//            try {
+//                qty = Integer.parseInt(response);
+//            } catch (NumberFormatException e) {
+//                utils.showErrorToast("Oops! Please provide valid quantity in numbers only");
+//            }
+//
+//            if (qty > 0) {
+//                OrderItem oi = new OrderItem(p, qty);
+//
+//                orderList.add(oi);
+//
+//                populateCartTable();
+//            } else {
+//                utils.showErrorToast("Only positive numbers allowed");
+//            }
+//        }
     }//GEN-LAST:event_btnAddSlotActionPerformed
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
@@ -292,7 +292,7 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
                     OrderList newOrderList = new OrderList();
                     newOrderList.setOrderList(orderList);
 
-                    newOrderList.setShop(shop);
+                    //newOrderList.setShop(shop);
 //                    newOrderList.setUserAccount(userAccount);
                     newOrderList.setUser(user);
 
@@ -366,63 +366,63 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
 
         comboOrderShipmentType.addItem("DELIVERY");
 
-        ProductDirectory pd = shop.getProductDirectory();
+        //ProductDirectory pd = shop.getProductDirectory();
 
         DefaultTableModel model = (DefaultTableModel) tblConsultaionSlot.getModel();
 
         int count = 1;
         model.setRowCount(0);
 
-        for (Product p : pd.getProductList()) {
-            Object[] row = new Object[6];
-
-            String prescriptionTxt = p.getIsPrescriptionNeeded() ? "Yes" : "No";
-
-            row[0] = "" + count++;
-            row[1] = p;
-            row[2] = p.getPrice();
-            row[3] = p.getIsPrescriptionNeeded();
-            row[4] = prescriptionTxt;
-            row[5] = p.getCalories();
-
-            model.addRow(row);
-        }
+//        for (Product p : pd.getProductList()) {
+//            Object[] row = new Object[6];
+//
+//            String prescriptionTxt = p.getIsPrescriptionNeeded() ? "Yes" : "No";
+//
+//            row[0] = "" + count++;
+//            row[1] = p;
+//            row[2] = p.getPrice();
+//            row[3] = p.getIsPrescriptionNeeded();
+//            row[4] = prescriptionTxt;
+//            row[5] = p.getCalories();
+//
+//            model.addRow(row);
+//        }
     }
 
     private void populateCartTable() {
-        DefaultTableModel model = (DefaultTableModel) tblConsultationAddedSlot.getModel();
-
-        int count = 1;
-        int qtyTotal = 0;
-        double sumTotal = 0;
-
-        model.setRowCount(0);
-
-        for (OrderItem item : orderList) {
-
-            int qty = item.getQuantity();
-            double price = item.getProduct().getPrice();
-
-            double totalPrice = price * qty;
-
-            qtyTotal += qty;
-            sumTotal += totalPrice;
-
-            Object[] row = new Object[5];
-            row[0] = "" + count++;
-            row[1] = item;
-            row[2] = price;
-            row[3] = totalPrice;
-            row[4] = qty;
-
-            model.addRow(row);
-
-        }
-
-        DecimalFormat df = new DecimalFormat("###.###");
-
-        txtTotalPrice.setText(String.valueOf(df.format(sumTotal)));
-        txtTotalQuantity.setText(String.valueOf(qtyTotal));
+//        DefaultTableModel model = (DefaultTableModel) tblConsultationAddedSlot.getModel();
+//
+//        int count = 1;
+//        int qtyTotal = 0;
+//        double sumTotal = 0;
+//
+//        model.setRowCount(0);
+//
+//        for (OrderItem item : orderList) {
+//
+//            int qty = item.getQuantity();
+//            double price = item.getProduct().getPrice();
+//
+//            double totalPrice = price * qty;
+//
+//            qtyTotal += qty;
+//            sumTotal += totalPrice;
+//
+//            Object[] row = new Object[5];
+//            row[0] = "" + count++;
+//            row[1] = item;
+//            row[2] = price;
+//            row[3] = totalPrice;
+//            row[4] = qty;
+//
+//            model.addRow(row);
+//
+//        }
+//
+//        DecimalFormat df = new DecimalFormat("###.###");
+//
+//        txtTotalPrice.setText(String.valueOf(df.format(sumTotal)));
+//        txtTotalQuantity.setText(String.valueOf(qtyTotal));
     }
 
     private void openOrderHistory() {
