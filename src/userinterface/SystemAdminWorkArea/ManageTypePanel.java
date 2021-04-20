@@ -371,7 +371,7 @@ public class ManageTypePanel extends javax.swing.JPanel {
         }
     }
     public void populateComboBox(){
-            List<String> enterpriseList = Arrays.asList("Select","HospitalDepartment","FitnessDepartment","Shop","AmbulanceService","DeliveryMan");      
+            List<String> enterpriseList = Arrays.asList("Select","Hospital Department","Fitness Department","Shop","Ambulance Service","DeliveryMan");      
             for (String i:enterpriseList) {
                 jComboBox1.addItem(i);
                 }

@@ -7,6 +7,8 @@ package userinterface.CustomerRole;
 
 import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
+import Business.Staff.SessionsMedStaff;
+import Business.Staff.Staff;
 import Business.User.TempTable.ConsultData;
 import Business.User.User;
 import constants.Utils;
@@ -16,6 +18,7 @@ import java.awt.Component;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,14 +39,18 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
     Boolean isUpdatePage = false;
     private String selectedValue;
     Boolean isNone = false;
+    private SessionsMedStaff sess;
+    private Staff staff;
 
-    public ConsultationFormPatient(JPanel mainWorkArea, EcoSystem ecosystem,User user) {
+    public ConsultationFormPatient(JPanel mainWorkArea, EcoSystem ecosystem,User user, Staff staff, SessionsMedStaff sess) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
         this.isUpdatePage = isUpdatePage;
         util = new Utils();
         this.user = user;
+        this.staff = staff;
+        this.sess = sess;
         consultDatalist= new ArrayList<>();
         setData();
     }
@@ -109,7 +116,7 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
 
         lblUserAction.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblUserAction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUserAction.setText("Add User");
+        lblUserAction.setText("Current Medical Record");
         lblUserAction.setToolTipText("Add Department");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
@@ -425,6 +432,13 @@ private void setData(){
                 user.getConsultationForm().setOtherMessage(cd.getComments());
             }
         }
+                    staff.getConsultationDirectory().addSession(sess);
+                    user.getConsultationSessions().addSession(sess);
+                    staff.getSessionDirectory().removeSession(sess);
+                    JOptionPane.showMessageDialog(this, "Your Consultation with "+staff.getName() +" Booked successfully",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+                    goToManageUserConsultationPage();
+                    
     }//GEN-LAST:event_btnSignup1ActionPerformed
 
     private void jComboBoxDiseaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDiseaseActionPerformed
@@ -474,4 +488,10 @@ private void setData(){
                 model.addRow(row);
             }
      }
+     private void goToManageUserConsultationPage(){
+            ManageUserConsultationPanel bookConsultationPanel = new ManageUserConsultationPanel(mainWorkArea, ecosystem, user);
+            mainWorkArea.add("bookConsultationPanel", bookConsultationPanel);
+            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+            layout.next(mainWorkArea);
+    }
 }

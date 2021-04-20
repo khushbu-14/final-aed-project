@@ -22,6 +22,8 @@ public class Staff extends Business.UserAccount.UserAccount {
     private String email;
     private String zipcode;
     private HospitalDepartment department;
+    private SessionsMedStaffDirectory addSessionDirectory;
+    private SessionsMedStaffDirectory consultationDirectory;
 
     public Staff(String userName, String password, String name, String designation, String contact, String address, String email, String zipcode, HospitalDepartment department) {
         this.name = name;
@@ -92,6 +94,29 @@ public class Staff extends Business.UserAccount.UserAccount {
         this.department = department;
     }
 
+    public SessionsMedStaffDirectory getSessionDirectory() {
+        if(addSessionDirectory==null){
+            addSessionDirectory = new SessionsMedStaffDirectory();
+        }
+        return addSessionDirectory;
+    }
+
+    public void setSessionDirectory(SessionsMedStaffDirectory sessionDirectory) {
+        this.addSessionDirectory = sessionDirectory;
+    }
+
+    public SessionsMedStaffDirectory getConsultationDirectory() {
+        if(consultationDirectory==null){
+            consultationDirectory = new SessionsMedStaffDirectory();
+        }
+        return consultationDirectory;
+    }
+
+    public void setConsultationDirectory(SessionsMedStaffDirectory consultationDirectory) {
+        this.consultationDirectory = consultationDirectory;
+    }
+    
+    
     @Override
     public String toString() {
         return name;

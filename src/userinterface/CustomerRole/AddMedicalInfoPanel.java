@@ -531,10 +531,11 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
         // TODO add your handling code here:
+        btnNext.setEnabled(true);
         jPanelAdd.setVisible(false);
         btnSubmit.setVisible(false);
         btnClose.setVisible(false);
-        btnNext.setVisible(true);
+        
         allergiesList1.clear();
         currentMedList1.clear();
         pastMedList1.clear();
@@ -542,6 +543,7 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
         surgeriesList1.clear();
         DefaultTableModel model = (DefaultTableModel) addedTable.getModel();
         model.setRowCount(0);
+        
     }//GEN-LAST:event_btnCloseActionPerformed
 
     

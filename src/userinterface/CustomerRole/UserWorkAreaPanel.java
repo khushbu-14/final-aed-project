@@ -77,7 +77,6 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         iconDashboard7 = new javax.swing.JLabel();
         manageSessions = new javax.swing.JLabel();
         border7 = new javax.swing.JPanel();
-        btnTemp1 = new javax.swing.JButton();
         btnTemp2 = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
 
@@ -582,13 +581,6 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(border7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        btnTemp1.setText("Temp");
-        btnTemp1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTemp1ActionPerformed(evt);
-            }
-        });
-
         btnTemp2.setText("Temp 2");
         btnTemp2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -615,9 +607,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
                             .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(sideBarLayout.createSequentialGroup()
                         .addGap(60, 60, 60)
-                        .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnTemp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnTemp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(btnTemp2)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sideBarLayout.setVerticalGroup(
@@ -639,9 +629,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(manageOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(btnTemp1)
-                .addGap(18, 18, 18)
+                .addGap(72, 72, 72)
                 .addComponent(btnTemp2)
                 .addContainerGap(64, Short.MAX_VALUE))
         );
@@ -721,10 +709,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageAppointmentsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAppointmentsMousePressed
         // TODO add your handling code here:
+        manageAppointment();
     }//GEN-LAST:event_manageAppointmentsMousePressed
 
     private void manageAppointmentsPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAppointmentsPanelMousePressed
         // TODO add your handling code here:
+        manageAppointment();
     }//GEN-LAST:event_manageAppointmentsPanelMousePressed
 
     private void manageOrdersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrdersMousePressed
@@ -744,16 +734,6 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     private void manageSessionsPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsPanelMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_manageSessionsPanelMousePressed
-
-    private void btnTemp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemp1ActionPerformed
-        // TODO add your handling code here:
-        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-        ConsultationFormPatient manageInformationPanel = new ConsultationFormPatient(userProcessContainer, ecosystem, user);
-//        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
-        userProcessContainer.add("manageInformationJPanel", manageInformationPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnTemp1ActionPerformed
 
     private void btnTemp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemp2ActionPerformed
         // TODO add your handling code here:
@@ -795,17 +775,14 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-
- //   private void managePersonalInfo() throws ParseException {
-//        changeBtnBgs("managePersonalInfo");
-//        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-//        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
-//
-////        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
-//        mainPanel.add("manageInformationJPanel", manageInformationPanel);
-//        CardLayout layout = (CardLayout) mainPanel.getLayout();
-//        layout.next(mainPanel);
-//    }
+    private void manageAppointment() {
+        changeBtnBgs("manageappointment");
+            User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+            ManageUserConsultationPanel manageInformationPanel = new ManageUserConsultationPanel(mainPanel, ecosystem, user);
+            mainPanel.add("manageInformationJPanel", manageInformationPanel);
+            CardLayout layout = (CardLayout) mainPanel.getLayout();
+            layout.next(mainPanel);
+    }
 
     public void changeBtnBgs(String type) {
         Color activeColor = Color.WHITE;
@@ -841,6 +818,9 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         } else if ("managePersonalInfo".equalsIgnoreCase(type)) {
             manageProfilePanel.setBackground(activeColor);
             managePersonalInfo.setForeground(activeTxtColor);
+        } else if ("manageappointment".equalsIgnoreCase(type)) {
+            manageAppointmentsPanel.setBackground(activeColor);
+            manageAppointments.setForeground(activeTxtColor);
         }
     }
 
@@ -853,7 +833,6 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel border5;
     private javax.swing.JPanel border6;
     private javax.swing.JPanel border7;
-    private javax.swing.JButton btnTemp1;
     private javax.swing.JButton btnTemp2;
     private javax.swing.JLabel iconDashboard;
     private javax.swing.JLabel iconDashboard1;
