@@ -9,6 +9,8 @@ import Business.EcoSystem;
 import Business.Shop.Product;
 import Business.Shop.ProductDirectory;
 import Business.Shop.Shop;
+import Business.Staff.Sessions;
+import Business.Staff.SessionsMedStaff;
 import Business.Staff.Staff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
@@ -19,7 +21,9 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -35,9 +39,9 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
      */
     private JPanel mainWorkArea;
     private EcoSystem ecosystem;
-    private Staff shop;
+    private Staff staff;
     private User user;
-
+    private SessionsMedStaff sess;
     private UserAccount userAccount;
 
     private ArrayList<OrderItem> orderList = new ArrayList<OrderItem>();
@@ -49,7 +53,7 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
     public SelectConsultationPanel(JPanel mainPanel, EcoSystem ecosystem, Staff shop, UserAccount userAccount) {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
-        this.shop = shop;
+        this.staff = shop;
         this.userAccount = userAccount;
         this.user = (User) userAccount;
         utils = new Utils();
@@ -70,11 +74,8 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
         lblPageTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblConsultaionSlot = new javax.swing.JTable();
-        btnAddSlot = new javax.swing.JButton();
-        txtMessage = new javax.swing.JTextField();
-        lblMsg = new javax.swing.JLabel();
         btnPlaceOrder = new javax.swing.JButton();
-        comboOrderShipmentType = new javax.swing.JComboBox<>();
+        comboSessionType = new javax.swing.JComboBox<>();
         lblShipmentType = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(244, 249, 249));
@@ -105,20 +106,20 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
         tblConsultaionSlot.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         tblConsultaionSlot.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Sr No.", "Date", "Start-time", "End-time"
+                "Sr No.", "Session Name", "Date", "Start-time", "End-time"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, true, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -132,24 +133,6 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
         tblConsultaionSlot.setSelectionBackground(new java.awt.Color(0, 102, 204));
         jScrollPane1.setViewportView(tblConsultaionSlot);
 
-        btnAddSlot.setBackground(new java.awt.Color(138, 177, 138));
-        btnAddSlot.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/plus.png"))); // NOI18N
-        btnAddSlot.setText("Add Slot");
-        btnAddSlot.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
-        btnAddSlot.setBorderPainted(false);
-        btnAddSlot.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnAddSlot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddSlotActionPerformed(evt);
-            }
-        });
-
-        txtMessage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
-
-        lblMsg.setBackground(new java.awt.Color(249, 244, 244));
-        lblMsg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblMsg.setText("Delivery Instructions / Message :");
-
         btnPlaceOrder.setBackground(new java.awt.Color(138, 177, 138));
         btnPlaceOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
         btnPlaceOrder.setText("Book Slots");
@@ -162,11 +145,16 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
             }
         });
 
-        comboOrderShipmentType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
+        comboSessionType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Remote", "In-Person" }));
+        comboSessionType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSessionTypeActionPerformed(evt);
+            }
+        });
 
         lblShipmentType.setBackground(new java.awt.Color(249, 244, 244));
         lblShipmentType.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblShipmentType.setText("Select order shipment type");
+        lblShipmentType.setText("Select Attendence type");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -177,19 +165,13 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(lblShipmentType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(comboOrderShipmentType, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAddSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(lblMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(101, 101, 101))))
+                                        .addComponent(comboSessionType, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(91, 91, 91))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(199, 199, 199)
@@ -208,26 +190,17 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
                     .addComponent(lblPageTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(70, 70, 70)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAddSlot, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(lblShipmentType)
-                        .addGap(12, 12, 12)
-                        .addComponent(comboOrderShipmentType, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36)
-                .addComponent(lblMsg)
-                .addGap(19, 19, 19)
-                .addComponent(txtMessage, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(26, 26, 26)
+                .addComponent(lblShipmentType)
+                .addGap(12, 12, 12)
+                .addComponent(comboSessionType, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110)
                 .addComponent(btnPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(418, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private Product getSelectedSession() {
+    private SessionsMedStaff getSelectedSession() {
         int selectedRowIndex = tblConsultaionSlot.getSelectedRow();
 
         if (selectedRowIndex < 0) {
@@ -235,7 +208,7 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
             return null;
         }
 
-        Product p = (Product) tblConsultaionSlot.getValueAt(selectedRowIndex, 1);
+        SessionsMedStaff p = (SessionsMedStaff) tblConsultaionSlot.getValueAt(selectedRowIndex, 1);
 
         return p;
     }
@@ -244,185 +217,86 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
         // back btn logic
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnAddSlotActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSlotActionPerformed
-//        // TODO add your handling code here:
-//        Product p = getSelectedProduct();
-//        int qty = 0;
-//
-//        if (p != null) {
-//
-//            String response = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
-//
-//            try {
-//                qty = Integer.parseInt(response);
-//            } catch (NumberFormatException e) {
-//                utils.showErrorToast("Oops! Please provide valid quantity in numbers only");
-//            }
-//
-//            if (qty > 0) {
-//                OrderItem oi = new OrderItem(p, qty);
-//
-//                orderList.add(oi);
-//
-//                populateCartTable();
-//            } else {
-//                utils.showErrorToast("Only positive numbers allowed");
-//            }
-//        }
-    }//GEN-LAST:event_btnAddSlotActionPerformed
-
+    
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
-
-        if (orderList != null && !orderList.isEmpty()) {
-            String orderShipmentType = comboOrderShipmentType.getSelectedItem().toString();
-
-            if (utils.isStringInputValid(orderShipmentType) || orderShipmentType != null) {
-
-                if (shop != null) {
-
-                    String msg = txtMessage.getText();
-
-                    String resultMsg = "";
-
-                    if (!utils.isStringInputValid(msg)) {
-                        msg = "";
-                    }
-
-                    OrderList newOrderList = new OrderList();
-                    newOrderList.setOrderList(orderList);
-
-                    //newOrderList.setShop(shop);
-//                    newOrderList.setUserAccount(userAccount);
-                    newOrderList.setUser(user);
-
-                    newOrderList.setRequestDate(new Date());
-                    newOrderList.setMessage(msg);
-
-                    Boolean isPickup = orderShipmentType.equalsIgnoreCase("PICKUP");
-
-                    newOrderList.setIsPickup(isPickup);
-
-                    Boolean isPrescriptionNeeded = false;
-
-                    for (OrderItem item : orderList) {
-                        if (item.getProduct().getIsPrescriptionNeeded()) {
-                            isPrescriptionNeeded = true;
-                            break;
-                        }
-                    }
-
-                    if (isPrescriptionNeeded) {
-                        newOrderList.setStatus("PENDING");
-                        resultMsg = "Since some products in your cart need prescription, a doctor will connect with you soon!";
-                    } else {
-                        newOrderList.setStatus("BOOKED");
-                        resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
-                    }
-
-                    newOrderList.setRequestType("USER-ORDER");
-
-                    ecosystem.getWorkQueue().addWorkRequest(newOrderList);
-
-                    JOptionPane.showMessageDialog(this, resultMsg);
-
-                    openOrderHistory();
-                } else {
-                    utils.showErrorToast("Something went wrong! Please try again.");
-                }
-            } else {
-                utils.showErrorToast("Please choose shipment type");
+        sess = getSelectedSession();
+        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+        ArrayList<SessionsMedStaff> userSessionList = user.getConsultationSessions().getSession();
+        int count = 0;
+        String sessionType = comboSessionType.getSelectedItem().toString();
+        if(staff.getSessionDirectory().getSession().contains(sess)){
+            if(!sessionType.equalsIgnoreCase("remote") && sess.getIsRemote().equalsIgnoreCase("yes")){
+                utils.showErrorToast("This session only for Remote");
+            } else if(!sessionType.equalsIgnoreCase("in-person") && sess.getIsRemote().equalsIgnoreCase("no")){
+                utils.showErrorToast("This session only for In-Persion");
+            }else{
+               for(SessionsMedStaff s:userSessionList){
+                   if(s.getSessionDate().equalsIgnoreCase(sess.getSessionDate())){
+                       count=count+1;
+                   }
+               }
+               if(count>3){
+                   utils.showErrorToast("Booking limit for "+ staff.getName() +"exceded for the day");
+               }else{
+                   sess.setIsRemote(sessionType);
+//                   staff.getConsultationDirectory().addSession(sess);
+//                    user.getConsultationSessions().addSession(sess);
+//                    staff.getSessionDirectory().removeSession(sess);
+                    JOptionPane.showMessageDialog(this, "Your Consultation with "+staff.getName() +" Selected successfully",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+                    goToConsultFormDataPage();
+               }
+                
             }
         } else {
-            utils.showErrorToast("Oops! Please add atleast 1 product in your cart to proceed.");
+            utils.showErrorToast("Sorry!!, This slot has been booked, Please select other slots");
+            populateData();
         }
+            
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
+    private void comboSessionTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSessionTypeActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_comboSessionTypeActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddSlot;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPlaceOrder;
-    private javax.swing.JComboBox<String> comboOrderShipmentType;
+    private javax.swing.JComboBox<String> comboSessionType;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblMsg;
     private javax.swing.JLabel lblPageTitle;
     private javax.swing.JLabel lblShipmentType;
     private javax.swing.JTable tblConsultaionSlot;
-    private javax.swing.JTextField txtMessage;
     // End of variables declaration//GEN-END:variables
 
     private void backAction() {
         mainWorkArea.remove(this);
-
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }
 
     private void populateData() {
-
-        comboOrderShipmentType.removeAllItems();
-
-        comboOrderShipmentType.addItem("PICKUP");
-
-        comboOrderShipmentType.addItem("DELIVERY");
-
-        //ProductDirectory pd = shop.getProductDirectory();
-
         DefaultTableModel model = (DefaultTableModel) tblConsultaionSlot.getModel();
 
         int count = 1;
         model.setRowCount(0);
 
-//        for (Product p : pd.getProductList()) {
-//            Object[] row = new Object[6];
-//
-//            String prescriptionTxt = p.getIsPrescriptionNeeded() ? "Yes" : "No";
-//
-//            row[0] = "" + count++;
-//            row[1] = p;
-//            row[2] = p.getPrice();
-//            row[3] = p.getIsPrescriptionNeeded();
-//            row[4] = prescriptionTxt;
-//            row[5] = p.getCalories();
-//
-//            model.addRow(row);
-//        }
+        for (SessionsMedStaff p : staff.getSessionDirectory().getSession()) {
+            Object[] row = new Object[5];
+            row[0] = "" + count++;
+            row[1] = p;
+            row[2] = p.getSessionDate();
+            row[3] = p.getStartTime();
+            row[4] = p.getEndTime();
+            model.addRow(row);
+        }
     }
-
-    private void populateCartTable() {
-//        DefaultTableModel model = (DefaultTableModel) tblConsultationAddedSlot.getModel();
-//
-//        int count = 1;
-//        int qtyTotal = 0;
-//        double sumTotal = 0;
-//
-//        model.setRowCount(0);
-//
-//        for (OrderItem item : orderList) {
-//
-//            int qty = item.getQuantity();
-//            double price = item.getProduct().getPrice();
-//
-//            double totalPrice = price * qty;
-//
-//            qtyTotal += qty;
-//            sumTotal += totalPrice;
-//
-//            Object[] row = new Object[5];
-//            row[0] = "" + count++;
-//            row[1] = item;
-//            row[2] = price;
-//            row[3] = totalPrice;
-//            row[4] = qty;
-//
-//            model.addRow(row);
-//
-//        }
-//
-//        DecimalFormat df = new DecimalFormat("###.###");
-//
-//        txtTotalPrice.setText(String.valueOf(df.format(sumTotal)));
-//        txtTotalQuantity.setText(String.valueOf(qtyTotal));
+    private void goToConsultFormDataPage(){
+            ConsultationFormPatient bookConsultationPanel = new ConsultationFormPatient(mainWorkArea, ecosystem, user, staff, sess);
+            mainWorkArea.add("bookConsultationPanel", bookConsultationPanel);
+            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+            layout.next(mainWorkArea);
     }
 
     private void openOrderHistory() {
@@ -434,4 +308,5 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
     }
+    
 }

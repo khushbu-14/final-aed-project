@@ -214,7 +214,6 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
 
         errorContactNumber.setForeground(new java.awt.Color(255, 0, 0));
 
-        jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboTypeActionPerformed(evt);
@@ -373,7 +372,7 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
                 phoneNo = txtContact.getText(),
                 name = txtSName.getText();
         String type = jComboType.getSelectedItem().toString();
-        Double numberOfBeds = Double.parseDouble(NumberOfBeds.getText());
+        String numofB = NumberOfBeds.getText();
 
         if (!util.isStringInputValid(userName)) {
             util.showErrorToast("Plesae enter valid user name");
@@ -404,7 +403,11 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
         } else if (type.toLowerCase().equals("select")) {
             //  JOptionPane.showMessageDialog(this, "Please enter valid Zipcode", "Error", JOptionPane.ERROR_MESSAGE);
             util.showErrorToast("Plesae select valid type");
+        } else if (!util.isStringInputValid(numofB)) {
+            //  JOptionPane.showMessageDialog(this, "Please enter valid Zipcode", "Error", JOptionPane.ERROR_MESSAGE);
+            util.showErrorToast("Plesae enter number of beds");
         } else {
+            Double numberOfBeds = Double.parseDouble(numofB);
             userName = userName.toLowerCase();
             String msg = name + " account created successfully!";
             if (isUpdatePage) {
@@ -518,7 +521,7 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
 
     public void populateComboBox() {
         for (Type t : ecosystem.getTypeDirectory().getTypeList()) {
-            if (t.getParent().toLowerCase().equals("hospitaldepartment")) {
+            if (t.getParent().toLowerCase().equals("hospital department")) {
                 jComboType.addItem(t.getType());
             }
 

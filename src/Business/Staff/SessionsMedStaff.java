@@ -6,13 +6,14 @@
 package Business.Staff;
 
 import Business.Role.FitnessDepartmentRole;
+import Business.Role.StaffRole;
 import java.util.UUID;
 
 /**
  *
  * @author singh
  */
-public class Sessions extends Business.UserAccount.UserAccount {
+public class SessionsMedStaff extends Business.UserAccount.UserAccount {
     
     private String sessionID;
     private String name;
@@ -22,7 +23,7 @@ public class Sessions extends Business.UserAccount.UserAccount {
     private String isRemote;
     private String location;
     
-    public Sessions( String name, String sessionDate, String startTime, String endTime, String isRemote, String location){
+    public SessionsMedStaff( String name, String sessionDate, String startTime, String endTime, String isRemote, String location){
     
         //String userName, String password,
         UUID uid = UUID.randomUUID();
@@ -35,7 +36,7 @@ public class Sessions extends Business.UserAccount.UserAccount {
         this.location = location;
        // setPassword(password);
        // setUsername(userName);
-        setRole(new FitnessDepartmentRole());
+        setRole(new StaffRole());
     }
 
     public String getSessionID() {
@@ -98,6 +99,5 @@ public class Sessions extends Business.UserAccount.UserAccount {
     public String toString() {
         return name;
     }
-    
     
 }

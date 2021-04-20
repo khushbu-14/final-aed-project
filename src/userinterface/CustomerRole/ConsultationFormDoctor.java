@@ -153,7 +153,7 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
 
         jLabel2.setText("Next consultation required?");
 
-        jcomboNextCon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes", " " }));
+        jcomboNextCon.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
         jcomboNextCon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcomboNextConActionPerformed(evt);
