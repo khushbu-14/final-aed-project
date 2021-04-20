@@ -49,28 +49,17 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="manageDashboardPanel" min="-2" max="-2" attributes="0"/>
-                              <Component id="manageConsultDoctorPanel" min="-2" max="-2" attributes="0"/>
-                              <Component id="manageOrderMedicinePanel" min="-2" max="-2" attributes="0"/>
-                              <Component id="manageOrderFitnessPanel" min="-2" max="-2" attributes="0"/>
-                              <Component id="manageProfilePanel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="manageAppointmentsPanel" min="-2" max="-2" attributes="0"/>
-                              <Component id="manageOrdersPanel" min="-2" max="-2" attributes="0"/>
-                              <Component id="manageSessionsPanel" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="btnTemp2" max="32767" attributes="0"/>
-                              <Component id="btnTemp1" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="manageDashboardPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageDirectConsultDoctorPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageOrderMedicinePanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageOrderFitnessPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageProfilePanel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageAppointmentsPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageOrdersPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageSessionsPanel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -82,7 +71,7 @@
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="manageDashboardPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="manageConsultDoctorPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="manageDirectConsultDoctorPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="manageOrderMedicinePanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
@@ -95,11 +84,7 @@
                   <Component id="manageOrdersPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="manageSessionsPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                  <Component id="btnTemp1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnTemp2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="64" max="32767" attributes="0"/>
+                  <EmptySpace pref="159" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -205,7 +190,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="manageConsultDoctorPanel">
+        <Container class="javax.swing.JPanel" name="manageDirectConsultDoctorPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
@@ -216,7 +201,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageConsultDoctorPanelMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageDirectConsultDoctorPanelMousePressed"/>
           </Events>
 
           <Layout>
@@ -232,7 +217,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="iconDashboard1" pref="33" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="manageConsultDoctor" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="manageDirectConsultDoctor" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -243,7 +228,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="manageConsultDoctor" alignment="0" max="32767" attributes="0"/>
+                          <Component id="manageDirectConsultDoctor" alignment="0" max="32767" attributes="0"/>
                           <Component id="iconDashboard1" alignment="0" pref="44" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -261,7 +246,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="manageConsultDoctor">
+            <Component class="javax.swing.JLabel" name="manageDirectConsultDoctor">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="14" style="1"/>
@@ -269,11 +254,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Consult Doctor"/>
+                <Property name="text" type="java.lang.String" value="Direct Consultations"/>
                 <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageConsultDoctorMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageDirectConsultDoctorMousePressed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="border1">
@@ -905,22 +890,6 @@
             </Container>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="btnTemp1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Temp"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTemp1ActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnTemp2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Temp 2"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTemp2ActionPerformed"/>
-          </Events>
-        </Component>
       </SubComponents>
     </Container>
     <Container class="javax.swing.JPanel" name="mainPanel">

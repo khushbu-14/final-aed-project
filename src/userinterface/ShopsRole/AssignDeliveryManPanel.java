@@ -5,6 +5,7 @@
  */
 package userinterface.ShopsRole;
 
+import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import Business.Hospital.Department.HospitalDepartment;
 import Business.Hospital.Department.HospitalDepartmentDirectory;
@@ -23,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author khushbu
  */
-public class AssignStaffPanel extends javax.swing.JPanel {
+public class AssignDeliveryManPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AssignStaffPanel
@@ -33,7 +34,7 @@ public class AssignStaffPanel extends javax.swing.JPanel {
     OrderList orderListData;
     EcoSystem ecosystem;
 
-    public AssignStaffPanel(JPanel mainWorkArea, EcoSystem ecosystem, OrderList orderListData) {
+    public AssignDeliveryManPanel(JPanel mainWorkArea, EcoSystem ecosystem, OrderList orderListData) {
         this.mainWorkArea = mainWorkArea;
         this.orderListData = orderListData;
         this.ecosystem = ecosystem;
@@ -54,8 +55,8 @@ public class AssignStaffPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblPageTitle = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblStaff = new javax.swing.JTable();
-        btnAssignDoctor = new javax.swing.JButton();
+        tblDeliveryMan = new javax.swing.JTable();
+        btnAssignDeliveryMan = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(244, 249, 249));
 
@@ -80,25 +81,25 @@ public class AssignStaffPanel extends javax.swing.JPanel {
         lblPageTitle.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
-        lblPageTitle.setText("Assign Medical Staff");
+        lblPageTitle.setText("Assign Delivery Man");
 
-        tblStaff.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        tblStaff.setModel(new javax.swing.table.DefaultTableModel(
+        tblDeliveryMan.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        tblDeliveryMan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Sr No.", "Staff Name", "Designation", "Hospital", "Department"
+                "Sr No.", "Name", "Contact Number", "E-mail"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -109,18 +110,18 @@ public class AssignStaffPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblStaff.setSelectionBackground(new java.awt.Color(0, 102, 204));
-        jScrollPane2.setViewportView(tblStaff);
+        tblDeliveryMan.setSelectionBackground(new java.awt.Color(0, 102, 204));
+        jScrollPane2.setViewportView(tblDeliveryMan);
 
-        btnAssignDoctor.setBackground(new java.awt.Color(3, 80, 111));
-        btnAssignDoctor.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnAssignDoctor.setForeground(new java.awt.Color(255, 255, 255));
-        btnAssignDoctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnAssignDoctor.setText("Confirm");
-        btnAssignDoctor.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnAssignDoctor.addActionListener(new java.awt.event.ActionListener() {
+        btnAssignDeliveryMan.setBackground(new java.awt.Color(3, 80, 111));
+        btnAssignDeliveryMan.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnAssignDeliveryMan.setForeground(new java.awt.Color(255, 255, 255));
+        btnAssignDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnAssignDeliveryMan.setText("Confirm");
+        btnAssignDeliveryMan.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnAssignDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignDoctorActionPerformed(evt);
+                btnAssignDeliveryManActionPerformed(evt);
             }
         });
 
@@ -140,7 +141,7 @@ public class AssignStaffPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAssignDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAssignDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(271, 271, 271))
         );
         layout.setVerticalGroup(
@@ -153,7 +154,7 @@ public class AssignStaffPanel extends javax.swing.JPanel {
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnAssignDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAssignDeliveryMan, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(359, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -163,42 +164,42 @@ public class AssignStaffPanel extends javax.swing.JPanel {
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnAssignDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDoctorActionPerformed
+    private void btnAssignDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDeliveryManActionPerformed
         // TODO add your handling code here:
 
-        Staff staff = getSelectedRow();
+        DeliveryMan deliveryMan = getSelectedRow();
 
-        if (staff != null) {
-            orderListData.setStaff(staff);
+        if (deliveryMan != null) {
+            orderListData.setDeliveryMan(deliveryMan);
 
-            JOptionPane.showMessageDialog(this, staff.getName() + " assigned successfully!",
+            JOptionPane.showMessageDialog(this, deliveryMan.getName() + " assigned to order successfully!",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-            
-            orderListData.setStatus("STAFF ASSIGNED");
+
+            orderListData.setStatus("DELIVERY MAN ASSIGNED");
 
             backAction();
         }
-    }//GEN-LAST:event_btnAssignDoctorActionPerformed
+    }//GEN-LAST:event_btnAssignDeliveryManActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAssignDoctor;
+    private javax.swing.JButton btnAssignDeliveryMan;
     private javax.swing.JButton btnBack;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblPageTitle;
-    private javax.swing.JTable tblStaff;
+    private javax.swing.JTable tblDeliveryMan;
     // End of variables declaration//GEN-END:variables
 
-    private Staff getSelectedRow() {
-        int selectedRowIndex = tblStaff.getSelectedRow();
+    private DeliveryMan getSelectedRow() {
+        int selectedRowIndex = tblDeliveryMan.getSelectedRow();
 
         if (selectedRowIndex < 0) {
-            utils.showErrorToast("Oops! Please select a staff first.");
+            utils.showErrorToast("Oops! Please select a delivery man first.");
             return null;
         }
 
-        Staff staff = (Staff) tblStaff.getValueAt(selectedRowIndex, 1);
+        DeliveryMan deliveryMan = (DeliveryMan) tblDeliveryMan.getValueAt(selectedRowIndex, 1);
 
-        return staff;
+        return deliveryMan;
     }
 
     private void backAction() {
@@ -214,37 +215,51 @@ public class AssignStaffPanel extends javax.swing.JPanel {
     }
 
     private void renderData() {
-        DefaultTableModel model = (DefaultTableModel) tblStaff.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblDeliveryMan.getModel();
 
         int count = 1;
         model.setRowCount(0);
-        
-        if (ecosystem.getHospitalDirectory() != null) {
-            for (Hospital h : ecosystem.getHospitalDirectory().getHospitalList()) {
-                if (h != null) {
-                    HospitalDepartmentDirectory hd = h.getDepartmentDirectory();
-                    if (hd != null) {
-                        for (HospitalDepartment dept : hd.getDepartmentList()) {
-                            if (dept != null) {
-                                StaffDirectory sd = dept.getStaffDirectory();
-                                if (sd != null) {
-                                    for (Staff staff : sd.getStaffList()) {
-                                       
-                                        Object[] row = new Object[5];
-                                        row[0] = "" + count++;
-                                        row[1] = staff;
-                                        row[2] = staff.getDesignation();
-                                        row[3] = h;
-                                        row[4] = dept;
 
-                                        model.addRow(row);
-                                    }
-                                }
-                            }
-                        }
-                    }
+        if (ecosystem.getDeliveryManDirectory() != null) {
+            for (DeliveryMan dm : ecosystem.getDeliveryManDirectory().getDeliveryManList()) {
+                if (dm != null) {
+                    Object[] row = new Object[4];
+                    row[0] = "" + count++;
+                    row[1] = dm;
+                    row[2] = dm.getContact();
+                    row[3] = dm.getEmail();
+
+                    model.addRow(row);
                 }
             }
         }
+
+//        if (ecosystem.getHospitalDirectory() != null) {
+//            for (Hospital h : ecosystem.getHospitalDirectory().getHospitalList()) {
+//                if (h != null) {
+//                    HospitalDepartmentDirectory hd = h.getDepartmentDirectory();
+//                    if (hd != null) {
+//                        for (HospitalDepartment dept : hd.getDepartmentList()) {
+//                            if (dept != null) {
+//                                StaffDirectory sd = dept.getStaffDirectory();
+//                                if (sd != null) {
+//                                    for (Staff staff : sd.getStaffList()) {
+//                                       
+//                                        Object[] row = new Object[5];
+//                                        row[0] = "" + count++;
+//                                        row[1] = staff;
+//                                        row[2] = staff.getDesignation();
+//                                        row[3] = h;
+//                                        row[4] = dept;
+//
+//                                        model.addRow(row);
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
     }
 }

@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.CustomerRole;
+package userinterface.FitnessStaffRole;
 
+import userinterface.StaffRole.*;
+import userinterface.CustomerRole.*;
 import Business.EcoSystem;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
@@ -19,7 +21,7 @@ import javax.swing.JPanel;
  *
  * @author khushbu
  */
-public class UserWorkAreaPanel extends javax.swing.JPanel {
+public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UserWorkAreaPanel
@@ -28,7 +30,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     EcoSystem ecosystem;
     UserAccount userAccount;
 
-    public UserWorkAreaPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem) {
+    public FitnessStaffWorkAreaPanel(JPanel userProcessContainer, UserAccount userAccount, EcoSystem ecosystem) {
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
@@ -77,8 +79,6 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         iconDashboard7 = new javax.swing.JLabel();
         manageSessions = new javax.swing.JLabel();
         border7 = new javax.swing.JPanel();
-        btnTemp1 = new javax.swing.JButton();
-        btnTemp2 = new javax.swing.JButton();
         mainPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(244, 249, 249));
@@ -582,42 +582,21 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(border7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        btnTemp1.setText("Temp");
-        btnTemp1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTemp1ActionPerformed(evt);
-            }
-        });
-
-        btnTemp2.setText("Temp 2");
-        btnTemp2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTemp2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout sideBarLayout = new javax.swing.GroupLayout(sideBar);
         sideBar.setLayout(sideBarLayout);
         sideBarLayout.setHorizontalGroup(
             sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sideBarLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(sideBarLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manageDashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageConsultDoctorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageOrderMedicinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageOrderFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageProfilePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageAppointmentsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(sideBarLayout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnTemp2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnTemp1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(manageDashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageConsultDoctorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageOrderMedicinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageOrderFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageProfilePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageAppointmentsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sideBarLayout.setVerticalGroup(
@@ -639,11 +618,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(manageOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(btnTemp1)
-                .addGap(18, 18, 18)
-                .addComponent(btnTemp2)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -693,12 +668,10 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageOrderFitnessMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderFitnessMousePressed
         // TODO add your handling code here:
-        manageRegisterFitness();
     }//GEN-LAST:event_manageOrderFitnessMousePressed
 
     private void manageOrderFitnessPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderFitnessPanelMousePressed
         // TODO add your handling code here:
-        manageRegisterFitness();
     }//GEN-LAST:event_manageOrderFitnessPanelMousePressed
 
     private void managePersonalInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePersonalInfoMousePressed
@@ -706,7 +679,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
             // TODO add your handling code here:
             managePersonalInfo();
         } catch (ParseException ex) {
-            Logger.getLogger(UserWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FitnessStaffWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_managePersonalInfoMousePressed
 
@@ -715,7 +688,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
             // TODO add your handling code here:
             managePersonalInfo();
         } catch (ParseException ex) {
-            Logger.getLogger(UserWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FitnessStaffWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_manageProfilePanelMousePressed
 
@@ -745,26 +718,6 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_manageSessionsPanelMousePressed
 
-    private void btnTemp1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemp1ActionPerformed
-        // TODO add your handling code here:
-        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-        ConsultationFormPatient manageInformationPanel = new ConsultationFormPatient(userProcessContainer, ecosystem, user);
-//        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
-        userProcessContainer.add("manageInformationJPanel", manageInformationPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnTemp1ActionPerformed
-
-    private void btnTemp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemp2ActionPerformed
-        // TODO add your handling code here:
-        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-        ConsultationFormDoctor manageInformationPanel = new ConsultationFormDoctor(userProcessContainer, ecosystem, user);
-//        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
-        userProcessContainer.add("manageInformationJPanel", manageInformationPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
-    }//GEN-LAST:event_btnTemp2ActionPerformed
-
     private void manageOrderProducts() {
         changeBtnBgs("order-products");
 
@@ -774,23 +727,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-    
-        private void manageRegisterFitness() {
-        changeBtnBgs("order-products");
-
-        RegisterFitnessPanel orderMedicinePanel = new RegisterFitnessPanel(mainPanel, ecosystem, userAccount);
-
-        mainPanel.add("manageHospitalsJPanel", orderMedicinePanel);
-        CardLayout layout = (CardLayout) mainPanel.getLayout();
-        layout.next(mainPanel);
-    }
-
-    private void managePersonalInfo() throws ParseException {
+     private void managePersonalInfo() throws ParseException {
         changeBtnBgs("managePersonalInfo");
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+
         AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
 
-//        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
         mainPanel.add("manageInformationJPanel", manageInformationPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
@@ -832,7 +774,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
             managePersonalInfo.setForeground(activeTxtColor);
         }
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel border;
     private javax.swing.JPanel border1;
@@ -842,8 +784,6 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel border5;
     private javax.swing.JPanel border6;
     private javax.swing.JPanel border7;
-    private javax.swing.JButton btnTemp1;
-    private javax.swing.JButton btnTemp2;
     private javax.swing.JLabel iconDashboard;
     private javax.swing.JLabel iconDashboard1;
     private javax.swing.JLabel iconDashboard2;

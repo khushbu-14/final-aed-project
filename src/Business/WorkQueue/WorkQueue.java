@@ -58,4 +58,20 @@ public class WorkQueue {
 
         return userRequestList;
     }
+
+    public ArrayList<WorkRequest> getStaffRequestList(UserAccount account, String requestType) {
+        ArrayList<WorkRequest> userRequestList = new ArrayList<>();
+
+        for (WorkRequest wr : workRequestList) {
+            if (wr.getStaff() != null) {
+                if (wr.getStaff().getUsername().equals(account.getUsername())) {
+                    if (wr.getRequestType().equalsIgnoreCase(requestType)) {
+                        userRequestList.add(wr);
+                    }
+                }
+            }
+        }
+
+        return userRequestList;
+    }
 }

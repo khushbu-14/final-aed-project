@@ -71,7 +71,7 @@ public class ManageProductPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Sr No", "Name", "Calories", "Price", "Description", "isPrescriptionNeeded"
+                "Sr No", "Name", "Calories", "Price", "Description", "Prescription Needed"
             }
         ) {
             Class[] types = new Class [] {

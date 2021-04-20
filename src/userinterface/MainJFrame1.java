@@ -11,6 +11,7 @@ import Business.Hospital.Hospital;
 
 import Business.Organization;
 import Business.Shop.Shop;
+import Business.Staff.Staff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
 import constants.Utils;
@@ -883,6 +884,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
                 greetings = ((Shop) userAccount).getShopName();
             } else if (userAccount instanceof DeliveryMan) {
                 greetings = ((DeliveryMan) userAccount).getName();
+            } else if (userAccount instanceof Staff) {
+                greetings = ((Staff) userAccount).getName();
             }
 //            else if (userAccount instanceof Restaurant) {
 //                greetings = ((Restaurant) userAccount).getName();
