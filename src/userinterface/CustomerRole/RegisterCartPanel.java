@@ -325,11 +325,11 @@ public class RegisterCartPanel extends javax.swing.JPanel {
 //        if (p != null) {
             
         // OrderItem oi = new OrderItem(p, qty);
-               Registration r = new Registration(userName, password, p);
+             //  Registration r = new Registration(userName, password, p);
                 
        //         orderList.add(oi);
                 
-                populateCartTable()
+                populateCartTable();
 
         int selected = tblProductsList.getSelectedRow();
         if(selected<0){
@@ -345,68 +345,68 @@ public class RegisterCartPanel extends javax.swing.JPanel {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         
-        if (orderList != null && !orderList.isEmpty()) {
-            String orderShipmentType = comboOrderShipmentType.getSelectedItem().toString();
-            
-            if (utils.isStringInputValid(orderShipmentType) || orderShipmentType != null) {
-                
-                if (shop != null) {
-                    
-                    String msg = txtMessage.getText();
-                    
-                    String resultMsg = "";
-                    
-                    if (!utils.isStringInputValid(msg)) {
-                        msg = "";
-                    }
-                    
-                    OrderList newOrderList = new OrderList();
-                    newOrderList.setOrderList(orderList);
-                    
-                    newOrderList.setShop(shop);
-//                    newOrderList.setUserAccount(userAccount);
-                    newOrderList.setUser(user);
-                    
-                    newOrderList.setRequestDate(new Date());
-                    newOrderList.setMessage(msg);
-                    
-                    Boolean isPickup = orderShipmentType.equalsIgnoreCase("PICKUP");
-                    
-                    newOrderList.setIsPickup(isPickup);
-                    
-                    Boolean isPrescriptionNeeded = false;
-                    
-                    for (OrderItem item : orderList) {
-                        if (item.getProduct().getIsPrescriptionNeeded()) {
-                            isPrescriptionNeeded = true;
-                            break;
-                        }
-                    }
-                    
-                    if (isPrescriptionNeeded) {
-                        newOrderList.setStatus("PENDING");
-                        resultMsg = "Since some products in your cart need prescription, a doctor will connect with you soon!";
-                    } else {
-                        newOrderList.setStatus("BOOKED");
-                        resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
-                    }
-                    
-                    newOrderList.setRequestType("USER-ORDER");
-                    
-                    ecosystem.getWorkQueue().addWorkRequest(newOrderList);
-                    
-                    JOptionPane.showMessageDialog(this, resultMsg);
-                    
-                   // openOrderHistory();
-                } else {
-                    utils.showErrorToast("Something went wrong! Please try again.");
-                }
-            } else {
-                utils.showErrorToast("Please choose shipment type");
-            }
-        } else {
-            utils.showErrorToast("Oops! Please add atleast 1 product in your cart to proceed.");
-        }
+//        if (orderList != null && !orderList.isEmpty()) {
+//            String orderShipmentType = comboOrderShipmentType.getSelectedItem().toString();
+//            
+//            if (utils.isStringInputValid(orderShipmentType) || orderShipmentType != null) {
+//                
+//                if (shop != null) {
+//                    
+//                    String msg = txtMessage.getText();
+//                    
+//                    String resultMsg = "";
+//                    
+//                    if (!utils.isStringInputValid(msg)) {
+//                        msg = "";
+//                    }
+//                    
+//                    OrderList newOrderList = new OrderList();
+//                    newOrderList.setOrderList(orderList);
+//                    
+//                    newOrderList.setShop(shop);
+////                    newOrderList.setUserAccount(userAccount);
+//                    newOrderList.setUser(user);
+//                    
+//                    newOrderList.setRequestDate(new Date());
+//                    newOrderList.setMessage(msg);
+//                    
+//                    Boolean isPickup = orderShipmentType.equalsIgnoreCase("PICKUP");
+//                    
+//                    newOrderList.setIsPickup(isPickup);
+//                    
+//                    Boolean isPrescriptionNeeded = false;
+//                    
+//                    for (OrderItem item : orderList) {
+//                        if (item.getProduct().getIsPrescriptionNeeded()) {
+//                            isPrescriptionNeeded = true;
+//                            break;
+//                        }
+//                    }
+//                    
+//                    if (isPrescriptionNeeded) {
+//                        newOrderList.setStatus("PENDING");
+//                        resultMsg = "Since some products in your cart need prescription, a doctor will connect with you soon!";
+//                    } else {
+//                        newOrderList.setStatus("BOOKED");
+//                        resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
+//                    }
+//                    
+//                    newOrderList.setRequestType("USER-ORDER");
+//                    
+//                    ecosystem.getWorkQueue().addWorkRequest(newOrderList);
+//                    
+//                    JOptionPane.showMessageDialog(this, resultMsg);
+//                    
+//                   // openOrderHistory();
+//                } else {
+//                    utils.showErrorToast("Something went wrong! Please try again.");
+//                }
+//            } else {
+//                utils.showErrorToast("Please choose shipment type");
+//            }
+//        } else {
+//            utils.showErrorToast("Oops! Please add atleast 1 product in your cart to proceed.");
+//        }
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -453,37 +453,37 @@ public class RegisterCartPanel extends javax.swing.JPanel {
         
         for (Sessions p : pd.getSession()) {
             Object[] row = new Object[6];
-            
-            row[0] = "" + count++;
-            row[1] = p;
-            row[2] = p.getPrice();
-            row[3] = p.getIsPrescriptionNeeded();
-            row[4] = p.getDescription();
-            row[5] = p.getCalories();
+//            
+//            row[0] = "" + count++;
+//            row[1] = p;
+//            row[2] = p.getPrice();
+//            row[3] = p.getIsPrescriptionNeeded();
+//            row[4] = p.getDescription();
+//            row[5] = p.getCalories();
             
             model.addRow(row);
         }
         
     }
     
-//    private void populateCartTable() {
-//        DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
+    private void populateCartTable() {
+        DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
+        
+        int count = 1;
+        int qtyTotal = 0;
+        double sumTotal = 0;
+        
+        model.setRowCount(0);
 //        
-////        int count = 1;
-////        int qtyTotal = 0;
-////        double sumTotal = 0;
-////        
-//        model.setRowCount(0);
-//        
-//        //for(Registration item : fcstaff.getName()) {
+//        for(Registration item : fcstaff.getName()) {
 //            
-//            //int qty = item.getQuantity();
-//           // double price = item.getProduct().getPrice();
+//            int qty = item.getQuantity();
+//           double price = item.getProduct().getPrice();
 //            
-//         //   double totalPrice = price * qty;
+//         double totalPrice = price * qty;
 //            
-//          //  qtyTotal += qty;
-//            //sumTotal += totalPrice;
+//          qtyTotal += qty;
+//          sumTotal += totalPrice;
 //            
 //            Object[] row = new Object[4];
 //            row[0] = "" + count++;
@@ -495,10 +495,10 @@ public class RegisterCartPanel extends javax.swing.JPanel {
 //            model.addRow(row);
 //            
 //        }
-        
-//        DecimalFormat df = new DecimalFormat("###.###");
 //        
-//        txtTotalPrice.setText(String.valueOf(df.format(sumTotal)));
-//        txtTotalQuantity.setText(String.valueOf(qtyTotal));
-    
+        DecimalFormat df = new DecimalFormat("###.###");
+        
+        txtTotalPrice.setText(String.valueOf(df.format(sumTotal)));
+        txtTotalQuantity.setText(String.valueOf(qtyTotal));
+     }
 }
