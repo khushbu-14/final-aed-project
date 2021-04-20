@@ -11,6 +11,7 @@ import Business.Hospital.Department.HospitalDepartment;
 import Business.Role.FitnessDepartmentRole;
 import Business.Role.HospitalDepartmentRole;
 import Business.Role.ShopsRole;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,6 +25,7 @@ public class FcStaff extends Business.UserAccount.UserAccount{
     private String email;
     private String zipcode;
     private FitnessCenterDepartment department;
+    private SessionsDirectory sdir;
 
     public FcStaff(String userName, String password, String name, String designation, String contact, String address, String email, String zipcode, FitnessCenterDepartment department) {
         this.name = name;
@@ -93,7 +95,35 @@ public class FcStaff extends Business.UserAccount.UserAccount{
     public void setDepartment(FitnessCenterDepartment department) {
         this.department = department;
     }
+
+    public SessionsDirectory getSdir() {
+        if(sdir==null){
+       sdir = new SessionsDirectory();
+       }
+        return sdir;
+    }
+
+    public void setSdir(SessionsDirectory sdir) {
+        this.sdir = sdir;
+    }
     
+    
+    
+//    int id = 1;
+//    public void addSession(String sessionID, String name, String sessionDate, String startTime, String endTime) {
+//        Sessions s = new Sessions();
+//        Orders order=new Orders();
+//        order.setOrderId(String.valueOf(id));
+//        order.setCustomerName(customerName);
+//        order.setRestaurantName(restaurentName);
+//        order.setDeliveryMan(deliverMan);
+//        order.setOrder(Order);
+//        order.setUnitprice(price);
+//        order.setDeliveryAddress(deliveryAddress);
+//        order.setOrderStatus("New Order");
+//        orderList.add(order);
+//        id++;
+//    }
     
      @Override
     public String toString() {

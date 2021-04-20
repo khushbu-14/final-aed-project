@@ -5,13 +5,18 @@
  */
 package Business.Role;
 
+
+/**
+ *
+ * @author singh
+ */
+
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.FitnessDepartmentRole.FitnessDepartmentWorkAreaJPanel;
 import userinterface.FitnessDepartmentRole.FitnessStaffWorkAreaPanel;
 
-public class FitnessDepartmentRole extends Role {
+public class FitnessStaffRole extends Role {
 
     @Override
 

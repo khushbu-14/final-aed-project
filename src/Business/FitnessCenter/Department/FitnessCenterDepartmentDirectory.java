@@ -54,6 +54,17 @@ public class FitnessCenterDepartmentDirectory {
          return fitDept;
      }
       
+      public FitnessCenterDepartment getFitnessCenterDepartmentByName(String name){
+         FitnessCenterDepartment fitDept = null;
+         for(FitnessCenterDepartment fitD: departmentList){
+             if(fitD.getDepartmentName().equals(name)){
+                 fitDept = fitD;
+             }    
+         }
+         return fitDept;
+     }
+      
+      
        public void updateFitnessCenterDepartmentByUserName(String userName,String departmentName, String contact,String password, String schedule, String location, String isRemote){
           FitnessCenterDepartment fit = getFitnessCenterDepartmentByUserName(userName);
           fit.setDepartmentName(departmentName);

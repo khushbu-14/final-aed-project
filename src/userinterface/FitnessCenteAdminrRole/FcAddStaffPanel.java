@@ -460,7 +460,7 @@ public class FcAddStaffPanel extends javax.swing.JPanel {
                 type=jComboType.getSelectedItem().toString();
 
         FitnessCenter fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterByUserName(userAccount.getUsername());
-        FitnessCenterDepartment department = fc.getFcdepartmentDirectory().getFitnessCenterDepartmentByUserName(type);
+        FitnessCenterDepartment department = fc.getFcdepartmentDirectory().getFitnessCenterDepartmentByName(type);
             
             
         if (!util.isStringInputValid(userName)) {
@@ -524,7 +524,7 @@ public class FcAddStaffPanel extends javax.swing.JPanel {
                 msg = name + " account updated successfully!";
             } else {
 
-                FcStaff staffTemp = new FcStaff(userName, password, name,designation, phoneNo, address, email, zipcode,department);
+                FcStaff staffTemp = new FcStaff(userName, password, name,designation, phoneNo, address, email, zipcode, department);
                 department.getStaffDirectory().addNewStaff(staffTemp);
                 ecosystem.getUserAccountDirectory().addUserAccount(staffTemp);
                 
@@ -656,9 +656,10 @@ public class FcAddStaffPanel extends javax.swing.JPanel {
          public void populateComboBox(){
              //Hospital hosp = ecosystem.getHospitalDirectory().getHospitalByUserName(userAccount.getUsername());
              FitnessCenter fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterByUserName(userAccount.getUsername());
-             fc.getFcdepartmentDirectory().getDepartmentList().forEach((fcd) -> {
+             //fc.getFcdepartmentDirectory().getDepartmentList().forEach((fcd) -> {
+                 for (FitnessCenterDepartment fcd: fc.getFcdepartmentDirectory().getDepartmentList()){
                  jComboType.addItem(fcd.getDepartmentName());
-        });
+        }
     }
 
 }
