@@ -5,9 +5,8 @@
  */
 package Business.FitnessCenter.Department;
 
-import Business.Role.HospitalDepartmentRole;
+import Business.Role.FitnessDepartmentRole;
 import Business.Staff.FcStaffDirectory;
-import Business.Staff.StaffDirectory;
 import java.util.UUID;
 
 /**
@@ -40,7 +39,7 @@ public class FitnessCenterDepartment extends Business.UserAccount.UserAccount {
         //this.numberOfBeds = numberOfBeds;
         setPassword(password);
         setUsername(userName);
-        setRole(new HospitalDepartmentRole());
+        setRole(new FitnessDepartmentRole());
     }
 
     public String getDepartmentID() {

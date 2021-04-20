@@ -215,6 +215,11 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
         errorContactNumber.setForeground(new java.awt.Color(255, 0, 0));
 
         jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
+        jComboType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboTypeActionPerformed(evt);
+            }
+        });
 
         lblUsername4.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -479,6 +484,10 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_txtContactKeyPressed
+
+    private void jComboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboTypeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NumberOfBeds;

@@ -249,6 +249,11 @@ public class AddStaffPanel extends javax.swing.JPanel {
         lblUsername4.setText("Designation:");
 
         jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
+        jComboType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboTypeActionPerformed(evt);
+            }
+        });
 
         lblUsername5.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -608,6 +613,10 @@ public class AddStaffPanel extends javax.swing.JPanel {
     private void txtDesignationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDesignationActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDesignationActionPerformed
+
+    private void jComboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboTypeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
