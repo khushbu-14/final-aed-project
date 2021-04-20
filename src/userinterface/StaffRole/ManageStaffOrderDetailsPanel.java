@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.ShopsRole;
+package userinterface.StaffRole;
 
+import userinterface.ShopsRole.*;
 import userinterface.CustomerRole.*;
 import Business.EcoSystem;
 import Business.Hospital.Department.HospitalDepartment;
@@ -25,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author khushbu
  */
-public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
+public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageOrderDetailsPanel
@@ -35,9 +36,8 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
     EcoSystem ecosystem;
     OrderList orderListData;
     Utils utils;
-    String shipmentType;
 
-    public ManageShopOrderDetailsPanel(JPanel mainWorkArea, UserAccount userAccount, EcoSystem ecosystem, OrderList orderListData) {
+    public ManageStaffOrderDetailsPanel(JPanel mainWorkArea, UserAccount userAccount, EcoSystem ecosystem, OrderList orderListData) {
         this.mainWorkArea = mainWorkArea;
         this.userAccount = userAccount;
         this.ecosystem = ecosystem;
@@ -79,15 +79,16 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         lblCustomerAddress1 = new javax.swing.JLabel();
         lblOrderStatus = new javax.swing.JLabel();
         lblCustomerAddress3 = new javax.swing.JLabel();
-        btnAssignDoctor = new javax.swing.JButton();
         assignDoctorPanel = new javax.swing.JPanel();
         lblShipmentType = new javax.swing.JLabel();
         lblShipmentTypeName = new javax.swing.JLabel();
         lblAssignedStaff = new javax.swing.JLabel();
         lblAssignedStaffName = new javax.swing.JLabel();
+        lblAssignedFitnessName = new javax.swing.JLabel();
+        lblAssignedFitness = new javax.swing.JLabel();
         btnAcceptOrder = new javax.swing.JButton();
         btnRejectOrder = new javax.swing.JButton();
-        btnMarkReadyForShipment = new javax.swing.JButton();
+        btnAssignFitness = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(244, 249, 249));
 
@@ -142,7 +143,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         lblPageTitle.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
-        lblPageTitle.setText("Order Details");
+        lblPageTitle.setText("Consultation Details");
 
         jPanel3.setBackground(new java.awt.Color(221, 248, 249));
 
@@ -250,8 +251,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         lblCustomerAddress1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblCustomerAddress1.setText("Request Date :");
 
-        lblOrderStatus.setBackground(new java.awt.Color(3, 80, 111));
-        lblOrderStatus.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblOrderStatus.setBackground(new java.awt.Color(249, 244, 244));
         lblOrderStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblOrderStatus.setText("NA");
 
@@ -299,18 +299,6 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20))
         );
 
-        btnAssignDoctor.setBackground(new java.awt.Color(3, 80, 111));
-        btnAssignDoctor.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnAssignDoctor.setForeground(new java.awt.Color(255, 255, 255));
-        btnAssignDoctor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnAssignDoctor.setText("Assign Medical Staff");
-        btnAssignDoctor.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnAssignDoctor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignDoctorActionPerformed(evt);
-            }
-        });
-
         assignDoctorPanel.setBackground(new java.awt.Color(221, 248, 249));
 
         lblShipmentType.setBackground(new java.awt.Color(249, 244, 244));
@@ -331,36 +319,52 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         lblAssignedStaffName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblAssignedStaffName.setText("NA");
 
+        lblAssignedFitnessName.setBackground(new java.awt.Color(249, 244, 244));
+        lblAssignedFitnessName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblAssignedFitnessName.setText("NA");
+
+        lblAssignedFitness.setBackground(new java.awt.Color(249, 244, 244));
+        lblAssignedFitness.setForeground(new java.awt.Color(102, 102, 102));
+        lblAssignedFitness.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblAssignedFitness.setText("Assigned Fitness Session :");
+
         javax.swing.GroupLayout assignDoctorPanelLayout = new javax.swing.GroupLayout(assignDoctorPanel);
         assignDoctorPanel.setLayout(assignDoctorPanelLayout);
         assignDoctorPanelLayout.setHorizontalGroup(
             assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(assignDoctorPanelLayout.createSequentialGroup()
                 .addGroup(assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(assignDoctorPanelLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblShipmentTypeName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblShipmentType, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, assignDoctorPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAssignedStaffName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAssignedStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(20, 20, 20))
+                    .addGroup(assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(assignDoctorPanelLayout.createSequentialGroup()
+                            .addGap(20, 20, 20)
+                            .addGroup(assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblShipmentTypeName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblShipmentType, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, assignDoctorPanelLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblAssignedStaffName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblAssignedStaff, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lblAssignedFitnessName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblAssignedFitness, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         assignDoctorPanelLayout.setVerticalGroup(
             assignDoctorPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(assignDoctorPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(lblShipmentType)
                 .addGap(10, 10, 10)
                 .addComponent(lblShipmentTypeName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addComponent(lblAssignedStaff)
                 .addGap(10, 10, 10)
                 .addComponent(lblAssignedStaffName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addGap(25, 25, 25)
+                .addComponent(lblAssignedFitness)
+                .addGap(10, 10, 10)
+                .addComponent(lblAssignedFitnessName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         btnAcceptOrder.setBackground(new java.awt.Color(255, 255, 255));
@@ -386,14 +390,15 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
             }
         });
 
-        btnMarkReadyForShipment.setBackground(new java.awt.Color(255, 255, 255));
-        btnMarkReadyForShipment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnMarkReadyForShipment.setText("Mark Ready");
-        btnMarkReadyForShipment.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
-        btnMarkReadyForShipment.setBorderPainted(false);
-        btnMarkReadyForShipment.addActionListener(new java.awt.event.ActionListener() {
+        btnAssignFitness.setBackground(new java.awt.Color(3, 80, 111));
+        btnAssignFitness.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnAssignFitness.setForeground(new java.awt.Color(255, 255, 255));
+        btnAssignFitness.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnAssignFitness.setText("Assign Fitness Centre");
+        btnAssignFitness.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnAssignFitness.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMarkReadyForShipmentActionPerformed(evt);
+                btnAssignFitnessActionPerformed(evt);
             }
         });
 
@@ -416,16 +421,16 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(45, 45, 45)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(45, 45, 45)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGap(63, 63, 63)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(assignDoctorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(btnAcceptOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(15, 15, 15)
+                                        .addGap(18, 18, 18)
                                         .addComponent(btnRejectOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(assignDoctorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnMarkReadyForShipment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnAssignDoctor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 557, Short.MAX_VALUE))))
+                                    .addComponent(btnAssignFitness, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 17, Short.MAX_VALUE)))
+                        .addGap(0, 539, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,22 +441,19 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
                     .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnAssignDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(assignDoctorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(15, 15, 15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAcceptOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnRejectOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, 0)
-                        .addComponent(btnMarkReadyForShipment, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(40, 40, 40)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAssignFitness, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -461,64 +463,42 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnAssignDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignDoctorActionPerformed
-        // TODO add your handling code here:
-        AssignStaffPanel assignStaffPanel = new AssignStaffPanel(mainWorkArea, ecosystem, orderListData);
-        mainWorkArea.add("AssignStaffPanel", assignStaffPanel);
-//        if (orderListData.getStatus().equalsIgnoreCase("SHOP APPROVED")) {
-//
-//        } else {
-//            AssignStaffPanel assignStaffPanel = new AssignStaffPanel(mainWorkArea, ecosystem, orderListData);
-//            mainWorkArea.add("AssignStaffPanel", assignStaffPanel);
-//        }
-        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-        layout.next(mainWorkArea);
-    }//GEN-LAST:event_btnAssignDoctorActionPerformed
-
     private void btnAcceptOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrderActionPerformed
         // TODO add your handling code here:
-        orderListData.setStatus("SHOP APPROVED");
-        lblOrderStatus.setText("SHOP APPROVED");
+        orderListData.setStatus("STAFF APPROVED");
+        lblOrderStatus.setText("STAFF APPROVED");
         orderListData.setResolveDate(new Date());
         changeBtns();
-        JOptionPane.showMessageDialog(null, "Order approved successfully!");
+        JOptionPane.showMessageDialog(null, "Order accepted successfully!");
     }//GEN-LAST:event_btnAcceptOrderActionPerformed
 
     private void btnRejectOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectOrderActionPerformed
-        orderListData.setStatus("SHOP REJECTED");
+        orderListData.setStatus("STAFF REJECTED");
         orderListData.setResolveDate(new Date());
         changeBtns();
         JOptionPane.showMessageDialog(null, "Order rejected successfully!");
-        lblOrderStatus.setText("SHOP REJECTED");
+        lblOrderStatus.setText("STAFF REJECTED");
     }//GEN-LAST:event_btnRejectOrderActionPerformed
 
-    private void btnMarkReadyForShipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarkReadyForShipmentActionPerformed
-
-        if (shipmentType.equals("PICKUP")) {
-            orderListData.setStatus("READY FOR PICKUP");
-            changeBtns();
-        } else {
-            orderListData.setStatus("PROCESSING");
-
-            AssignDeliveryManPanel assignDeliveryManPanel = new AssignDeliveryManPanel(mainWorkArea, ecosystem, orderListData);
-            // AssignStaffPanel assignStaffPanel = new AssignStaffPanel(mainWorkArea, ecosystem, orderListData);
-            mainWorkArea.add("assignDeliveryManPanel", assignDeliveryManPanel);
-
-            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-            layout.next(mainWorkArea);
-        }
-    }//GEN-LAST:event_btnMarkReadyForShipmentActionPerformed
+    private void btnAssignFitnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignFitnessActionPerformed
+        // TODO add your handling code here:
+//        AssignStaffPanel assignStaffPanel = new AssignStaffPanel(mainWorkArea, ecosystem, orderListData);
+//        mainWorkArea.add("AssignStaffPanel", assignStaffPanel);
+//        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+//        layout.next(mainWorkArea);
+    }//GEN-LAST:event_btnAssignFitnessActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel assignDoctorPanel;
     private javax.swing.JButton btnAcceptOrder;
-    private javax.swing.JButton btnAssignDoctor;
+    private javax.swing.JButton btnAssignFitness;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnMarkReadyForShipment;
     private javax.swing.JButton btnRejectOrder;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAssignedFitness;
+    private javax.swing.JLabel lblAssignedFitnessName;
     private javax.swing.JLabel lblAssignedStaff;
     private javax.swing.JLabel lblAssignedStaffName;
     private javax.swing.JLabel lblCustomerAddress1;
@@ -569,7 +549,6 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
             sumTotal += price * qty;
 
             model.addRow(row);
-
         }
 
         lblTotalPrice.setText(String.valueOf(sumTotal));
@@ -581,18 +560,23 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
 
-        ManageShopOrderHistory manageShopOrderHistory = (ManageShopOrderHistory) component;
+        ManageDirectConsultationsHistory manageDirectConsultationsHistory = (ManageDirectConsultationsHistory) component;
 
+        // ManageShopOrderHistory manageShopOrderHistory = (ManageShopOrderHistory) component;
         // ManageUserOrderHistory manageUserOrderHistory = (ManageUserOrderHistory) component;
-        manageShopOrderHistory.populateTable();
+        manageDirectConsultationsHistory.populateTable();
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }
 
     public void renderData() {
-        lblShopName.setText(orderListData.getShop().getShopName());
 
+        lblAssignedFitness.setVisible(false);
+        lblAssignedFitnessName.setVisible(false);
+
+        lblShopName.setText(orderListData.getShop().getShopName());
+        // lblDataOrderId.setText(orderListData.getOrderId());
         String deliveryManName = "NA";
 
         if (orderListData.getDeliveryMan() != null) {
@@ -606,23 +590,10 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         // lblMsg.setText(orderListData.getMessage());
         lblMessage.setText(orderListData.getMessage());
 
-        shipmentType = orderListData.getIsPickup() ? "PICKUP" : "DELIVERY";
+        lblShipmentTypeName.setText(orderListData.getIsPickup() ? "PICKUP" : "DELIVERY");
 
-        if (shipmentType.equals("PICKUP")) {
-            btnMarkReadyForShipment.setText("Mark ready for pickup");
-        } else {
-            btnMarkReadyForShipment.setText("Assign Delivery Man");
-        }
-
-        lblShipmentTypeName.setText(shipmentType);
-
-        String orderStatus = orderListData.getStatus();
-
-        if ("PENDING".equals(orderStatus)) {
-            btnAssignDoctor.setVisible(true);
-        } else {
-            btnAssignDoctor.setVisible(false);
-        }
+//        String orderStatus = orderListData.getStatus();
+        changeBtns();
 
         if (orderListData.getStaff() != null) {
             lblAssignedStaffName.setVisible(true);
@@ -640,48 +611,19 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
             lblLastStatusDate.setText(orderListData.getRequestDate().toString());
         }
 
-        changeBtns();
-
         populateTable();
     }
 
     private void changeBtns() {
-
         String status = orderListData.getStatus().toUpperCase();
 
-        btnAcceptOrder.setVisible(false);
-        btnRejectOrder.setVisible(false);
-        btnMarkReadyForShipment.setVisible(false);
-        btnAssignDoctor.setVisible(false);
-        
-        lblOrderStatus.setText(status);
+        if (status.equalsIgnoreCase("STAFF REJECTED") || status.equalsIgnoreCase("STAFF APPROVED")) {
+            btnAcceptOrder.setVisible(false);
+            btnRejectOrder.setVisible(false);
 
-        switch (status) {
-            case "PENDING":
-                btnAssignDoctor.setVisible(true);
-                break;
-
-            case "SHOP APPROVED":
-                btnMarkReadyForShipment.setVisible(true);
-                break;
-
-            case "BOOKED":
-                btnAcceptOrder.setVisible(true);
-                btnRejectOrder.setVisible(true);
-                break;
-
-            case "STAFF APPROVED":
-                btnAcceptOrder.setVisible(true);
-                btnRejectOrder.setVisible(true);
-                break;
-
-            case "PROCESSING":
-                btnMarkReadyForShipment.setVisible(true);
-                break;
-
-            default:
-
-                break;
+        } else {
+            btnAcceptOrder.setVisible(true);
+            btnRejectOrder.setVisible(true);
         }
     }
 }

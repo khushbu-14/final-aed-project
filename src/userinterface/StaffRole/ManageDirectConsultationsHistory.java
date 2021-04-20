@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.ShopsRole;
+package userinterface.StaffRole;
 
 import userinterface.CustomerRole.*;
 import Business.EcoSystem;
@@ -20,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author khushbu
  */
-public class ManageShopOrderHistory extends javax.swing.JPanel {
+public class ManageDirectConsultationsHistory extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageUserOrderHistory
@@ -31,7 +31,7 @@ public class ManageShopOrderHistory extends javax.swing.JPanel {
     EcoSystem ecosystem;
     UserAccount userAccount;
 
-    public ManageShopOrderHistory(JPanel mainWorkArea, EcoSystem ecosystem, UserAccount userAccount) {
+    public ManageDirectConsultationsHistory(JPanel mainWorkArea, EcoSystem ecosystem, UserAccount userAccount) {
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
@@ -49,29 +49,29 @@ public class ManageShopOrderHistory extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblCart = new javax.swing.JTable();
+        tblConsultation = new javax.swing.JTable();
         btnViewDetails = new javax.swing.JButton();
         btnRefresh = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(244, 249, 249));
 
-        tblCart.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        tblCart.setModel(new javax.swing.table.DefaultTableModel(
+        tblConsultation.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        tblConsultation.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Sr No.", "Message", "Shop Name", "Order Status", "Date"
+                "Sr No.", "Message", "Customer Name", "Shop Name", "Order Status", "Date"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -82,9 +82,9 @@ public class ManageShopOrderHistory extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblCart.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
-        tblCart.setSelectionBackground(new java.awt.Color(0, 102, 204));
-        jScrollPane2.setViewportView(tblCart);
+        tblConsultation.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        tblConsultation.setSelectionBackground(new java.awt.Color(0, 102, 204));
+        jScrollPane2.setViewportView(tblConsultation);
 
         btnViewDetails.setBackground(new java.awt.Color(255, 255, 255));
         btnViewDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/view-details.png"))); // NOI18N
@@ -112,39 +112,39 @@ public class ManageShopOrderHistory extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
-                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(568, 568, 568))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 847, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 704, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(39, 39, 39))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(373, Short.MAX_VALUE))
+                .addContainerGap(399, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private WorkRequest getSelectedRow() {
-        int selectedRowIndex = tblCart.getSelectedRow();
+        int selectedRowIndex = tblConsultation.getSelectedRow();
 
         if (selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(this, "Oops! Please select a order first.");
+            JOptionPane.showMessageDialog(this, "Oops! Please select a consultation first.");
             return null;
         }
 
-        WorkRequest request = (WorkRequest) tblCart.getValueAt(selectedRowIndex, 1);
+        WorkRequest request = (WorkRequest) tblConsultation.getValueAt(selectedRowIndex, 1);
 
         return request;
     }
@@ -156,10 +156,10 @@ public class ManageShopOrderHistory extends javax.swing.JPanel {
         if (request != null && request instanceof OrderList) {
             OrderList orderListData = (OrderList) request;
 
-            ManageShopOrderDetailsPanel manageShopOrderDetailsPanel = new ManageShopOrderDetailsPanel(mainWorkArea, userAccount, ecosystem, orderListData);
+            ManageStaffOrderDetailsPanel manageStaffOrderDetailsPanel = new ManageStaffOrderDetailsPanel(mainWorkArea, userAccount, ecosystem, orderListData);
 
-//            ManageUserOrderDetailsPanel manageUserOrderDetailsPanel = new ManageUserOrderDetailsPanel(mainWorkArea, userAccount, ecosystem, orderListData);
-            mainWorkArea.add("ManageShopOrderDetailsPanel", manageShopOrderDetailsPanel);
+            // ManageUserOrderDetailsPanel manageUserOrderDetailsPanel = new ManageUserOrderDetailsPanel(mainWorkArea, userAccount, ecosystem, orderListData);
+            mainWorkArea.add("manageStaffOrderDetailsPanel", manageStaffOrderDetailsPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
         }
@@ -173,13 +173,13 @@ public class ManageShopOrderHistory extends javax.swing.JPanel {
     private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnViewDetails;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tblCart;
+    private javax.swing.JTable tblConsultation;
     // End of variables declaration//GEN-END:variables
 
     public void populateTable() {
-        DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblConsultation.getModel();
 
-        workRequestList = ecosystem.getWorkQueue().getShopRequestList(userAccount, "USER-ORDER");
+        workRequestList = ecosystem.getWorkQueue().getStaffRequestList(userAccount, "USER-ORDER");
 
         int count = 1;
 

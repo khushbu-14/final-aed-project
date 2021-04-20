@@ -31,7 +31,7 @@ public class EcoSystem extends Organization {
     private DeliveryManDirectory deliveryManDirectory;
     private FitnessCenterDirectory fitnessCenterDirectory;
 
-    public EcoSystem(HospitalDirectory hospitalDirectory, UserDirectory userDirectory,TypeDirectory typeDirectory,ShopDirectory shopDirectory, AmbulanceDirectory ambulanceDirectory, DeliveryManDirectory deliveryManDirectory, FitnessCenterDirectory fitnessCenterDirectory) {
+    public EcoSystem(HospitalDirectory hospitalDirectory, UserDirectory userDirectory, TypeDirectory typeDirectory, ShopDirectory shopDirectory, AmbulanceDirectory ambulanceDirectory, DeliveryManDirectory deliveryManDirectory, FitnessCenterDirectory fitnessCenterDirectory) {
         this.hospitalDirectory = hospitalDirectory;
         this.userDirectory = userDirectory;
         this.typeDirectory = typeDirectory;
@@ -109,7 +109,7 @@ public class EcoSystem extends Organization {
     }
 
     public AmbulanceDirectory getAmbulanceDirectory() {
-         if (ambulanceDirectory == null) {
+        if (ambulanceDirectory == null) {
             ambulanceDirectory = new AmbulanceDirectory();
         }
         return ambulanceDirectory;
@@ -120,7 +120,7 @@ public class EcoSystem extends Organization {
     }
 
     public DeliveryManDirectory getDeliveryManDirectory() {
-         if (deliveryManDirectory == null) {
+        if (deliveryManDirectory == null) {
             deliveryManDirectory = new DeliveryManDirectory();
         }
         return deliveryManDirectory;
@@ -141,5 +141,4 @@ public class EcoSystem extends Organization {
         this.fitnessCenterDirectory = fitnessCenterDirectory;
     }
 
-    
 }
