@@ -729,8 +729,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     private void managePersonalInfo() throws ParseException {
         changeBtnBgs("managePersonalInfo");
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-
-        AddMedicalProfilePanel1 manageInformationPanel = new AddMedicalProfilePanel1(mainPanel, ecosystem, user);
+        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
 
 //        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
         mainPanel.add("manageInformationJPanel", manageInformationPanel);
