@@ -662,10 +662,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageOrderFitnessMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderFitnessMousePressed
         // TODO add your handling code here:
+        manageRegisterFitness();
     }//GEN-LAST:event_manageOrderFitnessMousePressed
 
     private void manageOrderFitnessPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderFitnessPanelMousePressed
         // TODO add your handling code here:
+        manageRegisterFitness();
     }//GEN-LAST:event_manageOrderFitnessPanelMousePressed
 
     private void managePersonalInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePersonalInfoMousePressed
@@ -706,6 +708,16 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         changeBtnBgs("order-products");
 
         OrderMedicinePanel orderMedicinePanel = new OrderMedicinePanel(mainPanel, ecosystem, userAccount);
+
+        mainPanel.add("manageHospitalsJPanel", orderMedicinePanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+    
+        private void manageRegisterFitness() {
+        changeBtnBgs("order-products");
+
+        RegisterFitnessPanel orderMedicinePanel = new RegisterFitnessPanel(mainPanel, ecosystem, userAccount);
 
         mainPanel.add("manageHospitalsJPanel", orderMedicinePanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();

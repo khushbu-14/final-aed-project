@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Business.Registration.RegistrationDirectory;
 import Business.Staff.Sessions;
+import Business.Staff.SessionsDirectory;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -442,15 +443,15 @@ public class RegisterCartPanel extends javax.swing.JPanel {
 //        
 //        comboOrderShipmentType.addItem("DELIVERY");
         
-        ProductDirectory pd = shop.getProductDirectory();
-        FcStaffDirectory fcd = 
+        SessionsDirectory pd = fcstaff.getSdir();
+        //FcStaffDirectory fcd = 
                 
         DefaultTableModel model = (DefaultTableModel) tblProductsList.getModel();
         
         int count = 1;
         model.setRowCount(0);
         
-        for (Product p : pd.getProductList()) {
+        for (Sessions p : pd.getSession()) {
             Object[] row = new Object[6];
             
             row[0] = "" + count++;
