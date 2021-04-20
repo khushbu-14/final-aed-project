@@ -10,11 +10,13 @@ package Business.Hospital;
  * @author kunal
  */
 public class ConsultationForm {
-    private Boolean isFever;
-    private Boolean isCough;
-    private Boolean isBodyPain;
-    private Boolean isBreathingIssue;
-    private Boolean isOther;
+    private String fever;
+    private String cough;
+    private String bodyPain;
+    private String breathingIssue;
+    private String other;
+    private String otherRange;
+    private String otherDays;
     private String feverRange;
     private String feverDays;
     private String coughSeverity;
@@ -23,70 +25,56 @@ public class ConsultationForm {
     private String bodyPainDays;
     private String breathingSeverity;
     private String breathingDays;
+    private String feverMessage;
+    private String breathingMessage;
+    private String bodyPainMessage;
     private String otherMessage;
+    private String coughMessage;
     private String docsPrescription;
     private String docsComment;
     private String nextConsulationDate;
 
-    public ConsultationForm(Boolean isFever, Boolean isCough, Boolean isBodyPain, Boolean isBreathingIssue, Boolean isOther, String feverRange, String feverDays, String coughSeverity, String coughDays, String bodyPainSeverity, String bodyPainDays, String breathingSeverity, String breathingDays, String otherMessage, String docsPrescription, String docsComment, String nextConsulationDate) {
-        this.isFever = isFever;
-        this.isCough = isCough;
-        this.isBodyPain = isBodyPain;
-        this.isBreathingIssue = isBreathingIssue;
-        this.isOther = isOther;
-        this.feverRange = feverRange;
-        this.feverDays = feverDays;
-        this.coughSeverity = coughSeverity;
-        this.coughDays = coughDays;
-        this.bodyPainSeverity = bodyPainSeverity;
-        this.bodyPainDays = bodyPainDays;
-        this.breathingSeverity = breathingSeverity;
-        this.breathingDays = breathingDays;
-        this.otherMessage = otherMessage;
-        this.docsPrescription = docsPrescription;
-        this.docsComment = docsComment;
-        this.nextConsulationDate = nextConsulationDate;
+    public String getFever() {
+        return fever;
     }
 
-    public Boolean getIsFever() {
-        return isFever;
+    public void setFever(String fever) {
+        this.fever = fever;
     }
 
-    public void setIsFever(Boolean isFever) {
-        this.isFever = isFever;
+    public String getCough() {
+        return cough;
     }
 
-    public Boolean getIsCough() {
-        return isCough;
+    public void setCough(String cough) {
+        this.cough = cough;
     }
 
-    public void setIsCough(Boolean isCough) {
-        this.isCough = isCough;
+    public String getBodyPain() {
+        return bodyPain;
     }
 
-    public Boolean getIsBodyPain() {
-        return isBodyPain;
+    public void setBodyPain(String bodyPain) {
+        this.bodyPain = bodyPain;
     }
 
-    public void setIsBodyPain(Boolean isBodyPain) {
-        this.isBodyPain = isBodyPain;
+    public String getBreathingIssue() {
+        return breathingIssue;
     }
 
-    public Boolean getIsBreathingIssue() {
-        return isBreathingIssue;
+    public void setBreathingIssue(String breathingIssue) {
+        this.breathingIssue = breathingIssue;
     }
 
-    public void setIsBreathingIssue(Boolean isBreathingIssue) {
-        this.isBreathingIssue = isBreathingIssue;
+    public String getOther() {
+        return other;
     }
 
-    public Boolean getIsOther() {
-        return isOther;
+    public void setOther(String other) {
+        this.other = other;
     }
 
-    public void setIsOther(Boolean isOther) {
-        this.isOther = isOther;
-    }
+    
 
     public String getFeverRange() {
         return feverRange;
@@ -182,6 +170,54 @@ public class ConsultationForm {
 
     public void setNextConsulationDate(String nextConsulationDate) {
         this.nextConsulationDate = nextConsulationDate;
+    }
+
+    public String getOtherRange() {
+        return otherRange;
+    }
+
+    public void setOtherRange(String otherRange) {
+        this.otherRange = otherRange;
+    }
+
+    public String getOtherDays() {
+        return otherDays;
+    }
+
+    public void setOtherDays(String otherDays) {
+        this.otherDays = otherDays;
+    }
+
+    public String getFeverMessage() {
+        return feverMessage;
+    }
+
+    public void setFeverMessage(String feverMessage) {
+        this.feverMessage = feverMessage;
+    }
+
+    public String getBreathingMessage() {
+        return breathingMessage;
+    }
+
+    public void setBreathingMessage(String breathingMessage) {
+        this.breathingMessage = breathingMessage;
+    }
+
+    public String getBodyPainMessage() {
+        return bodyPainMessage;
+    }
+
+    public void setBodyPainMessage(String bodyPainMessage) {
+        this.bodyPainMessage = bodyPainMessage;
+    }
+
+    public String getCoughMessage() {
+        return coughMessage;
+    }
+
+    public void setCoughMessage(String coughMessage) {
+        this.coughMessage = coughMessage;
     }
     
 }

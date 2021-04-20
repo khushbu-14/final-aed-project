@@ -19,6 +19,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -339,22 +341,38 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void managePerosnalInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePerosnalInfoMousePressed
-        managePersonalInformation();
+        try {
+            managePersonalInformation();
+        } catch (ParseException ex) {
+            Logger.getLogger(AddMedicalProfilePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_managePerosnalInfoMousePressed
 
     private void managePersonalInfoPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePersonalInfoPanelMousePressed
-        // TODO add your handling code here:
-        managePersonalInformation();
+        try {
+            // TODO add your handling code here:
+            managePersonalInformation();
+        } catch (ParseException ex) {
+            Logger.getLogger(AddMedicalProfilePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_managePersonalInfoPanelMousePressed
 
     private void manageHealthMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageHealthMousePressed
-        // TODO add your handling code here:
-        manageHealthInformation();
+        try {
+            // TODO add your handling code here:
+            manageHealthInformation();
+        } catch (ParseException ex) {
+            Logger.getLogger(AddMedicalProfilePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_manageHealthMousePressed
 
     private void manageHealthPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageHealthPanelMousePressed
-        // TODO add your handling code here:
-         manageHealthInformation();
+        try {
+            // TODO add your handling code here:
+            manageHealthInformation();
+        } catch (ParseException ex) {
+            Logger.getLogger(AddMedicalProfilePanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_manageHealthPanelMousePressed
 
     private void manageMedicalConditionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageMedicalConditionMousePressed
@@ -387,7 +405,7 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
     private javax.swing.JPanel topPanel;
     // End of variables declaration//GEN-END:variables
 
-    private void managePersonalInformation() {
+    private void managePersonalInformation() throws ParseException {
 
 //        formPanel
         changeBtnBgs("personal");
@@ -397,7 +415,7 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) formPanel.getLayout();
         layout.next(formPanel);
     }
-    private void manageHealthInformation() {
+    private void manageHealthInformation() throws ParseException {
 
 //        formPanel
         changeBtnBgs("health");

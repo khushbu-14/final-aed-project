@@ -7,11 +7,13 @@ package userinterface.CustomerRole;
 
 import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
+import Business.User.TempTable.ConsultData;
 import Business.User.User;
 import constants.Utils;
 
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.swing.JPanel;
@@ -30,24 +32,20 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
 
     DefaultTableModel model;
     private User user;
-
+    ArrayList<ConsultData> consultDatalist;
     Boolean isUpdatePage = false;
+    private String selectedValue;
+    Boolean isNone = false;
 
-    /**
-     * Creates new form AddUniversity
-     *
-     * @param mainWorkArea
-     * @param ecosystem
-     * @param user
-     * @param isUpdatePage
-     */
-    public ConsultationFormPatient(JPanel mainWorkArea, EcoSystem ecosystem, User user) {
+    public ConsultationFormPatient(JPanel mainWorkArea, EcoSystem ecosystem,User user) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
-        this.user = user;
         this.isUpdatePage = isUpdatePage;
         util = new Utils();
+        this.user = user;
+        consultDatalist= new ArrayList<>();
+        setData();
     }
 
     /**
@@ -67,7 +65,7 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
         lblUserAction = new javax.swing.JLabel();
         bottomPanel = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        btnSignup = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
         jComboBoxDisease = new javax.swing.JComboBox<>();
         lblChoose = new javax.swing.JLabel();
         jOuterPanel = new javax.swing.JPanel();
@@ -77,10 +75,10 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jComboBoxDays = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtcomment = new javax.swing.JTextField();
         btnSignup1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        listTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(249, 244, 244));
@@ -141,19 +139,19 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(243, 241, 249));
 
-        btnSignup.setBackground(new java.awt.Color(3, 80, 111));
-        btnSignup.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnSignup.setForeground(new java.awt.Color(255, 255, 255));
-        btnSignup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnSignup.setText("Add");
-        btnSignup.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnSignup.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setBackground(new java.awt.Color(3, 80, 111));
+        btnAdd.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnAdd.setText("Add");
+        btnAdd.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSignupActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        jComboBoxDisease.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Fever", "Cough", "Body Pain", "Breathing Issue", "Other" }));
+        jComboBoxDisease.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Other", "Fever", "Cough", "Body Pain", "Breathing Issue", "None", " " }));
         jComboBoxDisease.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDiseaseActionPerformed(evt);
@@ -164,9 +162,15 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
 
         lblSeverity.setText("Select Severity:");
 
+        jComboBoxSeverity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxSeverityActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Select Days");
 
-        jComboBoxDays.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "0-2 days", "2-5 days", "5-8 days", "8-10 days", "more than 10 days" }));
+        jComboBoxDays.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "0-2 days", "2-5 days", "5-8 days", "8-10 days", "more than 10 days" }));
 
         javax.swing.GroupLayout jInnerPanelLayout = new javax.swing.GroupLayout(jInnerPanel);
         jInnerPanel.setLayout(jInnerPanelLayout);
@@ -208,7 +212,7 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
             .addGroup(jOuterPanelLayout.createSequentialGroup()
                 .addGap(76, 76, 76)
                 .addGroup(jOuterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtcomment, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jInnerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(80, Short.MAX_VALUE))
@@ -220,7 +224,7 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                .addComponent(txtcomment, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
                 .addGap(23, 23, 23))
         );
 
@@ -236,7 +240,7 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        listTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -247,7 +251,7 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
                 "Name", "Severity or range", "Number of days", "Comment"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(listTable);
 
         jLabel1.setText("List of symptoms or disease");
 
@@ -257,16 +261,15 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBoxDisease, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblChoose, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jOuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblChoose, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jOuterPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(151, 151, 151)
-                        .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxDisease, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -288,14 +291,14 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jOuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnSignup1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(btnSignup1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 65, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
@@ -322,17 +325,30 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
 
 private void setData(){
     String st = jComboBoxDisease.getSelectedItem().toString();
+    if(st.toLowerCase().equals("none")){
+        jComboBoxDays.setEnabled(false);
+        jComboBoxSeverity.setEnabled(false);
+        txtcomment.setEnabled(false);
+        btnAdd.setEnabled(false);
+        listTable.setEnabled(false);
+    }else{
+        jComboBoxDays.setEnabled(true);
+        jComboBoxSeverity.setEnabled(true);
+        txtcomment.setEnabled(true);
+        btnAdd.setEnabled(true);
+        listTable.setEnabled(true);
+    }
     if(st.toLowerCase().equals("fever")){
         lblSeverity.setText("Range in Degree F");
         jComboBoxSeverity.removeAllItems();
-        List<String> rangeList = Arrays.asList("Low","Medium","High","99-100","100-101","101-102","102-103","103-104","104<");      
+        List<String> rangeList = Arrays.asList("Select","Low","Medium","High","99-100","100-101","101-102","102-103","103-104","104<");      
             for (String i:rangeList) {
                 jComboBoxSeverity.addItem(i);
                 }
     }else{
         lblSeverity.setText("Select Severity");
         jComboBoxSeverity.removeAllItems();
-        List<String> newList = Arrays.asList("Low","Medium","High"); 
+        List<String> newList = Arrays.asList("Select","Low","Medium","High"); 
         for (String i:newList) {
                 jComboBoxSeverity.addItem(i);
                 }
@@ -356,24 +372,75 @@ private void setData(){
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnSignupActionPerformed
+        String disease = jComboBoxDisease.getSelectedItem().toString(),
+                severity = jComboBoxSeverity.getSelectedItem().toString(),
+                days = jComboBoxDays.getSelectedItem().toString();
+        String comments = txtcomment.getText();
+        if(!util.isStringInputValid(comments)){
+            util.showErrorToast("Please enter valid comments");
+        }else if(disease.toLowerCase().equals("none")){
+            isNone = true;
+        } else if(days.toLowerCase().equals("Please select valid days")){
+             util.showErrorToast("Please select valid severity level");
+        } else{
+        ConsultData dt = new ConsultData(disease,severity,days,comments);
+        consultDatalist.add(dt);
+        }
+        populateViewTable();
+        txtcomment.setText("");
+        jComboBoxDisease.setSelectedItem("Other");
+        jComboBoxDays.setSelectedItem("Select");
+        jComboBoxSeverity.setSelectedItem("Select");
+    }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnSignup1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignup1ActionPerformed
         // TODO add your handling code here:
+        for(ConsultData cd: consultDatalist){
+            if(cd.getDisease().toLowerCase().equals("fever")){
+                user.getConsultationForm().setFever(cd.getDisease());
+                user.getConsultationForm().setFeverRange(cd.getSeverity());
+                user.getConsultationForm().setFeverDays(cd.getDays());
+                user.getConsultationForm().setFeverMessage(cd.getComments());
+            } else if(cd.getDisease().toLowerCase().equals("body pain")){
+                user.getConsultationForm().setBodyPain(cd.getDisease());
+                user.getConsultationForm().setBodyPainSeverity(cd.getSeverity());
+                user.getConsultationForm().setBodyPainDays(cd.getDays());
+                user.getConsultationForm().setBodyPainMessage(cd.getComments());
+            } else if(cd.getDisease().toLowerCase().equals("cough")){
+                user.getConsultationForm().setCough(cd.getDisease());
+                user.getConsultationForm().setCoughSeverity(cd.getSeverity());
+                user.getConsultationForm().setCoughDays(cd.getDays());
+                user.getConsultationForm().setCoughMessage(cd.getComments());
+            }else if(cd.getDisease().toLowerCase().equals("breathing issue")){
+                user.getConsultationForm().setBreathingIssue(cd.getDisease());
+                user.getConsultationForm().setBreathingSeverity(cd.getSeverity());
+                user.getConsultationForm().setBreathingDays(cd.getDays());
+                user.getConsultationForm().setBreathingMessage(cd.getComments());
+            }else if(cd.getDisease().toLowerCase().equals("other")){
+                user.getConsultationForm().setOther(cd.getDisease());
+                user.getConsultationForm().setOtherRange(cd.getSeverity());
+                user.getConsultationForm().setOtherDays(cd.getDays());
+                user.getConsultationForm().setOtherMessage(cd.getComments());
+            }
+        }
     }//GEN-LAST:event_btnSignup1ActionPerformed
 
     private void jComboBoxDiseaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDiseaseActionPerformed
         // TODO add your handling code here:
+        String selected = jComboBoxDisease.getSelectedItem().toString();
         setData();
     }//GEN-LAST:event_jComboBoxDiseaseActionPerformed
 
+    private void jComboBoxSeverityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSeverityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxSeverityActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
+    private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnSignup;
     private javax.swing.JButton btnSignup1;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
@@ -387,12 +454,24 @@ private void setData(){
     private javax.swing.JPanel jOuterPanel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblChoose;
     private javax.swing.JLabel lblSeverity;
     private javax.swing.JLabel lblUserAction;
+    private javax.swing.JTable listTable;
     private javax.swing.JSplitPane splitPanel;
     private javax.swing.JPanel topPanel;
+    private javax.swing.JTextField txtcomment;
     // End of variables declaration//GEN-END:variables
+     public void populateViewTable(){
+        DefaultTableModel model = (DefaultTableModel) listTable.getModel();
+        model.setRowCount(0);
+            for(ConsultData st: consultDatalist){
+                Object[] row = new Object[4];
+                row[0] = st.getDisease();
+                row[1] = st.getSeverity();
+                row[2] = st.getDays();
+                row[3] = st.getComments();
+                model.addRow(row);
+            }
+     }
 }
