@@ -22,6 +22,7 @@ public class Sessions extends Business.UserAccount.UserAccount {
     private String endTime;
     private String isRemote;
     private String location;
+    private String regStatus;
     
     public Sessions( String name, String sessionDate, String startTime, String endTime, String isRemote, String location){
     
@@ -93,6 +94,14 @@ public class Sessions extends Business.UserAccount.UserAccount {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getRegStatus() {
+        return regStatus;
+    }
+
+    public void setRegStatus(String regStatus) {
+        this.regStatus = regStatus;
     }
     
      @Override

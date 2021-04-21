@@ -215,6 +215,7 @@ public class RegisterCartPanel extends javax.swing.JPanel {
         ArrayList<Sessions> userSessionList = user.getSessionDirectory().getSession();
         int count = 0;
         String sessionType = comboSessionType.getSelectedItem().toString();
+       
         if(fcstaff.getSdir().getSession().contains(sess)){
             if(!sessionType.equalsIgnoreCase("remote") && sess.getIsRemote().equalsIgnoreCase("yes")){
                 utils.showErrorToast("This session is a Remote session");
