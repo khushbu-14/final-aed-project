@@ -6,6 +6,7 @@
 package Business.Staff;
 
 import Business.Role.FitnessDepartmentRole;
+import Business.Role.FitnessStaffRole;
 import java.util.UUID;
 
 /**
@@ -33,9 +34,9 @@ public class Sessions extends Business.UserAccount.UserAccount {
         this.endTime=endTime;
         this.isRemote= isRemote;
         this.location = location;
-       // setPassword(password);
+       //setPassword(password);
        // setUsername(userName);
-        setRole(new FitnessDepartmentRole());
+        setRole(new FitnessStaffRole());
     }
 
     public String getSessionID() {

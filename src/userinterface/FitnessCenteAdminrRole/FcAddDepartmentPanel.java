@@ -79,9 +79,6 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         txtSUserName = new javax.swing.JTextField();
         lblPassword1 = new javax.swing.JLabel();
         txtSPassword = new javax.swing.JPasswordField();
-        lblUsername2 = new javax.swing.JLabel();
-        txtSchedule = new javax.swing.JTextField();
-        lblUsername3 = new javax.swing.JLabel();
         lblPhoneNumber = new javax.swing.JLabel();
         lblPhoneNumber1 = new javax.swing.JLabel();
         txtSName = new javax.swing.JTextField();
@@ -90,9 +87,6 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         errorContactNumber = new javax.swing.JLabel();
         jComboType = new javax.swing.JComboBox<>();
         lblUsername4 = new javax.swing.JLabel();
-        txtLocation = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jComboType1 = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(249, 244, 244));
         setLayout(new java.awt.BorderLayout());
@@ -166,25 +160,15 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         lblUsername1.setText("Username :");
 
         txtSUserName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtSUserName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSUserNameActionPerformed(evt);
+            }
+        });
 
         lblPassword1.setBackground(new java.awt.Color(249, 244, 244));
         lblPassword1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPassword1.setText("Password :");
-
-        lblUsername2.setBackground(new java.awt.Color(249, 244, 244));
-        lblUsername2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername2.setText("Is it a remote event?");
-
-        txtSchedule.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        txtSchedule.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtScheduleKeyPressed(evt);
-            }
-        });
-
-        lblUsername3.setBackground(new java.awt.Color(249, 244, 244));
-        lblUsername3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername3.setText("Schedule :");
 
         lblPhoneNumber.setBackground(new java.awt.Color(249, 244, 244));
         lblPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -195,6 +179,16 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         lblPhoneNumber1.setText("Department Name:");
 
         txtSName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtSName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSNameActionPerformed(evt);
+            }
+        });
+        txtSName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtSNameKeyPressed(evt);
+            }
+        });
 
         errorEmail.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -218,27 +212,6 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         lblUsername4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername4.setText("Select Type:");
 
-        txtLocation.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        txtLocation.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLocationActionPerformed(evt);
-            }
-        });
-        txtLocation.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtLocationKeyPressed(evt);
-            }
-        });
-
-        jLabel1.setText("Location:");
-
-        jComboType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Yes", "No" }));
-        jComboType1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboType1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
@@ -251,36 +224,21 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
                             .addGroup(bottomPanelLayout.createSequentialGroup()
                                 .addGap(415, 415, 415)
                                 .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(bottomPanelLayout.createSequentialGroup()
-                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtContact, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(errorContactNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                    .addComponent(lblPhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtSName, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtSUserName, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblUsername1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(89, 89, 89)
                                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblUsername3, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(bottomPanelLayout.createSequentialGroup()
-                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtSName, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                        .addComponent(txtSUserName, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblUsername1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblUsername2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jComboType1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(89, 89, 89)
-                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
-                                            .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(txtSPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lblPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(lblUsername4, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jComboType, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(11, 11, 11))
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtSPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblUsername4, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboType, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(bottomPanelLayout.createSequentialGroup()
                         .addGap(399, 399, 399)
                         .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -306,24 +264,12 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
                     .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboType, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUsername2)
-                    .addComponent(jLabel1))
+                .addComponent(lblPhoneNumber)
                 .addGap(18, 18, 18)
-                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboType1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPhoneNumber)
-                    .addComponent(lblUsername3))
-                .addGap(18, 18, 18)
-                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(107, 107, 107)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
                 .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(88, 88, 88)
                 .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -339,33 +285,23 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         txtSUserName.setText("");
         txtSPassword.setText("");
         txtSName.setText("");
-        //txtSEmail.setText("");
         txtContact.setText("");
-       // NumberOfBeds.setText("");
         jComboType.setSelectedItem("Select");
-        txtSchedule.setText("");
-        txtLocation.setText("");
-        jComboType1.setSelectedItem("Select");
         
     }
 
     private void setData() {
         resetForm();
-        //populateComboBox();
+        populateComboBox();
         if (isUpdatePage) {
             btnSubmit.setText("Update Department");
             lblUserAction.setText("Update Department");
-
             txtSUserName.setText(department.getUsername());
+            txtSUserName.setEditable(false);
             txtSPassword.setText(department.getPassword());
             txtSName.setText(department.getDepartmentName());
-            txtSchedule.setText(department.getSchedule());
             txtContact.setText(department.getContact());
-            txtLocation.setText(department.getLocation());
-            jComboType.setSelectedItem(department.getType());
-            jComboType1.setSelectedItem(department.getIsRemote());
-            txtSUserName.setEditable(false);
-
+            jComboType.setSelectedItem(department.getType()); 
         } else {
             btnSubmit.setText("Add Department");
             lblUserAction.setText("Add Department");
@@ -390,16 +326,9 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jComboType1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboType1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboType1ActionPerformed
-
-    private void txtLocationKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLocationKeyPressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocationKeyPressed
-
     private void jComboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTypeActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jComboTypeActionPerformed
 
     private void txtContactKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactKeyPressed
@@ -409,15 +338,15 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
             txtContact.setEditable(true);
         } else {
-
             if (!Character.isDigit(c)) {
                 //txtContact.setEditable(false);
                 errorContactNumber.setText("Sorry! only numbers allowed");
-                //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
+                txtContact.setText("");
+//            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
-                if (txtContact.getText().length() > 10) {
-                    //                errorContactNumber.setText("Enter 10 digit valid number");
-                    //txtContact.setEditable(false);
+                if (txtContact.getText().length() > 9) {
+                errorContactNumber.setText("Enter 10 digit valid number");
+                    txtContact.setText("");
                 } else {
                     errorContactNumber.setText("");
                     txtContact.setEditable(true);
@@ -426,83 +355,53 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtContactKeyPressed
 
-    private void txtScheduleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtScheduleKeyPressed
-        // TODO add your handling code here:
-        //              char c = evt.getKeyChar();
-        //        if (!Character.isDigit(c)) {
-            //            //txtSName.setEditable(false);
-            //            JOptionPane.showMessageDialog(this, "Sorry! only numbers are allowed");
-            //            NumberOfBeds.setText("");
-            //        } else {
-            //            NumberOfBeds.setEditable(true);
-            //        }
-    }//GEN-LAST:event_txtScheduleKeyPressed
-
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         String userName = txtSUserName.getText();
         char[] passwordCharArray = txtSPassword.getPassword();
         String password = String.valueOf(passwordCharArray);
-
-        //String email = txtSEmail.getText(),
-
         String  phoneNo = txtContact.getText(),
-        location = txtLocation.getText(),
-        schedule = txtSchedule.getText(),
-        name = txtSName.getText();
+                name = txtSName.getText();
         String type = jComboType.getSelectedItem().toString();
-        String isRemote = jComboType1.getSelectedItem().toString();
-        //Double numberOfBeds = Double.parseDouble(NumberOfBeds.getText());
+        
+//        location = txtLocation.getText(),
+//        schedule = txtSchedule.getText(),
+//        String isRemote = jComboType1.getSelectedItem().toString();
+//        Double numberOfBeds = Double.parseDouble(NumberOfBeds.getText());
 
         if (!util.isStringInputValid(userName)) {
             util.showErrorToast("Plesae enter valid user name");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid user name");
-            // JOptionPane.showMessageDialog(this, "Plesae enter valid user name", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (!util.isStringInputValid(password)) {
             util.showErrorToast("Plesae enter valid password");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
-            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (!util.isStringInputValid(name)) {
             util.showErrorToast("Plesae enter valid name");
-            //  JOptionPane.showMessageDialog(this, "Please enter valid name", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        //        else if (!util.isStringInputValid(email) || !util.isEmailValid(email)) {
-            //            util.showErrorToast("Plesae enter valid email-id");
-            //            //  JOptionPane.showMessageDialog(this, "Please enter valid email-id", "Error", JOptionPane.ERROR_MESSAGE);
-            //        }
-        else if (!util.isStringInputValid(phoneNo) || phoneNo.length() != 10) {
+        } else if (!util.isStringInputValid(phoneNo) || phoneNo.length() != 10) {
             util.showErrorToast("Plesae enter valid 10 digit phone number");
-            //  JOptionPane.showMessageDialog(this, "Please enter valid 10 digit phone number", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (!util.isStringInputValid(password)) {
+            txtContact.setText("");
+       } else if (!util.isStringInputValid(password)) {
             util.showErrorToast("Plesae enter valid password");
-            // JOptionPane.showMessageDialog(this, "Please enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (!isUpdatePage && (!util.isStringInputValid(userName) || !ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(userName))) {
+       } else if (!isUpdatePage && (!util.isStringInputValid(userName) || !ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(userName))) {
             util.showErrorToast("Plesae enter valid and unique username");
-            //  JOptionPane.showMessageDialog(this, "Please enter valid and unique username", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (!util.isStringInputValid(type)) {
-            //  JOptionPane.showMessageDialog(this, "Please enter valid Zipcode", "Error", JOptionPane.ERROR_MESSAGE);
+       } else if (!util.isStringInputValid(type)) {
             util.showErrorToast("Plesae select valid type");
         } else if (type.toLowerCase().equals("select")) {
-            //  JOptionPane.showMessageDialog(this, "Please enter valid Zipcode", "Error", JOptionPane.ERROR_MESSAGE);
-            util.showErrorToast("Plesae select valid type");
+           util.showErrorToast("Plesae select valid type");
         } else {
             userName = userName.toLowerCase();
             String msg = name + " account created successfully!";
             if (isUpdatePage) {
 
                 department.setContact(phoneNo);
-                department.setLocation(location);
-                department.setSchedule(schedule);
                 department.setDepartmentName(name);
                 department.setPassword(password);
                 department.setType(type);
-                department.setIsRemote(isRemote);
+//               department.setIsRemote(isRemote);
 
                 ecosystem.getUserAccountDirectory().updateUserAccount(department, userName, password);
 
                 msg = name + " account updated successfully!";
             } else {
-                FitnessCenterDepartment departmemntTemp = new FitnessCenterDepartment(userName, password, name, type, phoneNo, location, schedule, isRemote);
+                FitnessCenterDepartment departmemntTemp = new FitnessCenterDepartment(userName, password, name, type, phoneNo);
                 FitnessCenter fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterByUserName(userAccount.getUsername());
                 fc.getFcdepartmentDirectory().addNewFitnessCenterDepartment(departmemntTemp);
                 ecosystem.getUserAccountDirectory().addUserAccount(departmemntTemp);
@@ -516,9 +415,26 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void txtLocationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLocationActionPerformed
+    private void txtSUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSUserNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtLocationActionPerformed
+    }//GEN-LAST:event_txtSUserNameActionPerformed
+
+    private void txtSNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSNameActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_txtSNameActionPerformed
+
+    private void txtSNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSNameKeyPressed
+        // TODO add your handling code here:
+                                char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            //txtSName.setEditable(false);
+            JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
+            txtSName.setText("");
+        } else {
+            txtSName.setEditable(true);
+        }
+    }//GEN-LAST:event_txtSNameKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
@@ -529,24 +445,18 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
     private javax.swing.JLabel errorContactNumber;
     private javax.swing.JLabel errorEmail;
     private javax.swing.JComboBox<String> jComboType;
-    private javax.swing.JComboBox<String> jComboType1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblPassword1;
     private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lblPhoneNumber1;
     private javax.swing.JLabel lblUserAction;
     private javax.swing.JLabel lblUsername1;
-    private javax.swing.JLabel lblUsername2;
-    private javax.swing.JLabel lblUsername3;
     private javax.swing.JLabel lblUsername4;
     private javax.swing.JSplitPane splitPanel;
     private javax.swing.JPanel topPanel;
     private javax.swing.JTextField txtContact;
-    private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtSName;
     private javax.swing.JPasswordField txtSPassword;
     private javax.swing.JTextField txtSUserName;
-    private javax.swing.JTextField txtSchedule;
     // End of variables declaration//GEN-END:variables
 
      public void populateComboBox(){

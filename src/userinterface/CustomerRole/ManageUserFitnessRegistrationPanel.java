@@ -5,34 +5,23 @@
  */
 package userinterface.CustomerRole;
 
-import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
 import Business.Staff.Sessions;
-import Business.Staff.SessionsMedStaff;
 import Business.User.User;
 import Business.User.UserDirectory;
 import Business.UserAccount.UserAccount;
 import constants.Utils;
 import java.awt.CardLayout;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import static userinterface.CustomerRole.SelectConsultationPanel.now;
-import userinterface.StaffRole.AddHospStaffSessionsPanel;
 
 /**
  *
  * @author khushbu
  */
-public class ManageUserConsultationPanel extends javax.swing.JPanel {
+public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageUserPanel
@@ -42,23 +31,13 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
     EcoSystem ecosystem;
     UserAccount userAccount;
     Utils utils;
-    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-    Date date;
 
-    public ManageUserConsultationPanel(JPanel parentContainerPanel, EcoSystem ecosystem, UserAccount userAccount) {
+    public ManageUserFitnessRegistrationPanel(JPanel parentContainerPanel, EcoSystem ecosystem, UserAccount userAccount) {
         this.userProcessContainer = parentContainerPanel;
         this.ecosystem = ecosystem;
         utils = new Utils();
         this.userAccount = userAccount;
         initComponents();
-        date = new Date();
-        
-        try {
-            //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
-            date = formatter.parse(formatter.format(date));
-        } catch (ParseException ex) {
-            Logger.getLogger(AddHospStaffSessionsPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
         populateTable();
     }
 
@@ -113,7 +92,7 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
         btnDelete.setBackground(new java.awt.Color(255, 204, 204));
         btnDelete.setForeground(new java.awt.Color(102, 102, 102));
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/delete-1.png"))); // NOI18N
-        btnDelete.setText("Cancel Consultation");
+        btnDelete.setText("Cancel Registration");
         btnDelete.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 1, true));
         btnDelete.setBorderPainted(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -124,7 +103,7 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
 
         btnAddUser.setBackground(new java.awt.Color(255, 255, 255));
         btnAddUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/plus.png"))); // NOI18N
-        btnAddUser.setText("Book New Consultation");
+        btnAddUser.setText("New Registration");
         btnAddUser.setToolTipText("Add User");
         btnAddUser.setAlignmentY(0.0F);
         btnAddUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
@@ -141,7 +120,7 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTitle.setText(" Manage Consultations");
+        lblTitle.setText(" Manage Registrations");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -153,9 +132,9 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(165, 165, 165)
-                        .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(183, 183, 183)
+                        .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 873, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
@@ -178,44 +157,24 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
         return selectedRowIndex;
     }
 
-    private SessionsMedStaff getSelectedSession() {
+    private Sessions getSelectedSession() {
         int selectedRowIndex = tblSession.getSelectedRow();
 
         if (selectedRowIndex < 0) {
             utils.showErrorToast("Oops! Please select a User first.");
             return null;
         }
-
-        SessionsMedStaff u = (SessionsMedStaff) tblSession.getValueAt(selectedRowIndex, 1);
-
+        Sessions u = (Sessions) tblSession.getValueAt(selectedRowIndex, 1);
         return u;
     }
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        SessionsMedStaff u = getSelectedSession();
-        Date date1 = null;
-        try {
-              date1 = (Date)formatter.parse(u.getSessionDate());
-            } catch (ParseException ex) {
-                Logger.getLogger(SelectConsultationPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        Sessions u = getSelectedSession();
         if (u != null) {
-            if(date1.before(date)){
-            utils.showErrorToast("Oops! Cancelation Period Expired");
-            }else{
-                String startTime = u.getStartTime();
-                Boolean f = utils.testTime(startTime.split(":")[0]);
-                if(!f){
-                    utils.showErrorToast("Oops! Cancelation Period Expired");
-                }else{
-                    User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-            ud.getConsultationSessions().removeSession(u);
+            User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+            ud.getSessionDirectory().removeSession(u); 
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
-                }
-            }
-            
-            
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -225,14 +184,14 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
 
     private void populateTable() {
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-        ArrayList<SessionsMedStaff> sessList = user.getConsultationSessions().getSession();
+        ArrayList<Sessions> sessList = user.getSessionDirectory().getSession();
         if (sessList != null) {
             DefaultTableModel model = (DefaultTableModel) tblSession.getModel();
 
             model.setRowCount(0);
             int count = 1;
 
-            for (SessionsMedStaff s : sessList) {
+            for (Sessions s : sessList) {
 
                 Object[] row = new Object[6];
                 row[0] = "" + count++;
@@ -249,8 +208,8 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         // logic to go to next screen
-        BookConsultaionPanel bookconsultation = new BookConsultaionPanel(userProcessContainer, ecosystem,userAccount);
-        userProcessContainer.add("Bookconsultation", bookconsultation);
+        RegisterFitnessPanel newReg = new RegisterFitnessPanel(userProcessContainer, ecosystem,userAccount);
+        userProcessContainer.add("NewRegistration", newReg);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddUserActionPerformed

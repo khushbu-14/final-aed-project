@@ -7,15 +7,8 @@ package userinterface.CustomerRole;
 
 import Business.EcoSystem;
 import Business.FitnessCenter.Department.FitnessCenterDepartment;
-import Business.FitnessCenter.Department.FitnessCenterDepartmentDirectory;
 import Business.FitnessCenter.FitnessCenter;
-import Business.FitnessCenter.FitnessCenterDirectory;
-import Business.Shop.Shop;
-import Business.Shop.ShopDirectory;
 import Business.Staff.FcStaff;
-import Business.Staff.FcStaffDirectory;
-import Business.Staff.StaffDirectory;
-import Business.Type.Type;
 import Business.UserAccount.UserAccount;
 import constants.Utils;
 import java.awt.CardLayout;
@@ -38,9 +31,6 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
     private JPanel mainWorkArea;
     private EcoSystem ecosystem;
     UserAccount userAccount;
-    //FitnessCenter fitnessCenter;
-    //FitnessCenterDepartment fitnessCenterDepartment;
-
     Utils utils;
 
     public RegisterFitnessPanel(JPanel mainPanel, EcoSystem ecosystem, UserAccount userAccount) {
@@ -49,8 +39,8 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         utils = new Utils();
         initComponents();
-
         populateData();
+        
     }
 
     /**
@@ -202,17 +192,14 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private FcStaff getSelectedShop() {
+    private FcStaff getSelectedFcStaff() {
         int selectedRowIndex = tblShopList.getSelectedRow();
 
         if (selectedRowIndex < 0) {
-            utils.showErrorToast("Oops! Please select a Shop first.");
+            utils.showErrorToast("Oops! Please select a Staff first.");
             return null;
         }
-
-        //FitnessCenterDepartment s = (FitnessCenterDepartment) tblShopList.getValueAt(selectedRowIndex, 1);
         FcStaff fcs = (FcStaff) tblShopList.getValueAt(selectedRowIndex, 1);
-
         return fcs;
     }
 
@@ -223,7 +210,6 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
     private void btnSelectShopTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectShopTypeActionPerformed
         // validations
         String type = comboBoxDeliveryMan.getSelectedItem().toString();
-
         if (utils.isStringInputValid(type)) {
             populateTable(type);
         } else {
@@ -234,13 +220,10 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
     private void btnSelectShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectShopActionPerformed
         // TODO add your handling code here:
 
-        FcStaff s = getSelectedShop();
-        
-
+        FcStaff s = getSelectedFcStaff();
         if (s != null) {
             RegisterCartPanel orderMedicineCartPanel = new RegisterCartPanel(mainWorkArea, ecosystem, s, userAccount);
-
-            mainWorkArea.add("orderMedicineCartPanel", orderMedicineCartPanel);
+            mainWorkArea.add("RegisterFitnessCartPanel", orderMedicineCartPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
         }
@@ -258,13 +241,6 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateData() {
-
-//        for (Type t : ecosystem.getTypeDirectory().getTypeList()) {
-//            if (t.getParent().toLowerCase().equals("shop")) {
-//                comboBoxDeliveryMan.addItem(t.getType());
-//            }
-//        }
-
             ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
             ArrayList<FitnessCenterDepartment> departmentList = new ArrayList<>();
             for(FitnessCenter fc: fitnessCenterList){
@@ -279,31 +255,18 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
         
     }
 
-    public static <T> Set<T> convertToSet(List<T> list)
-	{
+    public static <T> Set<T> convertToSet(List<T> list){
 		// create an empty set
 		Set<T> set = new HashSet<>();
-
 		// Add each element of list into the set
 		for (T t : list)
 			set.add(t);
-
 		// return the set
 		return set;
 	}
     private void populateTable(String type) {
         
-         ArrayList<FitnessCenter> fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
-         
-//         for(FitnessCenterDepartment fitD: ){
-//             if(fitD.getDepartmentName().equals(name)){
-//                 fitDept = fitD;
-//             }    
-//         }
-//            
- //       FitnessCenter fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterByUserName(userAccount.getUsername());
-   //     FitnessCenterDepartment department = fc.getFcdepartmentDirectory().getFitnessCenterDepartmentByName(type);
-          
+        ArrayList<FitnessCenter> fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();    
         DefaultTableModel model = (DefaultTableModel) tblShopList.getModel();
         model.setRowCount(0);
 
@@ -320,7 +283,6 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
                     row[2] = sd.getContact();
                     row[3] = sd.getEmail();
                     //row[4] = sd.getContact();
-
                     model.addRow(row);
                     }
                 }

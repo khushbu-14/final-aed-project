@@ -8,7 +8,6 @@ package Business.User;
 import Business.Hospital.ConsultationForm;
 import Business.Role.UserRole;
 import Business.Staff.SessionsDirectory;
-import Business.Staff.SessionsMedStaff;
 import Business.Staff.SessionsMedStaffDirectory;
 
 /**
@@ -25,6 +24,7 @@ public class User extends Business.UserAccount.UserAccount {
     private String zipcode;
     private MedicalProfile medicalProfile;
     private SessionsMedStaffDirectory consultationSessions;
+    private SessionsDirectory sessionRegDirectory;
 
     public User(String username, String password, String name, String contact, String email, String address, String zipcode) {
         this.name = name;
@@ -105,6 +105,17 @@ public class User extends Business.UserAccount.UserAccount {
 
     public void setConsultationSessions(SessionsMedStaffDirectory consultationSessions) {
         this.consultationSessions = consultationSessions;
+    }
+
+    public SessionsDirectory getSessionDirectory() {
+        if(sessionRegDirectory==null){
+            sessionRegDirectory= new SessionsDirectory();
+        }
+        return sessionRegDirectory;
+    }
+
+    public void setSessionDirectory(SessionsDirectory sessionDirectory) {
+        this.sessionRegDirectory = sessionDirectory;
     }
 
 

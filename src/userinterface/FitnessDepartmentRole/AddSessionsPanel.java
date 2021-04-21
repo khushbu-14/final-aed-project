@@ -25,6 +25,7 @@ import java.awt.event.KeyEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -67,6 +68,10 @@ public class AddSessionsPanel extends javax.swing.JPanel {
         this.userAcount = userAcount;
         util = new Utils();
         setData();
+        Date date = new Date();
+        jDateChooser1.setDate(date);
+        jDateChooser1.setMinSelectableDate(date);
+        
     }
 
     /**
@@ -97,8 +102,8 @@ public class AddSessionsPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         jComboStartTime = new javax.swing.JComboBox<>();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jComboEndTime = new javax.swing.JComboBox<>();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(249, 244, 244));
         setLayout(new java.awt.BorderLayout());
@@ -258,8 +263,8 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblPassword1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jComboEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 19, Short.MAX_VALUE)))))
                 .addGap(124, 124, 124))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -281,7 +286,7 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                         .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblPassword1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -338,12 +343,7 @@ public class AddSessionsPanel extends javax.swing.JPanel {
         jComboType.setSelectedItem("Select");
         jComboStartTime.setSelectedItem("Select");
         jComboEndTime.setSelectedItem("Select");
-        
-        
-       // SimpleDateFormat DateFormat = new SimpleDateFormat("MMM dd, YYYY", Locale.US);
-       // personalinfo.setDateOfIssue(DateFormat.format(txtDateOfIssue.getDate()));
-      //  personalinfo.setDateOfExpiration(DateFormat.format(txtDateOfExpiration.getDate()));
-        
+  
     }
 
     private void setData() {
@@ -360,15 +360,6 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                 //sessions.setIsRemote(isRemote);
                 jComboType.setSelectedItem(sessions.getIsRemote());
                 txtLocation.setText(sessions.getLocation());
-
-//            if (sessions.getIsRemote().equals("Yes")) {
-//                jComboType.setSelectedItem("Yes");
-//                txtLocation.setText("online");
-//            } else {
-//                jComboType.setSelectedItem("No");
-//                txtLocation.setEditable(true);
-//            }
-
         } else {
             btnSignup.setText("Add Session");
             lblUserAction.setText("Add Session");
@@ -397,36 +388,23 @@ public class AddSessionsPanel extends javax.swing.JPanel {
 
         String name = txtSName.getText();        
         String loc = txtLocation.getText();
-        //Double calories = 0.0d;
-        
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, YYYY", Locale.US);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/YYYY");
         String d = dateFormat.format(jDateChooser1.getDate());
-        
-
-//        if (util.isStringInputValid(calorieInput)) {
-//            calories = Double.parseDouble(calorieInput);
-//        }
-
-        //  Double calories = Double.parseDouble(txtCalories.getText()),
-//        Double price = Double.parseDouble(txtPrice.getText());
         String isRemote = jComboType.getSelectedItem().toString();
         String startTime = jComboStartTime.getSelectedItem().toString();
         String endTime = jComboEndTime.getSelectedItem().toString();
 
         if (!util.isStringInputValid(name)) {
             util.showErrorToast("Plesae enter valid product name");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid user name");
-            // JOptionPane.showMessageDialog(this, "Plesae enter valid user name", "Error", JOptionPane.ERROR_MESSAGE);
         } 
-        else if (!util.isStringInputValid(loc)) {
-            util.showErrorToast("Plesae enter valid description");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
-            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
-        } 
-        else if (!util.isStringInputValid(isRemote)) {
-            util.showErrorToast("Plesae enter valid description");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
-            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
+        else if (!util.isStringInputValid(d)) {
+            util.showErrorToast("Plesae enter valid Date");
+        } else if (!util.isStringInputValid(startTime)) {
+            util.showErrorToast("Plesae enter valid Start Time");
+        }else if (!util.isStringInputValid(isRemote)) {
+            util.showErrorToast("Plesae enter valid isRemote");
+        } else if (!util.isStringInputValid(endTime)) {
+            util.showErrorToast("Plesae enter valid endTime");
         } else {
             String msg = name + "  created successfully!";
             if (isUpdatePage) {
@@ -450,10 +428,6 @@ public class AddSessionsPanel extends javax.swing.JPanel {
             } else {
                 boolean decision = false;
                 Sessions product1 = new Sessions( name, d, startTime, endTime, isRemote, loc);
-                //Shop shp = ecosystem.getShopDirectory().getShopByUserName(userAcount.getUsername());
-                //shp.getProductDirectory().addNewProduct(product1);
-            
-            //ArrayList<Sessions> sessList = new ArrayList<>();
             ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
                 for(FitnessCenter fc: fitnessCenterList){
                     ArrayList<FitnessCenterDepartment> f= fc.getFcdepartmentDirectory().getDepartmentList();
@@ -461,8 +435,6 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                         ArrayList<FcStaff> fcstaff= fcd.getStaffDirectory().getStaffList();
                             for(FcStaff staff : fcstaff){
                                 staff.getSdir().addSession(product1);
-                      
-                    //departmentList.add(fcd);
                             }
                     }
                 }
@@ -481,8 +453,9 @@ public class AddSessionsPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
-            txtSName.setEditable(false);
+            //txtSName.setEditable(false);
             JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
+            txtSName.setText("");
         } else {
             txtSName.setEditable(true);
         }
