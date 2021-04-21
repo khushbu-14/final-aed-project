@@ -224,12 +224,20 @@ public class BookConsultaionPanel extends javax.swing.JPanel {
     private void btnSelectShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectShopActionPerformed
         // TODO add your handling code here:
         Staff stf = getSelectedStaff();
-
-        if (stf != null) {
+            if(stf.getSessionDirectory().getSession().isEmpty()){
+                utils.showErrorToast("No Slot available for " + stf.getName());
+            }else{
+                if (stf != null) {
             SelectConsultationPanel selectConsultationPanel = new SelectConsultationPanel(mainWorkArea, ecosystem, stf, userAccount);
             mainWorkArea.add("orderMedicineCartPanel", selectConsultationPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
+            }
+//        if (stf != null) {
+//            SelectConsultationPanel selectConsultationPanel = new SelectConsultationPanel(mainWorkArea, ecosystem, stf, userAccount);
+//            mainWorkArea.add("orderMedicineCartPanel", selectConsultationPanel);
+//            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+//            layout.next(mainWorkArea);
         }
     }//GEN-LAST:event_btnSelectShopActionPerformed
 

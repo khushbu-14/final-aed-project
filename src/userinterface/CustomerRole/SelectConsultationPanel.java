@@ -19,14 +19,22 @@ import Business.WorkQueue.OrderList;
 import constants.Utils;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.StaffRole.AddHospStaffSessionsPanel;
 
 /**
  *
@@ -43,11 +51,13 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
     private User user;
     private SessionsMedStaff sess;
     private UserAccount userAccount;
-
+    static LocalDateTime now;
+    //SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, YYYY", Locale.US);
+    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
     private ArrayList<OrderItem> orderList = new ArrayList<OrderItem>();
 
     Utils utils;
-
+    Date date;
     DefaultTableModel model;
 
     public SelectConsultationPanel(JPanel mainPanel, EcoSystem ecosystem, Staff shop, UserAccount userAccount) {
@@ -58,6 +68,18 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
         this.user = (User) userAccount;
         utils = new Utils();
         initComponents();
+
+        
+        date = new Date();
+        
+        try {
+            //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
+            date = formatter.parse(formatter.format(date));
+        } catch (ParseException ex) {
+            Logger.getLogger(AddHospStaffSessionsPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        now = LocalDateTime.now();
+        System.out.println(now);
         populateData();
     }
 
@@ -277,12 +299,48 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
     }
 
     private void populateData() {
+        Date date1 = null;
+        ArrayList<SessionsMedStaff> tempList = staff.getSessionDirectory().getSession();
+        for(SessionsMedStaff s: tempList){
+            try {
+                date1 = (Date)formatter.parse(s.getSessionDate());
+            } catch (ParseException ex) {
+                Logger.getLogger(SelectConsultationPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if(date1.before(date)){
+                tempList.remove(s);
+            }else{
+                String startTime = s.getStartTime();
+                Boolean f = utils.testTime(startTime.split(":")[0]);
+                if(!f){
+                    tempList.remove(s);
+                }else {
         DefaultTableModel model = (DefaultTableModel) tblConsultaionSlot.getModel();
 
         int count = 1;
         model.setRowCount(0);
 
-        for (SessionsMedStaff p : staff.getSessionDirectory().getSession()) {
+        for (SessionsMedStaff p : tempList) {
+            Object[] row = new Object[5];
+            row[0] = "" + count++;
+            row[1] = p;
+            row[2] = p.getSessionDate();
+            row[3] = p.getStartTime();
+            row[4] = p.getEndTime();
+            model.addRow(row);
+        }
+                }
+            }
+        }
+        //DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD"); 
+        
+        
+        DefaultTableModel model = (DefaultTableModel) tblConsultaionSlot.getModel();
+
+        int count = 1;
+        model.setRowCount(0);
+
+        for (SessionsMedStaff p : tempList) {
             Object[] row = new Object[5];
             row[0] = "" + count++;
             row[1] = p;
