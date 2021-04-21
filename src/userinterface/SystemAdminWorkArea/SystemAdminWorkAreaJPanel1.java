@@ -26,14 +26,15 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     EcoSystem ecosystem;
-    
+
     public SystemAdminWorkAreaJPanel1(JPanel userProcessContainer, EcoSystem ecosystem) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = ecosystem;
-        manageHospital();
+//        manageHospital();
+        manageDashboard();
     }
-    
+
     public void populateTree() {
         // Add the code for draw your system structure shown by JTree
     }
@@ -492,11 +493,12 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageDashboardMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardMousePressed
-
+        manageDashboard();
     }//GEN-LAST:event_manageDashboardMousePressed
 
     private void manageDashboardPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardPanelMousePressed
         // TODO add your handling code here:
+        manageDashboard();
     }//GEN-LAST:event_manageDashboardPanelMousePressed
 
     private void manageHospitalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageHospitalMousePressed
@@ -605,7 +607,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-    
+
     private void manageHospital() {
         changeBtnBgs("hospital");
         ManageHospitalsPanel manageHospitals = new ManageHospitalsPanel(mainPanel, ecosystem);
@@ -645,7 +647,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-    
+
     private void manageFitness() {
         changeBtnBgs("fitness");
         ManageFitnessPanel managefc = new ManageFitnessPanel(mainPanel, ecosystem);
@@ -653,14 +655,14 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-    
+
     private void changeBtnBgs(String type) {
         Color activeColor = Color.WHITE;
         Color notActiveColor = Color.getColor("03506F");
-        
+
         Color activeTxtColor = Color.BLACK;
         Color nonActiveTxtColor = Color.WHITE;
-        
+
         manageFitnessPanel.setBackground(notActiveColor);
         manageDashboardPanel.setBackground(notActiveColor);
         manageShopPanel.setBackground(notActiveColor);
@@ -669,7 +671,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         manageAmbulancePanel.setBackground(notActiveColor);
         manageDeliveryManPanel.setBackground(notActiveColor);
         manageTypePanel.setBackground(notActiveColor);
-        
+
         manageDashboard.setForeground(nonActiveTxtColor);
         manageHospital.setForeground(nonActiveTxtColor);
         manageFitness.setForeground(nonActiveTxtColor);
@@ -678,7 +680,7 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
         manageAmbulance.setForeground(nonActiveTxtColor);
         ManageDeliveryman.setForeground(nonActiveTxtColor);
         manageType.setForeground(nonActiveTxtColor);
-        
+
         if ("dashboard".equalsIgnoreCase(type)) {
             manageDashboardPanel.setBackground(activeColor);
             manageDashboard.setForeground(activeTxtColor);
@@ -704,5 +706,15 @@ public class SystemAdminWorkAreaJPanel1 extends javax.swing.JPanel {
             manageAmbulancePanel.setBackground(activeColor);
             manageAmbulance.setForeground(activeTxtColor);
         }
+    }
+
+    private void manageDashboard() {
+        changeBtnBgs("dashboard");
+
+        AdminDashboard adminDashboard = new AdminDashboard(mainPanel, ecosystem);
+
+        mainPanel.add("adminDashboard", adminDashboard);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }
 }

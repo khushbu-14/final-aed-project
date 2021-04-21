@@ -77,7 +77,7 @@ public class ManageHospStaffSessionsPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Sr No", "Session Name", "Date", "Start Time", "End Time", "is it remote", "location"
+                "Sr No", "Slot Name", "Date", "Start Time", "End Time", "Remote", "Location"
             }
         ) {
             Class[] types = new Class [] {
@@ -124,7 +124,7 @@ public class ManageHospStaffSessionsPanel extends javax.swing.JPanel {
 
         btnAddUser.setBackground(new java.awt.Color(255, 255, 255));
         btnAddUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/plus.png"))); // NOI18N
-        btnAddUser.setText("Session");
+        btnAddUser.setText("Slots");
         btnAddUser.setToolTipText("Add User");
         btnAddUser.setAlignmentY(0.0F);
         btnAddUser.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 1, 0));
@@ -141,7 +141,7 @@ public class ManageHospStaffSessionsPanel extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTitle.setText(" Manage Session");
+        lblTitle.setText(" Manage Availability");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

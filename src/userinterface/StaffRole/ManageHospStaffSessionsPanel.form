@@ -72,12 +72,12 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="7" rowCount="4">
                 <Column editable="false" title="Sr No" type="java.lang.String"/>
-                <Column editable="false" title="Session Name" type="java.lang.String"/>
+                <Column editable="false" title="Slot Name" type="java.lang.String"/>
                 <Column editable="false" title="Date" type="java.lang.String"/>
                 <Column editable="false" title="Start Time" type="java.lang.String"/>
                 <Column editable="false" title="End Time" type="java.lang.String"/>
-                <Column editable="false" title="is it remote" type="java.lang.String"/>
-                <Column editable="false" title="location" type="java.lang.String"/>
+                <Column editable="false" title="Remote" type="java.lang.String"/>
+                <Column editable="false" title="Location" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -187,7 +187,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/assets/plus.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Session"/>
+        <Property name="text" type="java.lang.String" value="Slots"/>
         <Property name="toolTipText" type="java.lang.String" value="Add User"/>
         <Property name="alignmentY" type="float" value="0.0"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -215,7 +215,7 @@
           <Font name="Lucida Grande" size="14" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="2"/>
-        <Property name="text" type="java.lang.String" value=" Manage Session"/>
+        <Property name="text" type="java.lang.String" value=" Manage Availability"/>
       </Properties>
     </Component>
   </SubComponents>

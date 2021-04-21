@@ -663,10 +663,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageConsultDoctorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageConsultDoctorMousePressed
         // TODO add your handling code here:
+        manageConsultation();
     }//GEN-LAST:event_manageConsultDoctorMousePressed
 
     private void manageConsultDoctorPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageConsultDoctorPanelMousePressed
         // TODO add your handling code here:
+        manageConsultation();
     }//GEN-LAST:event_manageConsultDoctorPanelMousePressed
 
     private void manageOrderMedicineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderMedicineMousePressed
@@ -754,8 +756,8 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-    
-        private void manageRegisterFitness() {
+
+    private void manageRegisterFitness() {
         changeBtnBgs("order-products");
 
         RegisterFitnessPanel orderMedicinePanel = new RegisterFitnessPanel(mainPanel, ecosystem, userAccount);
@@ -775,13 +777,15 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
+
     private void manageAppointment() {
-        changeBtnBgs("manageappointment");
-            User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-            ManageUserConsultationPanel manageInformationPanel = new ManageUserConsultationPanel(mainPanel, ecosystem, user);
-            mainPanel.add("manageInformationJPanel", manageInformationPanel);
-            CardLayout layout = (CardLayout) mainPanel.getLayout();
-            layout.next(mainPanel);
+//        changeBtnBgs("manageappointment");
+//        changeBtnBgs("consultation");
+//        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+//        ManageUserConsultationPanel manageInformationPanel = new ManageUserConsultationPanel(mainPanel, ecosystem, user);
+//        mainPanel.add("manageInformationJPanel", manageInformationPanel);
+//        CardLayout layout = (CardLayout) mainPanel.getLayout();
+//        layout.next(mainPanel);
     }
 
     public void changeBtnBgs(String type) {
@@ -869,6 +873,15 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
         // OrderMedicinePanel orderMedicinePanel = new OrderMedicinePanel(mainPanel, ecosystem, userAccount);
         mainPanel.add("ManageUserOrderHistory", manageUserOrderHistory);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+
+    private void manageConsultation() {
+        changeBtnBgs("consultation");
+        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+        ManageUserConsultationPanel manageInformationPanel = new ManageUserConsultationPanel(mainPanel, ecosystem, user);
+        mainPanel.add("manageInformationJPanel", manageInformationPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }

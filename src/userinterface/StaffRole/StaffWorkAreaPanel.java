@@ -290,7 +290,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
 
         manageStaffSession.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageStaffSession.setForeground(new java.awt.Color(255, 255, 255));
-        manageStaffSession.setText("Add Sessions");
+        manageStaffSession.setText("Manage Availability");
         manageStaffSession.setToolTipText("Dashboard");
         manageStaffSession.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -684,21 +684,21 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_manageStaffSessionPanelMousePressed
 
     private void managePersonalInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePersonalInfoMousePressed
-        try {
-            // TODO add your handling code here:
-            managePersonalInfo();
-        } catch (ParseException ex) {
-            Logger.getLogger(StaffWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            // TODO add your handling code here:
+//            managePersonalInfo();
+//        } catch (ParseException ex) {
+//            Logger.getLogger(StaffWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_managePersonalInfoMousePressed
 
     private void manageProfilePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageProfilePanelMousePressed
-        try {
-            // TODO add your handling code here:
-            managePersonalInfo();
-        } catch (ParseException ex) {
-            Logger.getLogger(StaffWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            // TODO add your handling code here:
+//            managePersonalInfo();
+//        } catch (ParseException ex) {
+//            Logger.getLogger(StaffWorkAreaPanel.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }//GEN-LAST:event_manageProfilePanelMousePressed
 
     private void manageAppointmentsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAppointmentsMousePressed
@@ -721,12 +721,12 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageSessionsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsMousePressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_manageSessionsMousePressed
 
     private void manageSessionsPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsPanelMousePressed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_manageSessionsPanelMousePressed
 
     private void iconDashboard1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_iconDashboard1KeyPressed
@@ -851,7 +851,8 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-       private void manageSessions() {
+
+    private void manageSessions() {
         changeBtnBgs("sessions");
 
         ManageHospStaffSessionsPanel manageSess = new ManageHospStaffSessionsPanel(mainPanel, ecosystem, userAccount);

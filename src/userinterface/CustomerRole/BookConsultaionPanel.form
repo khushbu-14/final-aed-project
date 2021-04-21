@@ -94,7 +94,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/assets/dinner.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Order Products"/>
+        <Property name="text" type="java.lang.String" value="Book Consultation"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
