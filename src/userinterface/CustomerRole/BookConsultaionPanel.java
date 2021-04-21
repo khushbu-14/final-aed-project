@@ -67,7 +67,7 @@ public class BookConsultaionPanel extends javax.swing.JPanel {
         lblPageTitle.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
-        lblPageTitle.setText("Order Products");
+        lblPageTitle.setText("Book Consultation");
 
         listHospitalDepartment.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         listHospitalDepartment.setModel(new javax.swing.table.DefaultTableModel(
