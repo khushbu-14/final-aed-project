@@ -195,7 +195,7 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
                             model.setRowCount(0);
 
                             for (SessionsMedStaff req : s.getConsultationDirectory().getSession()) {
-                                Object[] row = new Object[5];
+                                Object[] row = new Object[7];
                                 row[0] = "" + count++;
                                 row[1] = s.getName();
                                 row[2] = req;

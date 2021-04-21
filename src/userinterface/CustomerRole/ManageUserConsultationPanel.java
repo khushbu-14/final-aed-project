@@ -51,7 +51,7 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
         utils = new Utils();
         this.userAccount = userAccount;
         initComponents();
-         date = new Date();
+        date = new Date();
         
         try {
             //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
