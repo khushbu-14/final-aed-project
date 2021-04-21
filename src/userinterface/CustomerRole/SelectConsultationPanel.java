@@ -52,6 +52,7 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
     private SessionsMedStaff sess;
     private UserAccount userAccount;
     static LocalDateTime now;
+    Date date1 = null;
     //SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, YYYY", Locale.US);
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
     private ArrayList<OrderItem> orderList = new ArrayList<OrderItem>();
@@ -299,38 +300,41 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
     }
 
     private void populateData() {
-        Date date1 = null;
         ArrayList<SessionsMedStaff> tempList = staff.getSessionDirectory().getSession();
         for(SessionsMedStaff s: tempList){
             try {
-                date1 = (Date)formatter.parse(s.getSessionDate());
+                String st1 = s.getSessionDate();
+                date1 = (Date)formatter.parse(st1);
             } catch (ParseException ex) {
                 Logger.getLogger(SelectConsultationPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
             if(date1.before(date)){
                 tempList.remove(s);
-            }else{
-                String startTime = s.getStartTime();
-                Boolean f = utils.testTime(startTime.split(":")[0]);
-                if(!f){
-                    tempList.remove(s);
-                }else {
-        DefaultTableModel model = (DefaultTableModel) tblConsultaionSlot.getModel();
-
-        int count = 1;
-        model.setRowCount(0);
-
-        for (SessionsMedStaff p : tempList) {
-            Object[] row = new Object[5];
-            row[0] = "" + count++;
-            row[1] = p;
-            row[2] = p.getSessionDate();
-            row[3] = p.getStartTime();
-            row[4] = p.getEndTime();
-            model.addRow(row);
-        }
-                }
             }
+//            else{
+//                
+//                String startTime = s.getStartTime();
+//                Boolean f = utils.testTime(startTime.split(":")[0]);
+//                if(!f){
+//                    tempList.remove(s);
+//                }else {
+//        DefaultTableModel model = (DefaultTableModel) tblConsultaionSlot.getModel();
+//
+//        int count = 1;
+//        model.setRowCount(0);
+//
+//        for (SessionsMedStaff p : tempList) {
+//            Object[] row = new Object[5];
+//            row[0] = "" + count++;
+//            row[1] = p;
+//            row[2] = p.getSessionDate();
+//            row[3] = p.getStartTime();
+//            row[4] = p.getEndTime();
+//            model.addRow(row);
+//        }
+//                }
+//            }
         }
         //DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD"); 
         

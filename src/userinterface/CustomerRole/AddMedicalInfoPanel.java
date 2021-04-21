@@ -481,7 +481,7 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        if(allergiesList1.size()==0 || currentMedList1.size()==0 || pastMedList1.size()==0 || chronicDiseaseList1.size()==0 || surgeriesList1.size()==0){
+        if(allergiesList1.size()==0 && currentMedList1.size()==0 && pastMedList1.size()==0 && chronicDiseaseList1.size()==0 && surgeriesList1.size()==0){
         util.showErrorToast("Oops! Please add some data into table first");
         } else{
             for(String st: allergiesList1){

@@ -94,31 +94,31 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
         lblUsername5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername5.setText("Marital Status:");
 
-        jComboMaritalStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Single", "Married", "Other" }));
+        jComboMaritalStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "Single", "Married", "Other" }));
 
         lblUsername6.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername6.setText("Smoking habbits:");
 
-        jComboSmokingHabbits.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "I don't smoke", "I used to, but I've quit", "1-2/day", "3-5/day", "5-10/day", ">10/day" }));
+        jComboSmokingHabbits.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "I don't smoke", "I used to, but I've quit", "1-2/day", "3-5/day", "5-10/day", ">10/day" }));
 
         lblUsername7.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername7.setText("Alcohol consumption:");
 
-        jComboAlcohol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Non-drinker", "Rare", "Social", "Regular", "Heavy" }));
+        jComboAlcohol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "Non-drinker", "Rare", "Social", "Regular", "Heavy" }));
 
-        jComboActivity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sedentary (low)", "Moderately active (Normal)", "Active (High)", "Athletic (Very High)" }));
+        jComboActivity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "Sedentary (low)", "Moderately active (Normal)", "Active (High)", "Athletic (Very High)" }));
 
         jLabel1.setText("Activity Level:");
 
-        jComboOccupation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "IT Professional", "Medical professional", "Banking professional", "Education", "Student", "Home-maker", "Other" }));
+        jComboOccupation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "IT Professional", "Medical professional", "Banking professional", "Education", "Student", "Home-maker", "Other" }));
 
         jLabel3.setText("Occupation:");
 
         jLabel2.setText("Food Preference:");
 
-        jComboFood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vegetarian", "Non-Vegetarian", "Eggetarian", "Vegan" }));
+        jComboFood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "Vegetarian", "Non-Vegetarian", "Eggetarian", "Vegan" }));
 
         errorContactNumber.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -138,7 +138,7 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
         lblPhoneNumber3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPhoneNumber3.setText("EmergencyContact  Number :");
 
-        jComboCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "Syracuse", "New York", "San Francisco", "New Jersey", "Chicago", "San Diego", "Dallas", "San Jose", "Houston", " " }));
+        jComboCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "Boston", "Syracuse", "New York", "San Francisco", "New Jersey", "Chicago", "San Diego", "Dallas", "San Jose", "Houston", " " }));
 
         jLabel4.setText("Location:");
 
@@ -306,16 +306,17 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
         } else {
 
             if (!Character.isDigit(c)) {
-                txtContactEmergency.setText("");
+//                txtContactEmergency.setText("");
                 errorContactNumber.setText("Sorry! only numbers allowed");
                 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
-            } else {
-                if (util.countOfString(txtContactEmergency.getText())>10 || util.countOfString(txtContactEmergency.getText())<10 ) {
-                    //                errorContactNumber.setText("Enter 10 digit valid number");
-                    errorContactNumber.setText("Contact number must be of 10 digits");
-                    txtContactEmergency.setText("");
-                }
-            }
+            } 
+//            else {
+//                if (util.countOfString(txtContactEmergency.getText())>10 || util.countOfString(txtContactEmergency.getText())<10 ) {
+//                    //                errorContactNumber.setText("Enter 10 digit valid number");
+//                    errorContactNumber.setText("Contact number must be of 10 digits");
+//                    txtContactEmergency.setText("");
+//                }
+//            }
         }
     }//GEN-LAST:event_txtContactEmergencyKeyPressed
 
@@ -352,6 +353,9 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
         } else if (location.toLowerCase().equals("selct")) {
             util.showErrorToast("Plesae enter valid location");
             
+        } else if (util.countOfString(txtContactEmergency.getText())>10 || util.countOfString(txtContactEmergency.getText())<10) {
+            util.showErrorToast("Emergency Contact number must be equal to 10 digits only");
+            
         } else { 
         user.getMedicalProfile().setMaritalStatus(maritalStatus);
         user.getMedicalProfile().setSmokingHabits(smokingHabbits);
@@ -363,10 +367,11 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
         user.getMedicalProfile().setLocation(location);
         JOptionPane.showMessageDialog(this, "Records Updates successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-        }
-        setFields(false);
+         setFields(false);
          btnSubmit.setVisible(false);
          btnEdit.setVisible(true);
+        }
+       
     }//GEN-LAST:event_btnSubmitActionPerformed
 
 
