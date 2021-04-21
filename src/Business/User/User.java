@@ -26,6 +26,7 @@ public class User extends Business.UserAccount.UserAccount {
     private MedicalProfile medicalProfile;
     private ConsultationForm consultationForm;
     private SessionsMedStaffDirectory consultationSessions;
+    private SessionsDirectory sessionDirectory;
 
     public User(String username, String password, String name, String contact, String email, String address, String zipcode) {
         this.name = name;
@@ -118,6 +119,17 @@ public class User extends Business.UserAccount.UserAccount {
 
     public void setConsultationSessions(SessionsMedStaffDirectory consultationSessions) {
         this.consultationSessions = consultationSessions;
+    }
+
+    public SessionsDirectory getSessionDirectory() {
+        if(sessionDirectory==null){
+            sessionDirectory= new SessionsDirectory();
+        }
+        return sessionDirectory;
+    }
+
+    public void setSessionDirectory(SessionsDirectory sessionDirectory) {
+        this.sessionDirectory = sessionDirectory;
     }
 
 

@@ -6,11 +6,14 @@
 package userinterface.CustomerRole;
 
 import Business.EcoSystem;
-import Business.Registration.Registration;
 import Business.Shop.Product;
 import Business.Shop.ProductDirectory;
 import Business.Shop.Shop;
 import Business.Staff.FcStaff;
+import Business.Staff.Sessions;
+import Business.Staff.SessionsDirectory;
+import Business.Staff.SessionsMedStaff;
+import Business.Staff.Staff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.OrderItem;
@@ -20,12 +23,11 @@ import java.awt.CardLayout;
 import java.awt.Component;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import Business.Registration.RegistrationDirectory;
-import Business.Staff.Sessions;
-import Business.Staff.SessionsDirectory;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -39,20 +41,17 @@ public class RegisterCartPanel extends javax.swing.JPanel {
      */
     private JPanel mainWorkArea;
     private EcoSystem ecosystem;
-    //private Shop shop;
     private FcStaff fcstaff;
     private User user;
-    
+    private Sessions sess;
     private UserAccount userAccount;
-   // ArrayList<OrderItem> orderList = new ArrayList<OrderItem>();
-    
-    //private RegistrationDirectory regList;
-    ArrayList<Registration> regList=new ArrayList<Registration>();
-    
+
+    private ArrayList<OrderItem> orderList = new ArrayList<OrderItem>();
+
     Utils utils;
-    
+
     DefaultTableModel model;
-    
+
     public RegisterCartPanel(JPanel mainPanel, EcoSystem ecosystem, FcStaff fcstaff, UserAccount userAccount) {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
@@ -76,18 +75,9 @@ public class RegisterCartPanel extends javax.swing.JPanel {
         btnBack = new javax.swing.JButton();
         lblPageTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblProductsList = new javax.swing.JTable();
-        btnAddProduct = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblCart = new javax.swing.JTable();
-        txtMessage = new javax.swing.JTextField();
-        lblMsg = new javax.swing.JLabel();
-        lblPrice = new javax.swing.JLabel();
-        txtTotalPrice = new javax.swing.JTextField();
+        tblConsultaionSlot = new javax.swing.JTable();
         btnPlaceOrder = new javax.swing.JButton();
-        txtTotalQuantity = new javax.swing.JTextField();
-        lblQty = new javax.swing.JLabel();
-        comboOrderShipmentType = new javax.swing.JComboBox<>();
+        comboSessionType = new javax.swing.JComboBox<>();
         lblShipmentType = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(244, 249, 249));
@@ -113,52 +103,10 @@ public class RegisterCartPanel extends javax.swing.JPanel {
         lblPageTitle.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
-        lblPageTitle.setText("Cart");
+        lblPageTitle.setText("Fitness Session Slot");
 
-        tblProductsList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        tblProductsList.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Sr No.", "Name", "Price", "Prescription Needed", "Description", "Calories"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblProductsList.setSelectionBackground(new java.awt.Color(0, 102, 204));
-        jScrollPane1.setViewportView(tblProductsList);
-
-        btnAddProduct.setBackground(new java.awt.Color(138, 177, 138));
-        btnAddProduct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/plus.png"))); // NOI18N
-        btnAddProduct.setText("Add Product");
-        btnAddProduct.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
-        btnAddProduct.setBorderPainted(false);
-        btnAddProduct.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnAddProduct.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddProductActionPerformed(evt);
-            }
-        });
-
-        tblCart.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        tblCart.setModel(new javax.swing.table.DefaultTableModel(
+        tblConsultaionSlot.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        tblConsultaionSlot.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -166,14 +114,14 @@ public class RegisterCartPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Sr No.", "Name", "Unit Price", "Total Price", "Quantity"
+                "Sr No.", "Session Name", "Date", "Start-time", "End-time"
             }
         ) {
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, true, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -184,26 +132,12 @@ public class RegisterCartPanel extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblCart.setSelectionBackground(new java.awt.Color(0, 102, 204));
-        jScrollPane2.setViewportView(tblCart);
-
-        txtMessage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
-
-        lblMsg.setBackground(new java.awt.Color(249, 244, 244));
-        lblMsg.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblMsg.setText("Delivery Instructions / Message :");
-
-        lblPrice.setBackground(new java.awt.Color(249, 244, 244));
-        lblPrice.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPrice.setText("Total Price");
-
-        txtTotalPrice.setEditable(false);
-        txtTotalPrice.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        txtTotalPrice.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        tblConsultaionSlot.setSelectionBackground(new java.awt.Color(0, 102, 204));
+        jScrollPane1.setViewportView(tblConsultaionSlot);
 
         btnPlaceOrder.setBackground(new java.awt.Color(138, 177, 138));
         btnPlaceOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnPlaceOrder.setText("Place Order");
+        btnPlaceOrder.setText("Book Slots");
         btnPlaceOrder.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
         btnPlaceOrder.setBorderPainted(false);
         btnPlaceOrder.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -213,102 +147,71 @@ public class RegisterCartPanel extends javax.swing.JPanel {
             }
         });
 
-        txtTotalQuantity.setEditable(false);
-        txtTotalQuantity.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
-        txtTotalQuantity.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
-
-        lblQty.setBackground(new java.awt.Color(249, 244, 244));
-        lblQty.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblQty.setText("Total Quantity");
-
-        comboOrderShipmentType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
+        comboSessionType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Remote", "In-Person" }));
+        comboSessionType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboSessionTypeActionPerformed(evt);
+            }
+        });
 
         lblShipmentType.setBackground(new java.awt.Color(249, 244, 244));
         lblShipmentType.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblShipmentType.setText("Select order shipment type");
+        lblShipmentType.setText("Select Attendence type");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(32, 32, 32)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtTotalQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblQty, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblMsg, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(lblShipmentType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(comboSessionType, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(91, 91, 91))
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(186, 186, 186))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 647, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblShipmentType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(comboOrderShipmentType, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(199, 199, 199)
+                                .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(199, 199, 199)
-                        .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addGap(263, 263, 263)
+                        .addComponent(btnPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(300, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(lblPageTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(70, 70, 70)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblShipmentType)
-                        .addGap(12, 12, 12)
-                        .addComponent(comboOrderShipmentType, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPrice)
-                    .addComponent(lblQty)
-                    .addComponent(lblMsg))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                    .addComponent(txtTotalPrice)
-                    .addComponent(txtMessage)
-                    .addComponent(txtTotalQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
+                .addComponent(lblShipmentType)
+                .addGap(12, 12, 12)
+                .addComponent(comboSessionType, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(110, 110, 110)
                 .addComponent(btnPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(252, Short.MAX_VALUE))
+                .addContainerGap(418, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private Sessions getSelectedProduct() {
-        int selectedRowIndex = tblProductsList.getSelectedRow();
-        
+    private Sessions getSelectedSession() {
+        int selectedRowIndex = tblConsultaionSlot.getSelectedRow();
+
         if (selectedRowIndex < 0) {
-            utils.showErrorToast("Oops! Please select a product first.");
+            utils.showErrorToast("Oops! Please select a Session first.");
             return null;
         }
-        
-        Sessions p = (Sessions) tblProductsList.getValueAt(selectedRowIndex, 1);
-        
+
+        Sessions p = (Sessions) tblConsultaionSlot.getValueAt(selectedRowIndex, 1);
+
         return p;
     }
 
@@ -316,189 +219,98 @@ public class RegisterCartPanel extends javax.swing.JPanel {
         // back btn logic
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
-
-    private void btnAddProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddProductActionPerformed
-        // TODO add your handling code here:
-        Sessions p = getSelectedProduct();
-        //int qty = 0;
-        
-//        if (p != null) {
-            
-        // OrderItem oi = new OrderItem(p, qty);
-             //  Registration r = new Registration(userName, password, p);
-                
-       //         orderList.add(oi);
-                
-                populateCartTable();
-
-        int selected = tblProductsList.getSelectedRow();
-        if(selected<0){
-            JOptionPane.showMessageDialog(null,"Please select a row","Warning",JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            Registration reg=(Registration)tblProductsList.getValueAt(selected, 0);
-            //Registration reg = new Registration();
-            regList.add(reg);
-    //        populateCart();          
-        }
-    }//GEN-LAST:event_btnAddProductActionPerformed
-
+    
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
-        
-//        if (orderList != null && !orderList.isEmpty()) {
-//            String orderShipmentType = comboOrderShipmentType.getSelectedItem().toString();
-//            
-//            if (utils.isStringInputValid(orderShipmentType) || orderShipmentType != null) {
-//                
-//                if (shop != null) {
-//                    
-//                    String msg = txtMessage.getText();
-//                    
-//                    String resultMsg = "";
-//                    
-//                    if (!utils.isStringInputValid(msg)) {
-//                        msg = "";
-//                    }
-//                    
-//                    OrderList newOrderList = new OrderList();
-//                    newOrderList.setOrderList(orderList);
-//                    
-//                    newOrderList.setShop(shop);
-////                    newOrderList.setUserAccount(userAccount);
-//                    newOrderList.setUser(user);
-//                    
-//                    newOrderList.setRequestDate(new Date());
-//                    newOrderList.setMessage(msg);
-//                    
-//                    Boolean isPickup = orderShipmentType.equalsIgnoreCase("PICKUP");
-//                    
-//                    newOrderList.setIsPickup(isPickup);
-//                    
-//                    Boolean isPrescriptionNeeded = false;
-//                    
-//                    for (OrderItem item : orderList) {
-//                        if (item.getProduct().getIsPrescriptionNeeded()) {
-//                            isPrescriptionNeeded = true;
-//                            break;
-//                        }
-//                    }
-//                    
-//                    if (isPrescriptionNeeded) {
-//                        newOrderList.setStatus("PENDING");
-//                        resultMsg = "Since some products in your cart need prescription, a doctor will connect with you soon!";
-//                    } else {
-//                        newOrderList.setStatus("BOOKED");
-//                        resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
-//                    }
-//                    
-//                    newOrderList.setRequestType("USER-ORDER");
-//                    
-//                    ecosystem.getWorkQueue().addWorkRequest(newOrderList);
-//                    
-//                    JOptionPane.showMessageDialog(this, resultMsg);
-//                    
-//                   // openOrderHistory();
-//                } else {
-//                    utils.showErrorToast("Something went wrong! Please try again.");
-//                }
-//            } else {
-//                utils.showErrorToast("Please choose shipment type");
-//            }
-//        } else {
-//            utils.showErrorToast("Oops! Please add atleast 1 product in your cart to proceed.");
-//        }
+        sess = getSelectedSession();
+        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+        //ArrayList<SessionsMedStaff> userSessionList = user.getConsultationSessions().getSession();
+        ArrayList<Sessions> userSessionList = user.getSessionDirectory().getSession();
+        int count = 0;
+        String sessionType = comboSessionType.getSelectedItem().toString();
+        if(fcstaff.getSdir().getSession().contains(sess)){
+            if(!sessionType.equalsIgnoreCase("remote") && sess.getIsRemote().equalsIgnoreCase("yes")){
+                utils.showErrorToast("This session is a Remote session");
+            } else if(!sessionType.equalsIgnoreCase("in-person") && sess.getIsRemote().equalsIgnoreCase("no")){
+                utils.showErrorToast("This session is In-Persion");
+            }else{
+               for(Sessions s:userSessionList){
+                   if(s.getSessionDate().equalsIgnoreCase(sess.getSessionDate())){
+                       count=count+1;
+                   }
+               }
+               if(count>3){
+                   utils.showErrorToast("Booking limit for "+ fcstaff.getName() +"exceded for the day");
+               }else{
+                   sess.setIsRemote(sessionType);
+                   fcstaff.getSdir().addSession(sess);
+                   user.getSessionDirectory().addSession(sess);
+//                    staff.getSessionDirectory().removeSession(sess);
+                    JOptionPane.showMessageDialog(this, "Your Consultation with "+fcstaff.getName() +" Selected successfully",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+                    goToManageUserFitnessRegistrationPanel();
+               }
+                
+            }
+        } else {
+            utils.showErrorToast("Sorry!!, This slot has been booked, Please select other slots");
+            populateData();
+        }
+            
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
+    private void comboSessionTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSessionTypeActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_comboSessionTypeActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddProduct;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPlaceOrder;
-    private javax.swing.JComboBox<String> comboOrderShipmentType;
+    private javax.swing.JComboBox<String> comboSessionType;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblMsg;
     private javax.swing.JLabel lblPageTitle;
-    private javax.swing.JLabel lblPrice;
-    private javax.swing.JLabel lblQty;
     private javax.swing.JLabel lblShipmentType;
-    private javax.swing.JTable tblCart;
-    private javax.swing.JTable tblProductsList;
-    private javax.swing.JTextField txtMessage;
-    private javax.swing.JTextField txtTotalPrice;
-    private javax.swing.JTextField txtTotalQuantity;
+    private javax.swing.JTable tblConsultaionSlot;
     // End of variables declaration//GEN-END:variables
 
     private void backAction() {
         mainWorkArea.remove(this);
-        
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }
-    
+
     private void populateData() {
-        
-//        comboOrderShipmentType.removeAllItems();
-//        
-//        comboOrderShipmentType.addItem("PICKUP");
-//        
-//        comboOrderShipmentType.addItem("DELIVERY");
-        
-        SessionsDirectory pd = fcstaff.getSdir();
-        //FcStaffDirectory fcd = 
-                
-        DefaultTableModel model = (DefaultTableModel) tblProductsList.getModel();
-        
+        DefaultTableModel model = (DefaultTableModel) tblConsultaionSlot.getModel();
+
         int count = 1;
         model.setRowCount(0);
-        
-        for (Sessions p : pd.getSession()) {
-            Object[] row = new Object[6];
-//            
-//            row[0] = "" + count++;
-//            row[1] = p;
-//            row[2] = p.getPrice();
-//            row[3] = p.getIsPrescriptionNeeded();
-//            row[4] = p.getDescription();
-//            row[5] = p.getCalories();
-            
+
+        for (Sessions p : fcstaff.getSdir().getSession()) {
+            Object[] row = new Object[5];
+            row[0] = "" + count++;
+            row[1] = p;
+            row[2] = p.getSessionDate();
+            row[3] = p.getStartTime();
+            row[4] = p.getEndTime();
             model.addRow(row);
         }
-        
+    }
+    private void goToManageUserFitnessRegistrationPanel(){
+            ManageUserFitnessRegistrationPanel bookConsultationPanel = new ManageUserFitnessRegistrationPanel(mainWorkArea, ecosystem, user);
+            
+            mainWorkArea.add("bookConsultationPanel", bookConsultationPanel);
+            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+            layout.next(mainWorkArea);
+    }
+
+    private void openOrderHistory() {
+
+        ManageUserOrderHistory manageUserOrderHistory = new ManageUserOrderHistory(mainWorkArea, ecosystem, userAccount);
+
+        mainWorkArea.add("ManageOrderHistory", manageUserOrderHistory);
+
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
     }
     
-    private void populateCartTable() {
-        DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
-        
-        int count = 1;
-        int qtyTotal = 0;
-        double sumTotal = 0;
-        
-        model.setRowCount(0);
-//        
-//        for(Registration item : fcstaff.getName()) {
-//            
-//            int qty = item.getQuantity();
-//           double price = item.getProduct().getPrice();
-//            
-//         double totalPrice = price * qty;
-//            
-//          qtyTotal += qty;
-//          sumTotal += totalPrice;
-//            
-//            Object[] row = new Object[4];
-//            row[0] = "" + count++;
-//            row[1] = item;
-//            row[2] = price;
-//            row[3] = totalPrice;
-//            row[4] = qty;
-//            
-//            model.addRow(row);
-//            
-//        }
-//        
-        DecimalFormat df = new DecimalFormat("###.###");
-        
-        txtTotalPrice.setText(String.valueOf(df.format(sumTotal)));
-        txtTotalQuantity.setText(String.valueOf(qtyTotal));
-     }
 }
