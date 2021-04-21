@@ -46,7 +46,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
      * @param user
      * @param isUpdatePage
      */
-    public FcAddDepartmentPanel(JPanel mainWorkArea, EcoSystem ecosystem, FitnessCenterDepartment department, Boolean isUpdatePage,UserAccount userAccount) {
+    public FcAddDepartmentPanel(JPanel mainWorkArea, EcoSystem ecosystem, FitnessCenterDepartment department, Boolean isUpdatePage, UserAccount userAccount) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
@@ -55,7 +55,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         util = new Utils();
         setData();
-        
+
     }
 
     /**
@@ -287,7 +287,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         txtSName.setText("");
         txtContact.setText("");
         jComboType.setSelectedItem("Select");
-        
+
     }
 
     private void setData() {
@@ -301,7 +301,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
             txtSPassword.setText(department.getPassword());
             txtSName.setText(department.getDepartmentName());
             txtContact.setText(department.getContact());
-            jComboType.setSelectedItem(department.getType()); 
+            jComboType.setSelectedItem(department.getType());
         } else {
             btnSubmit.setText("Add Department");
             lblUserAction.setText("Add Department");
@@ -328,7 +328,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
 
     private void jComboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTypeActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jComboTypeActionPerformed
 
     private void txtContactKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactKeyPressed
@@ -345,8 +345,8 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
                 if (txtContact.getText().length() > 9) {
-                errorContactNumber.setText("Enter 10 digit valid number");
-                    txtContact.setText("");
+                    errorContactNumber.setText("Enter valid 10 digit number");
+//                    txtContact.setText("");
                 } else {
                     errorContactNumber.setText("");
                     txtContact.setEditable(true);
@@ -360,15 +360,14 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         String userName = txtSUserName.getText();
         char[] passwordCharArray = txtSPassword.getPassword();
         String password = String.valueOf(passwordCharArray);
-        String  phoneNo = txtContact.getText(),
+        String phoneNo = txtContact.getText(),
                 name = txtSName.getText();
         String type = jComboType.getSelectedItem().toString();
-        
+
 //        location = txtLocation.getText(),
 //        schedule = txtSchedule.getText(),
 //        String isRemote = jComboType1.getSelectedItem().toString();
 //        Double numberOfBeds = Double.parseDouble(NumberOfBeds.getText());
-
         if (!util.isStringInputValid(userName)) {
             util.showErrorToast("Plesae enter valid user name");
         } else if (!util.isStringInputValid(password)) {
@@ -378,14 +377,14 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         } else if (!util.isStringInputValid(phoneNo) || phoneNo.length() != 10) {
             util.showErrorToast("Plesae enter valid 10 digit phone number");
             txtContact.setText("");
-       } else if (!util.isStringInputValid(password)) {
+        } else if (!util.isStringInputValid(password)) {
             util.showErrorToast("Plesae enter valid password");
-       } else if (!isUpdatePage && (!util.isStringInputValid(userName) || !ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(userName))) {
+        } else if (!isUpdatePage && (!util.isStringInputValid(userName) || !ecosystem.getUserAccountDirectory().checkIfUsernameIsUnique(userName))) {
             util.showErrorToast("Plesae enter valid and unique username");
-       } else if (!util.isStringInputValid(type)) {
+        } else if (!util.isStringInputValid(type)) {
             util.showErrorToast("Plesae select valid type");
         } else if (type.toLowerCase().equals("select")) {
-           util.showErrorToast("Plesae select valid type");
+            util.showErrorToast("Plesae select valid type");
         } else {
             userName = userName.toLowerCase();
             String msg = name + " account created successfully!";
@@ -409,7 +408,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
             resetForm();
 
             JOptionPane.showMessageDialog(this, msg,
-                "Success", JOptionPane.INFORMATION_MESSAGE);
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
 
             backAction();
         }
@@ -426,7 +425,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
 
     private void txtSNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSNameKeyPressed
         // TODO add your handling code here:
-                                char c = evt.getKeyChar();
+        char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
             //txtSName.setEditable(false);
             JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
@@ -459,14 +458,13 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSUserName;
     // End of variables declaration//GEN-END:variables
 
-     public void populateComboBox(){
-            for (Type t:ecosystem.getTypeDirectory().getTypeList()) {
-                if(t.getParent().toLowerCase().equals("fitnessdepartment")){
-                    jComboType.addItem(t.getType());
-                }
-                
+    public void populateComboBox() {
+        for (Type t : ecosystem.getTypeDirectory().getTypeList()) {
+            if (t.getParent().toLowerCase().equals("fitnessdepartment")) {
+                jComboType.addItem(t.getType());
             }
+
+        }
     }
-     
-     
+
 }

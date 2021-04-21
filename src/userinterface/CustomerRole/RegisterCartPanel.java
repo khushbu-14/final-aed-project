@@ -33,6 +33,7 @@ public class RegisterCartPanel extends javax.swing.JPanel {
     private User user;
     private Sessions sess;
     private UserAccount userAccount;
+    private String bookedBy;
 
     private ArrayList<OrderItem> orderList = new ArrayList<OrderItem>();
 
@@ -40,12 +41,14 @@ public class RegisterCartPanel extends javax.swing.JPanel {
 
     DefaultTableModel model;
 
-    public RegisterCartPanel(JPanel mainPanel, EcoSystem ecosystem, FcStaff fcstaff, UserAccount userAccount) {
+    public RegisterCartPanel(JPanel mainPanel, EcoSystem ecosystem, FcStaff fcstaff, User user, String bookedBy) {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
         this.fcstaff = fcstaff;
-        this.userAccount = userAccount;
-        this.user = (User) userAccount;
+        this.bookedBy = bookedBy;
+//        this.userAccount = userAccount;
+//        this.user = (User) userAccount;
+        this.user = user;
         utils = new Utils();
         initComponents();
         populateData();
@@ -167,7 +170,7 @@ public class RegisterCartPanel extends javax.swing.JPanel {
                                 .addGap(199, 199, 199)
                                 .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
+                        .addGap(273, 273, 273)
                         .addComponent(btnPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(300, Short.MAX_VALUE))
         );
@@ -184,9 +187,9 @@ public class RegisterCartPanel extends javax.swing.JPanel {
                 .addComponent(lblShipmentType)
                 .addGap(12, 12, 12)
                 .addComponent(comboSessionType, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110)
+                .addGap(18, 18, 18)
                 .addComponent(btnPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(418, Short.MAX_VALUE))
+                .addContainerGap(510, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -207,48 +210,53 @@ public class RegisterCartPanel extends javax.swing.JPanel {
         // back btn logic
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
-    
+
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         sess = getSelectedSession();
-        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+//        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
         //ArrayList<SessionsMedStaff> userSessionList = user.getConsultationSessions().getSession();
         ArrayList<Sessions> userSessionList = user.getSessionDirectory().getSession();
         int count = 0;
         String sessionType = comboSessionType.getSelectedItem().toString();
-        if(fcstaff.getSdir().getSession().contains(sess)){
-            if(!sessionType.equalsIgnoreCase("remote") && sess.getIsRemote().equalsIgnoreCase("yes")){
-                utils.showErrorToast("This session is a Remote session");
-            } else if(!sessionType.equalsIgnoreCase("in-person") && sess.getIsRemote().equalsIgnoreCase("no")){
-                utils.showErrorToast("This session is In-Persion");
-            }else{
-               for(Sessions s:userSessionList){
-                   if(s.getSessionDate().equalsIgnoreCase(sess.getSessionDate())){
-                       count=count+1;
-                   }
-               }
-               if(count>3){
-                   utils.showErrorToast("Booking limit for "+ fcstaff.getName() +"exceded for the day");
-               }else{
-                   sess.setIsRemote(sessionType);
-                  // fcstaff.getSdir().addSession(sess);
-                   user.getSessionDirectory().addSession(sess);
-//                    staff.getSessionDirectory().removeSession(sess);
-                    JOptionPane.showMessageDialog(this, "Your Consultation with "+fcstaff.getName() +" booked successfully",
-                    "Success", JOptionPane.INFORMATION_MESSAGE);
-                    goToManageUserFitnessRegistrationPanel();
-               }
-                
-            }
+
+        if (user.getSessionDirectory().getSessionByID(sess.getSessionID()) != null) {
+            utils.showErrorToast("Oops! Already registered for this session");
         } else {
-            utils.showErrorToast("Sorry!!, This slot has been booked, Please select other slots");
-            populateData();
+
+            if (fcstaff.getSdir().getSession().contains(sess)) {
+                if (!sessionType.equalsIgnoreCase("remote") && sess.getIsRemote().equalsIgnoreCase("yes")) {
+                    utils.showErrorToast("This session is a Remote session");
+                } else if (!sessionType.equalsIgnoreCase("in-person") && sess.getIsRemote().equalsIgnoreCase("no")) {
+                    utils.showErrorToast("This session is In-Persion");
+                } else {
+                    for (Sessions s : userSessionList) {
+                        if (s.getSessionDate().equalsIgnoreCase(sess.getSessionDate())) {
+                            count = count + 1;
+                        }
+                    }
+                    if (count > 3) {
+                        utils.showErrorToast("Booking limit for " + fcstaff.getName() + "exceded for the day");
+                    } else {
+                        sess.setIsRemote(sessionType);
+                        // fcstaff.getSdir().addSession(sess);
+                        user.getSessionDirectory().addSession(sess);
+//                    staff.getSessionDirectory().removeSession(sess);
+                        JOptionPane.showMessageDialog(this, "Your Consultation with " + fcstaff.getName() + " booked successfully",
+                                "Success", JOptionPane.INFORMATION_MESSAGE);
+                        goToManageUserFitnessRegistrationPanel();
+                    }
+
+                }
+            } else {
+                utils.showErrorToast("Sorry!!, This slot has been booked, Please select other slots");
+                populateData();
+            }
         }
-            
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void comboSessionTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSessionTypeActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_comboSessionTypeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -283,22 +291,22 @@ public class RegisterCartPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
-    private void goToManageUserFitnessRegistrationPanel(){
-            ManageUserFitnessRegistrationPanel bookConsultationPanel = new ManageUserFitnessRegistrationPanel(mainWorkArea, ecosystem, user);
-            
-            mainWorkArea.add("bookConsultationPanel", bookConsultationPanel);
-            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-            layout.next(mainWorkArea);
-    }
 
-    private void openOrderHistory() {
+    private void goToManageUserFitnessRegistrationPanel() {
+        ManageUserFitnessRegistrationPanel manageUserFitnessRegistrationPanel = new ManageUserFitnessRegistrationPanel(mainWorkArea, ecosystem, user, bookedBy);
 
-        ManageUserOrderHistory manageUserOrderHistory = new ManageUserOrderHistory(mainWorkArea, ecosystem, userAccount);
-
-        mainWorkArea.add("ManageOrderHistory", manageUserOrderHistory);
-
+        mainWorkArea.add("manageUserFitnessRegistrationPanel", manageUserFitnessRegistrationPanel);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
     }
-    
+
+//    private void openOrderHistory() {
+//
+//        ManageUserOrderHistory manageUserOrderHistory = new ManageUserOrderHistory(mainWorkArea, ecosystem, userAccount);
+//
+//        mainWorkArea.add("ManageOrderHistory", manageUserOrderHistory);
+//
+//        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+//        layout.next(mainWorkArea);
+//    }
 }
