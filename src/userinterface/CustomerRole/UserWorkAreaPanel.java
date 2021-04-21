@@ -683,12 +683,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageOrderFitnessMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderFitnessMousePressed
         // TODO add your handling code here:
-        manageRegisterFitness();
+        //manageRegisterFitness();
     }//GEN-LAST:event_manageOrderFitnessMousePressed
 
     private void manageOrderFitnessPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderFitnessPanelMousePressed
         // TODO add your handling code here:
-        manageRegisterFitness();
+        //manageRegisterFitness();
     }//GEN-LAST:event_manageOrderFitnessPanelMousePressed
 
     private void managePersonalInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePersonalInfoMousePressed
@@ -731,10 +731,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageSessionsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsMousePressed
         // TODO add your handling code here:
+        manageRegisterFitness();
     }//GEN-LAST:event_manageSessionsMousePressed
 
     private void manageSessionsPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsPanelMousePressed
         // TODO add your handling code here:
+        manageRegisterFitness();
     }//GEN-LAST:event_manageSessionsPanelMousePressed
 
     private void btnTemp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemp2ActionPerformed
@@ -759,9 +761,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageRegisterFitness() {
         changeBtnBgs("order-products");
-
-        RegisterFitnessPanel orderMedicinePanel = new RegisterFitnessPanel(mainPanel, ecosystem, userAccount);
-
+        ManageUserFitnessRegistrationPanel orderMedicinePanel = new ManageUserFitnessRegistrationPanel(mainPanel, ecosystem, userAccount);
         mainPanel.add("manageHospitalsJPanel", orderMedicinePanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
@@ -802,7 +802,6 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageOrderMedicinePanel.setBackground(notActiveColor);
         manageOrdersPanel.setBackground(notActiveColor);
         manageProfilePanel.setBackground(notActiveColor);
-        manageSessionsPanel.setBackground(notActiveColor);
 
         manageDashboard.setForeground(nonActiveTxtColor);
         manageAppointments.setForeground(nonActiveTxtColor);
@@ -811,7 +810,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageOrderMedicine.setForeground(nonActiveTxtColor);
         manageOrders.setForeground(nonActiveTxtColor);
         managePersonalInfo.setForeground(nonActiveTxtColor);
-        manageSessions.setForeground(nonActiveTxtColor);
+        
 
         if ("order-products".equalsIgnoreCase(type)) {
             manageOrderMedicinePanel.setBackground(activeColor);
@@ -825,6 +824,9 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         } else if ("manageappointment".equalsIgnoreCase(type)) {
             manageAppointmentsPanel.setBackground(activeColor);
             manageAppointments.setForeground(activeTxtColor);
+        }else if ("managsessions".equalsIgnoreCase(type)) {
+            manageSessionsPanel.setBackground(notActiveColor);
+            manageSessions.setForeground(nonActiveTxtColor);
         }
     }
 

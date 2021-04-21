@@ -166,6 +166,11 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
         lblUsername1.setText("Username :");
 
         txtSUserName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtSUserName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSUserNameActionPerformed(evt);
+            }
+        });
 
         lblPassword1.setBackground(new java.awt.Color(249, 244, 244));
         lblPassword1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -202,6 +207,11 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
         lblPhoneNumber1.setText("Department Name:");
 
         txtSName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtSName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSNameActionPerformed(evt);
+            }
+        });
 
         errorEmail.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -475,11 +485,12 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
             if (!Character.isDigit(c)) {
                 //txtContact.setEditable(false);
                 errorContactNumber.setText("Sorry! only numbers allowed");
+                txtContact.setText("");
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
                 if (txtContact.getText().length() > 9) {
-//                errorContactNumber.setText("Enter 10 digit valid number");
-                    txtContact.setEditable(false);
+                errorContactNumber.setText("Enter 10 digit valid number");
+                    txtContact.setText("");
                 } else {
                     errorContactNumber.setText("");
                     txtContact.setEditable(true);
@@ -491,6 +502,14 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
     private void jComboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTypeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboTypeActionPerformed
+
+    private void txtSNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSNameActionPerformed
+
+    private void txtSUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSUserNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSUserNameActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NumberOfBeds;

@@ -65,15 +65,15 @@ public class FitnessCenterDepartmentDirectory {
      }
       
       
-       public void updateFitnessCenterDepartmentByUserName(String userName,String departmentName, String contact,String password, String schedule, String location, String isRemote){
+       public void updateFitnessCenterDepartmentByUserName(String userName,String departmentName, String contact,String password){
           FitnessCenterDepartment fit = getFitnessCenterDepartmentByUserName(userName);
           fit.setDepartmentName(departmentName);
           //hosp.setType(type);
           fit.setContact(contact);
           fit.setPassword(password);
-          fit.setSchedule(schedule);
-          fit.setLocation(location);
-          fit.setIsRemote(isRemote);
+//          fit.setSchedule(schedule);
+//          fit.setLocation(location);
+//          fit.setIsRemote(isRemote);
           
       }
     
