@@ -143,6 +143,8 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(243, 241, 249));
 
+        jOuterPanel.setBackground(new java.awt.Color(243, 241, 249));
+
         jLabel4.setText("Comment:");
 
         jLabel1.setText("ADD Prescription:");
@@ -199,7 +201,7 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
                     .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcomboAddPres, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcomboNextCon, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         jOuterPanelLayout.setVerticalGroup(
             jOuterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,8 +239,9 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jOuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 534, Short.MAX_VALUE))
+                .addContainerGap(534, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,7 +257,7 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(281, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,7 +271,6 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
 
         add(splitPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
 
     private void backAction() {
         mainWorkArea.remove(this);
@@ -310,9 +312,9 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         }else if(!util.isStringInputValid(prescription)){
             util.showErrorToast("Please input valid prescription");
         }else{
-            user.getConsultationForm().setDocsPrescription(prescription);
-            user.getConsultationForm().setDocsComment(comment);
-            user.getConsultationForm().setNextConsulationDate(nextDate);
+//            user.getConsultationForm().setDocsPrescription(prescription);
+//            user.getConsultationForm().setDocsComment(comment);
+//            user.getConsultationForm().setNextConsulationDate(nextDate);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -320,13 +322,13 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         // TODO add your handling code here:
         String st = jcomboAddPres.getSelectedItem().toString();
         if(st.toLowerCase().equals("yes")){
-            txtComment.setEnabled(true);
-            presArea.setEnabled(true);
-            btnSubmit.setEnabled(true);
-            jcomboNextCon.setEnabled(true);
-            user.getConsultationForm().setDocsComment("NA");
-            user.getConsultationForm().setDocsPrescription("NA");
-            user.getConsultationForm().setNextConsulationDate("NA");
+//            txtComment.setEnabled(true);
+//            presArea.setEnabled(true);
+//            btnSubmit.setEnabled(true);
+//            jcomboNextCon.setEnabled(true);
+//            user.getConsultationForm().setDocsComment("NA");
+//            user.getConsultationForm().setDocsPrescription("NA");
+//            user.getConsultationForm().setNextConsulationDate("NA");
         }
     }//GEN-LAST:event_jcomboAddPresActionPerformed
 
