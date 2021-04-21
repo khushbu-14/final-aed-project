@@ -11,6 +11,7 @@ import Business.Hospital.Department.HospitalDepartment;
 import Business.Hospital.Hospital;
 import Business.Staff.SessionsMedStaff;
 import Business.Staff.Staff;
+import Business.User.User;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.OrderList;
 import Business.WorkQueue.WorkRequest;
@@ -35,6 +36,7 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
     JPanel mainWorkArea;
     EcoSystem ecosystem;
     UserAccount userAccount;
+    User user;
 
     public ManagePatientConsultationDoctorJPanel(JPanel mainWorkArea, EcoSystem ecosystem, UserAccount userAccount) {
         this.mainWorkArea = mainWorkArea;
@@ -141,30 +143,40 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private WorkRequest getSelectedRow() {
+    private User getSelectedPatients() {
         int selectedRowIndex = tblConsultation.getSelectedRow();
 
         if (selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(this, "Oops! Please select a consultation first.");
+            JOptionPane.showMessageDialog(this, "Oops! Please select a Patient first.");
             return null;
         }
 
-        WorkRequest request = (WorkRequest) tblConsultation.getValueAt(selectedRowIndex, 1);
+        User user = (User) tblConsultation.getValueAt(selectedRowIndex, 1);
 
-        return request;
+        return user;
+    }
+    private SessionsMedStaff getSelectedSession() {
+        int selectedRowIndex = tblConsultation.getSelectedRow();
+
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Oops! Please select a Patient first.");
+            return null;
+        }
+
+        SessionsMedStaff user = (SessionsMedStaff) tblConsultation.getValueAt(selectedRowIndex, 2);
+
+        return user;
     }
 
     private void btnViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDetailsActionPerformed
         // TODO add your handling code here:
-        WorkRequest request = getSelectedRow();
+        User user = getSelectedPatients();
+        SessionsMedStaff sess = getSelectedSession();
 
-        if (request != null && request instanceof OrderList) {
-            OrderList orderListData = (OrderList) request;
-
-            ManageStaffOrderDetailsPanel manageStaffOrderDetailsPanel = new ManageStaffOrderDetailsPanel(mainWorkArea, userAccount, ecosystem, orderListData);
-
-            // ManageUserOrderDetailsPanel manageUserOrderDetailsPanel = new ManageUserOrderDetailsPanel(mainWorkArea, userAccount, ecosystem, orderListData);
-            mainWorkArea.add("manageStaffOrderDetailsPanel", manageStaffOrderDetailsPanel);
+        if (user != null ) {
+            //UserReport userReportPanel = new UserReport(mainWorkArea, userAccount, ecosystem, user);
+            ManageStaffConsultationDetailsPanel viewSessionDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user,sess );
+            mainWorkArea.add("userReportPanel", viewSessionDetailsPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
         }
@@ -183,6 +195,9 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
 
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblConsultation.getModel();
+        
+        
+        
         ArrayList<Hospital> hosp = ecosystem.getHospitalDirectory().getHospitalList();
         for(Hospital h:hosp){
             ArrayList<HospitalDepartment> hd = h.getDepartmentDirectory().getDepartmentList();
@@ -190,14 +205,14 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
                 ArrayList<Staff> staff = d.getStaffDirectory().getStaffList();
                 for(Staff s:staff){
                     if(s.getUsername().equalsIgnoreCase(userAccount.getUsername())){
-                    
                             int count = 1;
                             model.setRowCount(0);
 
                             for (SessionsMedStaff req : s.getConsultationDirectory().getSession()) {
-                                Object[] row = new Object[5];
+                                user = ecosystem.getUserDirectory().getUserByUserName(req.getUserIdentifier());
+                                Object[] row = new Object[7];
                                 row[0] = "" + count++;
-                                row[1] = s.getName();
+                                row[1] = user;
                                 row[2] = req;
                                 row[3] = req.getSessionDate();
                                 row[4] = req.getStartTime();

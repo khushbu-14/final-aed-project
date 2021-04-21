@@ -449,7 +449,7 @@ public class UserReport extends javax.swing.JPanel {
         jPanelLeft1Layout.setVerticalGroup(
             jPanelLeft1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelLeft1Layout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblProfilePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(txtUserFullName)
@@ -491,7 +491,7 @@ public class UserReport extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtDateOfBirth, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(lblDob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblDob, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -524,7 +524,7 @@ public class UserReport extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(jPanelMaritalStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtMaritalStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(lblMaritalStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblMaritalStatus, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelMaritalStatusLayout.setVerticalGroup(
@@ -557,7 +557,7 @@ public class UserReport extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(jPanelGenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtGender, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelGenderLayout.setVerticalGroup(
@@ -613,7 +613,7 @@ public class UserReport extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(jPanelAlcoholConsumption1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtAlcoholConsumption1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(lblAlcoholConsumption1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblAlcoholConsumption1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelAlcoholConsumption1Layout.setVerticalGroup(
@@ -646,7 +646,7 @@ public class UserReport extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(jPanelSmokingHabitsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtSmokingHabits, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(lblSmokingHabits, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblSmokingHabits, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelSmokingHabitsLayout.setVerticalGroup(
@@ -679,7 +679,7 @@ public class UserReport extends javax.swing.JPanel {
                 .addGap(14, 14, 14)
                 .addGroup(jPanelSmokingHabits1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtActivityLevel, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                    .addComponent(lblSmokingHabits1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblSmokingHabits1, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanelSmokingHabits1Layout.setVerticalGroup(
@@ -751,7 +751,7 @@ public class UserReport extends javax.swing.JPanel {
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblHealthProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                .addComponent(lblHealthProfile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -834,7 +834,7 @@ public class UserReport extends javax.swing.JPanel {
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(528, Short.MAX_VALUE))
+                .addContainerGap(352, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -865,7 +865,7 @@ public class UserReport extends javax.swing.JPanel {
                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -925,7 +925,6 @@ public class UserReport extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -935,7 +934,6 @@ public class UserReport extends javax.swing.JPanel {
     private javax.swing.JPanel jPanelEmergencyContact;
     private javax.swing.JPanel jPanelFoodPreference;
     private javax.swing.JPanel jPanelGender;
-    private javax.swing.JPanel jPanelLeft;
     private javax.swing.JPanel jPanelLeft1;
     private javax.swing.JPanel jPanelMaritalStatus;
     private javax.swing.JPanel jPanelMobileNumber;
@@ -949,7 +947,6 @@ public class UserReport extends javax.swing.JPanel {
     private javax.swing.JLabel lblAddress;
     private javax.swing.JLabel lblAlcoholConsumption1;
     private javax.swing.JLabel lblDob;
-    private javax.swing.JLabel lblDob2;
     private javax.swing.JLabel lblDob3;
     private javax.swing.JLabel lblDob4;
     private javax.swing.JLabel lblEmergencyContact;
@@ -968,14 +965,12 @@ public class UserReport extends javax.swing.JPanel {
     private javax.swing.JLabel lblWeight;
     private javax.swing.JLabel txtActivityLevel;
     private javax.swing.JLabel txtAddress;
-    private javax.swing.JLabel txtAge;
     private javax.swing.JLabel txtAlcoholConsumption1;
     private javax.swing.JLabel txtBloodGroup;
     private javax.swing.JLabel txtDateOfBirth;
     private javax.swing.JLabel txtEmail;
     private javax.swing.JLabel txtEmergencyContact;
     private javax.swing.JLabel txtFoodPreference;
-    private javax.swing.JLabel txtFullName;
     private javax.swing.JLabel txtGender;
     private javax.swing.JLabel txtHeight;
     private javax.swing.JLabel txtMaritalStatus;
