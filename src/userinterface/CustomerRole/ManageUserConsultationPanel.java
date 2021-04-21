@@ -14,10 +14,19 @@ import Business.User.UserDirectory;
 import Business.UserAccount.UserAccount;
 import constants.Utils;
 import java.awt.CardLayout;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import static userinterface.CustomerRole.SelectConsultationPanel.now;
+import userinterface.StaffRole.AddHospStaffSessionsPanel;
 
 /**
  *
@@ -33,6 +42,8 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
     EcoSystem ecosystem;
     UserAccount userAccount;
     Utils utils;
+    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    Date date;
 
     public ManageUserConsultationPanel(JPanel parentContainerPanel, EcoSystem ecosystem, UserAccount userAccount) {
         this.userProcessContainer = parentContainerPanel;
@@ -40,6 +51,14 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
         utils = new Utils();
         this.userAccount = userAccount;
         initComponents();
+         date = new Date();
+        
+        try {
+            //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
+            date = formatter.parse(formatter.format(date));
+        } catch (ParseException ex) {
+            Logger.getLogger(AddHospStaffSessionsPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         populateTable();
     }
 
@@ -174,16 +193,29 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         SessionsMedStaff u = getSelectedSession();
-
+        Date date1 = null;
+        try {
+                date1 = (Date)formatter.parse(u.getSessionDate());
+            } catch (ParseException ex) {
+                Logger.getLogger(SelectConsultationPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
         if (u != null) {
-            
-            User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+            if(date1.before(date)){
+            utils.showErrorToast("Oops! Cancelation Period Expired");
+            }else{
+                String startTime = u.getStartTime();
+                Boolean f = utils.testTime(startTime.split(":")[0]);
+                if(!f){
+                    utils.showErrorToast("Oops! Cancelation Period Expired");
+                }else{
+                    User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
             ud.getConsultationSessions().removeSession(u);
-
-            ecosystem.getUserAccountDirectory().removeUserAccount(u);
-
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
+                }
+            }
+            
+            
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

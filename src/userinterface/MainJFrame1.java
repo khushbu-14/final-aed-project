@@ -139,7 +139,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
             navbarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, navbarPanelLayout.createSequentialGroup()
                 .addGroup(navbarPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblMainTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(lblMainTitle, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                     .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblGreeting, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -172,7 +172,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         imgLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/login--img.png"))); // NOI18N
-        imgLogin.setBounds(new java.awt.Rectangle(0, 0, 100, 100));
 
         lblUsername.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -303,7 +302,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         signupPanel.setBackground(new java.awt.Color(255, 255, 255));
@@ -328,7 +327,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         imgLogin1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         imgLogin1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/login--img.png"))); // NOI18N
-        imgLogin1.setBounds(new java.awt.Rectangle(0, 0, 100, 100));
 
         lblUsername1.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -581,7 +579,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
             .addGroup(signupPanelLayout.createSequentialGroup()
                 .addGap(48, 48, 48)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -595,7 +593,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
             .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(mainPanelLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(signupPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1258, Short.MAX_VALUE)
+                    .addComponent(signupPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1250, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         mainPanelLayout.setVerticalGroup(

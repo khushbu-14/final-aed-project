@@ -5,6 +5,10 @@
  */
 package constants;
 
+import Business.DB4OUtil.DB4OUtil;
+import Business.EcoSystem;
+import static java.time.Clock.system;
+import java.time.LocalDateTime;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -13,9 +17,14 @@ import javax.swing.JOptionPane;
  *
  * @author khushbu
  */
-public class Utils {
 
+public class Utils {
+    private EcoSystem system;
+    private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
+    LocalDateTime now;
     public Utils() {
+        system = dB4OUtil.retrieveSystem();
+        now = LocalDateTime.now();
     }
 
     public Boolean isStringInputValid(String value) {
@@ -58,5 +67,20 @@ public class Utils {
 
     public void showErrorToast(String msg) {
         JOptionPane.showMessageDialog(null, msg, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    public void setDatabase(){
+        dB4OUtil.storeSystem(system);
+    }
+    
+     public Boolean testTime(String time2){
+        String time = now.toString();
+        time = time.split("T")[1].split(":")[0];
+        int timeNow = Integer.parseInt(time);
+        int timeSelected = Integer.parseInt(time2);
+        if(timeSelected<=timeNow){
+        return false;
+        }else {
+            return true;
+        }         
     }
 }

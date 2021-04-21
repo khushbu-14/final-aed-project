@@ -27,12 +27,20 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
+import java.security.Timestamp;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -54,7 +62,10 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
     UserAccount userAcount;
 
     Boolean isUpdatePage = false;
-
+    Boolean flag=true;
+    static LocalDateTime now;
+    Date date;
+    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
     /**
      * Creates new form AddUniversity
      *
@@ -72,6 +83,17 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
         this.userAcount = userAcount;
         util = new Utils();
         setData();
+        date = new Date();
+        Date date1 = new Date();
+        jDateChooser1.setMinSelectableDate(date);
+        try {
+            //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
+            date = formatter.parse(formatter.format(date));
+        } catch (ParseException ex) {
+            Logger.getLogger(AddHospStaffSessionsPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        now = LocalDateTime.now();
+        jDateChooser1.setDate(date1);
     }
 
     /**
@@ -331,7 +353,18 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
       //  personalinfo.setDateOfExpiration(DateFormat.format(txtDateOfExpiration.getDate()));
         
     }
-
+    static Boolean testTime(String time2){
+        //2021-04-20T22:23:33.154423500
+        String time = now.toString();
+        time = time.split("T")[1].split(":")[0];
+        int timeNow = Integer.parseInt(time);
+        int timeSelected = Integer.parseInt(time2);
+        if(timeSelected<=timeNow){
+        return false;
+        }else {
+            return true;
+        }         
+    }
     private void setData() {
         resetForm();
 //        populateComboBox();
@@ -371,36 +404,43 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
-
+        flag=true;
         String name = txtSName.getText();        
         String loc = txtLocation.getText();
-        
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, YYYY", Locale.US);
-        String d = dateFormat.format(jDateChooser1.getDate());
+//        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, YYYY", Locale.US);
+        String d = formatter.format(jDateChooser1.getDate());
+        Date d1 = jDateChooser1.getDate();
+        Date date2 = null;
+        try {
+           date2 = formatter.parse(formatter.format(d1));
+        } catch (ParseException ex) {
+            Logger.getLogger(AddHospStaffSessionsPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(d1);
         String isRemote = jComboType.getSelectedItem().toString();
         String time = jComboStartTime.getSelectedItem().toString();
         String startTime = time.split("-")[0];
         String endTime = time.split("-")[1];
         if (!util.isStringInputValid(name)) {
-            util.showErrorToast("Plesae enter valid product name");
+            util.showErrorToast("Plesae enter valid session name");
             //  JOptionPane.showMessageDialog(null, "Plesae enter valid user name");
             // JOptionPane.showMessageDialog(this, "Plesae enter valid user name", "Error", JOptionPane.ERROR_MESSAGE);
         } 
         else if (!util.isStringInputValid(loc)) {
-            util.showErrorToast("Plesae enter valid description");
+            util.showErrorToast("Plesae enter valid location");
             //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
             //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
         } 
-        else if (!util.isStringInputValid(isRemote)) {
-            util.showErrorToast("Plesae enter valid description");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
-            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (startTime.equalsIgnoreCase("select")) {
+        else if (startTime.equalsIgnoreCase("select")) {
             util.showErrorToast("Plesae select valid start time");
             //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
             //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (endTime.equalsIgnoreCase("select")) {
             util.showErrorToast("Plesae select valid end time");
+            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
+            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
+        } else if (!util.isStringInputValid(d)) {
+            util.showErrorToast("Plesae select valid date");
             //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
             //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -416,6 +456,9 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
                 sessions.setLocation(loc);
 
                 msg = name + " updated successfully!";
+                JOptionPane.showMessageDialog(this, msg,
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+            backAction();
             } else {
                  boolean decision = false;
             SessionsMedStaff session = new SessionsMedStaff( name, d, startTime, endTime, isRemote, loc);
@@ -424,15 +467,40 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
             ArrayList<HospitalDepartment> hospitalDepartmentList= fc.getDepartmentDirectory().getDepartmentList();                   
             for(HospitalDepartment hd :hospitalDepartmentList) {
                 Staff staff = hd.getStaffDirectory().getStaffByUserName(userAcount.getUsername());
-                staff.getSessionDirectory().addSession(session);
+                ArrayList<SessionsMedStaff> st = staff.getSessionDirectory().getSession();
+                for(SessionsMedStaff s: st){
+                  if(s.getSessionDate().equalsIgnoreCase(d) && s.getStartTime().equalsIgnoreCase(startTime)){
+                    flag = false;
+                   }
+                    }
+                if(flag){
+                    Boolean f = testTime(startTime.split(":")[0]);
+                     if(date2.equals(date)){
+                         if(f){
+                    staff.getSessionDirectory().addSession(session);
+                    JOptionPane.showMessageDialog(this, "Session Added successfully!");
+                    resetForm();
+                    backAction();
+                    }else{
+                        util.showErrorToast("Please select future time slots");
+                        }
+                    
+                    }else {
+                     staff.getSessionDirectory().addSession(session);
+                    JOptionPane.showMessageDialog(this, "Session Added successfully!");
+                    resetForm();
+                    backAction();
+                     }
+                    
+                }else{
+                    util.showErrorToast("Session already Present");
+                }
+                    
+                   
             }
-            JOptionPane.showMessageDialog(this, "Session Added successfully!");
             }
             }
-            resetForm();
-            JOptionPane.showMessageDialog(this, msg,
-                    "Success", JOptionPane.INFORMATION_MESSAGE);
-            backAction();
+            
         }
     }//GEN-LAST:event_btnSignupActionPerformed
 
