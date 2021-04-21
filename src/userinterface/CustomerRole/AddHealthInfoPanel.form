@@ -180,7 +180,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
-            <StringItem index="0" value="Data Not Available"/>
+            <StringItem index="0" value="NA"/>
             <StringItem index="1" value="Single"/>
             <StringItem index="2" value="Married"/>
             <StringItem index="3" value="Other"/>
@@ -204,7 +204,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="7">
-            <StringItem index="0" value="Data Not Available"/>
+            <StringItem index="0" value="NA"/>
             <StringItem index="1" value="I don&apos;t smoke"/>
             <StringItem index="2" value="I used to, but I&apos;ve quit"/>
             <StringItem index="3" value="1-2/day"/>
@@ -231,7 +231,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="6">
-            <StringItem index="0" value="Data Not Available"/>
+            <StringItem index="0" value="NA"/>
             <StringItem index="1" value="Non-drinker"/>
             <StringItem index="2" value="Rare"/>
             <StringItem index="3" value="Social"/>
@@ -248,7 +248,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
-            <StringItem index="0" value="Data Not Available"/>
+            <StringItem index="0" value="NA"/>
             <StringItem index="1" value="Sedentary (low)"/>
             <StringItem index="2" value="Moderately active (Normal)"/>
             <StringItem index="3" value="Active (High)"/>
@@ -269,7 +269,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="8">
-            <StringItem index="0" value="Data Not Available"/>
+            <StringItem index="0" value="NA"/>
             <StringItem index="1" value="IT Professional"/>
             <StringItem index="2" value="Medical professional"/>
             <StringItem index="3" value="Banking professional"/>
@@ -298,7 +298,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
-            <StringItem index="0" value="Data Not Available"/>
+            <StringItem index="0" value="NA"/>
             <StringItem index="1" value="Vegetarian"/>
             <StringItem index="2" value="Non-Vegetarian"/>
             <StringItem index="3" value="Eggetarian"/>
@@ -345,7 +345,7 @@
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="12">
-            <StringItem index="0" value="Data Not Available"/>
+            <StringItem index="0" value="NA"/>
             <StringItem index="1" value="Boston"/>
             <StringItem index="2" value="Syracuse"/>
             <StringItem index="3" value="New York"/>
