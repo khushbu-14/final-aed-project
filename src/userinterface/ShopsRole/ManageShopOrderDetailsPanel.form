@@ -328,7 +328,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblOrderStatus" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
                       <Component id="lblCustomerAddress3" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
-                      <Component id="lblShopName" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
+                      <Component id="lblCustomerName" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
                       <Component id="lblName1" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
                       <Component id="lblRequestDate" alignment="0" min="-2" pref="238" max="-2" attributes="0"/>
                       <Component id="lblCustomerAddress1" alignment="0" min="-2" pref="210" max="-2" attributes="0"/>
@@ -345,7 +345,7 @@
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Component id="lblName1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="lblShopName" min="-2" pref="19" max="-2" attributes="0"/>
+                  <Component id="lblCustomerName" min="-2" pref="19" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="lblCustomerContact1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -376,7 +376,7 @@
             <Property name="text" type="java.lang.String" value="Delivery Man Name :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblShopName">
+        <Component class="javax.swing.JLabel" name="lblCustomerName">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f4" green="f4" red="f9" type="rgb"/>
@@ -403,7 +403,7 @@
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
-            <Property name="text" type="java.lang.String" value="Shop Name :"/>
+            <Property name="text" type="java.lang.String" value="Customer Name :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblRequestDate">

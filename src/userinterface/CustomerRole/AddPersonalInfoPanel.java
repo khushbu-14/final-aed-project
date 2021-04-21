@@ -154,9 +154,9 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
         lblUsername4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername4.setText("Blood group");
 
-        jComboBlood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
+        jComboBlood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
 
-        selectGenderCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "PreferNotToSay", "Male", "Female", "Other" }));
+        selectGenderCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "PreferNotToSay", "Male", "Female", "Other" }));
 
         btnEdit.setBackground(new java.awt.Color(3, 80, 111));
         btnEdit.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
@@ -275,43 +275,42 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setFields(Boolean bool){
-    txtSName.setEnabled(bool);
-    selectGenderCombo.setEnabled(bool);
-    txtHeight.setEnabled(bool);
-    txtContact.setEnabled(bool);
-    dobChooser.setEnabled(bool);
-    jComboBlood.setEnabled(bool);
-    txtWeight.setEnabled(bool);
-    txtSEmail.setEnabled(bool);    
-}
-    
+    public void setFields(Boolean bool) {
+        txtSName.setEnabled(bool);
+        selectGenderCombo.setEnabled(bool);
+        txtHeight.setEnabled(bool);
+        txtContact.setEnabled(bool);
+        dobChooser.setEnabled(bool);
+        jComboBlood.setEnabled(bool);
+        txtWeight.setEnabled(bool);
+        txtSEmail.setEnabled(bool);
+    }
+
     private void setData() throws ParseException {
         txtSName.setText(user.getName());
         selectGenderCombo.setSelectedItem(user.getMedicalProfile().getGender());
         txtHeight.setText(user.getMedicalProfile().getHeight());
         txtContact.setText(user.getContact());
         String stringDate = user.getMedicalProfile().getDob();
-        if(stringDate==null){
-        Date date1 = (Date)formatter.parse("01/01/1900");
-        dobChooser.setDate(date1);
-        }else{
-        Date date = (Date)formatter.parse(stringDate);
-        dobChooser.setDate(date);
+        if (stringDate == null) {
+            Date date1 = (Date) formatter.parse("01/01/1900");
+            dobChooser.setDate(date1);
+        } else {
+            Date date = (Date) formatter.parse(stringDate);
+            dobChooser.setDate(date);
         }
-       if(user.getMedicalProfile().getBloodGroup()==null){
-        jComboBlood.setSelectedItem("Data Not Available");
-       } else{
-        jComboBlood.setSelectedItem(user.getMedicalProfile().getBloodGroup());
-       }
+        if (user.getMedicalProfile().getBloodGroup() == null) {
+            jComboBlood.setSelectedItem("NA");
+        } else {
+            jComboBlood.setSelectedItem(user.getMedicalProfile().getBloodGroup());
+        }
         jComboBlood.setSelectedItem(user.getMedicalProfile().getBloodGroup());
         txtWeight.setText(user.getMedicalProfile().getWeight());
         txtSEmail.setText(user.getEmail());
         setFields(false);
-
     }
-    
-     private void backAction() {
+
+    private void backAction() {
         mainWorkArea.remove(this);
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
@@ -338,7 +337,7 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
                 txtContact.setText("");
                 errorContactNumber.setText("Sorry! only numbers allowed");
                 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
-            } 
+            }
 //            else {
 //                if (util.countOfString(txtContact.getText()) > 10 || util.countOfString(txtContact.getText()) < 10) {
 //                    //                errorContactNumber.setText("Enter 10 digit valid number");
@@ -415,38 +414,37 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
 
         if (!util.isStringInputValid(name)) {
             util.showErrorToast("Plesae enter valid user name");
-            
+
         } else if (!util.isStringInputValid(bloodGroup)) {
             util.showErrorToast("Plesae enter valid password");
-            
+
         } else if (!util.isStringInputValid(weight)) {
-            util.showErrorToast("Plesae enter valid name");
-            
+            util.showErrorToast("Plesae enter valid weight");
+
         } else if (!util.isStringInputValid(height)) {
-            util.showErrorToast("Plesae enter valid name");
-            
+            util.showErrorToast("Plesae enter valid height");
+
         } else if (!util.isStringInputValid(email) || !util.isEmailValid(email)) {
             util.showErrorToast("Plesae enter valid email-id");
-            
+
         } else if (!util.isStringInputValid(contactNo) || contactNo.length() != 10) {
             util.showErrorToast("Plesae enter valid 10 digit phone number");
-            
-        } else { 
-        user.setName(name);
-        user.getMedicalProfile().setHeight(height);
-        user.getMedicalProfile().setGender(gender);
-        user.setContact(contactNo);
-        user.getMedicalProfile().setBloodGroup(bloodGroup);
-        user.getMedicalProfile().setWeight(weight);
-        user.setEmail(email);
-        user.getMedicalProfile().setDob(dob);
-        JOptionPane.showMessageDialog(this, "Records Updates successfully",
+
+        } else {
+            user.setName(name);
+            user.getMedicalProfile().setHeight(height);
+            user.getMedicalProfile().setGender(gender);
+            user.setContact(contactNo);
+            user.getMedicalProfile().setBloodGroup(bloodGroup);
+            user.getMedicalProfile().setWeight(weight);
+            user.setEmail(email);
+            user.getMedicalProfile().setDob(dob);
+            JOptionPane.showMessageDialog(this, "Records Updates successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-          setFields(false);
-        btnSave.setVisible(false);
-        btnEdit.setVisible(true);
+            setFields(false);
+            btnSave.setVisible(false);
+            btnEdit.setVisible(true);
         }
-      
     }//GEN-LAST:event_btnSaveActionPerformed
 
 

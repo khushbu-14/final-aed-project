@@ -43,7 +43,7 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
     private ArrayList<String> pastMedList = new ArrayList<>();
     private ArrayList<String> chronicDiseaseList = new ArrayList<>();
     private ArrayList<String> surgeriesList = new ArrayList<>();
-     private ArrayList<String> allergiesList1 = new ArrayList<>();
+    private ArrayList<String> allergiesList1 = new ArrayList<>();
     private ArrayList<String> currentMedList1 = new ArrayList<>();
     private ArrayList<String> pastMedList1 = new ArrayList<>();
     private ArrayList<String> chronicDiseaseList1 = new ArrayList<>();
@@ -59,7 +59,7 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
         this.user = user;
         initComponents();
         util = new Utils();
-        this.allergiesList= user.getMedicalProfile().getAllergyList();
+        this.allergiesList = user.getMedicalProfile().getAllergyList();
         this.currentMedList = user.getMedicalProfile().getCurrentMedicationList();
         this.pastMedList = user.getMedicalProfile().getPastMedicationList();
         this.chronicDiseaseList = user.getMedicalProfile().getChronicDiseaseList();
@@ -279,7 +279,7 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-      private int getSelectedRow() {
+    private int getSelectedRow() {
         int selectedRowIndex = ViewTable.getSelectedRow();
         return selectedRowIndex;
     }
@@ -299,22 +299,22 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
         if (selectedRowIndex < 0) {
             util.showErrorToast("Oops! Please select a record first first.");
             populateViewTable();
-        }else{
+        } else {
             String s = (String) ViewTable.getValueAt(selectedRowIndex, 0);
             selectedValue = jcomboBoxList.getSelectedItem().toString();
-            if(selectedValue.toLowerCase().equals("allergies")){
+            if (selectedValue.toLowerCase().equals("allergies")) {
                 user.getMedicalProfile().removeAllergies(s);
-            }else if(selectedValue.toLowerCase().equals("currentmedication")){
+            } else if (selectedValue.toLowerCase().equals("currentmedication")) {
                 user.getMedicalProfile().removeCurrentMedication(s);
-            } else if(selectedValue.toLowerCase().equals("pastmedication")){
+            } else if (selectedValue.toLowerCase().equals("pastmedication")) {
                 user.getMedicalProfile().removePastMedications(s);
-            } else if(selectedValue.toLowerCase().equals("chronicdisease")){
+            } else if (selectedValue.toLowerCase().equals("chronicdisease")) {
                 user.getMedicalProfile().removeChronicDisease(s);
-            } else if(selectedValue.toLowerCase().equals("surgeries")){
+            } else if (selectedValue.toLowerCase().equals("surgeries")) {
                 user.getMedicalProfile().removeSurgeries(s);
             }
             JOptionPane.showMessageDialog(this, "Record removed successfully",
-                "Success", JOptionPane.INFORMATION_MESSAGE);
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
             populateViewTable();
         }
 
@@ -340,20 +340,20 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
 
         }
 
-        if(selectedValue.toLowerCase().equals("allergies")){
+        if (selectedValue.toLowerCase().equals("allergies")) {
             String s = (String) listTable.getValueAt(selectedRowIndex, 0);
-            if(allergiesList.size()>0){
-                if(allergiesList.contains(s) || allergiesList1.contains(s)){
+            if (allergiesList.size() > 0) {
+                if (allergiesList.contains(s) || allergiesList1.contains(s)) {
                     util.showErrorToast("Oops! Record is already   Present");
-                    for(String st: allergiesList1){
+                    for (String st : allergiesList1) {
                         Object[] row = new Object[1];
                         row[0] = st;
                         model.addRow(row);
 
                     }
-                }else{
+                } else {
                     allergiesList1.add(s);
-                    for(String st: allergiesList1){
+                    for (String st : allergiesList1) {
                         Object[] row = new Object[1];
                         row[0] = st;
                         model.addRow(row);
@@ -361,27 +361,27 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
                 }
             } else {
                 allergiesList1.add(s);
-                for(String st: allergiesList1){
+                for (String st : allergiesList1) {
                     Object[] row = new Object[1];
                     row[0] = st;
                     model.addRow(row);
                 }
             }
 
-        } else if(selectedValue.toLowerCase().equals("currentmedication")){
+        } else if (selectedValue.toLowerCase().equals("currentmedication")) {
             String s = (String) listTable.getValueAt(selectedRowIndex, 0);
-            if(currentMedList.size()>0){
-                if(currentMedList.contains(s) || currentMedList1.contains(s)){
+            if (currentMedList.size() > 0) {
+                if (currentMedList.contains(s) || currentMedList1.contains(s)) {
                     util.showErrorToast("Oops! Record is already   Present");
-                    for(String st: currentMedList1){
+                    for (String st : currentMedList1) {
                         Object[] row = new Object[1];
                         row[0] = st;
                         model.addRow(row);
 
                     }
-                }else{
+                } else {
                     currentMedList1.add(s);
-                    for(String st: currentMedList1){
+                    for (String st : currentMedList1) {
                         Object[] row = new Object[1];
                         row[0] = st;
                         model.addRow(row);
@@ -389,26 +389,26 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
                 }
             } else {
                 currentMedList1.add(s);
-                for(String st: currentMedList1){
+                for (String st : currentMedList1) {
                     Object[] row = new Object[1];
                     row[0] = st;
                     model.addRow(row);
                 }
             }
-        } else if(selectedValue.toLowerCase().equals("pastmedication")){
+        } else if (selectedValue.toLowerCase().equals("pastmedication")) {
             String s = (String) listTable.getValueAt(selectedRowIndex, 0);
-            if(pastMedList.size()>0){
-                if(pastMedList.contains(s) || pastMedList1.contains(s)){
+            if (pastMedList.size() > 0) {
+                if (pastMedList.contains(s) || pastMedList1.contains(s)) {
                     util.showErrorToast("Oops! Record is already Present");
-                    for(String st: pastMedList1){
+                    for (String st : pastMedList1) {
                         Object[] row = new Object[1];
                         row[0] = st;
                         model.addRow(row);
 
                     }
-                }else{
+                } else {
                     pastMedList1.add(s);
-                    for(String st: pastMedList1){
+                    for (String st : pastMedList1) {
                         Object[] row = new Object[1];
                         row[0] = st;
                         model.addRow(row);
@@ -416,26 +416,26 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
                 }
             } else {
                 pastMedList1.add(s);
-                for(String st: pastMedList1){
+                for (String st : pastMedList1) {
                     Object[] row = new Object[1];
                     row[0] = st;
                     model.addRow(row);
                 }
             }
-        } else if(selectedValue.toLowerCase().equals("chronicdisease")){
+        } else if (selectedValue.toLowerCase().equals("chronicdisease")) {
             String s = (String) listTable.getValueAt(selectedRowIndex, 0);
-            if(chronicDiseaseList.size()>0){
-                if(chronicDiseaseList.contains(s) || chronicDiseaseList1.contains(s)){
+            if (chronicDiseaseList.size() > 0) {
+                if (chronicDiseaseList.contains(s) || chronicDiseaseList1.contains(s)) {
                     util.showErrorToast("Oops! Record is already Present");
-                    for(String st: chronicDiseaseList1){
+                    for (String st : chronicDiseaseList1) {
                         Object[] row = new Object[1];
                         row[0] = st;
                         model.addRow(row);
 
                     }
-                }else{
+                } else {
                     chronicDiseaseList1.add(s);
-                    for(String st: chronicDiseaseList1){
+                    for (String st : chronicDiseaseList1) {
                         Object[] row = new Object[1];
                         row[0] = st;
                         model.addRow(row);
@@ -443,26 +443,26 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
                 }
             } else {
                 chronicDiseaseList1.add(s);
-                for(String st: chronicDiseaseList1){
+                for (String st : chronicDiseaseList1) {
                     Object[] row = new Object[1];
                     row[0] = st;
                     model.addRow(row);
                 }
             }
-        }  else if(selectedValue.toLowerCase().equals("surgeries")){
+        } else if (selectedValue.toLowerCase().equals("surgeries")) {
             String s = (String) listTable.getValueAt(selectedRowIndex, 0);
-            if(surgeriesList.size()>0){
-                if(surgeriesList.contains(s) || surgeriesList1.contains(s)){
+            if (surgeriesList.size() > 0) {
+                if (surgeriesList.contains(s) || surgeriesList1.contains(s)) {
                     util.showErrorToast("Oops! Record is already Present");
-                    for(String st: surgeriesList1){
+                    for (String st : surgeriesList1) {
                         Object[] row = new Object[1];
                         row[0] = st;
                         model.addRow(row);
 
                     }
-                }else{
+                } else {
                     surgeriesList1.add(s);
-                    for(String st: surgeriesList1){
+                    for (String st : surgeriesList1) {
                         Object[] row = new Object[1];
                         row[0] = st;
                         model.addRow(row);
@@ -470,7 +470,7 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
                 }
             } else {
                 surgeriesList1.add(s);
-                for(String st: surgeriesList1){
+                for (String st : surgeriesList1) {
                     Object[] row = new Object[1];
                     row[0] = st;
                     model.addRow(row);
@@ -481,52 +481,52 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        if(allergiesList1.size()==0 && currentMedList1.size()==0 && pastMedList1.size()==0 && chronicDiseaseList1.size()==0 && surgeriesList1.size()==0){
-        util.showErrorToast("Oops! Please add some data into table first");
-        } else{
-            for(String st: allergiesList1){
-            if(!user.getMedicalProfile().getAllergyList().contains(st)){
-                user.getMedicalProfile().addAllergies(st);
+        if (allergiesList1.size() == 0 && currentMedList1.size() == 0 && pastMedList1.size() == 0 && chronicDiseaseList1.size() == 0 && surgeriesList1.size() == 0) {
+            util.showErrorToast("Oops! Please add some data into table first");
+        } else {
+            for (String st : allergiesList1) {
+                if (!user.getMedicalProfile().getAllergyList().contains(st)) {
+                    user.getMedicalProfile().addAllergies(st);
+                }
+
             }
+            for (String st : chronicDiseaseList1) {
+                if (!user.getMedicalProfile().getChronicDiseaseList().contains(st)) {
+                    user.getMedicalProfile().addChronicDisease(st);
+                }
 
-        }
-        for(String st: chronicDiseaseList1){
-            if(!user.getMedicalProfile().getChronicDiseaseList().contains(st)){
-                user.getMedicalProfile().addChronicDisease(st);
             }
+            for (String st : surgeriesList1) {
+                if (!user.getMedicalProfile().getSurgeriesyList().contains(st)) {
+                    user.getMedicalProfile().addSurgeries(st);
+                }
 
-        }
-        for(String st: surgeriesList1){
-            if(!user.getMedicalProfile().getSurgeriesyList().contains(st)){
-                user.getMedicalProfile().addSurgeries(st);
             }
+            for (String st : currentMedList1) {
+                if (!user.getMedicalProfile().getCurrentMedicationList().contains(st)) {
+                    user.getMedicalProfile().addCurrentMedication(st);
+                }
 
-        }
-        for(String st: currentMedList1){
-            if(!user.getMedicalProfile().getCurrentMedicationList().contains(st)){
-                user.getMedicalProfile().addCurrentMedication(st);
             }
+            for (String st : pastMedList1) {
+                if (!user.getMedicalProfile().getPastMedicationList().contains(st)) {
+                    user.getMedicalProfile().addPastMedications(st);
+                }
 
-        }
-        for(String st: pastMedList1){
-            if(!user.getMedicalProfile().getPastMedicationList().contains(st)){
-                user.getMedicalProfile().addPastMedications(st);
             }
+            DefaultTableModel model = (DefaultTableModel) addedTable.getModel();
+            model.setRowCount(0);
+            allergiesList1.clear();
+            currentMedList1.clear();
+            pastMedList1.clear();
+            chronicDiseaseList1.clear();
+            surgeriesList1.clear();
+            JOptionPane.showMessageDialog(this, "Records Added successfully",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
 
+            populateViewTable();
         }
-        DefaultTableModel model = (DefaultTableModel) addedTable.getModel();
-        model.setRowCount(0);
-        allergiesList1.clear();
-        currentMedList1.clear();
-        pastMedList1.clear();
-        chronicDiseaseList1.clear();
-        surgeriesList1.clear();
-        JOptionPane.showMessageDialog(this, "Records Added successfully",
-            "Success", JOptionPane.INFORMATION_MESSAGE);
 
-        populateViewTable();
-        }
-        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
@@ -535,7 +535,7 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
         jPanelAdd.setVisible(false);
         btnSubmit.setVisible(false);
         btnClose.setVisible(false);
-        
+
         allergiesList1.clear();
         currentMedList1.clear();
         pastMedList1.clear();
@@ -543,11 +543,10 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
         surgeriesList1.clear();
         DefaultTableModel model = (DefaultTableModel) addedTable.getModel();
         model.setRowCount(0);
-        
+
     }//GEN-LAST:event_btnCloseActionPerformed
 
-    
-     private void backAction() {
+    private void backAction() {
         mainWorkArea.remove(this);
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
@@ -576,84 +575,85 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jcomboBoxList;
     private javax.swing.JTable listTable;
     // End of variables declaration//GEN-END:variables
-    public void populateViewTable(){
+    public void populateViewTable() {
         DefaultTableModel model = (DefaultTableModel) ViewTable.getModel();
         model.setRowCount(0);
         selectedValue = jcomboBoxList.getSelectedItem().toString();
-        if(selectedValue.toLowerCase().equals("allergies")){
-            for(String st: user.getMedicalProfile().getAllergyList()){
+        if (selectedValue.toLowerCase().equals("allergies")) {
+            for (String st : user.getMedicalProfile().getAllergyList()) {
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
             }
-        } else if(selectedValue.toLowerCase().equals("currentmedication")){
-            for(String st: user.getMedicalProfile().getCurrentMedicationList()){
+        } else if (selectedValue.toLowerCase().equals("currentmedication")) {
+            for (String st : user.getMedicalProfile().getCurrentMedicationList()) {
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
             }
-        } else if(selectedValue.toLowerCase().equals("pastmedication")){
-            for(String st: user.getMedicalProfile().getPastMedicationList()){
+        } else if (selectedValue.toLowerCase().equals("pastmedication")) {
+            for (String st : user.getMedicalProfile().getPastMedicationList()) {
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
             }
-        } else if(selectedValue.toLowerCase().equals("chronicdisease")){
-            for(String st: user.getMedicalProfile().getChronicDiseaseList()){
+        } else if (selectedValue.toLowerCase().equals("chronicdisease")) {
+            for (String st : user.getMedicalProfile().getChronicDiseaseList()) {
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
             }
-        } else if(selectedValue.toLowerCase().equals("surgeries")){
-            for(String st: user.getMedicalProfile().getSurgeriesyList()){
+        } else if (selectedValue.toLowerCase().equals("surgeries")) {
+            for (String st : user.getMedicalProfile().getSurgeriesyList()) {
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
             }
         }
-        
+
     }
-    public void populateListTable(){
+
+    public void populateListTable() {
         DefaultTableModel model = (DefaultTableModel) listTable.getModel();
         model.setRowCount(0);
         selectedValue = jcomboBoxList.getSelectedItem().toString();
         listTable.setEnabled(true);
         addedTable.setEnabled(true);
-        if(selectedValue.toLowerCase().equals("allergies")){
-            List<String> allergyList = Arrays.asList("Lactose","Soy","Seafood","Nuts","Eggs","Fish");
-            for(String st: allergyList){
+        if (selectedValue.toLowerCase().equals("allergies")) {
+            List<String> allergyList = Arrays.asList("Lactose", "Soy", "Seafood", "Nuts", "Eggs", "Fish");
+            for (String st : allergyList) {
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
             }
-        } else if(selectedValue.toLowerCase().equals("currentmedication")){
-            List<String> allergyList = Arrays.asList("Atm a gel 15gm","Nadoxin a gel 15ml","Calak a lotion 100ml","trump a syrup 100 ml","Alorex a cream 20gm","Glintra a gel 15ml");
-            for(String st: allergyList){
-                
+        } else if (selectedValue.toLowerCase().equals("currentmedication")) {
+            List<String> allergyList = Arrays.asList("Atm a gel 15gm", "Nadoxin a gel 15ml", "Calak a lotion 100ml", "trump a syrup 100 ml", "Alorex a cream 20gm", "Glintra a gel 15ml");
+            for (String st : allergyList) {
+
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
             }
-        } else if(selectedValue.toLowerCase().equals("pastmedication")){
-            List<String> allergyList = Arrays.asList("Atm a gel 15gm","Nadoxin a gel 15ml","Calak a lotion 100ml","trump a syrup 100 ml","Alorex a cream 20gm","Glintra a gel 15ml");
-            for(String st: allergyList){
-                
+        } else if (selectedValue.toLowerCase().equals("pastmedication")) {
+            List<String> allergyList = Arrays.asList("Atm a gel 15gm", "Nadoxin a gel 15ml", "Calak a lotion 100ml", "trump a syrup 100 ml", "Alorex a cream 20gm", "Glintra a gel 15ml");
+            for (String st : allergyList) {
+
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
             }
-        } else if(selectedValue.toLowerCase().equals("chronicdisease")){
-            List<String> allergyList = Arrays.asList("Diabetes","Hypertension","PCOS","COPD","Asthama","Heart disease");
-            for(String st: allergyList){
-                
+        } else if (selectedValue.toLowerCase().equals("chronicdisease")) {
+            List<String> allergyList = Arrays.asList("Diabetes", "Hypertension", "PCOS", "COPD", "Asthama", "Heart disease");
+            for (String st : allergyList) {
+
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);
             }
-        } else if(selectedValue.toLowerCase().equals("surgeries")){
-            List<String> allergyList = Arrays.asList("Heart","Liver","Kidney","Lungs","Brain"," cosmetic");
-            for(String st: allergyList){
-                
+        } else if (selectedValue.toLowerCase().equals("surgeries")) {
+            List<String> allergyList = Arrays.asList("Heart", "Liver", "Kidney", "Lungs", "Brain", " cosmetic");
+            for (String st : allergyList) {
+
                 Object[] row = new Object[1];
                 row[0] = st;
                 model.addRow(row);

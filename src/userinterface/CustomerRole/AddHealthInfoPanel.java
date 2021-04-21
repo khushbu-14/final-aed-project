@@ -94,31 +94,31 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
         lblUsername5.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername5.setText("Marital Status:");
 
-        jComboMaritalStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "Single", "Married", "Other" }));
+        jComboMaritalStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "Single", "Married", "Other" }));
 
         lblUsername6.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername6.setText("Smoking habbits:");
 
-        jComboSmokingHabbits.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "I don't smoke", "I used to, but I've quit", "1-2/day", "3-5/day", "5-10/day", ">10/day" }));
+        jComboSmokingHabbits.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "I don't smoke", "I used to, but I've quit", "1-2/day", "3-5/day", "5-10/day", ">10/day" }));
 
         lblUsername7.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername7.setText("Alcohol consumption:");
 
-        jComboAlcohol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "Non-drinker", "Rare", "Social", "Regular", "Heavy" }));
+        jComboAlcohol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "Non-drinker", "Rare", "Social", "Regular", "Heavy" }));
 
-        jComboActivity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "Sedentary (low)", "Moderately active (Normal)", "Active (High)", "Athletic (Very High)" }));
+        jComboActivity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "Sedentary (low)", "Moderately active (Normal)", "Active (High)", "Athletic (Very High)" }));
 
         jLabel1.setText("Activity Level:");
 
-        jComboOccupation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "IT Professional", "Medical professional", "Banking professional", "Education", "Student", "Home-maker", "Other" }));
+        jComboOccupation.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "IT Professional", "Medical professional", "Banking professional", "Education", "Student", "Home-maker", "Other" }));
 
         jLabel3.setText("Occupation:");
 
         jLabel2.setText("Food Preference:");
 
-        jComboFood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "Vegetarian", "Non-Vegetarian", "Eggetarian", "Vegan" }));
+        jComboFood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "Vegetarian", "Non-Vegetarian", "Eggetarian", "Vegan" }));
 
         errorContactNumber.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -138,7 +138,7 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
         lblPhoneNumber3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPhoneNumber3.setText("EmergencyContact  Number :");
 
-        jComboCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "Boston", "Syracuse", "New York", "San Francisco", "New Jersey", "Chicago", "San Diego", "Dallas", "San Jose", "Houston", " " }));
+        jComboCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "Boston", "Syracuse", "New York", "San Francisco", "New Jersey", "Chicago", "San Diego", "Dallas", "San Jose", "Houston", " " }));
 
         jLabel4.setText("Location:");
 
