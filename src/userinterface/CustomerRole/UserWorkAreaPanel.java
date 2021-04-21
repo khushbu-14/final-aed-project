@@ -692,7 +692,8 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         changeBtnBgs("register-fitness");
 
 //        RegisterFitnessPanel orderMedicinePanel = new RegisterFitnessPanel(mainPanel, ecosystem, userAccount);
-        ManageUserFitnessRegistrationPanel orderMedicinePanel = new ManageUserFitnessRegistrationPanel(mainPanel, ecosystem, userAccount);
+        User user = (User) userAccount;
+        ManageUserFitnessRegistrationPanel orderMedicinePanel = new ManageUserFitnessRegistrationPanel(mainPanel, ecosystem, user, "USER");
 
         mainPanel.add("manageHospitalsJPanel", orderMedicinePanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
