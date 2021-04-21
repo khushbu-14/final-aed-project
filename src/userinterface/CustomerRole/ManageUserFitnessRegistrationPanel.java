@@ -5,10 +5,8 @@
  */
 package userinterface.CustomerRole;
 
-import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
 import Business.Staff.Sessions;
-import Business.Staff.SessionsMedStaff;
 import Business.User.User;
 import Business.User.UserDirectory;
 import Business.UserAccount.UserAccount;
@@ -166,20 +164,15 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
             utils.showErrorToast("Oops! Please select a User first.");
             return null;
         }
-
         Sessions u = (Sessions) tblSession.getValueAt(selectedRowIndex, 1);
-
         return u;
     }
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         Sessions u = getSelectedSession();
-
         if (u != null) {
-            
             User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-            ud.getSessionDirectory().removeSession(u);
-            //ecosystem.getUserAccountDirectory().removeUserAccount(u);
+            ud.getSessionDirectory().removeSession(u); 
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
         }

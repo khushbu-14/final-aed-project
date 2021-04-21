@@ -178,6 +178,11 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
         jLabel2.setText("Select Days");
 
         jComboBoxDays.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "0-2 days", "2-5 days", "5-8 days", "8-10 days", "more than 10 days" }));
+        jComboBoxDays.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDaysActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jInnerPanelLayout = new javax.swing.GroupLayout(jInnerPanel);
         jInnerPanel.setLayout(jInnerPanelLayout);
@@ -450,6 +455,10 @@ private void setData(){
     private void jComboBoxSeverityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxSeverityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxSeverityActionPerformed
+
+    private void jComboBoxDaysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDaysActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxDaysActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;

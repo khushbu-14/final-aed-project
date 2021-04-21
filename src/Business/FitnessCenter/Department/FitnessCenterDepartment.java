@@ -26,15 +26,12 @@ public class FitnessCenterDepartment extends Business.UserAccount.UserAccount {
 
    
     
-      public FitnessCenterDepartment(String userName, String password,String departmentName, String type, String contact,String location, String schedule,String isRemote) {
+      public FitnessCenterDepartment(String userName, String password,String departmentName, String type, String contact) {
         UUID uid = UUID.randomUUID();
         this.departmentID = uid.toString();
         this.departmentName = departmentName;
         this.type = type;
         this.contact = contact;
-        this.location = location;
-        this.schedule = schedule;
-        this.isRemote = isRemote;
         //this.email = email;
         //this.numberOfBeds = numberOfBeds;
         setPassword(password);
@@ -74,29 +71,29 @@ public class FitnessCenterDepartment extends Business.UserAccount.UserAccount {
         this.contact = contact;
     }
 
-    public String getSchedule() {
-        return schedule;
-    }
-
-    public void setSchedule(String schedule) {
-        this.schedule = schedule;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getIsRemote() {
-        return isRemote;
-    }
-
-    public void setIsRemote(String isRemote) {
-        this.isRemote = isRemote;
-    }
+//    public String getSchedule() {
+//        return schedule;
+//    }
+//
+//    public void setSchedule(String schedule) {
+//        this.schedule = schedule;
+//    }
+//
+//    public String getLocation() {
+//        return location;
+//    }
+//
+//    public void setLocation(String location) {
+//        this.location = location;
+//    }
+//
+//    public String getIsRemote() {
+//        return isRemote;
+//    }
+//
+//    public void setIsRemote(String isRemote) {
+//        this.isRemote = isRemote;
+//    }
 
     public FcStaffDirectory getStaffDirectory() {
         if(staffDirectory == null){

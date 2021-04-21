@@ -6,26 +6,14 @@
 package userinterface.CustomerRole;
 
 import Business.EcoSystem;
-import Business.Shop.Product;
-import Business.Shop.ProductDirectory;
-import Business.Shop.Shop;
 import Business.Staff.FcStaff;
 import Business.Staff.Sessions;
-import Business.Staff.SessionsDirectory;
-import Business.Staff.SessionsMedStaff;
-import Business.Staff.Staff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.OrderItem;
-import Business.WorkQueue.OrderList;
 import constants.Utils;
 import java.awt.CardLayout;
-import java.awt.Component;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -242,10 +230,10 @@ public class RegisterCartPanel extends javax.swing.JPanel {
                    utils.showErrorToast("Booking limit for "+ fcstaff.getName() +"exceded for the day");
                }else{
                    sess.setIsRemote(sessionType);
-                   fcstaff.getSdir().addSession(sess);
+                  // fcstaff.getSdir().addSession(sess);
                    user.getSessionDirectory().addSession(sess);
 //                    staff.getSessionDirectory().removeSession(sess);
-                    JOptionPane.showMessageDialog(this, "Your Consultation with "+fcstaff.getName() +" Selected successfully",
+                    JOptionPane.showMessageDialog(this, "Your Consultation with "+fcstaff.getName() +" booked successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
                     goToManageUserFitnessRegistrationPanel();
                }

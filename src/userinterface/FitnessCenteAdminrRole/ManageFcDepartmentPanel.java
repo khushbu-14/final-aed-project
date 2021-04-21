@@ -63,20 +63,20 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
         tblDepartmentList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         tblDepartmentList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Sr No", "Name", "Username", "Password", "Phone number", "Type", "NumberOfStaffs", "Location", "Is it Remote"
+                "Sr No", "Name", "Username", "Password", "Phone number", "Type"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true, true, true, true
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -181,7 +181,7 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
             return null;
         }
 
-        FitnessCenterDepartment u = (FitnessCenterDepartment) tblDepartmentList.getValueAt(selectedRowIndex, 1);
+        FitnessCenterDepartment u = (FitnessCenterDepartment) tblDepartmentList.getValueAt(selectedRowIndex, 2);
 
         return u;
     }
@@ -229,24 +229,16 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
 
             for (FitnessCenterDepartment depart : dDir.getDepartmentList()) {
 
-                Object[] row = new Object[9];
+                Object[] row = new Object[6];
                 row[0] = "" + count++;
                 row[1] = depart;
                 row[2] = depart.getUsername();
                 row[3] = depart.getPassword();
-                //row[] = depart.getEmail();
                 row[4] = depart.getContact();
                 row[5] = depart.getType();
-                row[6] = depart.getSchedule();
-                row[7] = depart.getLocation();
-                row[8] = depart.getIsRemote();
-                
-//                ArrayList<Staff> stfList = depart.getStaffDirectory().getStaffList();
-//                if(stfList==null){
-//                    row[8] = 0;
-//                }else {
-//                    row[8] = stfList.size();
-//                }
+//                row[6] = depart.getSchedule();
+//                row[7] = depart.getLocation();
+//                row[8] = depart.getIsRemote();
                 
                 model.addRow(row);
             }
@@ -255,12 +247,11 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         // logic to go to next screen
-        FcAddDepartmentPanel addShop = new FcAddDepartmentPanel(userProcessContainer, ecosystem, null, false,userAccount);
-
-        userProcessContainer.add("AddShopPanel", addShop);
-
+        FcAddDepartmentPanel addDept = new FcAddDepartmentPanel(userProcessContainer, ecosystem, null, false,userAccount);
+        userProcessContainer.add("AddFitnessDepartmentPanel", addDept);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
+        
     }//GEN-LAST:event_btnAddUserActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
