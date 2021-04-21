@@ -22,8 +22,9 @@ public class SessionsMedStaff extends Business.UserAccount.UserAccount {
     private String endTime;
     private String isRemote;
     private String location;
+    private String status;
     
-    public SessionsMedStaff( String name, String sessionDate, String startTime, String endTime, String isRemote, String location){
+    public SessionsMedStaff( String name, String sessionDate, String startTime, String endTime, String isRemote, String location, String status){
     
         //String userName, String password,
         UUID uid = UUID.randomUUID();
@@ -34,6 +35,7 @@ public class SessionsMedStaff extends Business.UserAccount.UserAccount {
         this.endTime=endTime;
         this.isRemote= isRemote;
         this.location = location;
+        this.status = status;
        // setPassword(password);
        // setUsername(userName);
         setRole(new StaffRole());
@@ -93,6 +95,14 @@ public class SessionsMedStaff extends Business.UserAccount.UserAccount {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
     
      @Override
