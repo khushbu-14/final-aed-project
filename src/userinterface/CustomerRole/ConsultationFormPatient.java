@@ -7,6 +7,7 @@ package userinterface.CustomerRole;
 
 import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
+import Business.Hospital.ConsultationForm;
 import Business.Staff.SessionsMedStaff;
 import Business.Staff.Staff;
 import Business.User.TempTable.ConsultData;
@@ -35,7 +36,7 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
 
     DefaultTableModel model;
     private User user;
-    ArrayList<ConsultData> consultDatalist;
+    ArrayList<ConsultationForm> consultDatalist;
     Boolean isUpdatePage = false;
     private String selectedValue;
     Boolean isNone = false;
@@ -390,7 +391,7 @@ private void setData(){
                 days = jComboBoxDays.getSelectedItem().toString();
         String comments = txtcomment.getText();
         if(disease.equalsIgnoreCase("none")){
-        ConsultData dt = new ConsultData("None","Not applicable","Not applicable","Not applicable");
+        ConsultationForm dt = new ConsultationForm("None","Not applicable","Not applicable","Not applicable");
         consultDatalist.add(dt);
         populateViewTable();
         }else{
@@ -401,13 +402,19 @@ private void setData(){
         } else if(days.toLowerCase().equals("select")){
              util.showErrorToast("Please select valid days");
         } else{
-        ConsultData dt = new ConsultData(disease,severity,days,comments);
-        consultDatalist.add(dt);
-        txtcomment.setText("");
-        jComboBoxDisease.setSelectedItem("Other");
-        jComboBoxDays.setSelectedItem("Select");
-        jComboBoxSeverity.setSelectedItem("Select");
-        populateViewTable();
+             ConsultationForm dt = new ConsultationForm(disease,severity,days,comments);
+             if(consultDatalist.contains(dt)){
+                 util.showErrorToast("Records Already present");
+             }else{
+                 consultDatalist.add(dt);
+                 txtcomment.setText("");
+                    jComboBoxDisease.setSelectedItem("Other");
+                    jComboBoxDays.setSelectedItem("Select");
+                    jComboBoxSeverity.setSelectedItem("Select");
+                    populateViewTable();
+             }
+             
+        
         }
         
         
@@ -417,34 +424,10 @@ private void setData(){
 
     private void btnSignup1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignup1ActionPerformed
         // TODO add your handling code here:
-        for(ConsultData cd: consultDatalist){
-            if(cd.getDisease().toLowerCase().equals("fever")){
-                user.getConsultationForm().setFever(cd.getDisease());
-                user.getConsultationForm().setFeverRange(cd.getSeverity());
-                user.getConsultationForm().setFeverDays(cd.getDays());
-                user.getConsultationForm().setFeverMessage(cd.getComments());
-            } else if(cd.getDisease().toLowerCase().equals("body pain")){
-                user.getConsultationForm().setBodyPain(cd.getDisease());
-                user.getConsultationForm().setBodyPainSeverity(cd.getSeverity());
-                user.getConsultationForm().setBodyPainDays(cd.getDays());
-                user.getConsultationForm().setBodyPainMessage(cd.getComments());
-            } else if(cd.getDisease().toLowerCase().equals("cough")){
-                user.getConsultationForm().setCough(cd.getDisease());
-                user.getConsultationForm().setCoughSeverity(cd.getSeverity());
-                user.getConsultationForm().setCoughDays(cd.getDays());
-                user.getConsultationForm().setCoughMessage(cd.getComments());
-            }else if(cd.getDisease().toLowerCase().equals("breathing issue")){
-                user.getConsultationForm().setBreathingIssue(cd.getDisease());
-                user.getConsultationForm().setBreathingSeverity(cd.getSeverity());
-                user.getConsultationForm().setBreathingDays(cd.getDays());
-                user.getConsultationForm().setBreathingMessage(cd.getComments());
-            }else if(cd.getDisease().toLowerCase().equals("other")){
-                user.getConsultationForm().setOther(cd.getDisease());
-                user.getConsultationForm().setOtherRange(cd.getSeverity());
-                user.getConsultationForm().setOtherDays(cd.getDays());
-                user.getConsultationForm().setOtherMessage(cd.getComments());
-            }
+        for(ConsultationForm cd: consultDatalist){
+            sess.getConsultFormList().add(cd);
         }           sess.setStatus("New");
+                    sess.setUserIdentifier(user.getUsername());
                     staff.getConsultationDirectory().addSession(sess);
                     user.getConsultationSessions().addSession(sess);
                     staff.getSessionDirectory().removeSession(sess);
@@ -492,12 +475,12 @@ private void setData(){
      public void populateViewTable(){
         DefaultTableModel model = (DefaultTableModel) listTable.getModel();
         model.setRowCount(0);
-            for(ConsultData st: consultDatalist){
+            for(ConsultationForm st: consultDatalist){
                 Object[] row = new Object[4];
-                row[0] = st.getDisease();
-                row[1] = st.getSeverity();
+                row[0] = st.getDiseaseName();
+                row[1] = st.getRange();
                 row[2] = st.getDays();
-                row[3] = st.getComments();
+                row[3] = st.getMessage();
                 model.addRow(row);
             }
      }

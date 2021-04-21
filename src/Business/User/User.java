@@ -24,7 +24,6 @@ public class User extends Business.UserAccount.UserAccount {
     private String address;
     private String zipcode;
     private MedicalProfile medicalProfile;
-    private ConsultationForm consultationForm;
     private SessionsMedStaffDirectory consultationSessions;
 
     public User(String username, String password, String name, String contact, String email, String address, String zipcode) {
@@ -91,18 +90,6 @@ public class User extends Business.UserAccount.UserAccount {
     public void setMedicalProfile(MedicalProfile medicalProfile) {
         this.medicalProfile = medicalProfile;
     }
-
-    public ConsultationForm getConsultationForm() {
-        if(consultationForm==null){
-        consultationForm = new ConsultationForm();
-        }
-        return consultationForm;
-    }
-
-    public void setConsultationForm(ConsultationForm consultationForm) {
-        this.consultationForm = consultationForm;
-    }
-
     
     @Override
     public String toString() {

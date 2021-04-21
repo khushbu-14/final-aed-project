@@ -310,9 +310,9 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         }else if(!util.isStringInputValid(prescription)){
             util.showErrorToast("Please input valid prescription");
         }else{
-            user.getConsultationForm().setDocsPrescription(prescription);
-            user.getConsultationForm().setDocsComment(comment);
-            user.getConsultationForm().setNextConsulationDate(nextDate);
+//            user.getConsultationForm().setDocsPrescription(prescription);
+//            user.getConsultationForm().setDocsComment(comment);
+//            user.getConsultationForm().setNextConsulationDate(nextDate);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -320,13 +320,13 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         // TODO add your handling code here:
         String st = jcomboAddPres.getSelectedItem().toString();
         if(st.toLowerCase().equals("yes")){
-            txtComment.setEnabled(true);
-            presArea.setEnabled(true);
-            btnSubmit.setEnabled(true);
-            jcomboNextCon.setEnabled(true);
-            user.getConsultationForm().setDocsComment("NA");
-            user.getConsultationForm().setDocsPrescription("NA");
-            user.getConsultationForm().setNextConsulationDate("NA");
+//            txtComment.setEnabled(true);
+//            presArea.setEnabled(true);
+//            btnSubmit.setEnabled(true);
+//            jcomboNextCon.setEnabled(true);
+//            user.getConsultationForm().setDocsComment("NA");
+//            user.getConsultationForm().setDocsPrescription("NA");
+//            user.getConsultationForm().setNextConsulationDate("NA");
         }
     }//GEN-LAST:event_jcomboAddPresActionPerformed
 

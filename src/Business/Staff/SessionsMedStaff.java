@@ -5,8 +5,10 @@
  */
 package Business.Staff;
 
+import Business.Hospital.ConsultationForm;
 import Business.Role.FitnessDepartmentRole;
 import Business.Role.StaffRole;
+import java.util.ArrayList;
 import java.util.UUID;
 
 /**
@@ -23,6 +25,10 @@ public class SessionsMedStaff extends Business.UserAccount.UserAccount {
     private String isRemote;
     private String location;
     private String status;
+    private String userIdentifier;
+    private ArrayList<ConsultationForm> consultFormList;
+    
+    
     
     public SessionsMedStaff( String name, String sessionDate, String startTime, String endTime, String isRemote, String location, String status){
     
@@ -104,6 +110,30 @@ public class SessionsMedStaff extends Business.UserAccount.UserAccount {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public String getUserIdentifier() {
+        return userIdentifier;
+    }
+
+    public void setUserIdentifier(String userIdentifier) {
+        this.userIdentifier = userIdentifier;
+    }
+
+    public ArrayList<ConsultationForm> getConsultFormList() {
+        if(consultFormList == null){
+        consultFormList = new ArrayList<>();
+        }
+        return consultFormList;
+    }
+
+    public void setConsultFormList(ArrayList<ConsultationForm> consultFormList) {
+        this.consultFormList = consultFormList;
+    }
+  public ConsultationForm addNewConsultForm(ConsultationForm staff) {
+        consultFormList.add(staff);
+        return staff;
+    }
+
     
      @Override
     public String toString() {

@@ -352,7 +352,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
 
         patientsAppointment.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         patientsAppointment.setForeground(new java.awt.Color(255, 255, 255));
-        patientsAppointment.setText("Patient's Appointment");
+        patientsAppointment.setText("Appointment");
         patientsAppointment.setToolTipText("Dashboard");
         patientsAppointment.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
