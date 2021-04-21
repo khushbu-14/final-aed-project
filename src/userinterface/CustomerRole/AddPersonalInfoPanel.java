@@ -11,6 +11,7 @@ import constants.Utils;
 import java.awt.CardLayout;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,6 +34,7 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
 
     Utils util;
     private User user;
+    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
     public AddPersonalInfoPanel(JPanel mainWorkArea, EcoSystem ecosystem, User user) throws ParseException {
         this.mainWorkArea = mainWorkArea;
@@ -40,8 +42,8 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
         this.user = user;
         initComponents();
         util = new Utils();
-        setData();
         btnSave.setVisible(false);
+        setData();
     }
 
     /**
@@ -152,9 +154,9 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
         lblUsername4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername4.setText("Blood group");
 
-        jComboBlood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
+        jComboBlood.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-" }));
 
-        selectGenderCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female", "Other", "PreferNotToSay", " " }));
+        selectGenderCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Data Not Available", "PreferNotToSay", "Male", "Female", "Other" }));
 
         btnEdit.setBackground(new java.awt.Color(3, 80, 111));
         btnEdit.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
@@ -289,10 +291,19 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
         selectGenderCombo.setSelectedItem(user.getMedicalProfile().getGender());
         txtHeight.setText(user.getMedicalProfile().getHeight());
         txtContact.setText(user.getContact());
-        String string = user.getMedicalProfile().getDob();
-        SimpleDateFormat formatNew = new SimpleDateFormat("MMM dd, yyyy", Locale.US);
-        Date date = formatNew.parse(string);
+        String stringDate = user.getMedicalProfile().getDob();
+        if(stringDate==null){
+        Date date1 = (Date)formatter.parse("01/01/1900");
+        dobChooser.setDate(date1);
+        }else{
+        Date date = (Date)formatter.parse(stringDate);
         dobChooser.setDate(date);
+        }
+       if(user.getMedicalProfile().getBloodGroup()==null){
+        jComboBlood.setSelectedItem("Data Not Available");
+       } else{
+        jComboBlood.setSelectedItem(user.getMedicalProfile().getBloodGroup());
+       }
         jComboBlood.setSelectedItem(user.getMedicalProfile().getBloodGroup());
         txtWeight.setText(user.getMedicalProfile().getWeight());
         txtSEmail.setText(user.getEmail());
@@ -327,13 +338,14 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
                 txtContact.setText("");
                 errorContactNumber.setText("Sorry! only numbers allowed");
                 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
-            } else {
-                if (util.countOfString(txtContact.getText()) > 10 || util.countOfString(txtContact.getText()) < 10) {
-                    //                errorContactNumber.setText("Enter 10 digit valid number");
-                    errorContactNumber.setText("Contact number must be of 10 digits");
-                    txtContact.setText("");
-                }
-            }
+            } 
+//            else {
+//                if (util.countOfString(txtContact.getText()) > 10 || util.countOfString(txtContact.getText()) < 10) {
+//                    //                errorContactNumber.setText("Enter 10 digit valid number");
+//                    errorContactNumber.setText("Contact number must be of 10 digits");
+//                    txtContact.setText("");
+//                }
+//            }
         }
     }//GEN-LAST:event_txtContactKeyPressed
 
@@ -399,8 +411,7 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
                 bloodGroup = jComboBlood.getSelectedItem().toString(),
                 weight = txtWeight.getText(),
                 email = txtSEmail.getText();
-        SimpleDateFormat formatNew = new SimpleDateFormat("MMM dd, yyyy", Locale.US);
-        String dob = formatNew.format(dobChooser.getDate());
+        String dob = formatter.format(dobChooser.getDate());
 
         if (!util.isStringInputValid(name)) {
             util.showErrorToast("Plesae enter valid user name");
@@ -431,11 +442,11 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
         user.getMedicalProfile().setDob(dob);
         JOptionPane.showMessageDialog(this, "Records Updates successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-         
-        }
-       setFields(false);
+          setFields(false);
         btnSave.setVisible(false);
         btnEdit.setVisible(true);
+        }
+      
     }//GEN-LAST:event_btnSaveActionPerformed
 
 

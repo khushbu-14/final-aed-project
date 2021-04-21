@@ -12,19 +12,19 @@ import java.util.ArrayList;
  * @author kunal
  */
 public class MedicalProfile extends Business.User.User{
-    private String gender;
+    private String gender="Data Not Available";
     private String dob;
-    private String bloodGroup;
-    private String maritalStatus;
-    private String height;
-    private String weight;
-    private String emergencyContact;
-    private String location;
-    private String smokingHabits;
-    private String alcoholConsumption;
-    private String activityLevel;
-    private String foodPreferences;
-    private String occupations;
+    private String bloodGroup="Data Not Available";
+    private String maritalStatus="Data Not Available";
+    private String height="Data Not Available";
+    private String weight="Data Not Available";
+    private String emergencyContact="0000000000";
+    private String location="Data Not Available";
+    private String smokingHabits="Data Not Available";
+    private String alcoholConsumption="Data Not Available";
+    private String activityLevel="Data Not Available";
+    private String foodPreferences="Data Not Available";
+    private String occupations="Data Not Available";
     private ArrayList<String> allergyList;
     private ArrayList<String> chronicDiseaseList;
     private ArrayList<String> currentMedicationList;

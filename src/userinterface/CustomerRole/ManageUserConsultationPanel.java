@@ -195,7 +195,7 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
         SessionsMedStaff u = getSelectedSession();
         Date date1 = null;
         try {
-                date1 = (Date)formatter.parse(u.getSessionDate());
+              date1 = (Date)formatter.parse(u.getSessionDate());
             } catch (ParseException ex) {
                 Logger.getLogger(SelectConsultationPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
