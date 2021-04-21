@@ -51,6 +51,7 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
         this.user = user;
         this.staff = staff;
         this.sess = sess;
+        btnSignup1.setEnabled(false);
         consultDatalist= new ArrayList<>();
         setData();
     }
@@ -158,7 +159,7 @@ public class ConsultationFormPatient extends javax.swing.JPanel {
             }
         });
 
-        jComboBoxDisease.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Other", "Fever", "Cough", "Body Pain", "Breathing Issue", "None", " " }));
+        jComboBoxDisease.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Other", "Fever", "Cough", "Body Pain", "Breathing Issue", "None" }));
         jComboBoxDisease.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDiseaseActionPerformed(evt);
@@ -339,6 +340,7 @@ private void setData(){
         txtcomment.setEnabled(false);
         btnAdd.setEnabled(false);
         listTable.setEnabled(false);
+        btnSignup1.setEnabled(true);
     }else{
         jComboBoxDays.setEnabled(true);
         jComboBoxSeverity.setEnabled(true);
@@ -382,25 +384,35 @@ private void setData(){
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        btnSignup1.setEnabled(true);
         String disease = jComboBoxDisease.getSelectedItem().toString(),
                 severity = jComboBoxSeverity.getSelectedItem().toString(),
                 days = jComboBoxDays.getSelectedItem().toString();
         String comments = txtcomment.getText();
-        if(!util.isStringInputValid(comments)){
+        if(disease.equalsIgnoreCase("none")){
+        ConsultData dt = new ConsultData("None","Not applicable","Not applicable","Not applicable");
+        consultDatalist.add(dt);
+        populateViewTable();
+        }else{
+            if(!util.isStringInputValid(comments)){
             util.showErrorToast("Please enter valid comments");
-        }else if(disease.toLowerCase().equals("none")){
-            isNone = true;
-        } else if(days.toLowerCase().equals("Please select valid days")){
-             util.showErrorToast("Please select valid severity level");
+        }else if(severity.equalsIgnoreCase("select")){
+            util.showErrorToast("Please select valid severity level");
+        } else if(days.toLowerCase().equals("select")){
+             util.showErrorToast("Please select valid days");
         } else{
         ConsultData dt = new ConsultData(disease,severity,days,comments);
         consultDatalist.add(dt);
-        }
-        populateViewTable();
         txtcomment.setText("");
         jComboBoxDisease.setSelectedItem("Other");
         jComboBoxDays.setSelectedItem("Select");
         jComboBoxSeverity.setSelectedItem("Select");
+        populateViewTable();
+        }
+        
+        
+        }
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnSignup1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignup1ActionPerformed
@@ -432,7 +444,7 @@ private void setData(){
                 user.getConsultationForm().setOtherDays(cd.getDays());
                 user.getConsultationForm().setOtherMessage(cd.getComments());
             }
-        }
+        }           sess.setStatus("New");
                     staff.getConsultationDirectory().addSession(sess);
                     user.getConsultationSessions().addSession(sess);
                     staff.getSessionDirectory().removeSession(sess);

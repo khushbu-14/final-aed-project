@@ -243,7 +243,8 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
     
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         sess = getSelectedSession();
-        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+        if(sess !=null){
+            User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
         ArrayList<SessionsMedStaff> userSessionList = user.getConsultationSessions().getSession();
         int count = 0;
         String sessionType = comboSessionType.getSelectedItem().toString();
@@ -275,6 +276,8 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
             utils.showErrorToast("Sorry!!, This slot has been booked, Please select other slots");
             populateData();
         }
+        }
+        
             
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 

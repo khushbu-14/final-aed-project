@@ -461,7 +461,7 @@ public class StaffPatientDetails extends javax.swing.JPanel {
             backAction();
             } else {
                  boolean decision = false;
-            SessionsMedStaff session = new SessionsMedStaff( name, d, startTime, endTime, isRemote, loc);
+            SessionsMedStaff session = new SessionsMedStaff( name, d, startTime, endTime, isRemote, loc,"Created");
             ArrayList<Hospital> hospitalList = ecosystem.getHospitalDirectory().getHospitalList();
             for(Hospital fc: hospitalList){
             ArrayList<HospitalDepartment> hospitalDepartmentList= fc.getDepartmentDirectory().getDepartmentList();                   
