@@ -72,7 +72,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         lblMessage = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         lblCustomerContact1 = new javax.swing.JLabel();
-        lblShopName = new javax.swing.JLabel();
+        lblCustomerName = new javax.swing.JLabel();
         lblDeliveryManName = new javax.swing.JLabel();
         lblName1 = new javax.swing.JLabel();
         lblRequestDate = new javax.swing.JLabel();
@@ -228,9 +228,9 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         lblCustomerContact1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblCustomerContact1.setText("Delivery Man Name :");
 
-        lblShopName.setBackground(new java.awt.Color(249, 244, 244));
-        lblShopName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblShopName.setText("NA");
+        lblCustomerName.setBackground(new java.awt.Color(249, 244, 244));
+        lblCustomerName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCustomerName.setText("NA");
 
         lblDeliveryManName.setBackground(new java.awt.Color(249, 244, 244));
         lblDeliveryManName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -239,7 +239,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         lblName1.setBackground(new java.awt.Color(249, 244, 244));
         lblName1.setForeground(new java.awt.Color(102, 102, 102));
         lblName1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblName1.setText("Shop Name :");
+        lblName1.setText("Customer Name :");
 
         lblRequestDate.setBackground(new java.awt.Color(249, 244, 244));
         lblRequestDate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -269,7 +269,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblOrderStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCustomerAddress3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblRequestDate, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCustomerAddress1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -283,7 +283,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addComponent(lblName1)
                 .addGap(10, 10, 10)
-                .addComponent(lblShopName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(lblCustomerContact1)
                 .addGap(10, 10, 10)
@@ -524,6 +524,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblCustomerAddress1;
     private javax.swing.JLabel lblCustomerAddress3;
     private javax.swing.JLabel lblCustomerContact1;
+    private javax.swing.JLabel lblCustomerName;
     private javax.swing.JLabel lblDeliveryManName;
     private javax.swing.JLabel lblLastStatusDate;
     private javax.swing.JLabel lblMessage;
@@ -537,7 +538,6 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblRestaurantNameLable1;
     private javax.swing.JLabel lblShipmentType;
     private javax.swing.JLabel lblShipmentTypeName;
-    private javax.swing.JLabel lblShopName;
     private javax.swing.JLabel lblTotalPrice;
     private javax.swing.JLabel lblTotalQty;
     private javax.swing.JTable tblCart;
@@ -591,7 +591,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
     }
 
     public void renderData() {
-        lblShopName.setText(orderListData.getShop().getShopName());
+        lblCustomerName.setText(orderListData.getUser().getName());
 
         String deliveryManName = "NA";
 

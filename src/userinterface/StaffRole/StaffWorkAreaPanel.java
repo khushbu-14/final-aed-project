@@ -158,6 +158,11 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
 
         iconDashboard1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconDashboard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                iconDashboard1KeyPressed(evt);
+            }
+        });
 
         manageDirectConsultDoctor.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageDirectConsultDoctor.setForeground(new java.awt.Color(255, 255, 255));
@@ -650,6 +655,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
     private void manageDirectConsultDoctorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDirectConsultDoctorMousePressed
         // TODO add your handling code here:
         //manageDirectConsultations();
+        manageDirectConsultations();
     }//GEN-LAST:event_manageDirectConsultDoctorMousePressed
 
     private void manageDirectConsultDoctorPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDirectConsultDoctorPanelMousePressed
@@ -722,6 +728,10 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_manageSessionsPanelMousePressed
+
+    private void iconDashboard1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_iconDashboard1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iconDashboard1KeyPressed
 
     private void manageOrderProducts() {
         changeBtnBgs("order-products");

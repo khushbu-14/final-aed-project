@@ -11,6 +11,7 @@ import Business.EcoSystem;
 import Business.Hospital.Department.HospitalDepartment;
 import Business.Hospital.Department.HospitalDepartmentDirectory;
 import Business.Hospital.Hospital;
+import Business.User.User;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.OrderItem;
 import Business.WorkQueue.OrderList;
@@ -86,9 +87,10 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
         lblAssignedStaffName = new javax.swing.JLabel();
         lblAssignedFitnessName = new javax.swing.JLabel();
         lblAssignedFitness = new javax.swing.JLabel();
-        btnAcceptOrder = new javax.swing.JButton();
+        btnViewPatientDetails = new javax.swing.JButton();
         btnRejectOrder = new javax.swing.JButton();
         btnAssignFitness = new javax.swing.JButton();
+        btnAcceptOrder1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(244, 249, 249));
 
@@ -367,14 +369,14 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
                 .addComponent(lblAssignedFitnessName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        btnAcceptOrder.setBackground(new java.awt.Color(255, 255, 255));
-        btnAcceptOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnAcceptOrder.setText("Approve");
-        btnAcceptOrder.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
-        btnAcceptOrder.setBorderPainted(false);
-        btnAcceptOrder.addActionListener(new java.awt.event.ActionListener() {
+        btnViewPatientDetails.setBackground(new java.awt.Color(255, 255, 255));
+        btnViewPatientDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/view-details.png"))); // NOI18N
+        btnViewPatientDetails.setText("View Patient Details");
+        btnViewPatientDetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
+        btnViewPatientDetails.setBorderPainted(false);
+        btnViewPatientDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptOrderActionPerformed(evt);
+                btnViewPatientDetailsActionPerformed(evt);
             }
         });
 
@@ -402,43 +404,57 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
             }
         });
 
+        btnAcceptOrder1.setBackground(new java.awt.Color(255, 255, 255));
+        btnAcceptOrder1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnAcceptOrder1.setText("Approve");
+        btnAcceptOrder1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
+        btnAcceptOrder1.setBorderPainted(false);
+        btnAcceptOrder1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcceptOrder1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(275, 275, 275)
-                        .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane2)
-                            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jScrollPane2)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(45, 45, 45)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(63, 63, 63)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(assignDoctorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnAcceptOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btnRejectOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(btnAssignFitness, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 17, Short.MAX_VALUE)))
-                        .addGap(0, 539, Short.MAX_VALUE))))
+                                .addGap(63, 63, 63))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(95, 95, 95)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnViewPatientDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(assignDoctorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btnAcceptOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnRejectOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(btnAssignFitness, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(0, 17, Short.MAX_VALUE)))
+                .addGap(0, 539, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnViewPatientDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -448,8 +464,8 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
                         .addComponent(assignDoctorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAcceptOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRejectOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnRejectOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAcceptOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btnAssignFitness, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40)
@@ -463,14 +479,18 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnAcceptOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrderActionPerformed
+    private void btnViewPatientDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientDetailsActionPerformed
         // TODO add your handling code here:
-        orderListData.setStatus("STAFF APPROVED");
-        lblOrderStatus.setText("STAFF APPROVED");
-        orderListData.setResolveDate(new Date());
-        changeBtns();
-        JOptionPane.showMessageDialog(null, "Order accepted successfully!");
-    }//GEN-LAST:event_btnAcceptOrderActionPerformed
+
+        User u = orderListData.getUser();
+
+        UserReport userReport = new UserReport(mainWorkArea, ecosystem, u);
+
+        mainWorkArea.add("userReport", userReport);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
+        
+    }//GEN-LAST:event_btnViewPatientDetailsActionPerformed
 
     private void btnRejectOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectOrderActionPerformed
         orderListData.setStatus("STAFF REJECTED");
@@ -488,12 +508,17 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
 //        layout.next(mainWorkArea);
     }//GEN-LAST:event_btnAssignFitnessActionPerformed
 
+    private void btnAcceptOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrder1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAcceptOrder1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel assignDoctorPanel;
-    private javax.swing.JButton btnAcceptOrder;
+    private javax.swing.JButton btnAcceptOrder1;
     private javax.swing.JButton btnAssignFitness;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnRejectOrder;
+    private javax.swing.JButton btnViewPatientDetails;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
@@ -618,11 +643,11 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
         String status = orderListData.getStatus().toUpperCase();
 
         if (status.equalsIgnoreCase("STAFF REJECTED") || status.equalsIgnoreCase("STAFF APPROVED")) {
-            btnAcceptOrder.setVisible(false);
+            btnViewPatientDetails.setVisible(false);
             btnRejectOrder.setVisible(false);
 
         } else {
-            btnAcceptOrder.setVisible(true);
+            btnViewPatientDetails.setVisible(true);
             btnRejectOrder.setVisible(true);
         }
     }

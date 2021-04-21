@@ -160,7 +160,7 @@ public class AddHospitalPanel extends javax.swing.JPanel {
 
         lblPhoneNumber.setBackground(new java.awt.Color(249, 244, 244));
         lblPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPhoneNumber.setText("Hospital contact Number :");
+        lblPhoneNumber.setText("Hospital Contact Number :");
 
         lblPassword.setBackground(new java.awt.Color(249, 244, 244));
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);

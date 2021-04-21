@@ -270,7 +270,7 @@
                   <Color blue="f4" green="f4" red="f9" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="2"/>
-                <Property name="text" type="java.lang.String" value="Hospital contact Number :"/>
+                <Property name="text" type="java.lang.String" value="Hospital Contact Number :"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblPassword">

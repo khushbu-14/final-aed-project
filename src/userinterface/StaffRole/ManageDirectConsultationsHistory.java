@@ -186,12 +186,13 @@ public class ManageDirectConsultationsHistory extends javax.swing.JPanel {
         model.setRowCount(0);
 
         for (WorkRequest req : workRequestList) {
-            Object[] row = new Object[5];
+            Object[] row = new Object[6];
             row[0] = "" + count++;
             row[1] = req;
-            row[2] = req.getShop().getShopName();
-            row[3] = req.getStatus();
-            row[4] = req.getRequestDate();
+            row[2] = req.getUser().getName();
+            row[3] = req.getShop().getShopName();
+            row[4] = req.getStatus();
+            row[5] = req.getRequestDate();
 
             model.addRow(row);
 
