@@ -15,6 +15,7 @@ public class Service {
     private String status;
     private String oxygenAvailability;
     private String ambulanceType;
+    private String customerName;
 
     public Service(String name, String contact, String oxygenAvailability, String ambulanceType) {
         this.name = name;
@@ -62,6 +63,15 @@ public class Service {
     public void setAmbulanceType(String ambulanceType) {
         this.ambulanceType = ambulanceType;
     }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+    
     
     @Override
     public String toString() {

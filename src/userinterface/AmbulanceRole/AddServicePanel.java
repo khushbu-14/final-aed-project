@@ -317,8 +317,9 @@ public class AddServicePanel extends javax.swing.JPanel {
                 service.setOxygenAvailability(oxygen);
                 msg = userName + " updated successfully!";
             } else {
-
+                
                 Service service1 = new Service(userName, phoneNo, oxygen, type);
+                service1.setStatus("New");
                 amb.getServiceDirectory().addNewService(service1);
             }
 

@@ -15,6 +15,9 @@ public class ServiceDirectory {
     private ArrayList<Service> serviceList = new ArrayList<>();
 
     public ArrayList<Service> getServiceList() {
+        if(serviceList == null){
+        serviceList = new ArrayList<>();
+        }
         return serviceList;
     }
 

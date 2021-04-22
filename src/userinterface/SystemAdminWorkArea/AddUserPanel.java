@@ -190,11 +190,22 @@ public class AddUserPanel extends javax.swing.JPanel {
         lblPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPhoneNumber.setText("Contact Number :");
 
+        txtSPassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSPasswordActionPerformed(evt);
+            }
+        });
+
         lblUsername2.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername2.setText("Full Name :");
 
         txtContact.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtContact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContactActionPerformed(evt);
+            }
+        });
         txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtContactKeyPressed(evt);
@@ -534,6 +545,14 @@ public class AddUserPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_txtZipcodeKeyPressed
+
+    private void txtSPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSPasswordActionPerformed
+
+    private void txtContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;

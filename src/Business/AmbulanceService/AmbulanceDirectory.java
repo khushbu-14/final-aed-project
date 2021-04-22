@@ -70,6 +70,15 @@ public class AmbulanceDirectory {
              }    
          }
          return amb;
+     } 
+       public AmbulanceService getAmbulanceServiceByName(String name){
+         AmbulanceService amb = null;
+         for(AmbulanceService ambi: ambulanceList){
+             if(ambi.getName().equals(name)){
+                 amb = ambi;
+             }    
+         }
+         return amb;
      }
       
       public void updateAmbulanceServiceByUserName(String userName,String name, String contact, String address,String email, String password){

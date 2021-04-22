@@ -55,9 +55,9 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
         iconDashboard1 = new javax.swing.JLabel();
         manageAmbulance = new javax.swing.JLabel();
         border1 = new javax.swing.JPanel();
-        manageOrderMedicinePanel = new javax.swing.JPanel();
+        manageAmbulanceBookingPanel = new javax.swing.JPanel();
         iconDashboard2 = new javax.swing.JLabel();
-        manageOrderMedicine = new javax.swing.JLabel();
+        manageAmbulanceBooking = new javax.swing.JLabel();
         border2 = new javax.swing.JPanel();
         manageStaffSessionPanel = new javax.swing.JPanel();
         iconDashboard3 = new javax.swing.JLabel();
@@ -215,25 +215,25 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(border1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        manageOrderMedicinePanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageOrderMedicinePanel.setToolTipText("Manage Hospital");
-        manageOrderMedicinePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        manageOrderMedicinePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+        manageAmbulanceBookingPanel.setBackground(new java.awt.Color(3, 80, 111));
+        manageAmbulanceBookingPanel.setToolTipText("Manage Hospital");
+        manageAmbulanceBookingPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageAmbulanceBookingPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageOrderMedicinePanelMousePressed(evt);
+                manageAmbulanceBookingPanelMousePressed(evt);
             }
         });
 
         iconDashboard2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconDashboard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
 
-        manageOrderMedicine.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        manageOrderMedicine.setForeground(new java.awt.Color(255, 255, 255));
-        manageOrderMedicine.setText("Order Products");
-        manageOrderMedicine.setToolTipText("Dashboard");
-        manageOrderMedicine.addMouseListener(new java.awt.event.MouseAdapter() {
+        manageAmbulanceBooking.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        manageAmbulanceBooking.setForeground(new java.awt.Color(255, 255, 255));
+        manageAmbulanceBooking.setText("Manage Service");
+        manageAmbulanceBooking.setToolTipText("Dashboard");
+        manageAmbulanceBooking.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageOrderMedicineMousePressed(evt);
+                manageAmbulanceBookingMousePressed(evt);
             }
         });
 
@@ -251,27 +251,27 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout manageOrderMedicinePanelLayout = new javax.swing.GroupLayout(manageOrderMedicinePanel);
-        manageOrderMedicinePanel.setLayout(manageOrderMedicinePanelLayout);
-        manageOrderMedicinePanelLayout.setHorizontalGroup(
-            manageOrderMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrderMedicinePanelLayout.createSequentialGroup()
+        javax.swing.GroupLayout manageAmbulanceBookingPanelLayout = new javax.swing.GroupLayout(manageAmbulanceBookingPanel);
+        manageAmbulanceBookingPanel.setLayout(manageAmbulanceBookingPanelLayout);
+        manageAmbulanceBookingPanelLayout.setHorizontalGroup(
+            manageAmbulanceBookingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageAmbulanceBookingPanelLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(manageOrderMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manageOrderMedicinePanelLayout.createSequentialGroup()
+                .addGroup(manageAmbulanceBookingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageAmbulanceBookingPanelLayout.createSequentialGroup()
                         .addComponent(border2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(manageOrderMedicinePanelLayout.createSequentialGroup()
+                    .addGroup(manageAmbulanceBookingPanelLayout.createSequentialGroup()
                         .addComponent(iconDashboard2, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(manageOrderMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(manageAmbulanceBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
-        manageOrderMedicinePanelLayout.setVerticalGroup(
-            manageOrderMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrderMedicinePanelLayout.createSequentialGroup()
+        manageAmbulanceBookingPanelLayout.setVerticalGroup(
+            manageAmbulanceBookingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageAmbulanceBookingPanelLayout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addGroup(manageOrderMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(manageOrderMedicine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(manageAmbulanceBookingPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(manageAmbulanceBooking, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(iconDashboard2, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
                 .addGap(10, 10, 10)
                 .addComponent(border2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -596,7 +596,7 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(manageDashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageOrderMedicinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageAmbulanceBookingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manageStaffSessionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(patientsAppointmentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manageAppointmentsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -612,7 +612,7 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(manageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(manageOrderMedicinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(manageAmbulanceBookingPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(manageStaffSessionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
@@ -664,15 +664,15 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
        manageAmbulance();
     }//GEN-LAST:event_manageAmbulancePanelMousePressed
 
-    private void manageOrderMedicineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderMedicineMousePressed
+    private void manageAmbulanceBookingMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAmbulanceBookingMousePressed
         // TODO add your handling code here:
-       
-    }//GEN-LAST:event_manageOrderMedicineMousePressed
+       manageAmbulanceBooking();
+    }//GEN-LAST:event_manageAmbulanceBookingMousePressed
 
-    private void manageOrderMedicinePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderMedicinePanelMousePressed
+    private void manageAmbulanceBookingPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAmbulanceBookingPanelMousePressed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_manageOrderMedicinePanelMousePressed
+        manageAmbulanceBooking();
+    }//GEN-LAST:event_manageAmbulanceBookingPanelMousePressed
 
     private void manageStaffSessionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageStaffSessionMousePressed
         // TODO add your handling code here:
@@ -751,6 +751,13 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
+  private void manageAmbulanceBooking() {
+        changeBtnBgs("manageambulancebooking");
+        ManageAmbulanceServiceAdmin manageServicePanel = new ManageAmbulanceServiceAdmin(mainPanel, ecosystem,userAccount);
+        mainPanel.add("manageServiceBookingPanel", manageServicePanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
     public void changeBtnBgs(String type) {
         Color activeColor = Color.WHITE;
         Color notActiveColor = Color.getColor("03506F");
@@ -762,7 +769,7 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
         manageDashboardPanel.setBackground(notActiveColor);
         manageAmbulancePanel.setBackground(notActiveColor);
         manageStaffSessionPanel.setBackground(notActiveColor);
-        manageOrderMedicinePanel.setBackground(notActiveColor);
+        manageAmbulanceBookingPanel.setBackground(notActiveColor);
         manageOrdersPanel.setBackground(notActiveColor);
         patientsAppointmentPanel.setBackground(notActiveColor);
         manageSessionsPanel.setBackground(notActiveColor);
@@ -771,7 +778,7 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
         manageAppointments.setForeground(nonActiveTxtColor);
         manageAmbulance.setForeground(nonActiveTxtColor);
         manageStaffSession.setForeground(nonActiveTxtColor);
-        manageOrderMedicine.setForeground(nonActiveTxtColor);
+        manageAmbulanceBooking.setForeground(nonActiveTxtColor);
         manageOrders.setForeground(nonActiveTxtColor);
         patientsAppointment.setForeground(nonActiveTxtColor);
         manageSessions.setForeground(nonActiveTxtColor);
@@ -779,6 +786,9 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
         if ("manageambulance".equalsIgnoreCase(type)) {
             manageAmbulancePanel.setBackground(activeColor);
             manageAmbulance.setForeground(activeTxtColor);
+        } else if ("manageambulancebooking".equalsIgnoreCase(type)) {
+            manageAmbulanceBookingPanel.setBackground(activeColor);
+            manageAmbulanceBooking.setForeground(activeTxtColor);
         }
     }
 
@@ -801,13 +811,13 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel iconDashboard7;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel manageAmbulance;
+    private javax.swing.JLabel manageAmbulanceBooking;
+    private javax.swing.JPanel manageAmbulanceBookingPanel;
     private javax.swing.JPanel manageAmbulancePanel;
     private javax.swing.JLabel manageAppointments;
     private javax.swing.JPanel manageAppointmentsPanel;
     private javax.swing.JLabel manageDashboard;
     private javax.swing.JPanel manageDashboardPanel;
-    private javax.swing.JLabel manageOrderMedicine;
-    private javax.swing.JPanel manageOrderMedicinePanel;
     private javax.swing.JLabel manageOrders;
     private javax.swing.JPanel manageOrdersPanel;
     private javax.swing.JLabel manageSessions;
