@@ -25,7 +25,7 @@ public class Sessions extends Business.UserAccount.UserAccount {
     private String regStatus;
     private String finduser;
     
-    public Sessions( String name, String sessionDate, String startTime, String endTime, String isRemote, String location){
+    public Sessions( String name, String sessionDate, String startTime, String endTime, String isRemote, String location, String regStatus){
     
         //String userName, String password,
         UUID uid = UUID.randomUUID();
@@ -36,6 +36,7 @@ public class Sessions extends Business.UserAccount.UserAccount {
         this.endTime=endTime;
         this.isRemote= isRemote;
         this.location = location;
+        this.regStatus = regStatus;
        //setPassword(password);
        // setUsername(userName);
         setRole(new FitnessStaffRole());

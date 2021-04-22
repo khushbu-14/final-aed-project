@@ -5,21 +5,15 @@
  */
 package userinterface.FitnessStaffRole;
 
-import userinterface.StaffRole.*;
-import userinterface.FitnessDepartmentRole.*;
 import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
 import Business.FitnessCenter.Department.FitnessCenterDepartment;
 import Business.FitnessCenter.FitnessCenter;
-import Business.Hospital.Department.HospitalDepartment;
-import Business.Hospital.Hospital;
 import Business.Shop.Product;
 import Business.Shop.Shop;
 import Business.Staff.FcStaff;
 import Business.Staff.FcStaffDirectory;
 import Business.Staff.Sessions;
-import Business.Staff.SessionsMedStaff;
-import Business.Staff.Staff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
 import constants.Utils;
@@ -28,20 +22,13 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
-import java.security.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -50,7 +37,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author khushbu
  */
-public class AddSessionsPanel extends javax.swing.JPanel {
+public class OldAddSessionsPanel extends javax.swing.JPanel {
 
     private JPanel mainWorkArea;
     private EcoSystem ecosystem;
@@ -63,10 +50,6 @@ public class AddSessionsPanel extends javax.swing.JPanel {
     UserAccount userAcount;
 
     Boolean isUpdatePage = false;
-    Boolean flag = true;
-    static LocalDateTime now;
-    Date date;
-    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
     /**
      * Creates new form AddUniversity
@@ -76,7 +59,7 @@ public class AddSessionsPanel extends javax.swing.JPanel {
      * @param product
      * @param isUpdatePage
      */
-    public AddSessionsPanel(JPanel mainWorkArea, EcoSystem ecosystem, Sessions sessions, Boolean isUpdatePage, UserAccount userAcount) {
+    public OldAddSessionsPanel(JPanel mainWorkArea, EcoSystem ecosystem, Sessions sessions, Boolean isUpdatePage, UserAccount userAcount) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
@@ -85,17 +68,10 @@ public class AddSessionsPanel extends javax.swing.JPanel {
         this.userAcount = userAcount;
         util = new Utils();
         setData();
-        date = new Date();
-        Date date1 = new Date();
+        Date date = new Date();
+        jDateChooser1.setDate(date);
         jDateChooser1.setMinSelectableDate(date);
-        try {
-            //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
-            date = formatter.parse(formatter.format(date));
-        } catch (ParseException ex) {
-            Logger.getLogger(AddSessionsPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        now = LocalDateTime.now();
-        jDateChooser1.setDate(date1);
+        
     }
 
     /**
@@ -120,11 +96,13 @@ public class AddSessionsPanel extends javax.swing.JPanel {
         txtSName = new javax.swing.JTextField();
         lblUsername2 = new javax.swing.JLabel();
         lblPassword2 = new javax.swing.JLabel();
+        lblUsername4 = new javax.swing.JLabel();
         jComboType = new javax.swing.JComboBox<>();
         lblUsername5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
         jComboStartTime = new javax.swing.JComboBox<>();
+        jComboEndTime = new javax.swing.JComboBox<>();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(249, 244, 244));
@@ -193,7 +171,7 @@ public class AddSessionsPanel extends javax.swing.JPanel {
         btnSignup.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnSignup.setForeground(new java.awt.Color(255, 255, 255));
         btnSignup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnSignup.setText("Add Slot");
+        btnSignup.setText("Register User");
         btnSignup.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnSignup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -215,11 +193,15 @@ public class AddSessionsPanel extends javax.swing.JPanel {
 
         lblUsername2.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername2.setText("Slot Name :");
+        lblUsername2.setText("Session Name :");
 
         lblPassword2.setBackground(new java.awt.Color(249, 244, 244));
         lblPassword2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPassword2.setText("Time:");
+        lblPassword2.setText("Start Time:");
+
+        lblUsername4.setBackground(new java.awt.Color(249, 244, 244));
+        lblUsername4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblUsername4.setText("Description:");
 
         jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No", "Both" }));
         jComboType.addActionListener(new java.awt.event.ActionListener() {
@@ -240,12 +222,14 @@ public class AddSessionsPanel extends javax.swing.JPanel {
             }
         });
 
-        jComboStartTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00-09:00", "09:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00", "17:00-18:00", "18:00-19:00", "19:00-20:00", "20:00-21:00", "21:00-22:00", "22:00-23:00" }));
+        jComboStartTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06:00", "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "13:00", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00" }));
         jComboStartTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboStartTimeActionPerformed(evt);
             }
         });
+
+        jComboEndTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "06:30", "07:00", "07:30", "08:00", "08:30", "09:00", "09:30", "10:00", "13:00", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -275,9 +259,13 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                                 .addComponent(jComboStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPassword1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 20, Short.MAX_VALUE)))
+                            .addComponent(lblUsername4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPassword1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 19, Short.MAX_VALUE)))))
                 .addGap(124, 124, 124))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(254, 254, 254)
@@ -298,13 +286,19 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                         .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblPassword1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(32, 32, 32)
-                .addComponent(lblPassword2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblPassword2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboStartTime, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblUsername4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboEndTime, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsername5)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -315,7 +309,7 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtLocation)))
-                .addGap(40, 40, 40)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -334,7 +328,7 @@ public class AddSessionsPanel extends javax.swing.JPanel {
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
         );
 
         splitPanel.setRightComponent(bottomPanel);
@@ -348,39 +342,24 @@ public class AddSessionsPanel extends javax.swing.JPanel {
         jDateChooser1.setDate(null);
         jComboType.setSelectedItem("Select");
         jComboStartTime.setSelectedItem("Select");
-
-        // SimpleDateFormat DateFormat = new SimpleDateFormat("MMM dd, YYYY", Locale.US);
-        // personalinfo.setDateOfIssue(DateFormat.format(txtDateOfIssue.getDate()));
-        //  personalinfo.setDateOfExpiration(DateFormat.format(txtDateOfExpiration.getDate()));
-    }
-
-    static Boolean testTime(String time2) {
-        //2021-04-20T22:23:33.154423500
-        String time = now.toString();
-        time = time.split("T")[1].split(":")[0];
-        int timeNow = Integer.parseInt(time);
-        int timeSelected = Integer.parseInt(time2);
-        if (timeSelected <= timeNow) {
-            return false;
-        } else {
-            return true;
-        }
+        jComboEndTime.setSelectedItem("Select");
+  
     }
 
     private void setData() {
         resetForm();
-//        populateComboBox();
+        populateComboBox();
         if (isUpdatePage) {
             btnSignup.setText("Update Session");
             lblUserAction.setText("Update Sesiion");
 
             txtSName.setText(sessions.getName());
             jComboStartTime.setSelectedItem(sessions.getSessionDate());
-            jComboStartTime.setSelectedItem(sessions.getStartTime());
-            //sessions.setIsRemote(isRemote);
-            jComboType.setSelectedItem(sessions.getIsRemote());
-            txtLocation.setText(sessions.getLocation());
-
+                jComboStartTime.setSelectedItem(sessions.getStartTime());
+                jComboEndTime.setSelectedItem(sessions.getEndTime());
+                //sessions.setIsRemote(isRemote);
+                jComboType.setSelectedItem(sessions.getIsRemote());
+                txtLocation.setText(sessions.getLocation());
         } else {
             btnSignup.setText("Add Session");
             lblUserAction.setText("Add Session");
@@ -391,9 +370,9 @@ public class AddSessionsPanel extends javax.swing.JPanel {
         mainWorkArea.remove(this);
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManageSessionsPanel manageProductPanel = (ManageSessionsPanel) component;
+       ManageSessionsPanel manageProductPanel = (ManageSessionsPanel) component;
 
-        manageProductPanel.refreshTable();
+       manageProductPanel.refreshTable();
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
@@ -406,43 +385,26 @@ public class AddSessionsPanel extends javax.swing.JPanel {
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
         // TODO add your handling code here:
-        flag = true;
-        String name = txtSName.getText();
+
+        String name = txtSName.getText();        
         String loc = txtLocation.getText();
-//        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, YYYY", Locale.US);
-        String d = formatter.format(jDateChooser1.getDate());
-        Date d1 = jDateChooser1.getDate();
-        Date date2 = null;
-        try {
-            date2 = formatter.parse(formatter.format(d1));
-        } catch (ParseException ex) {
-            Logger.getLogger(AddSessionsPanel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        System.out.println(d1);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/YYYY");
+        String d = dateFormat.format(jDateChooser1.getDate());
         String isRemote = jComboType.getSelectedItem().toString();
-        String time = jComboStartTime.getSelectedItem().toString();
-        String startTime = time.split("-")[0];
-        String endTime = time.split("-")[1];
+        String startTime = jComboStartTime.getSelectedItem().toString();
+        String endTime = jComboEndTime.getSelectedItem().toString();
+
         if (!util.isStringInputValid(name)) {
-            util.showErrorToast("Plesae enter valid session name");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid user name");
-            // JOptionPane.showMessageDialog(this, "Plesae enter valid user name", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (!util.isStringInputValid(loc)) {
-            util.showErrorToast("Plesae enter valid location");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
-            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (startTime.equalsIgnoreCase("select")) {
-            util.showErrorToast("Plesae select valid start time");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
-            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (endTime.equalsIgnoreCase("select")) {
-            util.showErrorToast("Plesae select valid end time");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
-            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (!util.isStringInputValid(d)) {
-            util.showErrorToast("Plesae select valid date");
-            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
-            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
+            util.showErrorToast("Plesae enter valid product name");
+        } 
+        else if (!util.isStringInputValid(d)) {
+            util.showErrorToast("Plesae enter valid Date");
+        } else if (!util.isStringInputValid(startTime)) {
+            util.showErrorToast("Plesae enter valid Start Time");
+        }else if (!util.isStringInputValid(isRemote)) {
+            util.showErrorToast("Plesae enter valid isRemote");
+        } else if (!util.isStringInputValid(endTime)) {
+            util.showErrorToast("Plesae enter valid endTime");
         } else {
             String msg = name + "  created successfully!";
             if (isUpdatePage) {
@@ -453,67 +415,50 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                 sessions.setEndTime(endTime);
                 sessions.setIsRemote(isRemote);
                 sessions.setLocation(loc);
+//                if (isRemote.equals("Yes")) {
+//                    sessions.setIsRemote(isRemote);
+//                    //txtLocation.setText("online");
+//                    //sessions.setLocation(loc);
+//                } else {
+//                    sessions.setIsRemote(isRemote);
+//                    sessions.setLocation(loc);
+//                }
 
                 msg = name + " updated successfully!";
-                JOptionPane.showMessageDialog(this, msg,
-                        "Success", JOptionPane.INFORMATION_MESSAGE);
-                backAction();
             } else {
                 boolean decision = false;
-                Sessions session = new Sessions(name, d, startTime,endTime, isRemote, loc, "Created");
-                ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
+                Sessions product1 = new Sessions( name, d, startTime, endTime, isRemote, loc,"Created");
+            ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
                 for(FitnessCenter fc: fitnessCenterList){
-                    ArrayList<FitnessCenterDepartment> f1= fc.getFcdepartmentDirectory().getDepartmentList();
-                    for(FitnessCenterDepartment fcd :f1) {
-                        FcStaff staff = fcd.getStaffDirectory().getStaffByUserName(userAcount.getUsername());
-                        ArrayList<Sessions> sessList = staff.getSdir().getSession();
-                        for (Sessions s : sessList) {
-                            if (s.getSessionDate().equalsIgnoreCase(d) && s.getStartTime().equalsIgnoreCase(startTime)) {
-                                flag = false;
+                    ArrayList<FitnessCenterDepartment> f= fc.getFcdepartmentDirectory().getDepartmentList();
+                    for(FitnessCenterDepartment fcd :f) {
+                        ArrayList<FcStaff> fcstaff= fcd.getStaffDirectory().getStaffList();
+                            for(FcStaff staff : fcstaff){
+                                staff.getSdir().addSession(product1);
                             }
-                        }
-                        if (flag) {
-                            Boolean f = testTime(startTime.split(":")[0]);
-                            if (date2.equals(date)) {
-                                if (f) {
-                                    staff.getSdir().addSession(session);
-                                    JOptionPane.showMessageDialog(this, "Session Added successfully!");
-                                    resetForm();
-                                    backAction();
-                                } else {
-                                    util.showErrorToast("Please select future time slots");
-                                }
-
-                            } else {
-                                session.setFinduser(staff.getUsername());
-                                staff.getSdir().addSession(session);
-                                JOptionPane.showMessageDialog(this, "Session Added successfully!");
-                                resetForm();
-                                backAction();
-                            }
-
-                        } else {
-                            util.showErrorToast("Session already Present");
-                        }
-
                     }
                 }
             }
 
+            resetForm();
+
+            JOptionPane.showMessageDialog(this, msg,
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            backAction();
         }
-        
-        
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void txtSNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSNameKeyPressed
         // TODO add your handling code here:
-//        char c = evt.getKeyChar();
-//        if (Character.isDigit(c)) {
-//            txtSName.setEditable(false);
-//            JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
-//        } else {
-//            txtSName.setEditable(true);
-//        }
+        char c = evt.getKeyChar();
+        if (Character.isDigit(c)) {
+            //txtSName.setEditable(false);
+            JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
+            txtSName.setText("");
+        } else {
+            txtSName.setEditable(true);
+        }
     }//GEN-LAST:event_txtSNameKeyPressed
 
     private void jComboTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboTypeActionPerformed
@@ -538,6 +483,7 @@ public class AddSessionsPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSignup;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JComboBox<String> jComboEndTime;
     private javax.swing.JComboBox<String> jComboStartTime;
     private javax.swing.JComboBox<String> jComboType;
     private com.toedter.calendar.JDateChooser jDateChooser1;
@@ -547,16 +493,17 @@ public class AddSessionsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPassword2;
     private javax.swing.JLabel lblUserAction;
     private javax.swing.JLabel lblUsername2;
+    private javax.swing.JLabel lblUsername4;
     private javax.swing.JLabel lblUsername5;
     private javax.swing.JSplitPane splitPanel;
     private javax.swing.JPanel topPanel;
     private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtSName;
     // End of variables declaration//GEN-END:variables
-//    public void populateComboBox() {
-//        List<String> enterpriseList = Arrays.asList("Yes", "No");
-//        for (String i : enterpriseList) {
-//            jComboType.addItem(i);
-//        }
-//    }
+    public void populateComboBox() {
+        List<String> enterpriseList = Arrays.asList("Yes", "No");
+        for (String i : enterpriseList) {
+            jComboType.addItem(i);
+        }
+    }
 }

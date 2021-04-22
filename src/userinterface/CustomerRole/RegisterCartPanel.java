@@ -13,10 +13,17 @@ import Business.UserAccount.UserAccount;
 import Business.WorkQueue.OrderItem;
 import constants.Utils;
 import java.awt.CardLayout;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.FitnessStaffRole.AddSessionsPanel;
 
 /**
  *
@@ -34,11 +41,12 @@ public class RegisterCartPanel extends javax.swing.JPanel {
     private Sessions sess;
     private UserAccount userAccount;
     private String bookedBy;
-
+    Date date1 = null;
+    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
     private ArrayList<OrderItem> orderList = new ArrayList<OrderItem>();
 
     Utils utils;
-
+    Date date;
     DefaultTableModel model;
 
     public RegisterCartPanel(JPanel mainPanel, EcoSystem ecosystem, FcStaff fcstaff, User user, String bookedBy) {
@@ -49,8 +57,15 @@ public class RegisterCartPanel extends javax.swing.JPanel {
 //        this.userAccount = userAccount;
 //        this.user = (User) userAccount;
         this.user = user;
+        date = new Date();
         utils = new Utils();
         initComponents();
+         try {
+            //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
+            date = formatter.parse(formatter.format(date));
+        } catch (ParseException ex) {
+            Logger.getLogger(AddSessionsPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
         populateData();
     }
 
@@ -270,12 +285,27 @@ public class RegisterCartPanel extends javax.swing.JPanel {
     }
 
     private void populateData() {
+         ArrayList<Sessions> tempList = fcstaff.getSdir().getSession();
+         
+        for(Sessions s: tempList){
+            try {
+                String st1 = s.getSessionDate();
+                date1 = (Date)formatter.parse(st1);
+            } catch (ParseException ex) {
+                Logger.getLogger(SelectConsultationPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            if(date1.before(date)){
+                tempList.remove(s);
+            } 
+        }
+        
         DefaultTableModel model = (DefaultTableModel) tblConsultaionSlot.getModel();
 
         int count = 1;
         model.setRowCount(0);
 
-        for (Sessions p : fcstaff.getSdir().getSession()) {
+        for (Sessions p : tempList) {
             Object[] row = new Object[5];
             row[0] = "" + count++;
             row[1] = p;
@@ -285,7 +315,6 @@ public class RegisterCartPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
-
     private void goToManageUserFitnessRegistrationPanel() {
         ManageUserFitnessRegistrationPanel manageUserFitnessRegistrationPanel = new ManageUserFitnessRegistrationPanel(mainWorkArea, ecosystem, user, bookedBy);
 
