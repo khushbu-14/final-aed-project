@@ -138,7 +138,7 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
         lblPhoneNumber3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPhoneNumber3.setText("EmergencyContact  Number :");
 
-        jComboCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "Boston", "Syracuse", "New York", "San Francisco", "New Jersey", "Chicago", "San Diego", "Dallas", "San Jose", "Houston", " " }));
+        jComboCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "NA", "Boston", "Syracuse", "New York", "San Francisco", "New Jersey", "Chicago", "San Diego", "Dallas", "San Jose", "Houston" }));
 
         jLabel4.setText("Location:");
 

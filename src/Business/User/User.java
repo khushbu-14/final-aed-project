@@ -5,6 +5,8 @@
  */
 package Business.User;
 
+import Business.AmbulanceService.AmbulanceDirectory;
+import Business.AmbulanceService.ServiceDirectory;
 import Business.Hospital.ConsultationForm;
 import Business.Role.UserRole;
 import Business.Staff.SessionsDirectory;
@@ -25,6 +27,7 @@ public class User extends Business.UserAccount.UserAccount {
     private MedicalProfile medicalProfile;
     private SessionsMedStaffDirectory consultationSessions;
     private SessionsDirectory sessionRegDirectory;
+    private ServiceDirectory ambulanceServiceDirectory;
 
     public User(String username, String password, String name, String contact, String email, String address, String zipcode) {
         this.name = name;
@@ -117,6 +120,19 @@ public class User extends Business.UserAccount.UserAccount {
     public void setSessionDirectory(SessionsDirectory sessionDirectory) {
         this.sessionRegDirectory = sessionDirectory;
     }
+
+    public ServiceDirectory getAmbulanceServiceDirectory() {
+        if(ambulanceServiceDirectory==null){
+        ambulanceServiceDirectory = new ServiceDirectory();
+        }
+        return ambulanceServiceDirectory;
+    }
+
+    public void setAmbulanceServiceDirectory(ServiceDirectory ambulanceServiceDirectory) {
+        this.ambulanceServiceDirectory = ambulanceServiceDirectory;
+    }
+
+
 
 
 

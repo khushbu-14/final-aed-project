@@ -27,7 +27,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="sideBar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="mainPanel" pref="1002" max="32767" attributes="0"/>
+              <Component id="mainPanel" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -49,19 +49,17 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="manageDashboardPanel" max="32767" attributes="0"/>
-                          <Component id="manageConsultDoctorPanel" max="32767" attributes="0"/>
-                          <Component id="manageOrderMedicinePanel" max="32767" attributes="0"/>
-                          <Component id="manageOrderFitnessPanel" max="32767" attributes="0"/>
-                          <Component id="manageProfilePanel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="manageAppointmentsPanel" max="32767" attributes="0"/>
-                          <Component id="manageOrdersPanel" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="ManageAmbulancePanel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageDashboardPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageAmbulancePanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageAmbulanceBookingPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageStaffSessionPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="patientsAppointmentPanel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageAppointmentsPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageOrdersPanel" min="-2" max="-2" attributes="0"/>
+                      <Component id="manageSessionsPanel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -73,20 +71,20 @@
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                   <Component id="manageDashboardPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="manageConsultDoctorPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="manageAmbulancePanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="manageOrderMedicinePanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="manageAmbulanceBookingPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="manageOrderFitnessPanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="manageStaffSessionPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                  <Component id="manageProfilePanel" min="-2" max="-2" attributes="0"/>
+                  <Component id="patientsAppointmentPanel" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="manageAppointmentsPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                   <Component id="manageOrdersPanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="ManageAmbulancePanel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="141" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                  <Component id="manageSessionsPanel" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="159" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -192,7 +190,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="manageConsultDoctorPanel">
+        <Container class="javax.swing.JPanel" name="manageAmbulancePanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
@@ -203,7 +201,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageConsultDoctorPanelMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageAmbulancePanelMousePressed"/>
           </Events>
 
           <Layout>
@@ -219,7 +217,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="iconDashboard1" pref="33" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="manageConsultDoctor" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="manageAmbulance" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -230,7 +228,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="manageConsultDoctor" alignment="0" max="32767" attributes="0"/>
+                          <Component id="manageAmbulance" alignment="0" max="32767" attributes="0"/>
                           <Component id="iconDashboard1" alignment="0" pref="44" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -247,8 +245,11 @@
                   <Image iconType="3" name="/assets/dinner.png"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="iconDashboard1KeyPressed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="manageConsultDoctor">
+            <Component class="javax.swing.JLabel" name="manageAmbulance">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="14" style="1"/>
@@ -256,11 +257,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Consult Doctor"/>
+                <Property name="text" type="java.lang.String" value="Add Services"/>
                 <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageConsultDoctorMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageAmbulanceMousePressed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="border1">
@@ -292,7 +293,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="manageOrderMedicinePanel">
+        <Container class="javax.swing.JPanel" name="manageAmbulanceBookingPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
@@ -303,7 +304,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageOrderMedicinePanelMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageAmbulanceBookingPanelMousePressed"/>
           </Events>
 
           <Layout>
@@ -319,7 +320,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="iconDashboard2" pref="33" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="manageOrderMedicine" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="manageAmbulanceBooking" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -330,7 +331,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="manageOrderMedicine" alignment="0" max="32767" attributes="0"/>
+                          <Component id="manageAmbulanceBooking" alignment="0" max="32767" attributes="0"/>
                           <Component id="iconDashboard2" alignment="0" pref="44" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -348,7 +349,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="manageOrderMedicine">
+            <Component class="javax.swing.JLabel" name="manageAmbulanceBooking">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="14" style="1"/>
@@ -356,11 +357,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Order Products"/>
+                <Property name="text" type="java.lang.String" value="Manage Service"/>
                 <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageOrderMedicineMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageAmbulanceBookingMousePressed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="border2">
@@ -392,7 +393,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="manageOrderFitnessPanel">
+        <Container class="javax.swing.JPanel" name="manageStaffSessionPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
@@ -403,7 +404,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageOrderFitnessPanelMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageStaffSessionPanelMousePressed"/>
           </Events>
 
           <Layout>
@@ -419,7 +420,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="iconDashboard3" pref="33" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="manageOrderFitness" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="manageStaffSession" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -430,7 +431,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="manageOrderFitness" alignment="0" max="32767" attributes="0"/>
+                          <Component id="manageStaffSession" alignment="0" max="32767" attributes="0"/>
                           <Component id="iconDashboard3" alignment="0" pref="44" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
@@ -448,7 +449,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="manageOrderFitness">
+            <Component class="javax.swing.JLabel" name="manageStaffSession">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="14" style="1"/>
@@ -456,11 +457,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Sessions / Events"/>
+                <Property name="text" type="java.lang.String" value="Manage Availability"/>
                 <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageOrderFitnessMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageStaffSessionMousePressed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="border3">
@@ -492,7 +493,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="manageProfilePanel">
+        <Container class="javax.swing.JPanel" name="patientsAppointmentPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
@@ -503,7 +504,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageProfilePanelMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="patientsAppointmentPanelMousePressed"/>
           </Events>
 
           <Layout>
@@ -519,7 +520,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="iconDashboard4" pref="33" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="managePersonalInfo" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="patientsAppointment" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -530,7 +531,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="managePersonalInfo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="patientsAppointment" alignment="0" max="32767" attributes="0"/>
                           <Component id="iconDashboard4" alignment="0" pref="44" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
@@ -548,7 +549,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="managePersonalInfo">
+            <Component class="javax.swing.JLabel" name="patientsAppointment">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="14" style="1"/>
@@ -556,11 +557,11 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Profile"/>
+                <Property name="text" type="java.lang.String" value="Appointment"/>
                 <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="managePersonalInfoMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="patientsAppointmentMousePressed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JPanel" name="border4">
@@ -717,7 +718,7 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="iconDashboard6" max="32767" attributes="0"/>
+                              <Component id="iconDashboard6" pref="33" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="manageOrders" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
@@ -731,7 +732,7 @@
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="manageOrders" alignment="0" max="32767" attributes="0"/>
-                          <Component id="iconDashboard6" alignment="0" pref="50" max="32767" attributes="0"/>
+                          <Component id="iconDashboard6" alignment="0" pref="44" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="border6" min="-2" max="-2" attributes="0"/>
@@ -792,7 +793,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="ManageAmbulancePanel">
+        <Container class="javax.swing.JPanel" name="manageSessionsPanel">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
@@ -803,7 +804,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ManageAmbulancePanelMousePressed"/>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageSessionsPanelMousePressed"/>
           </Events>
 
           <Layout>
@@ -813,13 +814,13 @@
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="border8" min="-2" pref="172" max="-2" attributes="0"/>
+                              <Component id="border7" min="-2" pref="172" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="iconDashboard8" pref="33" max="32767" attributes="0"/>
+                              <Component id="iconDashboard7" pref="33" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="manageAmbulanceLabel" min="-2" pref="157" max="-2" attributes="0"/>
+                              <Component id="manageSessions" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -830,17 +831,17 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="manageAmbulanceLabel" alignment="0" max="32767" attributes="0"/>
-                          <Component id="iconDashboard8" alignment="0" pref="44" max="32767" attributes="0"/>
+                          <Component id="manageSessions" alignment="0" max="32767" attributes="0"/>
+                          <Component id="iconDashboard7" alignment="0" pref="44" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="border8" min="-2" max="-2" attributes="0"/>
+                      <Component id="border7" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="iconDashboard8">
+            <Component class="javax.swing.JLabel" name="iconDashboard7">
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
@@ -848,7 +849,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="manageAmbulanceLabel">
+            <Component class="javax.swing.JLabel" name="manageSessions">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="14" style="1"/>
@@ -856,14 +857,14 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Book Ambulance"/>
+                <Property name="text" type="java.lang.String" value="Session / Events"/>
                 <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
               </Properties>
               <Events>
-                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageAmbulanceLabelMousePressed"/>
+                <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageSessionsMousePressed"/>
               </Events>
             </Component>
-            <Container class="javax.swing.JPanel" name="border8">
+            <Container class="javax.swing.JPanel" name="border7">
               <Properties>
                 <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                   <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
