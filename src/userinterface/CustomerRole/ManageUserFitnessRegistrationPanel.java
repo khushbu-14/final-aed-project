@@ -26,19 +26,31 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageUserPanel
      */
+    
     UserDirectory userDirectory;
     JPanel userProcessContainer;
     EcoSystem ecosystem;
     UserAccount userAccount;
     Utils utils;
-
-    public ManageUserFitnessRegistrationPanel(JPanel parentContainerPanel, EcoSystem ecosystem, UserAccount userAccount) {
+    private User user;
+    private String bookedBy;
+    
+    public ManageUserFitnessRegistrationPanel(JPanel parentContainerPanel, EcoSystem ecosystem, User user, String bookedBy) {
         this.userProcessContainer = parentContainerPanel;
         this.ecosystem = ecosystem;
         utils = new Utils();
-        this.userAccount = userAccount;
+        this.user = user;
+        this.bookedBy = bookedBy;
+//        this.userAccount = userAccount;
+//        this.user = (User) userAccount;
         initComponents();
         populateTable();
+        
+        if (bookedBy.equalsIgnoreCase("USER")) {
+            btnDelete.setVisible(true);
+        } else {
+            btnDelete.setVisible(false);
+        }
     }
 
     /**
@@ -156,12 +168,12 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
         int selectedRowIndex = tblSession.getSelectedRow();
         return selectedRowIndex;
     }
-
+    
     private Sessions getSelectedSession() {
         int selectedRowIndex = tblSession.getSelectedRow();
-
+        
         if (selectedRowIndex < 0) {
-            utils.showErrorToast("Oops! Please select a User first.");
+            utils.showErrorToast("Oops! Please select a session first.");
             return null;
         }
         Sessions u = (Sessions) tblSession.getValueAt(selectedRowIndex, 1);
@@ -171,26 +183,26 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         Sessions u = getSelectedSession();
         if (u != null) {
-            User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-            ud.getSessionDirectory().removeSession(u); 
+//            User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+            user.getSessionDirectory().removeSession(u);
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
-
+    
     public void refreshTable() {
         populateTable();
     }
-
+    
     private void populateTable() {
-        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+//        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
         ArrayList<Sessions> sessList = user.getSessionDirectory().getSession();
         if (sessList != null) {
             DefaultTableModel model = (DefaultTableModel) tblSession.getModel();
-
+            
             model.setRowCount(0);
             int count = 1;
-
+            
             for (Sessions s : sessList) {
 
                 Object[] row = new Object[7];
@@ -200,8 +212,12 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
                 row[3] = s.getStartTime();
                 row[4] = s.getEndTime();
                 row[5] = s.getIsRemote();
+<<<<<<< HEAD
                 row[6] = s.getRegStatus();
 
+=======
+                
+>>>>>>> origin
                 model.addRow(row);
             }
         }
@@ -209,7 +225,8 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         // logic to go to next screen
-        RegisterFitnessPanel newReg = new RegisterFitnessPanel(userProcessContainer, ecosystem,userAccount);
+//        RegisterFitnessPanel newReg = new RegisterFitnessPanel(userProcessContainer, ecosystem, userAccount);
+        RegisterFitnessPanel newReg = new RegisterFitnessPanel(userProcessContainer, ecosystem, user, bookedBy);
         userProcessContainer.add("NewRegistration", newReg);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

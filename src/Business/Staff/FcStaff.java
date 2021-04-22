@@ -17,7 +17,8 @@ import java.util.ArrayList;
  *
  * @author singh
  */
-public class FcStaff extends Business.UserAccount.UserAccount{
+public class FcStaff extends Business.UserAccount.UserAccount {
+
     private String name;
     private String designation;
     private String contact;
@@ -98,9 +99,9 @@ public class FcStaff extends Business.UserAccount.UserAccount{
     }
 
     public SessionsDirectory getSdir() {
-        if(sdir==null){
-       sdir = new SessionsDirectory();
-       }
+        if (sdir == null) {
+            sdir = new SessionsDirectory();
+        }
         return sdir;
     }
 
@@ -125,5 +126,5 @@ public class FcStaff extends Business.UserAccount.UserAccount{
     public String toString() {
         return name;
     }
-    
+
 }
