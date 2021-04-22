@@ -147,7 +147,7 @@
               <Font name="Lucida Grande" size="18" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="19"/>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconStudent">
@@ -226,7 +226,7 @@
               <Font name="Lucida Grande" size="18" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="19"/>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconStudent2">
@@ -301,7 +301,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Most Visited Doctors"/>
+            <Property name="text" type="java.lang.String" value="Recent Sessions"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="tblHeader1">
@@ -316,9 +316,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel11" min="-2" pref="151" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel12" min="-2" pref="99" max="-2" attributes="0"/>
+                      <Component id="jLabel11" pref="256" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -327,10 +325,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel12" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jLabel11" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="jLabel11" min="-2" pref="28" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -339,12 +334,7 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Name"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Total"/>
+                <Property name="text" type="java.lang.String" value="Session Name"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -371,9 +361,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel13" min="-2" pref="151" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel14" min="-2" pref="99" max="-2" attributes="0"/>
+                      <Component id="tblSessionName1" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -382,24 +370,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel14" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jLabel13" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="tblSessionName1" min="-2" pref="28" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel13">
+            <Component class="javax.swing.JLabel" name="tblSessionName1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ahsley Syo"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel14">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="45"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -426,10 +406,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel15" min="-2" pref="151" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel16" min="-2" pref="99" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="tblSessionName2" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -437,24 +414,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel16" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jLabel15" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="tblSessionName2" min="-2" pref="28" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel15">
+            <Component class="javax.swing.JLabel" name="tblSessionName2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Maxine Falow"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="38"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -481,9 +450,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel17" min="-2" pref="151" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel18" min="-2" pref="99" max="-2" attributes="0"/>
+                      <Component id="tblSessionName3" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -492,24 +459,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel18" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jLabel17" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="tblSessionName3" min="-2" pref="28" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel17">
+            <Component class="javax.swing.JLabel" name="tblSessionName3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Harry Spectre"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel18">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="33"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -573,7 +532,7 @@
               <Color blue="6f" green="50" red="3" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="19"/>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconCourse">
@@ -616,7 +575,7 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="tblRow2" alignment="0" max="32767" attributes="0"/>
                       <Component id="tblRow1" alignment="0" max="32767" attributes="0"/>
-                      <Component id="tblRowTopStudents1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="tblRowOrdersName1" alignment="0" max="32767" attributes="0"/>
                       <Component id="tblHeaderTopStudents" alignment="0" max="32767" attributes="0"/>
                       <Component id="jLabel1" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -632,7 +591,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="tblHeaderTopStudents" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="tblRowTopStudents1" min="-2" max="-2" attributes="0"/>
+                  <Component id="tblRowOrdersName1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="tblRow1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -648,7 +607,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="66" red="66" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Most Visited Shops"/>
+            <Property name="text" type="java.lang.String" value="Recent Orders"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="tblHeaderTopStudents">
@@ -666,7 +625,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel3" min="-2" pref="151" max="-2" attributes="0"/>
+                      <Component id="lblRowOrdersName1" min="-2" pref="151" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" pref="99" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -679,7 +638,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="lblRowOrdersName1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -687,9 +646,9 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="lblRowOrdersName1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Name"/>
+                <Property name="text" type="java.lang.String" value="Shop Name"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
@@ -699,7 +658,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="tblRowTopStudents1">
+        <Container class="javax.swing.JPanel" name="tblRowOrdersName1">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -721,9 +680,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblTSName1" min="-2" pref="151" max="-2" attributes="0"/>
+                      <Component id="tblRowOrderName1" min="-2" pref="151" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblTSGPA1" min="-2" pref="99" max="-2" attributes="0"/>
+                      <Component id="tblRowOrdersAmount1" min="-2" pref="99" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -733,8 +692,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblTSGPA1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="lblTSName1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="tblRowOrdersAmount1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="tblRowOrderName1" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -742,14 +701,14 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblTSName1">
+            <Component class="javax.swing.JLabel" name="tblRowOrderName1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Stop &amp; Shop"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblTSGPA1">
+            <Component class="javax.swing.JLabel" name="tblRowOrdersAmount1">
               <Properties>
-                <Property name="text" type="java.lang.String" value="100,000"/>
+                <Property name="text" type="java.lang.String" value="-"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -776,9 +735,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblTSName2" min="-2" pref="151" max="-2" attributes="0"/>
+                      <Component id="tblRowOrderName2" min="-2" pref="151" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblTSGPA2" min="-2" pref="99" max="-2" attributes="0"/>
+                      <Component id="tblRowOrdersAmount2" min="-2" pref="99" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -788,8 +747,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblTSGPA2" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="lblTSName2" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="tblRowOrdersAmount2" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="tblRowOrderName2" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -797,14 +756,14 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblTSName2">
+            <Component class="javax.swing.JLabel" name="tblRowOrderName2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Wallgreens"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblTSGPA2">
+            <Component class="javax.swing.JLabel" name="tblRowOrdersAmount2">
               <Properties>
-                <Property name="text" type="java.lang.String" value="98,000"/>
+                <Property name="text" type="java.lang.String" value="-"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -831,9 +790,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblTSName3" min="-2" pref="151" max="-2" attributes="0"/>
+                      <Component id="tblRowOrderName3" min="-2" pref="151" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblTSGPA3" min="-2" pref="99" max="-2" attributes="0"/>
+                      <Component id="tblRowOrdersAmount3" min="-2" pref="99" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -843,8 +802,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblTSGPA3" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
-                          <Component id="lblTSName3" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="tblRowOrdersAmount3" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
+                          <Component id="tblRowOrderName3" alignment="3" min="-2" pref="28" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -852,14 +811,14 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblTSName3">
+            <Component class="javax.swing.JLabel" name="tblRowOrderName3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Target"/>
+                <Property name="text" type="java.lang.String" value="NA"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblTSGPA3">
+            <Component class="javax.swing.JLabel" name="tblRowOrdersAmount3">
               <Properties>
-                <Property name="text" type="java.lang.String" value="96,567"/>
+                <Property name="text" type="java.lang.String" value="-"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -923,7 +882,7 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="19"/>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconCourse3">
@@ -1005,7 +964,7 @@
               <Color blue="ff" green="99" red="0" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="14"/>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconStudent3">
@@ -1084,7 +1043,7 @@
               <Font name="Lucida Grande" size="18" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="19"/>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconCourse4">
@@ -1169,7 +1128,7 @@
               <Color blue="6f" green="50" red="3" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="19"/>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconCourse5">
@@ -1248,7 +1207,7 @@
               <Font name="Lucida Grande" size="18" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="19"/>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconStudent4">
@@ -1327,7 +1286,7 @@
               <Font name="Lucida Grande" size="18" style="1"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="19"/>
+            <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblIconStudent5">

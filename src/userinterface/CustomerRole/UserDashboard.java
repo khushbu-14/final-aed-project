@@ -7,11 +7,15 @@ package userinterface.CustomerRole;
 
 import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
+import Business.Staff.Sessions;
+import Business.Staff.SessionsDirectory;
+import Business.Staff.SessionsMedStaff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.OrderItem;
 import Business.WorkQueue.OrderList;
 import Business.WorkQueue.WorkRequest;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import javax.swing.JPanel;
@@ -61,16 +65,12 @@ public class UserDashboard extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         tblHeader1 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
         tblRow3 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        tblSessionName1 = new javax.swing.JLabel();
         tblRow4 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        tblSessionName2 = new javax.swing.JLabel();
         tblRow5 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
+        tblSessionName3 = new javax.swing.JLabel();
         boxCountCourse = new javax.swing.JPanel();
         lblCompletedOrders = new javax.swing.JLabel();
         lblIconCourse = new javax.swing.JLabel();
@@ -78,17 +78,17 @@ public class UserDashboard extends javax.swing.JPanel {
         panelTopStudents = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         tblHeaderTopStudents = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        lblRowOrdersName1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        tblRowTopStudents1 = new javax.swing.JPanel();
-        lblTSName1 = new javax.swing.JLabel();
-        lblTSGPA1 = new javax.swing.JLabel();
+        tblRowOrdersName1 = new javax.swing.JPanel();
+        tblRowOrderName1 = new javax.swing.JLabel();
+        tblRowOrdersAmount1 = new javax.swing.JLabel();
         tblRow1 = new javax.swing.JPanel();
-        lblTSName2 = new javax.swing.JLabel();
-        lblTSGPA2 = new javax.swing.JLabel();
+        tblRowOrderName2 = new javax.swing.JLabel();
+        tblRowOrdersAmount2 = new javax.swing.JLabel();
         tblRow2 = new javax.swing.JPanel();
-        lblTSName3 = new javax.swing.JLabel();
-        lblTSGPA3 = new javax.swing.JLabel();
+        tblRowOrderName3 = new javax.swing.JLabel();
+        tblRowOrdersAmount3 = new javax.swing.JLabel();
         boxCountCourse3 = new javax.swing.JPanel();
         lblQuantity = new javax.swing.JLabel();
         lblIconCourse3 = new javax.swing.JLabel();
@@ -122,7 +122,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblOrders.setBackground(new java.awt.Color(0, 153, 255));
         lblOrders.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblOrders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblOrders.setText("19");
+        lblOrders.setText("0");
 
         lblIconStudent.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -162,7 +162,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblRejectedORders.setBackground(new java.awt.Color(255, 255, 255));
         lblRejectedORders.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblRejectedORders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblRejectedORders.setText("19");
+        lblRejectedORders.setText("0");
 
         lblIconStudent2.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent2.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -199,13 +199,11 @@ public class UserDashboard extends javax.swing.JPanel {
         panelTopStudents1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel2.setText("Most Visited Doctors");
+        jLabel2.setText("Recent Sessions");
 
         tblHeader1.setBackground(new java.awt.Color(244, 249, 255));
 
-        jLabel11.setText("Name");
-
-        jLabel12.setText("Total");
+        jLabel11.setText("Session Name");
 
         javax.swing.GroupLayout tblHeader1Layout = new javax.swing.GroupLayout(tblHeader1);
         tblHeader1.setLayout(tblHeader1Layout);
@@ -213,18 +211,14 @@ public class UserDashboard extends javax.swing.JPanel {
             tblHeader1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblHeader1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
                 .addContainerGap())
         );
         tblHeader1Layout.setVerticalGroup(
             tblHeader1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblHeader1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tblHeader1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -232,9 +226,7 @@ public class UserDashboard extends javax.swing.JPanel {
         tblRow3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         tblRow3.setForeground(new java.awt.Color(204, 204, 204));
 
-        jLabel13.setText("Ahsley Syo");
-
-        jLabel14.setText("45");
+        tblSessionName1.setText("NA");
 
         javax.swing.GroupLayout tblRow3Layout = new javax.swing.GroupLayout(tblRow3);
         tblRow3.setLayout(tblRow3Layout);
@@ -242,18 +234,14 @@ public class UserDashboard extends javax.swing.JPanel {
             tblRow3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblRow3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblSessionName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         tblRow3Layout.setVerticalGroup(
             tblRow3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblRow3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tblRow3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tblSessionName1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -261,9 +249,7 @@ public class UserDashboard extends javax.swing.JPanel {
         tblRow4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         tblRow4.setForeground(new java.awt.Color(204, 204, 204));
 
-        jLabel15.setText("Maxine Falow");
-
-        jLabel16.setText("38");
+        tblSessionName2.setText("NA");
 
         javax.swing.GroupLayout tblRow4Layout = new javax.swing.GroupLayout(tblRow4);
         tblRow4.setLayout(tblRow4Layout);
@@ -271,18 +257,13 @@ public class UserDashboard extends javax.swing.JPanel {
             tblRow4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblRow4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(tblSessionName2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         tblRow4Layout.setVerticalGroup(
             tblRow4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblRow4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tblRow4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tblSessionName2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -290,9 +271,7 @@ public class UserDashboard extends javax.swing.JPanel {
         tblRow5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         tblRow5.setForeground(new java.awt.Color(204, 204, 204));
 
-        jLabel17.setText("Harry Spectre");
-
-        jLabel18.setText("33");
+        tblSessionName3.setText("NA");
 
         javax.swing.GroupLayout tblRow5Layout = new javax.swing.GroupLayout(tblRow5);
         tblRow5.setLayout(tblRow5Layout);
@@ -300,18 +279,14 @@ public class UserDashboard extends javax.swing.JPanel {
             tblRow5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblRow5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblSessionName3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         tblRow5Layout.setVerticalGroup(
             tblRow5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblRow5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tblRow5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(tblSessionName3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -353,7 +328,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblCompletedOrders.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblCompletedOrders.setForeground(new java.awt.Color(3, 80, 111));
         lblCompletedOrders.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblCompletedOrders.setText("19");
+        lblCompletedOrders.setText("0");
 
         lblIconCourse.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -390,12 +365,12 @@ public class UserDashboard extends javax.swing.JPanel {
         panelTopStudents.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setText("Most Visited Shops");
+        jLabel1.setText("Recent Orders");
 
         tblHeaderTopStudents.setBackground(new java.awt.Color(244, 249, 255));
         tblHeaderTopStudents.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setText("Name");
+        lblRowOrdersName1.setText("Shop Name");
 
         jLabel4.setText("Amount");
 
@@ -405,7 +380,7 @@ public class UserDashboard extends javax.swing.JPanel {
             tblHeaderTopStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblHeaderTopStudentsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblRowOrdersName1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -416,36 +391,36 @@ public class UserDashboard extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(tblHeaderTopStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblRowOrdersName1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
-        tblRowTopStudents1.setBackground(new java.awt.Color(255, 255, 255));
-        tblRowTopStudents1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
-        tblRowTopStudents1.setForeground(new java.awt.Color(204, 204, 204));
+        tblRowOrdersName1.setBackground(new java.awt.Color(255, 255, 255));
+        tblRowOrdersName1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
+        tblRowOrdersName1.setForeground(new java.awt.Color(204, 204, 204));
 
-        lblTSName1.setText("Stop & Shop");
+        tblRowOrderName1.setText("NA");
 
-        lblTSGPA1.setText("100,000");
+        tblRowOrdersAmount1.setText("-");
 
-        javax.swing.GroupLayout tblRowTopStudents1Layout = new javax.swing.GroupLayout(tblRowTopStudents1);
-        tblRowTopStudents1.setLayout(tblRowTopStudents1Layout);
-        tblRowTopStudents1Layout.setHorizontalGroup(
-            tblRowTopStudents1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tblRowTopStudents1Layout.createSequentialGroup()
+        javax.swing.GroupLayout tblRowOrdersName1Layout = new javax.swing.GroupLayout(tblRowOrdersName1);
+        tblRowOrdersName1.setLayout(tblRowOrdersName1Layout);
+        tblRowOrdersName1Layout.setHorizontalGroup(
+            tblRowOrdersName1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tblRowOrdersName1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTSName1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblRowOrderName1, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTSGPA1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblRowOrdersAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        tblRowTopStudents1Layout.setVerticalGroup(
-            tblRowTopStudents1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tblRowTopStudents1Layout.createSequentialGroup()
+        tblRowOrdersName1Layout.setVerticalGroup(
+            tblRowOrdersName1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(tblRowOrdersName1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(tblRowTopStudents1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTSGPA1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTSName1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(tblRowOrdersName1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tblRowOrdersAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tblRowOrderName1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -453,9 +428,9 @@ public class UserDashboard extends javax.swing.JPanel {
         tblRow1.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         tblRow1.setForeground(new java.awt.Color(204, 204, 204));
 
-        lblTSName2.setText("Wallgreens");
+        tblRowOrderName2.setText("NA");
 
-        lblTSGPA2.setText("98,000");
+        tblRowOrdersAmount2.setText("-");
 
         javax.swing.GroupLayout tblRow1Layout = new javax.swing.GroupLayout(tblRow1);
         tblRow1.setLayout(tblRow1Layout);
@@ -463,9 +438,9 @@ public class UserDashboard extends javax.swing.JPanel {
             tblRow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblRow1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTSName2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblRowOrderName2, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTSGPA2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblRowOrdersAmount2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         tblRow1Layout.setVerticalGroup(
@@ -473,8 +448,8 @@ public class UserDashboard extends javax.swing.JPanel {
             .addGroup(tblRow1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(tblRow1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTSGPA2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTSName2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tblRowOrdersAmount2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tblRowOrderName2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -482,9 +457,9 @@ public class UserDashboard extends javax.swing.JPanel {
         tblRow2.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(204, 204, 204)));
         tblRow2.setForeground(new java.awt.Color(204, 204, 204));
 
-        lblTSName3.setText("Target");
+        tblRowOrderName3.setText("NA");
 
-        lblTSGPA3.setText("96,567");
+        tblRowOrdersAmount3.setText("-");
 
         javax.swing.GroupLayout tblRow2Layout = new javax.swing.GroupLayout(tblRow2);
         tblRow2.setLayout(tblRow2Layout);
@@ -492,9 +467,9 @@ public class UserDashboard extends javax.swing.JPanel {
             tblRow2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tblRow2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lblTSName3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblRowOrderName3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblTSGPA3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblRowOrdersAmount3, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         tblRow2Layout.setVerticalGroup(
@@ -502,8 +477,8 @@ public class UserDashboard extends javax.swing.JPanel {
             .addGroup(tblRow2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(tblRow2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTSGPA3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTSName3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tblRowOrdersAmount3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tblRowOrderName3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -516,7 +491,7 @@ public class UserDashboard extends javax.swing.JPanel {
                 .addGroup(panelTopStudentsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tblRow2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tblRow1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tblRowTopStudents1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(tblRowOrdersName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(tblHeaderTopStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -529,7 +504,7 @@ public class UserDashboard extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(tblHeaderTopStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tblRowTopStudents1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tblRowOrdersName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tblRow1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -545,7 +520,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblQuantity.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblQuantity.setForeground(new java.awt.Color(0, 153, 255));
         lblQuantity.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblQuantity.setText("19");
+        lblQuantity.setText("0");
 
         lblIconCourse3.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse3.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -586,7 +561,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblProcessing.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblProcessing.setForeground(new java.awt.Color(0, 153, 255));
         lblProcessing.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblProcessing.setText("14");
+        lblProcessing.setText("0");
 
         lblIconStudent3.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent3.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -626,7 +601,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblAmount.setBackground(new java.awt.Color(255, 255, 255));
         lblAmount.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblAmount.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAmount.setText("19");
+        lblAmount.setText("0");
 
         lblIconCourse4.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse4.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -668,7 +643,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblAppointments.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblAppointments.setForeground(new java.awt.Color(3, 80, 111));
         lblAppointments.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblAppointments.setText("19");
+        lblAppointments.setText("0");
 
         lblIconCourse5.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse5.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -708,7 +683,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblConsultations.setBackground(new java.awt.Color(255, 255, 255));
         lblConsultations.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblConsultations.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblConsultations.setText("19");
+        lblConsultations.setText("0");
 
         lblIconStudent4.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent4.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -748,7 +723,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblSessions.setBackground(new java.awt.Color(0, 153, 255));
         lblSessions.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         lblSessions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSessions.setText("19");
+        lblSessions.setText("0");
 
         lblIconStudent5.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent5.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -864,15 +839,7 @@ public class UserDashboard extends javax.swing.JPanel {
     private javax.swing.JPanel boxStudentsCount5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblAmount;
     private javax.swing.JLabel lblAmount2;
@@ -896,15 +863,10 @@ public class UserDashboard extends javax.swing.JPanel {
     private javax.swing.JLabel lblQty;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblRejectedORders;
+    private javax.swing.JLabel lblRowOrdersName1;
     private javax.swing.JLabel lblSessions;
     private javax.swing.JLabel lblShops;
     private javax.swing.JLabel lblShops1;
-    private javax.swing.JLabel lblTSGPA1;
-    private javax.swing.JLabel lblTSGPA2;
-    private javax.swing.JLabel lblTSGPA3;
-    private javax.swing.JLabel lblTSName1;
-    private javax.swing.JLabel lblTSName2;
-    private javax.swing.JLabel lblTSName3;
     private javax.swing.JLabel lblUsers;
     private javax.swing.JLabel lblUsers1;
     private javax.swing.JPanel panelTopStudents;
@@ -916,7 +878,16 @@ public class UserDashboard extends javax.swing.JPanel {
     private javax.swing.JPanel tblRow3;
     private javax.swing.JPanel tblRow4;
     private javax.swing.JPanel tblRow5;
-    private javax.swing.JPanel tblRowTopStudents1;
+    private javax.swing.JLabel tblRowOrderName1;
+    private javax.swing.JLabel tblRowOrderName2;
+    private javax.swing.JLabel tblRowOrderName3;
+    private javax.swing.JLabel tblRowOrdersAmount1;
+    private javax.swing.JLabel tblRowOrdersAmount2;
+    private javax.swing.JLabel tblRowOrdersAmount3;
+    private javax.swing.JPanel tblRowOrdersName1;
+    private javax.swing.JLabel tblSessionName1;
+    private javax.swing.JLabel tblSessionName2;
+    private javax.swing.JLabel tblSessionName3;
     // End of variables declaration//GEN-END:variables
 
     private void setData() {
@@ -924,19 +895,47 @@ public class UserDashboard extends javax.swing.JPanel {
         int totalOrder = 0, totalAmount = 0, totalQty = 0, completedOrder = 0, rejectedOrder = 0, otherOrders = 0;
 
         workRequestList = ecosystem.getWorkQueue().getUserRequestList(userAccount, "USER-ORDER");
+        int count = 1;
 
         for (WorkRequest wr : workRequestList) {
 
             OrderList orderListData = (OrderList) wr;
+
             totalOrder++;
-//            HashMap<String, Double> total = orderListData.getTotalOrderDetails();
+            double currentAmount = 0;
+            // HashMap<String, Double> total = orderListData.getTotalOrderDetails();
+
             for (OrderItem oi : orderListData.getOrderList()) {
+
                 int qty = oi.getQuantity();
-                totalAmount += oi.getProduct().getPrice() * qty;
+                currentAmount += oi.getProduct().getPrice() * qty;
+
                 totalQty += qty;
             }
 
+            totalAmount += currentAmount;
+
+            switch (count) {
+                case 1:
+                    tblRowOrdersAmount1.setText(String.valueOf(currentAmount));
+                    tblRowOrderName1.setText(orderListData.getShop().getShopName());
+                    count++;
+                    break;
+                case 2:
+                    tblRowOrdersAmount2.setText(String.valueOf(currentAmount));
+                    tblRowOrderName2.setText(orderListData.getShop().getShopName());
+                    count++;
+                    break;
+                case 3:
+                    tblRowOrdersAmount3.setText(String.valueOf(currentAmount));
+                    tblRowOrderName3.setText(orderListData.getShop().getShopName());
+                    break;
+                default:
+                    break;
+            }
+
             String status = orderListData.getStatus();
+
             if (status.equals("COMPLETED")) {
                 completedOrder++;
             } else if (status.equals("SHOP REJECTED") || status.equals("STAFF REJECTED")) {
@@ -978,5 +977,29 @@ public class UserDashboard extends javax.swing.JPanel {
 
         lblSessions.setText(String.valueOf(sessions));
 
+        if (user.getSessionDirectory() != null && user.getSessionDirectory().getSession() != null) {
+            for (int i = 0; i < 3; i++) {
+                if (user.getSessionDirectory().getSession() != null) {
+                    ArrayList<Sessions> s = user.getSessionDirectory().getSession();
+
+                    if (s != null && s.size() > i && user.getSessionDirectory().getSession().get(i) != null) {
+                        String name = user.getSessionDirectory().getSession().get(i).getName();
+                        switch (i) {
+                            case 0:
+                                tblSessionName1.setText(name);
+                                break;
+                            case 1:
+                                tblSessionName2.setText(name);
+                                break;
+                            case 2:
+                                tblSessionName3.setText(name);
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
