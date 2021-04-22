@@ -314,13 +314,13 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
             
             if(date1.before(date)){
                 tempList.remove(s);
-            }
-            else{
-                String startTime = s.getStartTime();
-                Boolean f = utils.testTime(startTime.split(":")[0]);
-                if(!f){
-                    tempList.remove(s);
-                }
+            } 
+//            else{
+//                String startTime = s.getStartTime();
+//                Boolean f = utils.testTime(startTime.split(":")[0]);
+//                if(!f){
+//                    tempList.remove(s);
+//                }
 //            else {
 //        DefaultTableModel model = (DefaultTableModel) tblConsultaionSlot.getModel();
 //
@@ -337,7 +337,7 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
 //            model.addRow(row);
 //        }
 //                }
-            }
+            //}
         }
         //DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD"); 
         

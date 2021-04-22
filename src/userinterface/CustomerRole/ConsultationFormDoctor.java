@@ -8,6 +8,7 @@ package userinterface.CustomerRole;
 import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
 import Business.Staff.SessionsMedStaff;
+import Business.Staff.Staff;
 import Business.User.TempTable.ConsultData;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
@@ -45,11 +46,13 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
     Boolean isNone = false;
     Boolean isNextConsultation = false;
     SessionsMedStaff sess;
+    Staff staff;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-    public ConsultationFormDoctor(JPanel mainWorkArea, EcoSystem ecosystem,User user,SessionsMedStaff sess) {
+    public ConsultationFormDoctor(JPanel mainWorkArea, EcoSystem ecosystem,User user,SessionsMedStaff sess,Staff staff) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
+        this.staff = staff;
         this.isUpdatePage = isUpdatePage;
         util = new Utils();
         this.user = user;
@@ -280,10 +283,7 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         mainWorkArea.remove(this);
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManageUserPanel manageUserPanel = (ManageUserPanel) component;
-
-        manageUserPanel.refreshTable();
-
+        ManageStaffConsultationDetailsPanel manageUserPanel = (ManageStaffConsultationDetailsPanel) component;
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }
@@ -319,7 +319,7 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
             sess.getConsultDoc().setDocsPrescription(prescription);
             sess.getConsultDoc().setDocsComment(comment);
             sess.getConsultDoc().setNextConsulationDate(nextDate);
-            ManageStaffConsultationDetailsPanel manageUserOrderDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user, sess);
+            ManageStaffConsultationDetailsPanel manageUserOrderDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user, sess,staff);
             mainWorkArea.add("ManageUserOrderDetailsPanel", manageUserOrderDetailsPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
