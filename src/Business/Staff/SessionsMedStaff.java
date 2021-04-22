@@ -5,6 +5,7 @@
  */
 package Business.Staff;
 
+import Business.Hospital.ConsultFormDoctor;
 import Business.Hospital.ConsultationForm;
 import Business.Role.FitnessDepartmentRole;
 import Business.Role.StaffRole;
@@ -27,6 +28,7 @@ public class SessionsMedStaff extends Business.UserAccount.UserAccount {
     private String status;
     private String userIdentifier;
     private ArrayList<ConsultationForm> consultFormList;
+    private ConsultFormDoctor consultDoc;
     
     
     
@@ -132,6 +134,17 @@ public class SessionsMedStaff extends Business.UserAccount.UserAccount {
   public ConsultationForm addNewConsultForm(ConsultationForm staff) {
         consultFormList.add(staff);
         return staff;
+    }
+
+    public ConsultFormDoctor getConsultDoc() {
+        if(consultDoc == null){
+        consultDoc = new ConsultFormDoctor();
+        }
+        return consultDoc;
+    }
+
+    public void setConsultDoc(ConsultFormDoctor consultDoc) {
+        this.consultDoc = consultDoc;
     }
 
     

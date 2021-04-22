@@ -670,12 +670,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void btnTemp2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTemp2ActionPerformed
         // TODO add your handling code here:
-        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-        ConsultationFormDoctor manageInformationPanel = new ConsultationFormDoctor(userProcessContainer, ecosystem, user);
-//        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
-        userProcessContainer.add("manageInformationJPanel", manageInformationPanel);
-        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer);
+//        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+//        ConsultationFormDoctor manageInformationPanel = new ConsultationFormDoctor(userProcessContainer, ecosystem, user);
+////        AddMedicalProfilePanel manageInformationPanel = new AddMedicalProfilePanel(mainPanel, ecosystem, user);
+//        userProcessContainer.add("manageInformationJPanel", manageInformationPanel);
+//        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+//        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnTemp2ActionPerformed
 
     private void manageOrderProducts() {

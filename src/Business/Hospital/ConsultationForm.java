@@ -14,9 +14,7 @@ public class ConsultationForm {
     private String range;
     private String days;
     private String message;
-    private String docsPrescription;
-    private String docsComment;
-    private String nextConsulationDate;
+  
 
     public ConsultationForm(String diseaseName, String range, String days, String message) {
         this.diseaseName = diseaseName;
@@ -58,29 +56,7 @@ public class ConsultationForm {
         this.message = message;
     }
 
-    public String getDocsPrescription() {
-        return docsPrescription;
-    }
 
-    public void setDocsPrescription(String docsPrescription) {
-        this.docsPrescription = docsPrescription;
-    }
-
-    public String getDocsComment() {
-        return docsComment;
-    }
-
-    public void setDocsComment(String docsComment) {
-        this.docsComment = docsComment;
-    }
-
-    public String getNextConsulationDate() {
-        return nextConsulationDate;
-    }
-
-    public void setNextConsulationDate(String nextConsulationDate) {
-        this.nextConsulationDate = nextConsulationDate;
-    }
 
      @Override
     public String toString() {
