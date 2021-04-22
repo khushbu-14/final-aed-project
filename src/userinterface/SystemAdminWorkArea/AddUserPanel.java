@@ -467,10 +467,11 @@ public class AddUserPanel extends javax.swing.JPanel {
             }
 
             resetForm();
-
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-
+            String emailSubject = "Registration Confirmation";
+            String emailBodyMessage = "Hi "+name+", Congratulations!!! You are Successfully registered with us.";
+            util.sendEmail(email, emailSubject, emailBodyMessage);
             backAction();
         }
     }//GEN-LAST:event_btnSignupActionPerformed
