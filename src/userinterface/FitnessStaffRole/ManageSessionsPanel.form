@@ -82,7 +82,7 @@
                 <Column editable="false" title="Date" type="java.lang.String"/>
                 <Column editable="false" title="Start Time" type="java.lang.String"/>
                 <Column editable="false" title="End Time" type="java.lang.String"/>
-                <Column editable="false" title="is it remote" type="java.lang.String"/>
+                <Column editable="false" title="Type" type="java.lang.String"/>
                 <Column editable="false" title="location" type="java.lang.String"/>
               </Table>
             </Property>
