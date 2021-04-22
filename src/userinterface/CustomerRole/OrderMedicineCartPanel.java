@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Shop.Product;
 import Business.Shop.ProductDirectory;
 import Business.Shop.Shop;
+import Business.Staff.Staff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.OrderItem;
@@ -36,6 +37,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
     private EcoSystem ecosystem;
     private Shop shop;
     private User user;
+    private Staff staff;
+    String userType;
 
     private UserAccount userAccount;
 
@@ -45,12 +48,17 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
     DefaultTableModel model;
 
-    public OrderMedicineCartPanel(JPanel mainPanel, EcoSystem ecosystem, Shop shop, UserAccount userAccount) {
+    public OrderMedicineCartPanel(JPanel mainPanel, EcoSystem ecosystem, Shop shop, UserAccount userAccount, String userType) {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
         this.shop = shop;
+        this.userType = userType;
         this.userAccount = userAccount;
-        this.user = (User) userAccount;
+        if (userType.equalsIgnoreCase("USER")) {
+            this.user = (User) userAccount;
+        }else{
+            this.staff = (Staff) userAccount;
+        }
         utils = new Utils();
         initComponents();
         populateData();

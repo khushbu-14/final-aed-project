@@ -27,13 +27,15 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
     private JPanel mainWorkArea;
     private EcoSystem ecosystem;
     UserAccount userAccount;
+    String userType;
 
     Utils utils;
 
-    public OrderMedicinePanel(JPanel mainPanel, EcoSystem ecosystem, UserAccount userAccount) {
+    public OrderMedicinePanel(JPanel mainPanel, EcoSystem ecosystem, UserAccount userAccount, String userType) {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
+        this.userType = userType;
         utils = new Utils();
         initComponents();
 
@@ -224,7 +226,7 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
         Shop s = getSelectedShop();
 
         if (s != null) {
-            OrderMedicineCartPanel orderMedicineCartPanel = new OrderMedicineCartPanel(mainWorkArea, ecosystem, s, userAccount);
+            OrderMedicineCartPanel orderMedicineCartPanel = new OrderMedicineCartPanel(mainWorkArea, ecosystem, s, userAccount, userType);
 
             mainWorkArea.add("orderMedicineCartPanel", orderMedicineCartPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();

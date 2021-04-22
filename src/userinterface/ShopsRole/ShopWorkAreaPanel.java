@@ -7,6 +7,7 @@ package userinterface.ShopsRole;
 
 import userinterface.CustomerRole.*;
 import Business.EcoSystem;
+import Business.Shop.Shop;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -30,6 +31,7 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
         initComponents();
+        manageDashboard();
     }
 
     /**
@@ -92,6 +94,11 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
 
         iconDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                iconDashboardMousePressed(evt);
+            }
+        });
 
         manageDashboard.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageDashboard.setForeground(new java.awt.Color(255, 255, 255));
@@ -637,11 +644,12 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageDashboardMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardMousePressed
 
+        manageDashboard();
     }//GEN-LAST:event_manageDashboardMousePressed
 
     private void manageDashboardPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardPanelMousePressed
         // TODO add your handling code here:
-
+        manageDashboard();
     }//GEN-LAST:event_manageDashboardPanelMousePressed
 
     private void manageProductsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageProductsMousePressed
@@ -706,6 +714,10 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_manageSessionsPanelMousePressed
 
+    private void iconDashboardMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconDashboardMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iconDashboardMousePressed
+
     private void manageProducts() {
         changeBtnBgs("manage-products");
 
@@ -757,8 +769,12 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         } else if ("order-history".equalsIgnoreCase(type)) {
             manageOrdersPanel.setBackground(activeColor);
             manageOrders.setForeground(activeTxtColor);
+        } else if ("dashboard".equalsIgnoreCase(type)) {
+            manageDashboardPanel.setBackground(activeColor);
+            manageDashboard.setForeground(activeTxtColor);
         }
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel border;
     private javax.swing.JPanel border1;
@@ -795,5 +811,18 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel manageSessionsPanel;
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
+
+    private void manageDashboard() {
+        changeBtnBgs("dashboard");
+
+//        Shop shop = (Shop) userAccount;
+
+        ShopDashboard shopDashboard = new ShopDashboard(mainPanel, ecosystem, userAccount);
+
+        // ManageProductPanel prodcutPanel = new ManageProductPanel(mainPanel, ecosystem, userAccount);
+        mainPanel.add("shopDashboard", shopDashboard);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
 
 }

@@ -4,6 +4,7 @@
  */
 package Business.WorkQueue;
 
+import Business.Staff.Staff;
 import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 
@@ -65,6 +66,38 @@ public class WorkQueue {
         for (WorkRequest wr : workRequestList) {
             if (wr.getStaff() != null) {
                 if (wr.getStaff().getUsername().equals(account.getUsername())) {
+                    if (wr.getRequestType().equalsIgnoreCase(requestType)) {
+                        userRequestList.add(wr);
+                    }
+                }
+            }
+        }
+
+        return userRequestList;
+    }
+
+    public ArrayList<WorkRequest> getStaffRequestList1(Staff s, String requestType) {
+        ArrayList<WorkRequest> userRequestList = new ArrayList<>();
+
+        for (WorkRequest wr : workRequestList) {
+            if (wr.getStaff() != null) {
+                if (wr.getStaff().getUsername().equals(s.getUsername())) {
+                    if (wr.getRequestType().equalsIgnoreCase(requestType)) {
+                        userRequestList.add(wr);
+                    }
+                }
+            }
+        }
+
+        return userRequestList;
+    }
+
+    public ArrayList<WorkRequest> getDMRequestList(UserAccount account, String requestType) {
+        ArrayList<WorkRequest> userRequestList = new ArrayList<>();
+
+        for (WorkRequest wr : workRequestList) {
+            if (wr.getDeliveryMan() != null) {
+                if (wr.getDeliveryMan().getUsername().equals(account.getUsername())) {
                     if (wr.getRequestType().equalsIgnoreCase(requestType)) {
                         userRequestList.add(wr);
                     }

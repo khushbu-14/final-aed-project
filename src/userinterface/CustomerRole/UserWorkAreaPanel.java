@@ -33,6 +33,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
         initComponents();
+        manageDashboard();
     }
 
     /**
@@ -640,11 +641,12 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageDashboardMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardMousePressed
-
+        manageDashboard();
     }//GEN-LAST:event_manageDashboardMousePressed
 
     private void manageDashboardPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardPanelMousePressed
         // TODO add your handling code here:
+        manageDashboard();
     }//GEN-LAST:event_manageDashboardPanelMousePressed
 
     private void manageConsultDoctorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageConsultDoctorMousePressed
@@ -736,7 +738,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     private void manageOrderProducts() {
         changeBtnBgs("order-products");
 
-        OrderMedicinePanel orderMedicinePanel = new OrderMedicinePanel(mainPanel, ecosystem, userAccount);
+        OrderMedicinePanel orderMedicinePanel = new OrderMedicinePanel(mainPanel, ecosystem, userAccount, "USER");
 
         mainPanel.add("manageHospitalsJPanel", orderMedicinePanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
@@ -827,6 +829,9 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         } else if ("consultation".equalsIgnoreCase(type)) {
             manageConsultDoctorPanel.setBackground(activeColor);
             manageConsultDoctor.setForeground(activeTxtColor);
+        } else if ("dashboard".equalsIgnoreCase(type)) {
+            manageDashboardPanel.setBackground(activeColor);
+            manageDashboard.setForeground(activeTxtColor);
         } else if ("bookambulance".equalsIgnoreCase(type)) {
             ManageAmbulancePanel.setBackground(activeColor);
             manageAmbulanceLabel.setForeground(activeTxtColor);
@@ -881,6 +886,14 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
         // OrderMedicinePanel orderMedicinePanel = new OrderMedicinePanel(mainPanel, ecosystem, userAccount);
         mainPanel.add("ManageUserOrderHistory", manageUserOrderHistory);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+
+    private void manageDashboard() {
+        changeBtnBgs("dashboard");
+        UserDashboard userDashboard = new UserDashboard(mainPanel, ecosystem, userAccount);
+        mainPanel.add("userDashboard", userDashboard);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
