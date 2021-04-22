@@ -37,6 +37,7 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
     EcoSystem ecosystem;
     UserAccount userAccount;
     User user;
+    Staff staff1;
 
     public ManagePatientConsultationDoctorJPanel(JPanel mainWorkArea, EcoSystem ecosystem, UserAccount userAccount) {
         this.mainWorkArea = mainWorkArea;
@@ -175,7 +176,7 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
 
         if (user != null ) {
             //UserReport userReportPanel = new UserReport(mainWorkArea, userAccount, ecosystem, user);
-            ManageStaffConsultationDetailsPanel viewSessionDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user,sess );
+            ManageStaffConsultationDetailsPanel viewSessionDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user,sess,staff1 );
             mainWorkArea.add("userReportPanel", viewSessionDetailsPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
@@ -203,6 +204,7 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
             ArrayList<HospitalDepartment> hd = h.getDepartmentDirectory().getDepartmentList();
             for(HospitalDepartment d: hd){
                 ArrayList<Staff> staff = d.getStaffDirectory().getStaffList();
+                staff1 = d.getStaffDirectory().getStaffByUserName(userAccount.getUsername());
                 for(Staff s:staff){
                     if(s.getUsername().equalsIgnoreCase(userAccount.getUsername())){
                             int count = 1;
@@ -217,7 +219,7 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
                                 row[3] = req.getSessionDate();
                                 row[4] = req.getStartTime();
                                 row[5] = req.getEndTime();
-                                row[6] = "New Order";
+                                row[6] = req.getStatus();
                                 model.addRow(row);
 
         }

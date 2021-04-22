@@ -7,12 +7,15 @@ package userinterface.CustomerRole;
 
 import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
+import Business.Staff.SessionsMedStaff;
 import Business.User.TempTable.ConsultData;
 import Business.User.User;
+import Business.UserAccount.UserAccount;
 import constants.Utils;
 
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -20,6 +23,8 @@ import java.util.List;
 import java.util.Locale;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.StaffRole.ManagePatientConsultationDoctorJPanel;
+import userinterface.StaffRole.ManageStaffConsultationDetailsPanel;
 
 /**
  *
@@ -33,22 +38,24 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
     Utils util;
 
     DefaultTableModel model;
-    private User user;
+    UserAccount userAccount;
+    User user;
     Boolean isUpdatePage = false;
     private String selectedValue;
     Boolean isNone = false;
     Boolean isNextConsultation = false;
-
-    public ConsultationFormDoctor(JPanel mainWorkArea, EcoSystem ecosystem,User user) {
+    SessionsMedStaff sess;
+    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    public ConsultationFormDoctor(JPanel mainWorkArea, EcoSystem ecosystem,User user,SessionsMedStaff sess) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
         this.isUpdatePage = isUpdatePage;
         util = new Utils();
         this.user = user;
+        this.sess=sess;
         txtComment.setEnabled(false);
         presArea.setEnabled(false);
-        btnSubmit.setEnabled(false);
         jcomboNextCon.setEnabled(false);
         nextConsultation.setEnabled(false);
         
@@ -143,8 +150,6 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
 
         jPanel1.setBackground(new java.awt.Color(243, 241, 249));
 
-        jOuterPanel.setBackground(new java.awt.Color(243, 241, 249));
-
         jLabel4.setText("Comment:");
 
         jLabel1.setText("ADD Prescription:");
@@ -201,7 +206,7 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
                     .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcomboAddPres, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcomboNextCon, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jOuterPanelLayout.setVerticalGroup(
             jOuterPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,15 +244,14 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jOuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(534, Short.MAX_VALUE))
+                .addGap(0, 255, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jOuterPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 19, Short.MAX_VALUE))
+                .addGap(0, 15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
@@ -257,7 +261,7 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addGap(63, 63, 63)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(578, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,17 +308,21 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         String prescription = presArea.getText();
         String nextDate="NA";
         if(isNextConsultation){
-             SimpleDateFormat formatNew = new SimpleDateFormat("MMM dd, yyyy", Locale.US);
-             nextDate = formatNew.format(nextConsultation.getDate());
+              nextDate = formatter.format(nextConsultation.getDate());
         }
         if(!util.isStringInputValid(comment)){
             util.showErrorToast("Please input valid comment");
         }else if(!util.isStringInputValid(prescription)){
             util.showErrorToast("Please input valid prescription");
         }else{
-//            user.getConsultationForm().setDocsPrescription(prescription);
-//            user.getConsultationForm().setDocsComment(comment);
-//            user.getConsultationForm().setNextConsulationDate(nextDate);
+            sess.setStatus("Completed");
+            sess.getConsultDoc().setDocsPrescription(prescription);
+            sess.getConsultDoc().setDocsComment(comment);
+            sess.getConsultDoc().setNextConsulationDate(nextDate);
+            ManageStaffConsultationDetailsPanel manageUserOrderDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user, sess);
+            mainWorkArea.add("ManageUserOrderDetailsPanel", manageUserOrderDetailsPanel);
+            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+            layout.next(mainWorkArea);
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -322,13 +330,13 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         // TODO add your handling code here:
         String st = jcomboAddPres.getSelectedItem().toString();
         if(st.toLowerCase().equals("yes")){
-//            txtComment.setEnabled(true);
-//            presArea.setEnabled(true);
-//            btnSubmit.setEnabled(true);
-//            jcomboNextCon.setEnabled(true);
-//            user.getConsultationForm().setDocsComment("NA");
-//            user.getConsultationForm().setDocsPrescription("NA");
-//            user.getConsultationForm().setNextConsulationDate("NA");
+            txtComment.setEnabled(true);
+            presArea.setEnabled(true);
+            btnSubmit.setEnabled(true);
+            jcomboNextCon.setEnabled(true);
+            sess.getConsultDoc().setDocsComment("NA");
+            sess.getConsultDoc().setDocsPrescription("NA");
+            sess.getConsultDoc().setNextConsulationDate("NA");
         }
     }//GEN-LAST:event_jcomboAddPresActionPerformed
 
