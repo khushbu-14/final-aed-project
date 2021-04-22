@@ -13,6 +13,11 @@ public class ConsultFormDoctor {
     private String docsPrescription;
     private String docsComment;
     private String nextConsulationDate;
+    private String prescriptionDate;
+    private String docsName;
+    private String docsDesignation;
+    
+    
     
         public String getDocsPrescription() {
         return docsPrescription;
@@ -37,6 +42,34 @@ public class ConsultFormDoctor {
     public void setNextConsulationDate(String nextConsulationDate) {
         this.nextConsulationDate = nextConsulationDate;
     }
+
+    public String getPrescriptionDate() {
+        return prescriptionDate;
+    }
+
+    public void setPrescriptionDate(String prescriptionDate) {
+        this.prescriptionDate = prescriptionDate;
+    }
+
+    public String getDocsName() {
+        return docsName;
+    }
+
+    public void setDocsName(String docsName) {
+        this.docsName = docsName;
+    }
+
+    public String getDocsDesignation() {
+        return docsDesignation;
+    }
+
+    public void setDocsDesignation(String docsDesignation) {
+        this.docsDesignation = docsDesignation;
+    }
+
+   
+    
+    
     @Override
     public String toString() {
         return docsComment;

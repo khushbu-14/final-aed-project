@@ -484,6 +484,7 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
                                 }
 
                             } else {
+                                session.setDocsIdentifier(staff.getUsername());
                                 staff.getSessionDirectory().addSession(session);
                                 JOptionPane.showMessageDialog(this, "Session Added successfully!");
                                 resetForm();

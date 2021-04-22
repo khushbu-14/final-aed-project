@@ -78,6 +78,10 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         iconDashboard8 = new javax.swing.JLabel();
         manageAmbulanceLabel = new javax.swing.JLabel();
         border8 = new javax.swing.JPanel();
+        manageConsultHistoryPanel = new javax.swing.JPanel();
+        iconDashboard9 = new javax.swing.JLabel();
+        manageConsultHistory = new javax.swing.JLabel();
+        border9 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(244, 249, 249));
@@ -566,7 +570,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
                         .addComponent(border8, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(ManageAmbulancePanelLayout.createSequentialGroup()
-                        .addComponent(iconDashboard8, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                        .addComponent(iconDashboard8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(manageAmbulanceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -576,9 +580,71 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addGroup(ManageAmbulancePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(manageAmbulanceLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconDashboard8, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                    .addComponent(iconDashboard8, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE))
                 .addGap(10, 10, 10)
                 .addComponent(border8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        manageConsultHistoryPanel.setBackground(new java.awt.Color(3, 80, 111));
+        manageConsultHistoryPanel.setToolTipText("Manage Hospital");
+        manageConsultHistoryPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageConsultHistoryPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageConsultHistoryPanelMousePressed(evt);
+            }
+        });
+
+        iconDashboard9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconDashboard9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+
+        manageConsultHistory.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        manageConsultHistory.setForeground(new java.awt.Color(255, 255, 255));
+        manageConsultHistory.setText("Consultation History");
+        manageConsultHistory.setToolTipText("Dashboard");
+        manageConsultHistory.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageConsultHistoryMousePressed(evt);
+            }
+        });
+
+        border9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        border9.setPreferredSize(new java.awt.Dimension(2, 1));
+
+        javax.swing.GroupLayout border9Layout = new javax.swing.GroupLayout(border9);
+        border9.setLayout(border9Layout);
+        border9Layout.setHorizontalGroup(
+            border9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+        border9Layout.setVerticalGroup(
+            border9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout manageConsultHistoryPanelLayout = new javax.swing.GroupLayout(manageConsultHistoryPanel);
+        manageConsultHistoryPanel.setLayout(manageConsultHistoryPanelLayout);
+        manageConsultHistoryPanelLayout.setHorizontalGroup(
+            manageConsultHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageConsultHistoryPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(manageConsultHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageConsultHistoryPanelLayout.createSequentialGroup()
+                        .addComponent(border9, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(manageConsultHistoryPanelLayout.createSequentialGroup()
+                        .addComponent(iconDashboard9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(manageConsultHistory, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        manageConsultHistoryPanelLayout.setVerticalGroup(
+            manageConsultHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageConsultHistoryPanelLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(manageConsultHistoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(manageConsultHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconDashboard9, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(border9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout sideBarLayout = new javax.swing.GroupLayout(sideBar);
@@ -596,8 +662,10 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
                         .addComponent(manageProfilePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(manageAppointmentsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(manageOrdersPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(ManageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(manageConsultHistoryPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ManageAmbulancePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         sideBarLayout.setVerticalGroup(
             sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -618,7 +686,9 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(manageOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ManageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(manageConsultHistoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -631,7 +701,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1002, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 982, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -735,6 +805,16 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         bookAmbulance();
     }//GEN-LAST:event_ManageAmbulancePanelMousePressed
 
+    private void manageConsultHistoryMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageConsultHistoryMousePressed
+        // TODO add your handling code here:
+        manageConsultationHistory();
+    }//GEN-LAST:event_manageConsultHistoryMousePressed
+
+    private void manageConsultHistoryPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageConsultHistoryPanelMousePressed
+        // TODO add your handling code here:
+        manageConsultationHistory();
+    }//GEN-LAST:event_manageConsultHistoryPanelMousePressed
+
     private void manageOrderProducts() {
         changeBtnBgs("order-products");
 
@@ -803,6 +883,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageProfilePanel.setBackground(notActiveColor);
         // manageSessionsPanel.setBackground(notActiveColor);
         manageOrderFitnessPanel.setBackground(notActiveColor);
+        manageConsultHistoryPanel.setBackground(notActiveColor);
 
         manageDashboard.setForeground(nonActiveTxtColor);
         manageAppointments.setForeground(nonActiveTxtColor);
@@ -813,6 +894,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         managePersonalInfo.setForeground(nonActiveTxtColor);
         // manageSessions.setForeground(nonActiveTxtColor);
         // manageOrderFitness.setBackground(nonActiveTxtColor);
+        manageConsultHistory.setForeground(nonActiveTxtColor);
 
         if ("order-products".equalsIgnoreCase(type)) {
             manageOrderMedicinePanel.setBackground(activeColor);
@@ -835,6 +917,9 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         } else if ("bookambulance".equalsIgnoreCase(type)) {
             ManageAmbulancePanel.setBackground(activeColor);
             manageAmbulanceLabel.setForeground(activeTxtColor);
+        } else if ("consultationhistory".equalsIgnoreCase(type)) {
+            manageConsultHistoryPanel.setBackground(activeColor);
+            manageConsultHistory.setForeground(activeTxtColor);
         }
     }
 
@@ -847,8 +932,8 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel border4;
     private javax.swing.JPanel border5;
     private javax.swing.JPanel border6;
-    private javax.swing.JPanel border7;
     private javax.swing.JPanel border8;
+    private javax.swing.JPanel border9;
     private javax.swing.JLabel iconDashboard;
     private javax.swing.JLabel iconDashboard1;
     private javax.swing.JLabel iconDashboard2;
@@ -856,14 +941,16 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JLabel iconDashboard4;
     private javax.swing.JLabel iconDashboard5;
     private javax.swing.JLabel iconDashboard6;
-    private javax.swing.JLabel iconDashboard7;
     private javax.swing.JLabel iconDashboard8;
+    private javax.swing.JLabel iconDashboard9;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel manageAmbulanceLabel;
     private javax.swing.JLabel manageAppointments;
     private javax.swing.JPanel manageAppointmentsPanel;
     private javax.swing.JLabel manageConsultDoctor;
     private javax.swing.JPanel manageConsultDoctorPanel;
+    private javax.swing.JLabel manageConsultHistory;
+    private javax.swing.JPanel manageConsultHistoryPanel;
     private javax.swing.JLabel manageDashboard;
     private javax.swing.JPanel manageDashboardPanel;
     private javax.swing.JLabel manageOrderFitness;
@@ -871,9 +958,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JLabel manageOrderMedicine;
     private javax.swing.JPanel manageOrderMedicinePanel;
     private javax.swing.JLabel manageOrders;
-    private javax.swing.JLabel manageOrders1;
     private javax.swing.JPanel manageOrdersPanel;
-    private javax.swing.JPanel manageOrdersPanel1;
     private javax.swing.JLabel managePersonalInfo;
     private javax.swing.JPanel manageProfilePanel;
     private javax.swing.JPanel sideBar;
@@ -902,6 +987,14 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         changeBtnBgs("bookambulance");
         ManageAmbulanceService manageAmbSer= new ManageAmbulanceService(mainPanel, ecosystem, userAccount);
         mainPanel.add("manageAmbulance", manageAmbSer);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+     private void manageConsultationHistory() {
+        changeBtnBgs("consultationhistory");
+        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+        ManageUserConsultationHistoryPanel manageInformationPanel = new ManageUserConsultationHistoryPanel(mainPanel, ecosystem, user);
+        mainPanel.add("manageInformationJPanel", manageInformationPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
