@@ -8,13 +8,14 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.AmbulanceRole.AmbulanceWorkAreaJPanel;
+import userinterface.DeliveryMan.DeliveryManWorkAreaPanel;
 
 public class DeliveryManRole extends Role {
 
     @Override
 
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new AmbulanceWorkAreaJPanel(userProcessContainer, account, business);
+//        return new AmbulanceWorkAreaJPanel(userProcessContainer, account, business);
+        return new DeliveryManWorkAreaPanel(userProcessContainer, account, business);
     }
 }

@@ -7,10 +7,12 @@ package userinterface;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 import Business.DeliveryMan.DeliveryMan;
+import Business.FitnessCenter.FitnessCenter;
 import Business.Hospital.Hospital;
 
 import Business.Organization;
 import Business.Shop.Shop;
+import Business.Staff.FcStaff;
 import Business.Staff.Staff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
@@ -885,6 +887,12 @@ public class MainJFrame1 extends javax.swing.JFrame {
                 greetings = ((DeliveryMan) userAccount).getName();
             } else if (userAccount instanceof Staff) {
                 greetings = ((Staff) userAccount).getName();
+            } else if (userAccount instanceof Hospital) {
+                greetings = ((Hospital) userAccount).getHospitalName();
+            } else if (userAccount instanceof FcStaff) {
+                greetings = ((FcStaff) userAccount).getName();
+            } else if (userAccount instanceof FitnessCenter) {
+                greetings = ((FitnessCenter) userAccount).getFitnessCenterName();
             }
 //            else if (userAccount instanceof Restaurant) {
 //                greetings = ((Restaurant) userAccount).getName();

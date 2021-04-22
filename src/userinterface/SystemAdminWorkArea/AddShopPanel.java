@@ -79,7 +79,6 @@ public class AddShopPanel extends javax.swing.JPanel {
         txtSName = new javax.swing.JTextField();
         txtSEmail = new javax.swing.JTextField();
         lblUsername3 = new javax.swing.JLabel();
-        txtZipcode = new javax.swing.JFormattedTextField();
         lblPhoneNumber = new javax.swing.JLabel();
         lblPhoneNumber1 = new javax.swing.JLabel();
         txtSAddress = new javax.swing.JTextField();
@@ -89,6 +88,8 @@ public class AddShopPanel extends javax.swing.JPanel {
         errorContactNumber = new javax.swing.JLabel();
         jComboType = new javax.swing.JComboBox<>();
         lblUsername4 = new javax.swing.JLabel();
+        txtZipcode = new javax.swing.JTextField();
+        errorZipcode = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(249, 244, 244));
         setLayout(new java.awt.BorderLayout());
@@ -148,6 +149,7 @@ public class AddShopPanel extends javax.swing.JPanel {
 
         btnSubmit.setBackground(new java.awt.Color(3, 80, 111));
         btnSubmit.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
         btnSubmit.setText("Add Shop");
         btnSubmit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -161,24 +163,26 @@ public class AddShopPanel extends javax.swing.JPanel {
         lblUsername1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername1.setText("Username :");
 
-        txtSUserName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtSUserName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
 
         lblPassword1.setBackground(new java.awt.Color(249, 244, 244));
         lblPassword1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPassword1.setText("Password :");
 
+        txtSPassword.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+
         lblUsername2.setBackground(new java.awt.Color(249, 244, 244));
         lblUsername2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername2.setText("Full Name :");
 
-        txtSName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtSName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
         txtSName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSNameKeyPressed(evt);
             }
         });
 
-        txtSEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtSEmail.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
         txtSEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSEmailKeyPressed(evt);
@@ -189,18 +193,6 @@ public class AddShopPanel extends javax.swing.JPanel {
         lblUsername3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername3.setText("E-mail Id :");
 
-        txtZipcode.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        try {
-            txtZipcode.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtZipcode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtZipcodeActionPerformed(evt);
-            }
-        });
-
         lblPhoneNumber.setBackground(new java.awt.Color(249, 244, 244));
         lblPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPhoneNumber.setText("Contact Number :");
@@ -209,7 +201,7 @@ public class AddShopPanel extends javax.swing.JPanel {
         lblPhoneNumber1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPhoneNumber1.setText("Address :");
 
-        txtSAddress.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtSAddress.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
 
         lblPhoneNumber2.setBackground(new java.awt.Color(249, 244, 244));
         lblPhoneNumber2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -217,7 +209,7 @@ public class AddShopPanel extends javax.swing.JPanel {
 
         errorEmail.setForeground(new java.awt.Color(255, 0, 0));
 
-        txtContact.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtContact.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
         txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtContactKeyPressed(evt);
@@ -232,6 +224,15 @@ public class AddShopPanel extends javax.swing.JPanel {
         lblUsername4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername4.setText("Shop type:");
 
+        txtZipcode.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        txtZipcode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtZipcodeKeyPressed(evt);
+            }
+        });
+
+        errorZipcode.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout bottomPanelLayout = new javax.swing.GroupLayout(bottomPanel);
         bottomPanel.setLayout(bottomPanelLayout);
         bottomPanelLayout.setHorizontalGroup(
@@ -241,24 +242,6 @@ public class AddShopPanel extends javax.swing.JPanel {
                     .addGroup(bottomPanelLayout.createSequentialGroup()
                         .addGap(201, 201, 201)
                         .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(bottomPanelLayout.createSequentialGroup()
-                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtZipcode)
-                                        .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(lblPhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtContact, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(100, 100, 100)
-                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtSEmail)
-                                        .addComponent(lblUsername3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtSName)
-                                        .addComponent(lblUsername2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(bottomPanelLayout.createSequentialGroup()
                                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(txtSAddress, javax.swing.GroupLayout.Alignment.LEADING)
@@ -270,11 +253,28 @@ public class AddShopPanel extends javax.swing.JPanel {
                                     .addComponent(lblUsername4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblPassword1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtSPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                    .addComponent(jComboType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(jComboType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(bottomPanelLayout.createSequentialGroup()
+                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(errorZipcode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                    .addComponent(lblPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtContact)
+                                    .addComponent(errorContactNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                    .addComponent(txtZipcode, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(100, 100, 100)
+                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtSEmail)
+                                        .addComponent(lblUsername3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtSName)
+                                        .addComponent(lblUsername2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(bottomPanelLayout.createSequentialGroup()
                         .addGap(402, 402, 402)
                         .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,7 +307,9 @@ public class AddShopPanel extends javax.swing.JPanel {
                         .addComponent(lblUsername2)
                         .addGap(12, 12, 12)
                         .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(25, 25, 25)
+                .addGap(8, 8, 8)
+                .addComponent(errorZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
                         .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -338,7 +340,7 @@ public class AddShopPanel extends javax.swing.JPanel {
         txtSName.setText("");
         txtContact.setText("");
         txtSEmail.setText("");
-        txtZipcode.setText(null);
+        txtZipcode.setText("");
         jComboType.setSelectedItem("Select");
     }
 
@@ -489,10 +491,6 @@ public class AddShopPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtSEmailKeyPressed
 
-    private void txtZipcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZipcodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtZipcodeActionPerformed
-
     private void txtContactKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
@@ -517,6 +515,32 @@ public class AddShopPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtContactKeyPressed
 
+    private void txtZipcodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtZipcodeKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            txtZipcode.setEditable(true);
+        } else {
+
+            if (!Character.isDigit(c)) {
+                txtZipcode.setEditable(false);
+                errorZipcode.setText("Sorry! only numbers allowed");
+                //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
+            } else {
+
+                //                System.out.println(txtZipcode.getText() +" "+ txtZipcode.getText().length());
+                if (txtZipcode.getText().length() > 4) {
+                    //                errorContactNumber.setText("Enter 10 digit valid number");
+                    txtZipcode.setEditable(false);
+                } else {
+                    errorZipcode.setText("");
+                    txtZipcode.setEditable(true);
+                }
+            }
+        }
+    }//GEN-LAST:event_txtZipcodeKeyPressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
     private javax.swing.JButton btnBack;
@@ -525,6 +549,7 @@ public class AddShopPanel extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel errorContactNumber;
     private javax.swing.JLabel errorEmail;
+    private javax.swing.JLabel errorZipcode;
     private javax.swing.JComboBox<String> jComboType;
     private javax.swing.JLabel lblPassword1;
     private javax.swing.JLabel lblPhoneNumber;
@@ -543,7 +568,7 @@ public class AddShopPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSName;
     private javax.swing.JPasswordField txtSPassword;
     private javax.swing.JTextField txtSUserName;
-    private javax.swing.JFormattedTextField txtZipcode;
+    private javax.swing.JTextField txtZipcode;
     // End of variables declaration//GEN-END:variables
 
     public void populateComboBox() {

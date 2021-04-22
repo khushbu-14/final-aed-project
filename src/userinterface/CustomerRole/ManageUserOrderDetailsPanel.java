@@ -12,6 +12,7 @@ import Business.WorkQueue.OrderList;
 import constants.Utils;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -79,8 +80,7 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         assignDoctorPanel2 = new javax.swing.JPanel();
         lblShipmentType2 = new javax.swing.JLabel();
         lblShipmentTypeName2 = new javax.swing.JLabel();
-        lblAssignedFitness = new javax.swing.JLabel();
-        lblAssignedFitnessName = new javax.swing.JLabel();
+        btnPickupOrder = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(244, 249, 249));
 
@@ -325,31 +325,15 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         lblShipmentTypeName2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblShipmentTypeName2.setText("NA");
 
-        lblAssignedFitness.setBackground(new java.awt.Color(249, 244, 244));
-        lblAssignedFitness.setForeground(new java.awt.Color(102, 102, 102));
-        lblAssignedFitness.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAssignedFitness.setText("Assigned Fitness Session :");
-
-        lblAssignedFitnessName.setBackground(new java.awt.Color(249, 244, 244));
-        lblAssignedFitnessName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblAssignedFitnessName.setText("NA");
-
         javax.swing.GroupLayout assignDoctorPanel2Layout = new javax.swing.GroupLayout(assignDoctorPanel2);
         assignDoctorPanel2.setLayout(assignDoctorPanel2Layout);
         assignDoctorPanel2Layout.setHorizontalGroup(
             assignDoctorPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(assignDoctorPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(assignDoctorPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(assignDoctorPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(assignDoctorPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblShipmentTypeName2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblShipmentType2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, assignDoctorPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(assignDoctorPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAssignedFitnessName, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblAssignedFitness, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(lblShipmentTypeName2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblShipmentType2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         assignDoctorPanel2Layout.setVerticalGroup(
@@ -359,12 +343,19 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
                 .addComponent(lblShipmentType2)
                 .addGap(10, 10, 10)
                 .addComponent(lblShipmentTypeName2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lblAssignedFitness)
-                .addGap(10, 10, 10)
-                .addComponent(lblAssignedFitnessName, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
+
+        btnPickupOrder.setBackground(new java.awt.Color(255, 255, 255));
+        btnPickupOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnPickupOrder.setText("Pickup Order");
+        btnPickupOrder.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
+        btnPickupOrder.setBorderPainted(false);
+        btnPickupOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPickupOrderActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -390,12 +381,14 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(btnUpdateMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(btnPickupOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(45, 45, 45)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(lblTotalPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(assignDoctorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(assignDoctorPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblTotalPrice1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGap(24, 24, 24)))
                         .addGap(0, 551, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -409,17 +402,19 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(assignDoctorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)
                         .addComponent(lblTotalPrice1)
                         .addGap(15, 15, 15)
                         .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(15, 15, 15)
-                        .addComponent(btnUpdateMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnUpdateMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addComponent(btnPickupOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(40, 40, 40)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -444,15 +439,24 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMessageActionPerformed
 
+    private void btnPickupOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPickupOrderActionPerformed
+        // TODO add your handling code here:
+        orderListData.setStatus("COMPLETED");
+        lblOrderStatus.setText("COMPLETED");
+        orderListData.setResolveDate(new Date());
+        btnPickupOrder.setVisible(false);
+        
+        JOptionPane.showMessageDialog(null, "Hey thanks for shopping with us!");
+    }//GEN-LAST:event_btnPickupOrderActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel assignDoctorPanel2;
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnPickupOrder;
     private javax.swing.JButton btnUpdateMessage;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblAssignedFitness;
-    private javax.swing.JLabel lblAssignedFitnessName;
     private javax.swing.JLabel lblCustomerAddress1;
     private javax.swing.JLabel lblCustomerAddress3;
     private javax.swing.JLabel lblCustomerContact1;
@@ -525,9 +529,9 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
 
     private void renderData() {
 
-        lblAssignedFitness.setVisible(false);
-        lblAssignedFitnessName.setVisible(false);
-
+        btnPickupOrder.setVisible(false);
+//        lblAssignedFitness.setVisible(false);
+//        lblAssignedFitnessName.setVisible(false);
         lblShopName.setText(orderListData.getShop().getShopName());
         // lblDataOrderId.setText(orderListData.getOrderId());
         String deliveryManName = "NA";
@@ -557,12 +561,19 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         }
 
         switch (orderStatus) {
-            case "READY FOR PICKUP":
+
             case "SHOP REJECTED":
             case "STAFF REJECTED":
             case "DELIVERY MAN ASSIGNED":
+            case "COMPLETED":
                 btnUpdateMessage.setVisible(false);
                 txtMessage.setEditable(false);
+                break;
+
+            case "READY FOR PICKUP":
+                btnUpdateMessage.setVisible(false);
+                txtMessage.setEditable(false);
+                btnPickupOrder.setVisible(true);
                 break;
 
             default:

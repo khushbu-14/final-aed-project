@@ -16,7 +16,6 @@ import Business.Staff.SessionsMedStaffDirectory;
  *
  * @author kunal
  */
-
 public class User extends Business.UserAccount.UserAccount {
 
     private String name;
@@ -84,8 +83,8 @@ public class User extends Business.UserAccount.UserAccount {
     }
 
     public MedicalProfile getMedicalProfile() {
-        if(medicalProfile==null){
-        medicalProfile = new MedicalProfile();
+        if (medicalProfile == null) {
+            medicalProfile = new MedicalProfile();
         }
         return medicalProfile;
     }
@@ -93,15 +92,15 @@ public class User extends Business.UserAccount.UserAccount {
     public void setMedicalProfile(MedicalProfile medicalProfile) {
         this.medicalProfile = medicalProfile;
     }
-    
+
     @Override
     public String toString() {
         return name;
     }
 
     public SessionsMedStaffDirectory getConsultationSessions() {
-        if(consultationSessions==null){
-            consultationSessions= new SessionsMedStaffDirectory();
+        if (consultationSessions == null) {
+            consultationSessions = new SessionsMedStaffDirectory();
         }
         return consultationSessions;
     }
@@ -111,8 +110,8 @@ public class User extends Business.UserAccount.UserAccount {
     }
 
     public SessionsDirectory getSessionDirectory() {
-        if(sessionRegDirectory==null){
-            sessionRegDirectory= new SessionsDirectory();
+        if (sessionRegDirectory == null) {
+            sessionRegDirectory = new SessionsDirectory();
         }
         return sessionRegDirectory;
     }

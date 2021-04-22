@@ -156,6 +156,7 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
 
         return user;
     }
+
     private SessionsMedStaff getSelectedSession() {
         int selectedRowIndex = tblConsultation.getSelectedRow();
 
@@ -174,9 +175,9 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
         User user = getSelectedPatients();
         SessionsMedStaff sess = getSelectedSession();
 
-        if (user != null ) {
+        if (user != null) {
             //UserReport userReportPanel = new UserReport(mainWorkArea, userAccount, ecosystem, user);
-            ManageStaffConsultationDetailsPanel viewSessionDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user,sess,staff1 );
+            ManageStaffConsultationDetailsPanel viewSessionDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user, sess, staff1);
             mainWorkArea.add("userReportPanel", viewSessionDetailsPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
@@ -198,30 +199,30 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) tblConsultation.getModel();
 
         ArrayList<Hospital> hosp = ecosystem.getHospitalDirectory().getHospitalList();
-        for(Hospital h:hosp){
+        for (Hospital h : hosp) {
             ArrayList<HospitalDepartment> hd = h.getDepartmentDirectory().getDepartmentList();
-            for(HospitalDepartment d: hd){
+            for (HospitalDepartment d : hd) {
                 ArrayList<Staff> staff = d.getStaffDirectory().getStaffList();
                 staff1 = d.getStaffDirectory().getStaffByUserName(userAccount.getUsername());
-                for(Staff s:staff){
-                    if(s.getUsername().equalsIgnoreCase(userAccount.getUsername())){
-                            int count = 1;
-                            model.setRowCount(0);
+                for (Staff s : staff) {
+                    if (s.getUsername().equalsIgnoreCase(userAccount.getUsername())) {
+                        int count = 1;
+                        model.setRowCount(0);
 
-                            for (SessionsMedStaff req : s.getConsultationDirectory().getSession()) {
-                                user = ecosystem.getUserDirectory().getUserByUserName(req.getUserIdentifier());
-                                Object[] row = new Object[7];
-                                row[0] = "" + count++;
-                                row[1] = user;
-                                row[2] = req;
-                                row[3] = req.getSessionDate();
-                                row[4] = req.getStartTime();
-                                row[5] = req.getEndTime();
-                                row[6] = req.getStatus();
-                                model.addRow(row);
+                        for (SessionsMedStaff req : s.getConsultationDirectory().getSession()) {
+                            user = ecosystem.getUserDirectory().getUserByUserName(req.getUserIdentifier());
+                            Object[] row = new Object[7];
+                            row[0] = "" + count++;
+                            row[1] = user;
+                            row[2] = req;
+                            row[3] = req.getSessionDate();
+                            row[4] = req.getStartTime();
+                            row[5] = req.getEndTime();
+                            row[6] = req.getStatus();
+                            model.addRow(row);
 
-        }
-                        
+                        }
+
                     }
                 }
             }
