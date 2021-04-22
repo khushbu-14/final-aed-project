@@ -231,9 +231,11 @@ public class RegisterCartPanel extends javax.swing.JPanel {
                    utils.showErrorToast("Booking limit for "+ fcstaff.getName() +"exceded for the day");
                }else{
                    sess.setIsRemote(sessionType);
-                  // fcstaff.getSdir().addSession(sess);
+                   sess.setRegStatus("New");
+                   sess.setFinduser(user.getUsername());
+                  fcstaff.getRegisterSessDir().addSession(sess);
                    user.getSessionDirectory().addSession(sess);
-//                    staff.getSessionDirectory().removeSession(sess);
+//                   staff.getSessionDirectory().removeSession(sess);
                     JOptionPane.showMessageDialog(this, "Your Consultation with "+fcstaff.getName() +" booked successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
                     goToManageUserFitnessRegistrationPanel();

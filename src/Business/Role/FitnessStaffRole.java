@@ -14,7 +14,7 @@ package Business.Role;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
-import userinterface.FitnessDepartmentRole.FitnessStaffWorkAreaPanel;
+import userinterface.FitnessStaffRole.FitnessStaffWorkAreaPanel;
 
 public class FitnessStaffRole extends Role {
 

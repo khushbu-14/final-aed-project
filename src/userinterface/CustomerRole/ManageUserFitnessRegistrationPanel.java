@@ -61,20 +61,20 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
         tblSession.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         tblSession.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Sr No", "Session Name", "Date", "Start-time", "End-time", "Session Type"
+                "Sr No", "Session Name", "Date", "Start-time", "End-time", "Session Type", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, false, false, false, true
+                false, true, false, false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -193,13 +193,14 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
 
             for (Sessions s : sessList) {
 
-                Object[] row = new Object[6];
+                Object[] row = new Object[7];
                 row[0] = "" + count++;
                 row[1] = s;
                 row[2] = s.getSessionDate();
                 row[3] = s.getStartTime();
                 row[4] = s.getEndTime();
                 row[5] = s.getIsRemote();
+                row[6] = s.getRegStatus();
 
                 model.addRow(row);
             }

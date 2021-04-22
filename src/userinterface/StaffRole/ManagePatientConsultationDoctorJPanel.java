@@ -195,9 +195,7 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
 
     public void populateTable() {
         DefaultTableModel model = (DefaultTableModel) tblConsultation.getModel();
-        
-        
-        
+
         ArrayList<Hospital> hosp = ecosystem.getHospitalDirectory().getHospitalList();
         for(Hospital h:hosp){
             ArrayList<HospitalDepartment> hd = h.getDepartmentDirectory().getDepartmentList();
