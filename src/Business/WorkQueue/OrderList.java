@@ -68,7 +68,7 @@ public class OrderList extends WorkRequest {
     }
 
     public HashMap<String, Double> getTotalOrderDetails() {
-        
+
         HashMap<String, Double> total = new HashMap<>();
 
         double amount = 0;

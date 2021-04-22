@@ -61,7 +61,7 @@ public class DeliveryManWorkAreaPanel extends javax.swing.JPanel {
         sideBar.setBackground(new java.awt.Color(3, 80, 111));
 
         manageOrdersPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageOrdersPanel.setToolTipText("Manage Hospital");
+        manageOrdersPanel.setToolTipText("Manage Orders");
         manageOrdersPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageOrdersPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -75,7 +75,7 @@ public class DeliveryManWorkAreaPanel extends javax.swing.JPanel {
         manageOrders.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageOrders.setForeground(new java.awt.Color(255, 255, 255));
         manageOrders.setText("Manage Orders");
-        manageOrders.setToolTipText("Dashboard");
+        manageOrders.setToolTipText("Manage Orders");
         manageOrders.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageOrdersMousePressed(evt);
@@ -123,7 +123,7 @@ public class DeliveryManWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageProfilePanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageProfilePanel.setToolTipText("Manage Hospital");
+        manageProfilePanel.setToolTipText("Profile");
         manageProfilePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageProfilePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -137,7 +137,7 @@ public class DeliveryManWorkAreaPanel extends javax.swing.JPanel {
         manageProfile.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageProfile.setForeground(new java.awt.Color(255, 255, 255));
         manageProfile.setText("Profile");
-        manageProfile.setToolTipText("Dashboard");
+        manageProfile.setToolTipText("Profile");
         manageProfile.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageProfileMousePressed(evt);
@@ -145,6 +145,7 @@ public class DeliveryManWorkAreaPanel extends javax.swing.JPanel {
         });
 
         border2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        border2.setToolTipText("Profile");
         border2.setPreferredSize(new java.awt.Dimension(2, 1));
 
         javax.swing.GroupLayout border2Layout = new javax.swing.GroupLayout(border2);
@@ -251,7 +252,6 @@ public class DeliveryManWorkAreaPanel extends javax.swing.JPanel {
         DeliveryManProfile deliveryManProfile = new DeliveryManProfile(ecosystem, dlvm);
 
         // ManageProductPanel prodcutPanel = new ManageProductPanel(mainPanel, ecosystem, userAccount);
-        
         mainPanel.add("deliveryManProfile", deliveryManProfile);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
@@ -276,7 +276,7 @@ public class DeliveryManWorkAreaPanel extends javax.swing.JPanel {
         manageProfilePanel.setBackground(notActiveColor);
         manageOrdersPanel.setBackground(notActiveColor);
 
-        manageProfile.setBackground(notActiveColor);
+        manageProfile.setBackground(nonActiveTxtColor);
         manageOrders.setForeground(nonActiveTxtColor);
 
         if ("profile".equalsIgnoreCase(type)) {

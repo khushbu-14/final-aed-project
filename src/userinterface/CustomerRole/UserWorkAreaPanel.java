@@ -738,7 +738,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
     private void manageOrderProducts() {
         changeBtnBgs("order-products");
 
-        OrderMedicinePanel orderMedicinePanel = new OrderMedicinePanel(mainPanel, ecosystem, userAccount);
+        OrderMedicinePanel orderMedicinePanel = new OrderMedicinePanel(mainPanel, ecosystem, userAccount, "USER");
 
         mainPanel.add("manageHospitalsJPanel", orderMedicinePanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
