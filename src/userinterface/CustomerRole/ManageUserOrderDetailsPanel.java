@@ -154,6 +154,11 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         });
 
         txtMessage.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        txtMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMessageActionPerformed(evt);
+            }
+        });
 
         jPanel3.setBackground(new java.awt.Color(221, 248, 249));
 
@@ -381,9 +386,6 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
                                 .addGap(45, 45, 45)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(45, 45, 45)
-                                        .addComponent(lblTotalPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -391,7 +393,9 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
                                             .addComponent(txtMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(45, 45, 45)
-                                        .addComponent(assignDoctorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblTotalPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(assignDoctorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(0, 551, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -436,9 +440,11 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnUpdateMessageActionPerformed
 
+    private void txtMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMessageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMessageActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel assignDoctorPanel;
-    private javax.swing.JPanel assignDoctorPanel1;
     private javax.swing.JPanel assignDoctorPanel2;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnUpdateMessage;
@@ -447,10 +453,6 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAssignedFitness;
     private javax.swing.JLabel lblAssignedFitnessName;
-    private javax.swing.JLabel lblAssignedStaff;
-    private javax.swing.JLabel lblAssignedStaff1;
-    private javax.swing.JLabel lblAssignedStaffName;
-    private javax.swing.JLabel lblAssignedStaffName1;
     private javax.swing.JLabel lblCustomerAddress1;
     private javax.swing.JLabel lblCustomerAddress3;
     private javax.swing.JLabel lblCustomerContact1;
@@ -465,11 +467,7 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblRestaurantName5;
     private javax.swing.JLabel lblRestaurantName6;
     private javax.swing.JLabel lblRestaurantNameLable1;
-    private javax.swing.JLabel lblShipmentType;
-    private javax.swing.JLabel lblShipmentType1;
     private javax.swing.JLabel lblShipmentType2;
-    private javax.swing.JLabel lblShipmentTypeName;
-    private javax.swing.JLabel lblShipmentTypeName1;
     private javax.swing.JLabel lblShipmentTypeName2;
     private javax.swing.JLabel lblShopName;
     private javax.swing.JLabel lblTotalPrice;

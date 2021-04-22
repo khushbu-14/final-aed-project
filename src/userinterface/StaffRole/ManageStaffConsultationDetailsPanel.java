@@ -13,6 +13,7 @@ import Business.Hospital.Department.HospitalDepartment;
 import Business.Hospital.Department.HospitalDepartmentDirectory;
 import Business.Hospital.Hospital;
 import Business.Staff.SessionsMedStaff;
+import Business.Staff.Staff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.OrderItem;
@@ -20,8 +21,14 @@ import Business.WorkQueue.OrderList;
 import constants.Utils;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -42,16 +49,33 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
     Utils utils;
     User user;
     SessionsMedStaff sess;
-    public ManageStaffConsultationDetailsPanel(JPanel mainWorkArea, UserAccount userAccount, EcoSystem ecosystem,User user,SessionsMedStaff sess) {
+    Date date;
+    Date date1;
+    Staff staff;
+    static LocalDateTime now;
+    DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    public ManageStaffConsultationDetailsPanel(JPanel mainWorkArea, UserAccount userAccount, EcoSystem ecosystem,User user,SessionsMedStaff sess,Staff staff) {
         this.mainWorkArea = mainWorkArea;
         this.userAccount = userAccount;
         this.ecosystem = ecosystem;
         this.user =user;
+        this.staff = staff;
         this.sess = sess;
         utils = new Utils();
         initComponents();
-        renderData();
+        
 //        populateTable();
+        changeBtns();
+        date = new Date();
+        try {
+            //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
+            date = formatter.parse(formatter.format(date));
+        } catch (ParseException ex) {
+            Logger.getLogger(AddHospStaffSessionsPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        now = LocalDateTime.now();
+        dateCheck();
+        renderData();
     }
 
     /**
@@ -382,11 +406,13 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnViewPatientDetailsActionPerformed
 
     private void btnRejectOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectOrderActionPerformed
-        orderListData.setStatus("STAFF REJECTED");
-        orderListData.setResolveDate(new Date());
+        
+        staff.getSessionDirectory().addSession(sess);
+        sess.setStatus("Cancelled");
         changeBtns();
-        JOptionPane.showMessageDialog(null, "Order rejected successfully!");
-        lblSessionStatus.setText("STAFF REJECTED");
+        renderData();
+        JOptionPane.showMessageDialog(null, "Appointmnet Cancelled successfully!");
+        
     }//GEN-LAST:event_btnRejectOrderActionPerformed
 
     private void btnAssignFitnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignFitnessActionPerformed
@@ -399,6 +425,10 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
 
     private void btnAcceptOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrder1ActionPerformed
         // TODO add your handling code here:
+        ConsultationFormDoctor consult = new ConsultationFormDoctor(mainWorkArea, ecosystem, user, sess, staff);
+        mainWorkArea.add("doctorAddConsultForm", consult);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
     }//GEN-LAST:event_btnAcceptOrder1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -437,7 +467,7 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
             row[1] = cf.getDiseaseName();
             row[2] = cf.getRange();
             row[3] = cf.getDays();
-            row[4] = cf.getDocsComment();
+            row[4] = cf.getMessage();
 
             model.addRow(row);
         }  
@@ -447,8 +477,7 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
         mainWorkArea.remove(this);
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
-
-        ManageDirectConsultationsHistory manageDirectConsultationsHistory = (ManageDirectConsultationsHistory) component;
+        ManagePatientConsultationDoctorJPanel manageDirectConsultationsHistory = (ManagePatientConsultationDoctorJPanel) component;
         manageDirectConsultationsHistory.populateTable();
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
@@ -467,15 +496,38 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
     }
 
     private void changeBtns() {
-        String status = orderListData.getStatus().toUpperCase();
+        String status = sess.getStatus();
 
-        if (status.equalsIgnoreCase("STAFF REJECTED") || status.equalsIgnoreCase("STAFF APPROVED")) {
-            btnViewPatientDetails.setVisible(false);
-            btnRejectOrder.setVisible(false);
+        if (status.equalsIgnoreCase("cancelled") || status.equalsIgnoreCase("completed") || status.equalsIgnoreCase("unattended")) {
+            btnAcceptOrder1.setEnabled(false);
+            btnRejectOrder.setEnabled(false);
+            btnAssignFitness.setEnabled(false);
+            
 
         } else {
-            btnViewPatientDetails.setVisible(true);
-            btnRejectOrder.setVisible(true);
+            btnAcceptOrder1.setEnabled(true);
+            btnRejectOrder.setEnabled(true);
+            btnAssignFitness.setEnabled(true);
         }
+    }
+    private void dateCheck(){
+           String st1 = sess.getSessionDate();
+        try {
+             date1 = (Date)formatter.parse(st1);
+        } catch (ParseException ex) {
+            Logger.getLogger(ManageStaffConsultationDetailsPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if(sess.getStatus().equalsIgnoreCase("new")){
+             if(date1.before(date)){
+            sess.setStatus("Unattended");  
+        }else{
+                String startTime = sess.getStartTime();
+                Boolean f = utils.testTime(startTime.split(":")[0]);
+                if(f){
+                sess.setStatus("Unattended");
+                }
+        }
+        }
+       
     }
 }

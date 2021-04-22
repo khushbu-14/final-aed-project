@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.FitnessDepartmentRole;
+package userinterface.FitnessStaffRole;
 
+import userinterface.FitnessStaffRole.AddSessionsPanel;
 import Business.EcoSystem;
 import Business.FitnessCenter.Department.FitnessCenterDepartment;
 import Business.FitnessCenter.Department.FitnessCenterDepartmentDirectory;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import userinterface.FitnessStaffRole.ManageUserFitRegRequestPanel;
 
 /**
  *
@@ -60,6 +62,7 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         btnAddUser = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
+        btnManageUserRegRequests = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(244, 249, 249));
 
@@ -136,7 +139,14 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
 
         lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblTitle.setText(" Manage Session");
+        lblTitle.setText(" Manage Sessions");
+
+        btnManageUserRegRequests.setText("Manage Requests");
+        btnManageUserRegRequests.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageUserRegRequestsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -144,16 +154,18 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 873, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(43, 43, 43)
+                            .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(41, 41, 41)
+                            .addComponent(btnAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 873, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnManageUserRegRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -167,7 +179,9 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
                     .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(452, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(btnManageUserRegRequests, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(369, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -194,9 +208,7 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
 
         if (u != null) {
             AddSessionsPanel addSession = new AddSessionsPanel(userProcessContainer, ecosystem, u, true, userAccount);
-
-            userProcessContainer.add("AddUserPanel", addSession);
-
+            userProcessContainer.add("AddSessionPanel", addSession);
             CardLayout layout = (CardLayout) userProcessContainer.getLayout();
             layout.next(userProcessContainer);
         }
@@ -271,17 +283,24 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         // logic to go to next screen
-        AddSessionsPanel addStaff = new AddSessionsPanel(userProcessContainer, ecosystem, null, false,userAccount);
-
-        userProcessContainer.add("AddShopPanel", addStaff);
-
+        AddSessionsPanel addSessions = new AddSessionsPanel(userProcessContainer, ecosystem, null, false,userAccount);
+        userProcessContainer.add("AddSession", addSessions);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_btnAddUserActionPerformed
 
+    private void btnManageUserRegRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUserRegRequestsActionPerformed
+        // TODO add your handling code here:
+        ManageUserFitRegRequestPanel mur = new ManageUserFitRegRequestPanel(userProcessContainer, ecosystem,userAccount);
+        userProcessContainer.add("ManageUserReuestPanel", mur);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer); 
+    }//GEN-LAST:event_btnManageUserRegRequestsActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnManageUserRegRequests;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblTitle;
