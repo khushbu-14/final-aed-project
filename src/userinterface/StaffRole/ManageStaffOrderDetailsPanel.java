@@ -489,7 +489,7 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
         mainWorkArea.add("userReport", userReport);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
-        
+
     }//GEN-LAST:event_btnViewPatientDetailsActionPerformed
 
     private void btnRejectOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectOrderActionPerformed
@@ -506,6 +506,13 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
 //        mainWorkArea.add("AssignStaffPanel", assignStaffPanel);
 //        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
 //        layout.next(mainWorkArea);
+
+        User user = orderListData.getUser();
+        ManageUserFitnessRegistrationPanel orderMedicinePanel = new ManageUserFitnessRegistrationPanel(mainWorkArea, ecosystem, user, "DOCTOR");
+
+        mainWorkArea.add("manageHospitalsJPanel", orderMedicinePanel);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
     }//GEN-LAST:event_btnAssignFitnessActionPerformed
 
     private void btnAcceptOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrder1ActionPerformed

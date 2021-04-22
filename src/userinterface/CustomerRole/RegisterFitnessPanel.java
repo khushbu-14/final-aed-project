@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.FitnessCenter.Department.FitnessCenterDepartment;
 import Business.FitnessCenter.FitnessCenter;
 import Business.Staff.FcStaff;
+import Business.User.User;
 import Business.UserAccount.UserAccount;
 import constants.Utils;
 import java.awt.CardLayout;
@@ -31,16 +32,20 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
     private JPanel mainWorkArea;
     private EcoSystem ecosystem;
     UserAccount userAccount;
+    private User user;
     Utils utils;
+    String bookedBy;
 
-    public RegisterFitnessPanel(JPanel mainPanel, EcoSystem ecosystem, UserAccount userAccount) {
+    public RegisterFitnessPanel(JPanel mainPanel, EcoSystem ecosystem, User user, String bookedBy) {
         this.mainWorkArea = mainPanel;
         this.ecosystem = ecosystem;
-        this.userAccount = userAccount;
+        this.bookedBy = bookedBy;
+//        this.userAccount = userAccount;
+//        this.user = (User) userAccount;
+        this.user = user;
         utils = new Utils();
         initComponents();
         populateData();
-        
     }
 
     /**
@@ -204,7 +209,7 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
     }
 
     private void comboBoxDeliveryManActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxDeliveryManActionPerformed
- 
+
     }//GEN-LAST:event_comboBoxDeliveryManActionPerformed
 
     private void btnSelectShopTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectShopTypeActionPerformed
@@ -222,7 +227,8 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
 
         FcStaff s = getSelectedFcStaff();
         if (s != null) {
-            RegisterCartPanel orderMedicineCartPanel = new RegisterCartPanel(mainWorkArea, ecosystem, s, userAccount);
+//            RegisterCartPanel orderMedicineCartPanel = new RegisterCartPanel(mainWorkArea, ecosystem, s, userAccount);
+            RegisterCartPanel orderMedicineCartPanel = new RegisterCartPanel(mainWorkArea, ecosystem, s, user, bookedBy);
             mainWorkArea.add("RegisterFitnessCartPanel", orderMedicineCartPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
@@ -241,32 +247,34 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void populateData() {
-            ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
-            ArrayList<FitnessCenterDepartment> departmentList = new ArrayList<>();
-            for(FitnessCenter fc: fitnessCenterList){
-                for(FitnessCenterDepartment fcd: fc.getFcdepartmentDirectory().getDepartmentList()){
-                    departmentList.add(fcd);
-                }
+        ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
+        ArrayList<FitnessCenterDepartment> departmentList = new ArrayList<>();
+        for (FitnessCenter fc : fitnessCenterList) {
+            for (FitnessCenterDepartment fcd : fc.getFcdepartmentDirectory().getDepartmentList()) {
+                departmentList.add(fcd);
             }
-            Set<FitnessCenterDepartment> departmentSet = convertToSet(departmentList);
-            for(FitnessCenterDepartment fitdep: departmentSet)
-                 comboBoxDeliveryMan.addItem(fitdep);
-                 
-        
+        }
+        Set<FitnessCenterDepartment> departmentSet = convertToSet(departmentList);
+        for (FitnessCenterDepartment fitdep : departmentSet) {
+            comboBoxDeliveryMan.addItem(fitdep);
+        }
+
     }
 
-    public static <T> Set<T> convertToSet(List<T> list){
-		// create an empty set
-		Set<T> set = new HashSet<>();
-		// Add each element of list into the set
-		for (T t : list)
-			set.add(t);
-		// return the set
-		return set;
-	}
+    public static <T> Set<T> convertToSet(List<T> list) {
+        // create an empty set
+        Set<T> set = new HashSet<>();
+        // Add each element of list into the set
+        for (T t : list) {
+            set.add(t);
+        }
+        // return the set
+        return set;
+    }
+
     private void populateTable(String type) {
-        
-        ArrayList<FitnessCenter> fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();    
+
+        ArrayList<FitnessCenter> fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
         DefaultTableModel model = (DefaultTableModel) tblShopList.getModel();
         model.setRowCount(0);
 
@@ -274,20 +282,20 @@ public class RegisterFitnessPanel extends javax.swing.JPanel {
             int count = 1;
             for (FitnessCenter a : fc) {
                 ArrayList<FitnessCenterDepartment> fcd = a.getFcdepartmentDirectory().getDepartmentList();
-                for(FitnessCenterDepartment s : fcd){
-                if (s.getDepartmentName().equalsIgnoreCase(type)) {
-                    for(FcStaff sd:s.getStaffDirectory().getStaffList()){
-                    Object[] row = new Object[4];
-                    row[0] = "" + count++;
-                    row[1] = sd;
-                    row[2] = sd.getContact();
-                    row[3] = sd.getEmail();
-                    //row[4] = sd.getContact();
-                    model.addRow(row);
+                for (FitnessCenterDepartment s : fcd) {
+                    if (s.getDepartmentName().equalsIgnoreCase(type)) {
+                        for (FcStaff sd : s.getStaffDirectory().getStaffList()) {
+                            Object[] row = new Object[4];
+                            row[0] = "" + count++;
+                            row[1] = sd;
+                            row[2] = sd.getContact();
+                            row[3] = sd.getEmail();
+                            //row[4] = sd.getContact();
+                            model.addRow(row);
+                        }
                     }
                 }
             }
         }
-    }
     }
 }
