@@ -75,7 +75,7 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Sr No", "Name", "Session name", "Date", "Start Time", "End Time", "is it remote", "location"
+                "Sr No", "Name", "Session name", "Date", "Start Time", "End Time", "Type", "location"
             }
         ) {
             Class[] types = new Class [] {
