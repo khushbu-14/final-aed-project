@@ -9,6 +9,7 @@ import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.OrderItem;
 import Business.WorkQueue.OrderList;
 import Business.WorkQueue.WorkRequest;
 import java.util.HashMap;
@@ -101,7 +102,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblIconCourse4 = new javax.swing.JLabel();
         lblAmount2 = new javax.swing.JLabel();
         boxCountCourse5 = new javax.swing.JPanel();
-        lblappointments = new javax.swing.JLabel();
+        lblAppointments = new javax.swing.JLabel();
         lblIconCourse5 = new javax.swing.JLabel();
         lblShops1 = new javax.swing.JLabel();
         boxStudentsCount4 = new javax.swing.JPanel();
@@ -109,7 +110,7 @@ public class UserDashboard extends javax.swing.JPanel {
         lblIconStudent4 = new javax.swing.JLabel();
         lblUsers1 = new javax.swing.JLabel();
         boxStudentsCount5 = new javax.swing.JPanel();
-        lblOrders2 = new javax.swing.JLabel();
+        lblSessions = new javax.swing.JLabel();
         lblIconStudent5 = new javax.swing.JLabel();
         lblOrders3 = new javax.swing.JLabel();
 
@@ -180,7 +181,7 @@ public class UserDashboard extends javax.swing.JPanel {
                 .addComponent(lblIconStudent2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(boxStudentsCount2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUsers, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblUsers, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                     .addComponent(lblRejectedORders, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -563,7 +564,7 @@ public class UserDashboard extends javax.swing.JPanel {
                 .addComponent(lblIconCourse3, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(boxCountCourse3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblQty, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                    .addComponent(lblQty, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                     .addComponent(lblQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -663,11 +664,11 @@ public class UserDashboard extends javax.swing.JPanel {
         boxCountCourse5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
         boxCountCourse5.setPreferredSize(new java.awt.Dimension(209, 98));
 
-        lblappointments.setBackground(new java.awt.Color(255, 255, 255));
-        lblappointments.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        lblappointments.setForeground(new java.awt.Color(3, 80, 111));
-        lblappointments.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblappointments.setText("19");
+        lblAppointments.setBackground(new java.awt.Color(255, 255, 255));
+        lblAppointments.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        lblAppointments.setForeground(new java.awt.Color(3, 80, 111));
+        lblAppointments.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAppointments.setText("19");
 
         lblIconCourse5.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse5.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -687,14 +688,14 @@ public class UserDashboard extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(boxCountCourse5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblShops1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                    .addComponent(lblappointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         boxCountCourse5Layout.setVerticalGroup(
             boxCountCourse5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(boxCountCourse5Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lblappointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(12, 12, 12)
                 .addComponent(lblShops1)
                 .addGap(20, 20, 20))
@@ -726,7 +727,7 @@ public class UserDashboard extends javax.swing.JPanel {
                 .addComponent(lblIconStudent4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(boxStudentsCount4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUsers1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblUsers1, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
                     .addComponent(lblConsultations, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -744,10 +745,10 @@ public class UserDashboard extends javax.swing.JPanel {
         boxStudentsCount5.setBackground(new java.awt.Color(255, 255, 255));
         boxStudentsCount5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 4, true));
 
-        lblOrders2.setBackground(new java.awt.Color(0, 153, 255));
-        lblOrders2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        lblOrders2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblOrders2.setText("19");
+        lblSessions.setBackground(new java.awt.Color(0, 153, 255));
+        lblSessions.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        lblSessions.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSessions.setText("19");
 
         lblIconStudent5.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent5.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
@@ -767,14 +768,14 @@ public class UserDashboard extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(boxStudentsCount5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblOrders3, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                    .addComponent(lblOrders2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblSessions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         boxStudentsCount5Layout.setVerticalGroup(
             boxStudentsCount5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(boxStudentsCount5Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lblOrders2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSessions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(12, 12, 12)
                 .addComponent(lblOrders3)
                 .addGap(20, 20, 20))
@@ -799,7 +800,7 @@ public class UserDashboard extends javax.swing.JPanel {
                                 .addGap(30, 30, 30)
                                 .addComponent(boxCountCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(boxStudentsCount2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(boxStudentsCount2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(59, 59, 59))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -808,15 +809,22 @@ public class UserDashboard extends javax.swing.JPanel {
                                 .addGap(30, 30, 30)
                                 .addComponent(boxCountCourse5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(boxStudentsCount4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(boxStudentsCount4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(boxStudentsCount3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
                                 .addComponent(boxCountCourse4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(30, 30, 30)
-                                .addComponent(boxCountCourse3, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(boxCountCourse3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(60, 60, 60))))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {boxCountCourse, boxStudentsCount, boxStudentsCount2});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {boxCountCourse3, boxCountCourse4, boxStudentsCount3});
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {boxCountCourse5, boxStudentsCount4, boxStudentsCount5});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
@@ -835,7 +843,7 @@ public class UserDashboard extends javax.swing.JPanel {
                     .addComponent(boxCountCourse5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(boxStudentsCount5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(boxStudentsCount4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(panelTopStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelTopStudents1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -868,6 +876,7 @@ public class UserDashboard extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblAmount;
     private javax.swing.JLabel lblAmount2;
+    private javax.swing.JLabel lblAppointments;
     private javax.swing.JLabel lblCompletedOrders;
     private javax.swing.JLabel lblConsultations;
     private javax.swing.JLabel lblFitnessCentre1;
@@ -882,12 +891,12 @@ public class UserDashboard extends javax.swing.JPanel {
     private javax.swing.JLabel lblIconStudent5;
     private javax.swing.JLabel lblOrders;
     private javax.swing.JLabel lblOrders1;
-    private javax.swing.JLabel lblOrders2;
     private javax.swing.JLabel lblOrders3;
     private javax.swing.JLabel lblProcessing;
     private javax.swing.JLabel lblQty;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblRejectedORders;
+    private javax.swing.JLabel lblSessions;
     private javax.swing.JLabel lblShops;
     private javax.swing.JLabel lblShops1;
     private javax.swing.JLabel lblTSGPA1;
@@ -898,7 +907,6 @@ public class UserDashboard extends javax.swing.JPanel {
     private javax.swing.JLabel lblTSName3;
     private javax.swing.JLabel lblUsers;
     private javax.swing.JLabel lblUsers1;
-    private javax.swing.JLabel lblappointments;
     private javax.swing.JPanel panelTopStudents;
     private javax.swing.JPanel panelTopStudents1;
     private javax.swing.JPanel tblHeader1;
@@ -918,19 +926,57 @@ public class UserDashboard extends javax.swing.JPanel {
         workRequestList = ecosystem.getWorkQueue().getUserRequestList(userAccount, "USER-ORDER");
 
         for (WorkRequest wr : workRequestList) {
+
             OrderList orderListData = (OrderList) wr;
-
-            HashMap<String, Double> total = orderListData.getTotalOrderDetails();
             totalOrder++;
+//            HashMap<String, Double> total = orderListData.getTotalOrderDetails();
+            for (OrderItem oi : orderListData.getOrderList()) {
+                int qty = oi.getQuantity();
+                totalAmount += oi.getProduct().getPrice() * qty;
+                totalQty += qty;
+            }
 
-            totalAmount += total.get("AMOUNT");
-            totalQty += total.get("QUANTITY");
-
-            switch (orderListData.getStatus()) {
-                case "":
-                    break;
+            String status = orderListData.getStatus();
+            if (status.equals("COMPLETED")) {
+                completedOrder++;
+            } else if (status.equals("SHOP REJECTED") || status.equals("STAFF REJECTED")) {
+                rejectedOrder++;
+            } else {
+                otherOrders++;
             }
         }
+
+        lblOrders.setText(String.valueOf(totalOrder));
+        lblCompletedOrders.setText(String.valueOf(completedOrder));
+        lblAmount.setText(String.valueOf(totalAmount));
+        lblRejectedORders.setText(String.valueOf(rejectedOrder));
+        lblProcessing.setText(String.valueOf(otherOrders));
+        lblQuantity.setText(String.valueOf(totalQty));
+
+        int consultation = 0;
+
+        if (user.getConsultationSessions() != null) {
+            consultation = user.getConsultationSessions().getSession().size();
+        }
+
+        lblConsultations.setText(String.valueOf(consultation));
+
+        int appointments = 0;
+
+        if (ecosystem.getWorkQueue() != null
+                && ecosystem.getWorkQueue().getUserRequestList(userAccount, "USER-ORDER") != null) {
+            appointments = ecosystem.getWorkQueue().getUserRequestList(userAccount, "USER-ORDER").size();
+        }
+
+        lblAppointments.setText(String.valueOf(appointments));
+
+        int sessions = 0;
+
+        if (user.getSessionDirectory() != null) {
+            sessions = user.getSessionDirectory().getSession().size();
+        }
+
+        lblSessions.setText(String.valueOf(sessions));
 
     }
 }
