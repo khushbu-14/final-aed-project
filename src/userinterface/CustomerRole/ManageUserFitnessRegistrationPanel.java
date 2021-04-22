@@ -212,12 +212,7 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
                 row[3] = s.getStartTime();
                 row[4] = s.getEndTime();
                 row[5] = s.getIsRemote();
-<<<<<<< HEAD
                 row[6] = s.getRegStatus();
-
-=======
-                
->>>>>>> origin
                 model.addRow(row);
             }
         }
