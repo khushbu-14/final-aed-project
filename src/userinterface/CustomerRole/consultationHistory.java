@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.StaffRole;
+package userinterface.CustomerRole;
 
+import userinterface.StaffRole.*;
 import userinterface.ShopsRole.*;
 import userinterface.CustomerRole.*;
 import Business.EcoSystem;
@@ -37,7 +38,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author khushbu
  */
-public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
+public class consultationHistory extends javax.swing.JPanel {
 
     /**
      * Creates new form ManageOrderDetailsPanel
@@ -47,25 +48,18 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
     EcoSystem ecosystem;
     OrderList orderListData;
     Utils utils;
-    User user;
     SessionsMedStaff sess;
     Date date;
     Date date1;
-    Staff staff;
     static LocalDateTime now;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-    public ManageStaffConsultationDetailsPanel(JPanel mainWorkArea, UserAccount userAccount, EcoSystem ecosystem,User user,SessionsMedStaff sess,Staff staff) {
+   public consultationHistory(JPanel mainWorkArea, UserAccount userAccount, EcoSystem ecosystem,SessionsMedStaff sess) {
         this.mainWorkArea = mainWorkArea;
         this.userAccount = userAccount;
         this.ecosystem = ecosystem;
-        this.user =user;
-        this.staff = staff;
-        this.sess = sess;
+        this.sess =sess;
         utils = new Utils();
         initComponents();
-        
-//        populateTable();
-       
         date = new Date();
         try {
             //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
@@ -76,7 +70,7 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
         now = LocalDateTime.now();
         dateCheck();
         renderData();
-        changeBtns();
+        txtPrescription.setEnabled(false);
     }
 
     /**
@@ -88,8 +82,6 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblCart = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
         lblPageTitle = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -106,42 +98,26 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
         lblName1 = new javax.swing.JLabel();
         lblSessionStatus = new javax.swing.JLabel();
         lblCustomerAddress1 = new javax.swing.JLabel();
-        btnViewPatientDetails = new javax.swing.JButton();
-        btnRejectOrder = new javax.swing.JButton();
-        btnAssignFitness = new javax.swing.JButton();
-        btnAcceptOrder1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lblCustomerContact2 = new javax.swing.JLabel();
+        lblDoctorsName = new javax.swing.JLabel();
+        lblDesignation = new javax.swing.JLabel();
+        lblName2 = new javax.swing.JLabel();
+        lblPrescriptionDate = new javax.swing.JLabel();
+        lblCustomerAddress2 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        lblCustomerContact3 = new javax.swing.JLabel();
+        lblDocsComment = new javax.swing.JLabel();
+        lblNextConsultationDate = new javax.swing.JLabel();
+        lblName3 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        lblCustomerContact4 = new javax.swing.JLabel();
+        lblprescYesorNo = new javax.swing.JLabel();
+        lblName4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtPrescription = new javax.swing.JTextArea();
 
         setBackground(new java.awt.Color(244, 249, 249));
-
-        tblCart.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        tblCart.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Sr No.", "Disease Name", "Severity / Range", "Number of Days", "Comment"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tblCart.setSelectionBackground(new java.awt.Color(0, 102, 204));
-        jScrollPane2.setViewportView(tblCart);
 
         btnBack.setBackground(new java.awt.Color(255, 255, 255));
         btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
@@ -290,51 +266,161 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        btnViewPatientDetails.setBackground(new java.awt.Color(255, 255, 255));
-        btnViewPatientDetails.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/view-details.png"))); // NOI18N
-        btnViewPatientDetails.setText("View Patient Details");
-        btnViewPatientDetails.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
-        btnViewPatientDetails.setBorderPainted(false);
-        btnViewPatientDetails.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewPatientDetailsActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(221, 248, 249));
 
-        btnRejectOrder.setBackground(new java.awt.Color(255, 204, 204));
-        btnRejectOrder.setForeground(new java.awt.Color(102, 102, 102));
-        btnRejectOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/delete-1.png"))); // NOI18N
-        btnRejectOrder.setText("Cancel");
-        btnRejectOrder.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 204, 204), 1, true));
-        btnRejectOrder.setBorderPainted(false);
-        btnRejectOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRejectOrderActionPerformed(evt);
-            }
-        });
+        lblCustomerContact2.setBackground(new java.awt.Color(249, 244, 244));
+        lblCustomerContact2.setForeground(new java.awt.Color(102, 102, 102));
+        lblCustomerContact2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCustomerContact2.setText("Designation:");
 
-        btnAssignFitness.setBackground(new java.awt.Color(3, 80, 111));
-        btnAssignFitness.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
-        btnAssignFitness.setForeground(new java.awt.Color(255, 255, 255));
-        btnAssignFitness.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnAssignFitness.setText("Assign Fitness Centre");
-        btnAssignFitness.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        btnAssignFitness.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAssignFitnessActionPerformed(evt);
-            }
-        });
+        lblDoctorsName.setBackground(new java.awt.Color(249, 244, 244));
+        lblDoctorsName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDoctorsName.setText("NA");
 
-        btnAcceptOrder1.setBackground(new java.awt.Color(255, 255, 255));
-        btnAcceptOrder1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnAcceptOrder1.setText("Process");
-        btnAcceptOrder1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
-        btnAcceptOrder1.setBorderPainted(false);
-        btnAcceptOrder1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAcceptOrder1ActionPerformed(evt);
-            }
-        });
+        lblDesignation.setBackground(new java.awt.Color(249, 244, 244));
+        lblDesignation.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDesignation.setText("NA");
+
+        lblName2.setBackground(new java.awt.Color(249, 244, 244));
+        lblName2.setForeground(new java.awt.Color(102, 102, 102));
+        lblName2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblName2.setText("Doctor's Name:");
+
+        lblPrescriptionDate.setBackground(new java.awt.Color(249, 244, 244));
+        lblPrescriptionDate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblPrescriptionDate.setText("NA");
+
+        lblCustomerAddress2.setBackground(new java.awt.Color(249, 244, 244));
+        lblCustomerAddress2.setForeground(new java.awt.Color(102, 102, 102));
+        lblCustomerAddress2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCustomerAddress2.setText("Prescription Date:");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblDoctorsName, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(lblPrescriptionDate, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(lblCustomerAddress2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblDesignation, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(lblCustomerContact2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblName2)
+                .addGap(10, 10, 10)
+                .addComponent(lblDoctorsName, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(lblCustomerContact2)
+                .addGap(10, 10, 10)
+                .addComponent(lblDesignation, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lblCustomerAddress2)
+                .addGap(10, 10, 10)
+                .addComponent(lblPrescriptionDate, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        jPanel4.setBackground(new java.awt.Color(153, 255, 153));
+
+        lblCustomerContact3.setBackground(new java.awt.Color(249, 244, 244));
+        lblCustomerContact3.setForeground(new java.awt.Color(102, 102, 102));
+        lblCustomerContact3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCustomerContact3.setText("Next Consultation Date:");
+
+        lblDocsComment.setBackground(new java.awt.Color(249, 244, 244));
+        lblDocsComment.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblDocsComment.setText("NA");
+
+        lblNextConsultationDate.setBackground(new java.awt.Color(249, 244, 244));
+        lblNextConsultationDate.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblNextConsultationDate.setText("NA");
+
+        lblName3.setBackground(new java.awt.Color(249, 244, 244));
+        lblName3.setForeground(new java.awt.Color(102, 102, 102));
+        lblName3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblName3.setText("Doctors comment:");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblDocsComment, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(lblNextConsultationDate, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(lblCustomerContact3, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblName3)
+                .addGap(10, 10, 10)
+                .addComponent(lblDocsComment, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(lblCustomerContact3)
+                .addGap(10, 10, 10)
+                .addComponent(lblNextConsultationDate, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel5.setBackground(new java.awt.Color(153, 255, 153));
+
+        lblCustomerContact4.setBackground(new java.awt.Color(249, 244, 244));
+        lblCustomerContact4.setForeground(new java.awt.Color(102, 102, 102));
+        lblCustomerContact4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblCustomerContact4.setText("Prescription:");
+
+        lblprescYesorNo.setBackground(new java.awt.Color(249, 244, 244));
+        lblprescYesorNo.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblprescYesorNo.setText("NA");
+
+        lblName4.setBackground(new java.awt.Color(249, 244, 244));
+        lblName4.setForeground(new java.awt.Color(102, 102, 102));
+        lblName4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        lblName4.setText("Prescription Provided ?:");
+
+        txtPrescription.setColumns(20);
+        txtPrescription.setRows(5);
+        jScrollPane1.setViewportView(txtPrescription);
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblprescYesorNo, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                        .addComponent(lblCustomerContact4, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblName4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblName4)
+                .addGap(10, 10, 10)
+                .addComponent(lblprescYesorNo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(25, 25, 25)
+                .addComponent(lblCustomerContact4)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -342,29 +428,22 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jScrollPane2)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(36, 36, 36)
-                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(72, 72, 72))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(95, 95, 95)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnAcceptOrder1, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnRejectOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(btnAssignFitness, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnViewPatientDetails, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 25, Short.MAX_VALUE)))
-                .addGap(0, 539, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(213, 213, 213)
+                        .addComponent(lblPageTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(582, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -376,19 +455,13 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAcceptOrder1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRejectOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAssignFitness, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnViewPatientDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(47, 47, 47)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -397,134 +470,89 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnViewPatientDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPatientDetailsActionPerformed
-        // TODO add your handling code here:
-        UserReport userReport = new UserReport(mainWorkArea, ecosystem, user);
-        mainWorkArea.add("userReport", userReport);
-        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-        layout.next(mainWorkArea);
-        
-    }//GEN-LAST:event_btnViewPatientDetailsActionPerformed
-
-    private void btnRejectOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectOrderActionPerformed
-        
-        staff.getSessionDirectory().addSession(sess);
-        sess.setStatus("Cancelled");
-        changeBtns();
-        renderData();
-        JOptionPane.showMessageDialog(null, "Appointmnet Cancelled successfully!");
-        
-    }//GEN-LAST:event_btnRejectOrderActionPerformed
-
-    private void btnAssignFitnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignFitnessActionPerformed
-        // TODO add your handling code here:
-//        AssignStaffPanel assignStaffPanel = new AssignStaffPanel(mainWorkArea, ecosystem, orderListData);
-//        mainWorkArea.add("AssignStaffPanel", assignStaffPanel);
-//        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-//        layout.next(mainWorkArea);
-    }//GEN-LAST:event_btnAssignFitnessActionPerformed
-
-    private void btnAcceptOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrder1ActionPerformed
-        // TODO add your handling code here:
-        ConsultationFormDoctor consult = new ConsultationFormDoctor(mainWorkArea, ecosystem, user, sess, staff);
-        mainWorkArea.add("doctorAddConsultForm", consult);
-        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-        layout.next(mainWorkArea);
-    }//GEN-LAST:event_btnAcceptOrder1ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAcceptOrder1;
-    private javax.swing.JButton btnAssignFitness;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnRejectOrder;
-    private javax.swing.JButton btnViewPatientDetails;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblCustomerAddress1;
+    private javax.swing.JLabel lblCustomerAddress2;
     private javax.swing.JLabel lblCustomerContact1;
+    private javax.swing.JLabel lblCustomerContact2;
+    private javax.swing.JLabel lblCustomerContact3;
+    private javax.swing.JLabel lblCustomerContact4;
     private javax.swing.JLabel lblDate;
+    private javax.swing.JLabel lblDesignation;
+    private javax.swing.JLabel lblDocsComment;
+    private javax.swing.JLabel lblDoctorsName;
     private javax.swing.JLabel lblEndTime;
     private javax.swing.JLabel lblName1;
+    private javax.swing.JLabel lblName2;
+    private javax.swing.JLabel lblName3;
+    private javax.swing.JLabel lblName4;
+    private javax.swing.JLabel lblNextConsultationDate;
     private javax.swing.JLabel lblPageTitle;
     private javax.swing.JLabel lblPatientsName;
+    private javax.swing.JLabel lblPrescriptionDate;
     private javax.swing.JLabel lblRestaurantName5;
     private javax.swing.JLabel lblRestaurantName6;
     private javax.swing.JLabel lblRestaurantName7;
     private javax.swing.JLabel lblSessionName;
     private javax.swing.JLabel lblSessionStatus;
     private javax.swing.JLabel lblStartTime;
-    private javax.swing.JTable tblCart;
+    private javax.swing.JLabel lblprescYesorNo;
+    private javax.swing.JTextArea txtPrescription;
     // End of variables declaration//GEN-END:variables
-
-    private void populateTable() {
-        DefaultTableModel model = (DefaultTableModel) tblCart.getModel();
-        ArrayList<ConsultationForm> cform = sess.getConsultFormList();
-        int count = 1;
-         model.setRowCount(0);
-        for(ConsultationForm cf:cform){
-            Object[] row = new Object[5];
-            row[0] = "" + count++;
-            row[1] = cf.getDiseaseName();
-            row[2] = cf.getRange();
-            row[3] = cf.getDays();
-            row[4] = cf.getMessage();
-
-            model.addRow(row);
-        }  
-    }
 
     private void backAction() {
         mainWorkArea.remove(this);
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManagePatientConsultationDoctorJPanel manageDirectConsultationsHistory = (ManagePatientConsultationDoctorJPanel) component;
-        manageDirectConsultationsHistory.populateTable();
+        ManageUserConsultationHistoryPanel manageDirectConsultationsHistory = (ManageUserConsultationHistoryPanel) component;
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }
 
     public void renderData() {
-
+        User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
         lblPatientsName.setText(user.getName());
         lblSessionName.setText(sess.getName());
         lblSessionStatus.setText(sess.getStatus());
         lblEndTime.setText(sess.getEndTime());
         lblStartTime.setText(sess.getStartTime());
         lblDate.setText(sess.getSessionDate());
-        populateTable();
-    }
-
-    private void changeBtns() {
-        String status = sess.getStatus();
-
-        if (status.equalsIgnoreCase("cancelled") || status.equalsIgnoreCase("completed") || status.equalsIgnoreCase("Unattended")) {
-            btnAcceptOrder1.setEnabled(false);
-            btnRejectOrder.setEnabled(false);
-            btnAssignFitness.setEnabled(false);
-            
-
-        } else {
-            btnAcceptOrder1.setEnabled(true);
-            btnRejectOrder.setEnabled(true);
-            btnAssignFitness.setEnabled(true);
+        lblDoctorsName.setText(sess.getConsultDoc().getDocsName());
+        lblDesignation.setText(sess.getConsultDoc().getDocsDesignation());
+        lblPrescriptionDate.setText(sess.getConsultDoc().getPrescriptionDate());
+        lblDocsComment.setText(sess.getConsultDoc().getDocsComment());
+        lblNextConsultationDate.setText(sess.getConsultDoc().getNextConsulationDate());
+        if(sess.getConsultDoc().getDocsPrescription()==null){
+            lblprescYesorNo.setText("No");
+            txtPrescription.setVisible(false);
+        }else{
+            lblprescYesorNo.setText("Yes");
+            txtPrescription.setText(sess.getConsultDoc().getDocsPrescription());
         }
     }
+
     private void dateCheck(){
            String st1 = sess.getSessionDate();
         try {
              date1 = (Date)formatter.parse(st1);
         } catch (ParseException ex) {
-            Logger.getLogger(ManageStaffConsultationDetailsPanel.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(consultationHistory.class.getName()).log(Level.SEVERE, null, ex);
         }
         if(sess.getStatus().equalsIgnoreCase("new")){
              if(date1.before(date)){
             sess.setStatus("Unattended");  
-        }else if(date1.equals(date)){
+        }else{
                 String startTime = sess.getStartTime();
                 Boolean f = utils.testTime(startTime.split(":")[0]);
-                if(f==false){
+                if(f){
                 sess.setStatus("Unattended");
                 }
         }

@@ -7,8 +7,12 @@ package userinterface.CustomerRole;
 
 import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
+import Business.Hospital.Department.HospitalDepartment;
+import Business.Hospital.Hospital;
+import Business.Hospital.HospitalDirectory;
 import Business.Staff.Sessions;
 import Business.Staff.SessionsMedStaff;
+import Business.Staff.Staff;
 import Business.User.User;
 import Business.User.UserDirectory;
 import Business.UserAccount.UserAccount;
@@ -44,6 +48,7 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
     Utils utils;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
     Date date;
+    Staff staff;
 
     public ManageUserConsultationPanel(JPanel parentContainerPanel, EcoSystem ecosystem, UserAccount userAccount) {
         this.userProcessContainer = parentContainerPanel;
@@ -202,20 +207,41 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
         if (u != null) {
             if(date1.before(date)){
             utils.showErrorToast("Oops! Cancelation Period Expired");
-            }else{
+            }else if(date1.equals(date)){
                 String startTime = u.getStartTime();
                 Boolean f = utils.testTime(startTime.split(":")[0]);
-                if(!f){
+                if(f==false){
                     utils.showErrorToast("Oops! Cancelation Period Expired");
                 }else{
-                    User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+            User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
             ud.getConsultationSessions().removeSession(u);
+                    ArrayList<Hospital> hospList = ecosystem.getHospitalDirectory().getHospitalList();
+                    for(Hospital h: hospList){
+                        ArrayList<HospitalDepartment> hdList = h.getDepartmentDirectory().getDepartmentList();
+                        for(HospitalDepartment d:hdList ){
+                            staff = d.getStaffDirectory().getStaffByUserName(u.getDocsIdentifier());
+                        }
+                    }
+            staff.getSessionDirectory().addSession(u);
+            u.setStatus("Cancelled");
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
                 }
-            }
-            
-            
+            }  else{
+            User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+            ud.getConsultationSessions().removeSession(u);
+                    ArrayList<Hospital> hospList = ecosystem.getHospitalDirectory().getHospitalList();
+                    for(Hospital h: hospList){
+                        ArrayList<HospitalDepartment> hdList = h.getDepartmentDirectory().getDepartmentList();
+                        for(HospitalDepartment d:hdList ){
+                            staff = d.getStaffDirectory().getStaffByUserName(u.getDocsIdentifier());
+                        }
+                    }
+            staff.getSessionDirectory().addSession(u);
+            u.setStatus("Cancelled");
+            JOptionPane.showMessageDialog(this, "Session deleted successfully!");
+            populateTable();
+                }
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -233,7 +259,7 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
             int count = 1;
 
             for (SessionsMedStaff s : sessList) {
-
+                if(s.getStatus().equalsIgnoreCase("new")){
                 Object[] row = new Object[7];
                 row[0] = "" + count++;
                 row[1] = s;
@@ -244,6 +270,7 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
                 row[6] = s.getStatus();
 
                 model.addRow(row);
+            }
             }
         }
     }

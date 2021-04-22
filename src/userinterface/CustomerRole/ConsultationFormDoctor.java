@@ -20,6 +20,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import javax.swing.JPanel;
@@ -316,6 +317,10 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
             util.showErrorToast("Please input valid prescription");
         }else{
             sess.setStatus("Completed");
+            sess.getConsultDoc().setDocsDesignation(staff.getDesignation());
+            sess.getConsultDoc().setDocsName(staff.getName());
+//            sess.getConsultDoc().setDocsIdentifier(staff.getUsername());
+            sess.getConsultDoc().setPrescriptionDate(new Date().toString());
             sess.getConsultDoc().setDocsPrescription(prescription);
             sess.getConsultDoc().setDocsComment(comment);
             sess.getConsultDoc().setNextConsulationDate(nextDate);

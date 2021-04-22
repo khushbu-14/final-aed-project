@@ -29,7 +29,7 @@ public class SessionsMedStaff extends Business.UserAccount.UserAccount {
     private String userIdentifier;
     private ArrayList<ConsultationForm> consultFormList;
     private ConsultFormDoctor consultDoc;
-    
+    private String docsIdentifier;
     
     
     public SessionsMedStaff( String name, String sessionDate, String startTime, String endTime, String isRemote, String location, String status){
@@ -146,7 +146,13 @@ public class SessionsMedStaff extends Business.UserAccount.UserAccount {
     public void setConsultDoc(ConsultFormDoctor consultDoc) {
         this.consultDoc = consultDoc;
     }
+     public String getDocsIdentifier() {
+        return docsIdentifier;
+    }
 
+    public void setDocsIdentifier(String docsIdentifier) {
+        this.docsIdentifier = docsIdentifier;
+    }
     
      @Override
     public String toString() {
