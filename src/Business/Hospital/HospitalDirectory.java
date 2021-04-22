@@ -11,7 +11,6 @@ import java.util.ArrayList;
  *
  * @author kunal
  */
-
 public class HospitalDirectory {
 
     private ArrayList<Hospital> hospitalList = new ArrayList<>();
@@ -54,7 +53,6 @@ public class HospitalDirectory {
 //        }
 //        hospitalList.remove(hospital);
 //    }
-
     public Hospital getHospitalById(String id) {
         Hospital hospital = null;
         for (Hospital hosp : hospitalList) {
