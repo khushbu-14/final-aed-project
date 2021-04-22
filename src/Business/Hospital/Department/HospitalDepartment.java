@@ -26,7 +26,7 @@ public class HospitalDepartment extends Business.UserAccount.UserAccount {
     private Double numberOfBeds;
     private StaffDirectory staffDirectory;
 
-    public HospitalDepartment(String userName, String password, String departmentName, String type, String contact, String email, Double numberOfBeds) {
+    public HospitalDepartment(String departmentName, String type, String contact, String email, Double numberOfBeds) {
         UUID uid = UUID.randomUUID();
         this.departmentID = uid.toString();
         this.departmentName = departmentName;
@@ -34,9 +34,9 @@ public class HospitalDepartment extends Business.UserAccount.UserAccount {
         this.contact = contact;
         this.email = email;
         this.numberOfBeds = numberOfBeds;
-        setPassword(password);
-        setUsername(userName);
-        setRole(new HospitalDepartmentRole());
+//        setPassword(password);
+//        setUsername(userName);
+//        setRole(new HospitalDepartmentRole());
     }
 
     public String getDepartmentID() {

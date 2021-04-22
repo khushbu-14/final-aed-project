@@ -884,6 +884,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         // manageSessionsPanel.setBackground(notActiveColor);
         manageOrderFitnessPanel.setBackground(notActiveColor);
         manageConsultHistoryPanel.setBackground(notActiveColor);
+        ManageAmbulancePanel.setBackground(notActiveColor);
 
         manageDashboard.setForeground(nonActiveTxtColor);
         manageAppointments.setForeground(nonActiveTxtColor);
@@ -895,6 +896,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         // manageSessions.setForeground(nonActiveTxtColor);
         // manageOrderFitness.setBackground(nonActiveTxtColor);
         manageConsultHistory.setForeground(nonActiveTxtColor);
+        manageAmbulanceLabel.setForeground(nonActiveTxtColor);
 
         if ("order-products".equalsIgnoreCase(type)) {
             manageOrderMedicinePanel.setBackground(activeColor);
