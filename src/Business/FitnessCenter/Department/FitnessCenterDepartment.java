@@ -26,7 +26,7 @@ public class FitnessCenterDepartment extends Business.UserAccount.UserAccount {
 
    
     
-      public FitnessCenterDepartment(String userName, String password,String departmentName, String type, String contact) {
+      public FitnessCenterDepartment(String departmentName, String type, String contact) {
         UUID uid = UUID.randomUUID();
         this.departmentID = uid.toString();
         this.departmentName = departmentName;
@@ -34,9 +34,9 @@ public class FitnessCenterDepartment extends Business.UserAccount.UserAccount {
         this.contact = contact;
         //this.email = email;
         //this.numberOfBeds = numberOfBeds;
-        setPassword(password);
-        setUsername(userName);
-        setRole(new FitnessDepartmentRole());
+//        setPassword(password);
+//        setUsername(userName);
+//        setRole(new FitnessDepartmentRole());
     }
 
     public String getDepartmentID() {
