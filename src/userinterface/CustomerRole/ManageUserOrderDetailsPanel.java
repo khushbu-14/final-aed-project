@@ -563,6 +563,7 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
             case "SHOP REJECTED":
             case "STAFF REJECTED":
             case "DELIVERY MAN ASSIGNED":
+            case "COMPLETED":
                 btnUpdateMessage.setVisible(false);
                 txtMessage.setEditable(false);
                 break;

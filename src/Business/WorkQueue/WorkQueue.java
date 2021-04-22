@@ -74,4 +74,20 @@ public class WorkQueue {
 
         return userRequestList;
     }
+
+    public ArrayList<WorkRequest> getDMRequestList(UserAccount account, String requestType) {
+        ArrayList<WorkRequest> userRequestList = new ArrayList<>();
+
+        for (WorkRequest wr : workRequestList) {
+            if (wr.getDeliveryMan() != null) {
+                if (wr.getDeliveryMan().getUsername().equals(account.getUsername())) {
+                    if (wr.getRequestType().equalsIgnoreCase(requestType)) {
+                        userRequestList.add(wr);
+                    }
+                }
+            }
+        }
+
+        return userRequestList;
+    }
 }

@@ -6,6 +6,7 @@
 package Business.WorkQueue;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -56,4 +57,31 @@ public class OrderList extends WorkRequest {
         this.isPickup = isPickup;
     }
 
+    public double getTotalOrderAmount() {
+        double total = 0;
+
+        for (OrderItem o : orderList) {
+            total += o.getProduct().getPrice();
+        }
+
+        return total;
+    }
+
+    public HashMap<String, Double> getTotalOrderDetails() {
+        
+        HashMap<String, Double> total = new HashMap<>();
+
+        double amount = 0;
+        double quantity = 0;
+
+        for (OrderItem o : orderList) {
+            amount += o.getProduct().getPrice();
+            quantity += o.getQuantity();
+        }
+
+        total.put("AMOUNT", amount);
+        total.put("QUANTITY", quantity);
+
+        return total;
+    }
 }
