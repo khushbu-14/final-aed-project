@@ -65,7 +65,7 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
         initComponents();
         
 //        populateTable();
-        //changeBtns();
+        changeBtns();
         date = new Date();
         try {
             //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
@@ -409,7 +409,8 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
         
         staff.getSessionDirectory().addSession(sess);
         sess.setStatus("Cancelled");
-        //changeBtns();
+        changeBtns();
+        renderData();
         JOptionPane.showMessageDialog(null, "Appointmnet Cancelled successfully!");
         
     }//GEN-LAST:event_btnRejectOrderActionPerformed
@@ -424,7 +425,7 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
 
     private void btnAcceptOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrder1ActionPerformed
         // TODO add your handling code here:
-        ConsultationFormDoctor consult = new ConsultationFormDoctor(mainWorkArea, ecosystem, user, sess);
+        ConsultationFormDoctor consult = new ConsultationFormDoctor(mainWorkArea, ecosystem, user, sess, staff);
         mainWorkArea.add("doctorAddConsultForm", consult);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
@@ -476,8 +477,7 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
         mainWorkArea.remove(this);
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
-
-        ManageDirectConsultationsHistory manageDirectConsultationsHistory = (ManageDirectConsultationsHistory) component;
+        ManagePatientConsultationDoctorJPanel manageDirectConsultationsHistory = (ManagePatientConsultationDoctorJPanel) component;
         manageDirectConsultationsHistory.populateTable();
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
@@ -521,9 +521,9 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
              if(date1.before(date)){
             sess.setStatus("Unattended");  
         }else{
-             String startTime = sess.getStartTime();
+                String startTime = sess.getStartTime();
                 Boolean f = utils.testTime(startTime.split(":")[0]);
-                if(!f){
+                if(f){
                 sess.setStatus("Unattended");
                 }
         }
