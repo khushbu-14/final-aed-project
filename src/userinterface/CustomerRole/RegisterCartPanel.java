@@ -218,38 +218,32 @@ public class RegisterCartPanel extends javax.swing.JPanel {
         ArrayList<Sessions> userSessionList = user.getSessionDirectory().getSession();
         int count = 0;
         String sessionType = comboSessionType.getSelectedItem().toString();
-
-        if (user.getSessionDirectory().getSessionByID(sess.getSessionID()) != null) {
-            utils.showErrorToast("Oops! Already registered for this session");
-        } else {
-
-            if (fcstaff.getSdir().getSession().contains(sess)) {
-                if (!sessionType.equalsIgnoreCase("remote") && sess.getIsRemote().equalsIgnoreCase("yes")) {
-                    utils.showErrorToast("This session is a Remote session");
-                } else if (!sessionType.equalsIgnoreCase("in-person") && sess.getIsRemote().equalsIgnoreCase("no")) {
-                    utils.showErrorToast("This session is In-Persion");
-                } else {
-                    for (Sessions s : userSessionList) {
-                        if (s.getSessionDate().equalsIgnoreCase(sess.getSessionDate())) {
-                            count = count + 1;
-                        }
-                    }
-                    if (count > 3) {
-                        utils.showErrorToast("Booking limit for " + fcstaff.getName() + "exceded for the day");
-                    } else {
-                        sess.setIsRemote(sessionType);
-                        // fcstaff.getSdir().addSession(sess);
-                        user.getSessionDirectory().addSession(sess);
-//                    staff.getSessionDirectory().removeSession(sess);
-                        JOptionPane.showMessageDialog(this, "Your Consultation with " + fcstaff.getName() + " booked successfully",
-                                "Success", JOptionPane.INFORMATION_MESSAGE);
-                        goToManageUserFitnessRegistrationPanel();
-                    }
-
-                }
-            } else {
-                utils.showErrorToast("Sorry!!, This slot has been booked, Please select other slots");
-                populateData();
+       
+        if(fcstaff.getSdir().getSession().contains(sess)){
+            if(!sessionType.equalsIgnoreCase("remote") && sess.getIsRemote().equalsIgnoreCase("yes")){
+                utils.showErrorToast("This session is a Remote session");
+            } else if(!sessionType.equalsIgnoreCase("in-person") && sess.getIsRemote().equalsIgnoreCase("no")){
+                utils.showErrorToast("This session is In-Persion");
+            }else{
+               for(Sessions s:userSessionList){
+                   if(s.getSessionDate().equalsIgnoreCase(sess.getSessionDate())){
+                       count=count+1;
+                   }
+               }
+               if(count>3){
+                   utils.showErrorToast("Booking limit for "+ fcstaff.getName() +"exceded for the day");
+               }else{
+                   sess.setIsRemote(sessionType);
+                   sess.setRegStatus("New");
+                   sess.setFinduser(user.getUsername());
+                  fcstaff.getRegisterSessDir().addSession(sess);
+                   user.getSessionDirectory().addSession(sess);
+//                   staff.getSessionDirectory().removeSession(sess);
+                    JOptionPane.showMessageDialog(this, "Your Consultation with "+fcstaff.getName() +" booked successfully",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+                    goToManageUserFitnessRegistrationPanel();
+               }
+                
             }
         }
     }//GEN-LAST:event_btnPlaceOrderActionPerformed

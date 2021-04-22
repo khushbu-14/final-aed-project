@@ -9,7 +9,7 @@ import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
 import userinterface.FitnessDepartmentRole.FitnessDepartmentWorkAreaJPanel;
-import userinterface.FitnessDepartmentRole.FitnessStaffWorkAreaPanel;
+import userinterface.FitnessStaffRole.FitnessStaffWorkAreaPanel;
 
 public class FitnessDepartmentRole extends Role {
 

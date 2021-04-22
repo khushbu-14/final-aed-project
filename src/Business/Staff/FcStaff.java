@@ -27,6 +27,7 @@ public class FcStaff extends Business.UserAccount.UserAccount {
     private String zipcode;
     private FitnessCenterDepartment department;
     private SessionsDirectory sdir;
+    private SessionsDirectory registerSessDir;
 
     public FcStaff(String userName, String password, String name, String designation, String contact, String address, String email, String zipcode, FitnessCenterDepartment department) {
         this.name = name;
@@ -108,7 +109,20 @@ public class FcStaff extends Business.UserAccount.UserAccount {
         this.sdir = sdir;
     }
 
-    @Override
+    public SessionsDirectory getRegisterSessDir() {
+                if(registerSessDir==null){
+       registerSessDir = new SessionsDirectory();
+       }
+        return registerSessDir;
+    }
+
+    public void setRegisterSessDir(SessionsDirectory registerSessDir) {
+        this.registerSessDir = registerSessDir;
+    }
+    
+    
+    
+     @Override
     public String toString() {
         return name;
     }

@@ -6,6 +6,7 @@ package Business.WorkQueue;
 
 import Business.DeliveryMan.DeliveryMan;
 import Business.Shop.Shop;
+import Business.Staff.FcStaff;
 import Business.Staff.Staff;
 import Business.User.User;
 import Business.UserAccount.UserAccount;
@@ -30,6 +31,7 @@ public abstract class WorkRequest {
     private DeliveryMan deliveryMan;
     private UserAccount userAccount;
     private Staff staff;
+    private FcStaff fcstaff;
 
     public WorkRequest() {
         requestDate = new Date();
