@@ -331,7 +331,8 @@ public class AddServicePanel extends javax.swing.JPanel {
             } else {
 
                 Service service1 = new Service(userName, phoneNo, oxygen, type);
-                service1.setStatus("New");
+                service1.setStatus("Available");
+                service1.setCompanyIdentifier(userAccount.getUsername());
                 amb.getServiceDirectory().addNewService(service1);
             }
 

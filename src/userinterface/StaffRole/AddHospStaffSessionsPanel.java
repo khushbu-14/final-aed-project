@@ -465,8 +465,10 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
                 for (Hospital fc : hospitalList) {
                     ArrayList<HospitalDepartment> hospitalDepartmentList = fc.getDepartmentDirectory().getDepartmentList();
                     for (HospitalDepartment hd : hospitalDepartmentList) {
+                        
                         Staff staff = hd.getStaffDirectory().getStaffByUserName(userAcount.getUsername());
-                        ArrayList<SessionsMedStaff> st = staff.getSessionDirectory().getSession();
+                        if(staff !=null){
+                             ArrayList<SessionsMedStaff> st = staff.getSessionDirectory().getSession();
                         for (SessionsMedStaff s : st) {
                             if (s.getSessionDate().equalsIgnoreCase(d) && s.getStartTime().equalsIgnoreCase(startTime)) {
                                 flag = false;
@@ -498,6 +500,8 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
                             util.showErrorToast("Session already Present");
                         }
 
+                        }
+                       
                     }
                 }
             }
