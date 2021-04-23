@@ -462,7 +462,7 @@ public class AddFitnessPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
-            //txtSName.setEditable(false);
+            txtSName.setEditable(false);
             JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
         } else {
             txtSName.setEditable(true);
