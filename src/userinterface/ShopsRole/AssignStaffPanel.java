@@ -175,12 +175,13 @@ public class AssignStaffPanel extends javax.swing.JPanel {
                     "Success", JOptionPane.INFORMATION_MESSAGE);
             
             orderListData.setStatus("STAFF ASSIGNED");
+            backAction();
             String emailSubject = "Care4U Order Information";
             String emailBodyMessage = "Hi, "+ staff.getName()+" Consultation from "+orderListData.getShop()+" has been Assigned to you";
             utils.sendEmail(staff.getEmail(), emailSubject, emailBodyMessage);
             utils.setDatabase(ecosystem);
 
-            backAction();
+            
         }
     }//GEN-LAST:event_btnAssignDoctorActionPerformed
 
