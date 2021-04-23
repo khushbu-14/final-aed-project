@@ -257,6 +257,10 @@ public class RegisterCartPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Your Consultation with "+fcstaff.getName() +" booked successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
                     goToManageUserFitnessRegistrationPanel();
+                    String emailSubject = "Care4U Order Information";
+                    String emailBodyMessage = "Hi, "+ user.getName()+" "+"Your Consultation with "+fcstaff.getName() +" booked successfully";
+                    utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+                    utils.setDatabase(ecosystem);
                }
                 
             }

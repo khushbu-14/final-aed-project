@@ -214,6 +214,11 @@ public class ManageDepartmentPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, "Department deleted successfully!");
             populateTable();
+             String emailSubject = "Care4U account Information";
+            String emailBodyMessage = "Hi, "+ u.getDepartmentName()+" you are no longer registered with us";
+            utils.sendEmail(u.getEmail(), emailSubject, emailBodyMessage);
+            utils.setDatabase(ecosystem);
+            
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

@@ -209,6 +209,8 @@ public class ManageServicePanel extends javax.swing.JPanel {
             ad.getServiceDirectory().removeService(u);
             JOptionPane.showMessageDialog(this, "Ambulance Service deleted successfully!");
             populateTable();
+            utils.setDatabase(ecosystem);
+            
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

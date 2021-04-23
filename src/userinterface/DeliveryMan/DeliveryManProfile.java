@@ -297,7 +297,7 @@ public class DeliveryManProfile extends javax.swing.JPanel {
             
         } else {
             userName = userName.toLowerCase();
-            String msg = name + " account created successfully!";
+            String msg = name + " Your account created successfully!";
             if (isUpdatePage) {
                 
                 dlvm.setAddress(address);
@@ -309,7 +309,7 @@ public class DeliveryManProfile extends javax.swing.JPanel {
                 
                 ecosystem.getUserAccountDirectory().updateUserAccount(dlvm, userName, password);
                 
-                msg = name + " account updated successfully!";
+                msg = name + " Your account updated successfully!";
             } else {
                 
                 DeliveryMan dlvTemp = new DeliveryMan(userName, password, name, phoneNo, address, zipcode, email);
@@ -319,6 +319,10 @@ public class DeliveryManProfile extends javax.swing.JPanel {
             
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
+             String emailSubject = "Care4U Order Information";
+            String emailBodyMessage = "Hi, "+ msg;
+            util.sendEmail(email, emailSubject, emailBodyMessage);
+            util.setDatabase(ecosystem);
         }
     }//GEN-LAST:event_btnSignupActionPerformed
 
@@ -326,7 +330,7 @@ public class DeliveryManProfile extends javax.swing.JPanel {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
-            //txtSName.setEditable(false);
+            txtSName.setEditable(false);
             JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
         } else {
             txtSName.setEditable(true);
@@ -342,7 +346,7 @@ public class DeliveryManProfile extends javax.swing.JPanel {
         } else {
             
             if (!Character.isDigit(c)) {
-                //txtZipcode.setEditable(false);
+                txtZipcode.setEditable(false);
                 //                errorZipcode.setText("Sorry! only numbers allowed");
                 JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
@@ -367,7 +371,7 @@ public class DeliveryManProfile extends javax.swing.JPanel {
         } else {
             
             if (!Character.isDigit(c)) {
-                //txtContact.setEditable(false);
+                txtContact.setEditable(false);
                 errorContactNumber.setText("Sorry! only numbers allowed");
                 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {

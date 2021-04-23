@@ -187,6 +187,7 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
             user.getSessionDirectory().removeSession(u);
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
+            utils.setDatabase(ecosystem);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
     

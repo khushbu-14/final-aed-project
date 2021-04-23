@@ -224,6 +224,7 @@ public class ManageHospStaffSessionsPanel extends javax.swing.JPanel {
  //       }
             }
              JOptionPane.showMessageDialog(this, "Session deleted successfully!");
+             utils.setDatabase(ecosystem);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

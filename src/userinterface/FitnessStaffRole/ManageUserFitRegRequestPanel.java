@@ -270,6 +270,11 @@ public class ManageUserFitRegRequestPanel extends javax.swing.JPanel {
             u.setRegStatus("Accepted");
             JOptionPane.showMessageDialog(this, "Registration Accepted!");
             populateTable();
+             String emailSubject = "Care4U Fitness Session Information";
+            String emailBodyMessage = "Hi, "+ user.getName()+ " Congratulations!!! Your Session has been booked!";
+            utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+            utils.setDatabase(ecosystem);
+            
         }
     }//GEN-LAST:event_btnAcceptOrder1ActionPerformed
 

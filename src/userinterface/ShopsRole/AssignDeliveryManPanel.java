@@ -175,9 +175,16 @@ public class AssignDeliveryManPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, deliveryMan.getName() + " assigned to order successfully!",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-
+            
+            
             orderListData.setStatus("DELIVERY MAN ASSIGNED");
             orderListData.setResolveDate(new Date());
+            
+            String emailSubject = "Care4U Order Information";
+            String emailBodyMessage = "Hi, "+ deliveryMan.getName()+" Order from "+orderListData.getSender()+" has been Assigned to you";
+            utils.sendEmail(deliveryMan.getEmail(), emailSubject, emailBodyMessage);
+            utils.setDatabase(ecosystem);
+            
             backAction();
         }
     }//GEN-LAST:event_btnAssignDeliveryManActionPerformed

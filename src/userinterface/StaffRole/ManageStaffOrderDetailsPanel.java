@@ -498,6 +498,7 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
         changeBtns();
         JOptionPane.showMessageDialog(null, "Order rejected successfully!");
         lblOrderStatus.setText("STAFF REJECTED");
+        utils.setDatabase(ecosystem);
     }//GEN-LAST:event_btnRejectOrderActionPerformed
 
     private void btnAssignFitnessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignFitnessActionPerformed

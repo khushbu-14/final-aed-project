@@ -335,8 +335,9 @@ public class AddServicePanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-
             backAction();
+            util.setDatabase(ecosystem);
+            
         }
     }//GEN-LAST:event_btnAddActionPerformed
 

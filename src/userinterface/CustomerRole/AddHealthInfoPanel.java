@@ -371,6 +371,10 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
          setFields(false);
          btnSubmit.setVisible(false);
          btnEdit.setVisible(true);
+            String emailSubject = "Care4U Account Information";
+            String emailBodyMessage = "Hi, "+ user.getName()+" Records Updates successfully";
+            util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+            util.setDatabase(ecosystem);
         }
        
     }//GEN-LAST:event_btnSubmitActionPerformed

@@ -208,6 +208,11 @@ public class ManageShopPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, "Shop deleted successfully!");
             populateTable();
+            String emailSubject = "Care4U Account Information";
+            String emailBodyMessage = "Hi, "+ u.getShopName()+" I am sorry, you are no longer registered with us";
+            utils.sendEmail(u.getEmail(), emailSubject, emailBodyMessage);
+            utils.setDatabase(ecosystem);
+            
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

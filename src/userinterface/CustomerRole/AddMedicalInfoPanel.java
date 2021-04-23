@@ -523,8 +523,13 @@ public class AddMedicalInfoPanel extends javax.swing.JPanel {
             surgeriesList1.clear();
             JOptionPane.showMessageDialog(this, "Records Added successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-
+            
             populateViewTable();
+             String emailSubject = "Care4U Account Information";
+            String emailBodyMessage = "Hi, "+ user.getName()+" Records Updates successfully";
+            util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+            util.setDatabase(ecosystem);
+
         }
 
     }//GEN-LAST:event_btnSubmitActionPerformed

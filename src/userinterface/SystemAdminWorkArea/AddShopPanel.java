@@ -444,7 +444,7 @@ public class AddShopPanel extends javax.swing.JPanel {
             util.showErrorToast("Plesae select valid type");
         } else {
             userName = userName.toLowerCase();
-            String msg = name + " account created successfully!";
+            String msg = name + " Your account created successfully!";
             if (isUpdatePage) {
 
                 shop.setAddress(address);
@@ -457,7 +457,7 @@ public class AddShopPanel extends javax.swing.JPanel {
 
                 ecosystem.getUserAccountDirectory().updateUserAccount(shop, userName, password);
 
-                msg = name + " account updated successfully!";
+                msg = name + " Your account updated successfully!";
             } else {
 
                 Shop shopTemp = new Shop(userName, password, name, type, phoneNo, address, email, zipcode);
@@ -469,8 +469,14 @@ public class AddShopPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
+             backAction();
+            String emailSubject = "Care4U Account Information";
+            String emailBodyMessage = "Hi, "+ msg;
+            util.sendEmail(email, emailSubject, emailBodyMessage);
+            util.setDatabase(ecosystem);
 
-            backAction();
+
+           
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 

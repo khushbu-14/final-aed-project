@@ -206,7 +206,12 @@ public class BookAmbulanceService extends javax.swing.JPanel {
         user.getAmbulanceServiceDirectory().addNewService(service);
         JOptionPane.showMessageDialog(this, "Service Booked Successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-        populateViewTable(selectedValue);     
+        populateViewTable(selectedValue);  
+         String emailSubject = "Care4U Ambulance Information";
+            String emailBodyMessage = "Hi, "+ user.getName()+" Service Booked Successfully";
+            util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+            util.setDatabase(ecosystem);
+           
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void backAction() {

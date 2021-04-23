@@ -69,20 +69,20 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
         tblDepartmentList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         tblDepartmentList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Sr No", "Name", "Session name", "Date", "Start Time", "End Time", "Type", "location"
+                "Sr No", "Session name", "Date", "Start Time", "End Time", "Type", "location"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -235,6 +235,7 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
+            utils.setDatabase(ecosystem);
  //       }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -263,15 +264,14 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
                 
                     for(Sessions st : staff.getSdir().getSession()){
                           
-                                Object[] row = new Object[10];
+                                Object[] row = new Object[7];
                                 row[0] = "" + count++;
                                 row[1] = st;
-                                row[2] = st.getName();
-                                row[3] = st.getSessionDate();
-                                row[4] = st.getStartTime();
-                                row[5] = st.getEndTime();
-                                row[6] = st.getIsRemote();
-                                row[7] = st.getLocation();
+                                row[2] = st.getSessionDate();
+                                row[3] = st.getStartTime();
+                                row[4] = st.getEndTime();
+                                row[5] = st.getIsRemote();
+                                row[6] = st.getLocation();
                                // ArrayList<Sessions> sess = ;
                                 model.addRow(row);
                             }

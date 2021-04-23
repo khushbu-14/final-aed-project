@@ -445,8 +445,13 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                     ecosystem.getWorkQueue().addWorkRequest(newOrderList);
 
                     JOptionPane.showMessageDialog(this, resultMsg);
-
                     openOrderHistory();
+                     String emailSubject = "Care4U Order Information";
+                    String emailBodyMessage = "Hi, "+ user.getName()+" "+resultMsg;
+                    utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+                    utils.setDatabase(ecosystem);
+                    
+                    
                 } else {
                     utils.showErrorToast("Something went wrong! Please try again.");
                 }

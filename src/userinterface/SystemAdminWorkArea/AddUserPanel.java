@@ -446,7 +446,7 @@ public class AddUserPanel extends javax.swing.JPanel {
 
         } else {
             userName = userName.toLowerCase();
-            String msg = name + " account created successfully!";
+            String msg = name + " Your account created successfully!";
             if (isUpdatePage) {
 
                 user.setAddress(address);
@@ -458,21 +458,24 @@ public class AddUserPanel extends javax.swing.JPanel {
 
                 ecosystem.getUserAccountDirectory().updateUserAccount(user, userName, password);
 
-                msg = name + " account updated successfully!";
+                msg = name + " Your account updated successfully!";
             } else {
 
                 User userTemp = new User(userName, password, name, phoneNo, email, address, zipcode);
                 ecosystem.getUserDirectory().addNewUser(userTemp);
                 ecosystem.getUserAccountDirectory().addUserAccount(userTemp);
             }
-
+             
             resetForm();
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-            String emailSubject = "Registration Confirmation";
-            String emailBodyMessage = "Hi "+name+", Congratulations!!! You are Successfully registered with us.";
-            util.sendEmail(email, emailSubject, emailBodyMessage);
             backAction();
+            String emailSubject = "Care4U Account Information";
+            String emailBodyMessage = "Hi, "+ msg;
+            util.sendEmail(email, emailSubject, emailBodyMessage);
+            util.setDatabase(ecosystem);
+
+           
         }
     }//GEN-LAST:event_btnSignupActionPerformed
 

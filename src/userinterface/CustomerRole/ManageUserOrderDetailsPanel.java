@@ -433,6 +433,7 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         } else {
             JOptionPane.showMessageDialog(this, "Please enter some new message / comments.");
         }
+        utils.setDatabase(ecosystem);
     }//GEN-LAST:event_btnUpdateMessageActionPerformed
 
     private void txtMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMessageActionPerformed
@@ -447,6 +448,7 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         btnPickupOrder.setVisible(false);
         
         JOptionPane.showMessageDialog(null, "Hey thanks for shopping with us!");
+        utils.setDatabase(ecosystem);
     }//GEN-LAST:event_btnPickupOrderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

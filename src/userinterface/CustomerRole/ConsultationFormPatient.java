@@ -451,6 +451,10 @@ private void setData(){
                     JOptionPane.showMessageDialog(this, "Your Consultation with "+staff.getName() +" Booked successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
                     goToManageUserConsultationPage();
+                     String emailSubject = "Care4U Doctor Consultation Information";
+                    String emailBodyMessage = "Hi, "+ user.getName()+"Your Consultation with "+staff.getName() +" Booked successfully";
+                    util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+                    util.setDatabase(ecosystem);
                     }
                    
                     

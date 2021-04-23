@@ -206,6 +206,11 @@ public class ManageUserPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, "User deleted successfully!");
             populateTable();
+            String emailSubject = "Care4U Account Information";
+            String emailBodyMessage = "Hi, "+ u.getName()+" I am sorry, you are no longer registered with us";
+            utils.sendEmail(u.getEmail(), emailSubject, emailBodyMessage);
+            utils.setDatabase(ecosystem);
+            
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

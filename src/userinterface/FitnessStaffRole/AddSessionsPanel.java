@@ -480,6 +480,7 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                                     JOptionPane.showMessageDialog(this, "Session Added successfully!");
                                     resetForm();
                                     backAction();
+                                    util.setDatabase(ecosystem);
                                 } else {
                                     util.showErrorToast("Please select future time slots");
                                 }
@@ -490,6 +491,7 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                                 JOptionPane.showMessageDialog(this, "Session Added successfully!");
                                 resetForm();
                                 backAction();
+                                util.setDatabase(ecosystem);
                             }
 
                         } else {

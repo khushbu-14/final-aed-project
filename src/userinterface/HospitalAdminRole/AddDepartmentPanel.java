@@ -198,6 +198,11 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
         errorEmail.setForeground(new java.awt.Color(255, 0, 0));
 
         txtContact.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtContact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContactActionPerformed(evt);
+            }
+        });
         txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtContactKeyPressed(evt);
@@ -366,7 +371,7 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
             util.showErrorToast("Plesae enter number of beds");
         } else {
             Double numberOfBeds = Double.parseDouble(numofB);
-            String msg = name + " account created successfully!";
+            String msg = name + " Your account created successfully!";
             if (isUpdatePage) {
 
                 department.setContact(phoneNo);
@@ -376,7 +381,8 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
                 department.setNumberOfBeds(numberOfBeds);
 
 //                ecosystem.getUserAccountDirectory().updateUserAccount(department, userName, password);
-                msg = name + " account updated successfully!";
+
+                msg = name + " Your account updated successfully!";
             } else {
                 HospitalDepartment departmemntTemp = new HospitalDepartment(name, type, phoneNo, email, numberOfBeds);
                 Hospital hosp = ecosystem.getHospitalDirectory().getHospitalByUserName(userAccount.getUsername());
@@ -387,8 +393,13 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-
+            
             backAction();
+             String emailSubject = "Care4U Order Information";
+            String emailBodyMessage = "Hi, "+ msg;
+            util.sendEmail(email, emailSubject, emailBodyMessage);
+            util.setDatabase(ecosystem);
+
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -410,7 +421,7 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
             txtContact.setEditable(true);
         } else {
             if (!Character.isDigit(c)) {
-                //txtSName.setEditable(false);
+                txtSName.setEditable(false);
                 JOptionPane.showMessageDialog(this, "Sorry! only numbers are allowed");
                 NumberOfBeds.setText("");
             } else {
@@ -452,6 +463,10 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
     private void txtSNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSNameActionPerformed
+
+    private void txtContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField NumberOfBeds;

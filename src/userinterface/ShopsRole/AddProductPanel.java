@@ -87,6 +87,8 @@ public class AddProductPanel extends javax.swing.JPanel {
         lblUsername5 = new javax.swing.JLabel();
         txtDescription1 = new javax.swing.JTextField();
         txtPrice = new javax.swing.JTextField();
+        lblCalories = new javax.swing.JLabel();
+        lblPrice = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(249, 244, 244));
         setLayout(new java.awt.BorderLayout());
@@ -213,27 +215,16 @@ public class AddProductPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCalories.setForeground(new java.awt.Color(255, 0, 0));
+        lblCalories.setText(" ");
+
+        lblPrice.setForeground(new java.awt.Color(255, 0, 0));
+        lblPrice.setText(" ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtSName)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                        .addGap(0, 19, Short.MAX_VALUE))
-                    .addComponent(lblPassword2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtPrice))
-                .addGap(100, 100, 100)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtCalories)
-                    .addComponent(lblUsername4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblPassword1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(0, 20, Short.MAX_VALUE))
-                    .addComponent(txtDescription1))
-                .addGap(124, 124, 124))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -243,6 +234,25 @@ public class AddProductPanel extends javax.swing.JPanel {
                         .addComponent(lblUsername5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jComboType, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblPrice, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtSName, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                        .addGap(0, 19, Short.MAX_VALUE))
+                    .addComponent(lblPassword2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtPrice, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(100, 100, 100)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCalories, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtCalories)
+                    .addComponent(lblUsername4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblPassword1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 20, Short.MAX_VALUE))
+                    .addComponent(txtDescription1))
+                .addGap(124, 124, 124))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {lblPassword1, lblUsername2});
@@ -260,13 +270,17 @@ public class AddProductPanel extends javax.swing.JPanel {
                         .addComponent(lblPassword1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtCalories, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblCalories)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblPassword2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))
+                        .addGap(5, 5, 5)
+                        .addComponent(lblPrice)
+                        .addGap(18, 18, 18))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(lblUsername4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -294,7 +308,7 @@ public class AddProductPanel extends javax.swing.JPanel {
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(107, Short.MAX_VALUE))
         );
 
         splitPanel.setRightComponent(bottomPanel);
@@ -306,7 +320,7 @@ public class AddProductPanel extends javax.swing.JPanel {
         txtSName.setText("");
         txtPrice.setText("");
         txtCalories.setText("");
-        txtCalories.setText("");
+        txtDescription1.setText("");
         jComboType.setSelectedItem("Select");
     }
 
@@ -357,13 +371,25 @@ public class AddProductPanel extends javax.swing.JPanel {
                 description = txtDescription1.getText();
         String calorieInput = txtCalories.getText().trim();
         Double calories = 0.0d;
-
-        if (util.isStringInputValid(calorieInput)) {
+        Double price = 0.0d;
+        
+        if(calorieInput == null){
+            util.showErrorToast("Please enter valid calories");
+        }else{
+            if (util.isStringInputValid(calorieInput)) {
             calories = Double.parseDouble(calorieInput);
         }
+        }
+        
 
         //  Double calories = Double.parseDouble(txtCalories.getText()),
-        Double price = Double.parseDouble(txtPrice.getText());
+        if(txtPrice.getText().trim()==null || txtPrice.getText().isEmpty()){
+            util.showErrorToast("Please enter valid Price");
+        }else{
+             price = Double.parseDouble(txtPrice.getText());
+        }
+       
+        
         String isPrescriptionNeeded = jComboType.getSelectedItem().toString();
 
         if (!util.isStringInputValid(name)) {
@@ -378,7 +404,11 @@ public class AddProductPanel extends javax.swing.JPanel {
             util.showErrorToast("Plesae enter valid description");
             //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
             //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
+        } else if (isPrescriptionNeeded.equalsIgnoreCase("select")) {
+            util.showErrorToast("Plesae select valid value for is prescription needed");
+            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
+            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
+        }else {
             String msg = name + "  created successfully!";
             if (isUpdatePage) {
 
@@ -408,8 +438,9 @@ public class AddProductPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-
             backAction();
+            util.setDatabase(ecosystem);
+            
         }
     }//GEN-LAST:event_btnSignupActionPerformed
 
@@ -426,6 +457,21 @@ public class AddProductPanel extends javax.swing.JPanel {
 
     private void txtCaloriesKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCaloriesKeyPressed
         // TODO add your handling code here:
+         char c = evt.getKeyChar();
+
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            txtCalories.setEditable(true);
+        } else {
+
+            if (!Character.isDigit(c)) {
+                txtCalories.setEditable(false);
+                lblCalories.setText("Sorry! only numbers allowed");
+//            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
+            } else {
+                    lblCalories.setText("");
+                    txtCalories.setEditable(true);
+                }
+        }
     }//GEN-LAST:event_txtCaloriesKeyPressed
 
     private void txtDescription1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescription1KeyPressed
@@ -434,6 +480,21 @@ public class AddProductPanel extends javax.swing.JPanel {
 
     private void txtPriceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyPressed
         // TODO add your handling code here:
+         char c = evt.getKeyChar();
+
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            txtPrice.setEditable(true);
+        } else {
+
+            if (!Character.isDigit(c)) {
+                txtPrice.setEditable(false);
+                lblPrice.setText("Sorry! only numbers allowed");
+//            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
+            }  else {
+                    lblPrice.setText("");
+                    txtPrice.setEditable(true);
+                } 
+        }
     }//GEN-LAST:event_txtPriceKeyPressed
 
     private void txtSNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSNameActionPerformed
@@ -448,8 +509,10 @@ public class AddProductPanel extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JComboBox<String> jComboType;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCalories;
     private javax.swing.JLabel lblPassword1;
     private javax.swing.JLabel lblPassword2;
+    private javax.swing.JLabel lblPrice;
     private javax.swing.JLabel lblUserAction;
     private javax.swing.JLabel lblUsername2;
     private javax.swing.JLabel lblUsername4;

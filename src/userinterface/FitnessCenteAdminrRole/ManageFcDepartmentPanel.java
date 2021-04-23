@@ -209,6 +209,8 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, "Department deleted successfully!");
             populateTable();
+            utils.setDatabase(ecosystem);
+            
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

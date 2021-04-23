@@ -304,6 +304,7 @@ public class ManageTypePanel extends javax.swing.JPanel {
         JOptionPane.showMessageDialog(this,typeName + " Added Successfully");
             populateTable();
             resetForm();
+            utils.setDatabase(ecosystem);
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -328,6 +329,7 @@ public class ManageTypePanel extends javax.swing.JPanel {
 
                 JOptionPane.showMessageDialog(this, type + " updated in the list successfully!");
                 resetForm();
+                utils.setDatabase(ecosystem);
                 
             }
         }

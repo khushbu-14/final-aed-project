@@ -413,6 +413,7 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
         changeBtns();
         renderData();
         JOptionPane.showMessageDialog(null, "Appointmnet Cancelled successfully!");
+        utils.setDatabase(ecosystem);
         
     }//GEN-LAST:event_btnRejectOrderActionPerformed
 
