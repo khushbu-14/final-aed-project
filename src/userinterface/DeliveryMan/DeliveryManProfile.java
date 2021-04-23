@@ -326,7 +326,7 @@ public class DeliveryManProfile extends javax.swing.JPanel {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
-            //txtSName.setEditable(false);
+            txtSName.setEditable(false);
             JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
         } else {
             txtSName.setEditable(true);
@@ -342,7 +342,7 @@ public class DeliveryManProfile extends javax.swing.JPanel {
         } else {
             
             if (!Character.isDigit(c)) {
-                //txtZipcode.setEditable(false);
+                txtZipcode.setEditable(false);
                 //                errorZipcode.setText("Sorry! only numbers allowed");
                 JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
@@ -367,7 +367,7 @@ public class DeliveryManProfile extends javax.swing.JPanel {
         } else {
             
             if (!Character.isDigit(c)) {
-                //txtContact.setEditable(false);
+                txtContact.setEditable(false);
                 errorContactNumber.setText("Sorry! only numbers allowed");
                 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
