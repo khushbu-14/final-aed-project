@@ -102,7 +102,7 @@ public class AdminDashboard extends javax.swing.JPanel {
         lblIconCourse1.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse1.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconCourse1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconCourse1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/student-dash.png"))); // NOI18N
+        lblIconCourse1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/delivery-man--1.png"))); // NOI18N
 
         lblDeliveryMan.setForeground(new java.awt.Color(102, 102, 102));
         lblDeliveryMan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -142,7 +142,7 @@ public class AdminDashboard extends javax.swing.JPanel {
         lblIconStudent.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/student-dash.png"))); // NOI18N
+        lblIconStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/hospital-1.png"))); // NOI18N
 
         lblHospitals.setForeground(new java.awt.Color(102, 102, 102));
         lblHospitals.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -177,14 +177,14 @@ public class AdminDashboard extends javax.swing.JPanel {
 
         lblAmbulance1.setBackground(new java.awt.Color(255, 255, 255));
         lblAmbulance1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        lblAmbulance1.setForeground(new java.awt.Color(0, 153, 255));
+        lblAmbulance1.setForeground(new java.awt.Color(3, 80, 111));
         lblAmbulance1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblAmbulance1.setText("19");
 
         lblIconCourse2.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse2.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconCourse2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconCourse2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/courses-dashboard.png"))); // NOI18N
+        lblIconCourse2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/ambulance-1.png"))); // NOI18N
 
         lblAmbulance.setForeground(new java.awt.Color(102, 102, 102));
         lblAmbulance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -218,14 +218,14 @@ public class AdminDashboard extends javax.swing.JPanel {
 
         lblFitnessCentre1.setBackground(new java.awt.Color(255, 255, 255));
         lblFitnessCentre1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        lblFitnessCentre1.setForeground(new java.awt.Color(0, 153, 255));
+        lblFitnessCentre1.setForeground(new java.awt.Color(22, 135, 167));
         lblFitnessCentre1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblFitnessCentre1.setText("14");
 
         lblIconStudent1.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent1.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconStudent1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconStudent1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/courses-dashboard.png"))); // NOI18N
+        lblIconStudent1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/fitness-centre-1.png"))); // NOI18N
 
         lblFitnessCentre.setForeground(new java.awt.Color(102, 102, 102));
         lblFitnessCentre.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -265,7 +265,7 @@ public class AdminDashboard extends javax.swing.JPanel {
         lblIconStudent2.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent2.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconStudent2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconStudent2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/student-dash.png"))); // NOI18N
+        lblIconStudent2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/users-1.png"))); // NOI18N
 
         lblUsers.setForeground(new java.awt.Color(102, 102, 102));
         lblUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -449,14 +449,14 @@ public class AdminDashboard extends javax.swing.JPanel {
 
         lblShops1.setBackground(new java.awt.Color(255, 255, 255));
         lblShops1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        lblShops1.setForeground(new java.awt.Color(3, 80, 111));
+        lblShops1.setForeground(new java.awt.Color(22, 135, 167));
         lblShops1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblShops1.setText("19");
 
         lblIconCourse.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/courses-dashboard.png"))); // NOI18N
+        lblIconCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/shop-1.png"))); // NOI18N
 
         lblShops.setForeground(new java.awt.Color(102, 102, 102));
         lblShops.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
