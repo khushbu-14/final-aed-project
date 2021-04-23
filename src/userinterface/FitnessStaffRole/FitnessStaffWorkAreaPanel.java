@@ -50,6 +50,10 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
         iconDashboard7 = new javax.swing.JLabel();
         manageSessions = new javax.swing.JLabel();
         border7 = new javax.swing.JPanel();
+        manageSessionsRegPanel = new javax.swing.JPanel();
+        iconDashboard8 = new javax.swing.JLabel();
+        manageSessionsReg = new javax.swing.JLabel();
+        border8 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(244, 249, 249));
@@ -181,6 +185,68 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(border7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        manageSessionsRegPanel.setBackground(new java.awt.Color(3, 80, 111));
+        manageSessionsRegPanel.setToolTipText("Session Registrations");
+        manageSessionsRegPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageSessionsRegPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageSessionsRegPanelMousePressed(evt);
+            }
+        });
+
+        iconDashboard8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconDashboard8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+
+        manageSessionsReg.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        manageSessionsReg.setForeground(new java.awt.Color(255, 255, 255));
+        manageSessionsReg.setText("Session Registrations");
+        manageSessionsReg.setToolTipText("Session Registrations");
+        manageSessionsReg.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageSessionsRegMousePressed(evt);
+            }
+        });
+
+        border8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        border8.setPreferredSize(new java.awt.Dimension(2, 1));
+
+        javax.swing.GroupLayout border8Layout = new javax.swing.GroupLayout(border8);
+        border8.setLayout(border8Layout);
+        border8Layout.setHorizontalGroup(
+            border8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+        border8Layout.setVerticalGroup(
+            border8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout manageSessionsRegPanelLayout = new javax.swing.GroupLayout(manageSessionsRegPanel);
+        manageSessionsRegPanel.setLayout(manageSessionsRegPanelLayout);
+        manageSessionsRegPanelLayout.setHorizontalGroup(
+            manageSessionsRegPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageSessionsRegPanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(manageSessionsRegPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(manageSessionsRegPanelLayout.createSequentialGroup()
+                        .addComponent(border8, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(manageSessionsRegPanelLayout.createSequentialGroup()
+                        .addComponent(iconDashboard8, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(manageSessionsReg, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
+        );
+        manageSessionsRegPanelLayout.setVerticalGroup(
+            manageSessionsRegPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageSessionsRegPanelLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(manageSessionsRegPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(manageSessionsReg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(iconDashboard8, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+                .addGap(10, 10, 10)
+                .addComponent(border8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
         javax.swing.GroupLayout sideBarLayout = new javax.swing.GroupLayout(sideBar);
         sideBar.setLayout(sideBarLayout);
         sideBarLayout.setHorizontalGroup(
@@ -189,8 +255,9 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(manageDashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageSessionsRegPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         sideBarLayout.setVerticalGroup(
             sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,7 +266,9 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(manageDashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(514, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageSessionsRegPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(448, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -211,7 +280,7 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -240,6 +309,16 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
         manageSessions();
     }//GEN-LAST:event_manageSessionsPanelMousePressed
 
+    private void manageSessionsRegMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsRegMousePressed
+        // TODO add your handling code here:
+        manageRequests();
+    }//GEN-LAST:event_manageSessionsRegMousePressed
+
+    private void manageSessionsRegPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsRegPanelMousePressed
+        // TODO add your handling code here:
+        manageRequests();
+    }//GEN-LAST:event_manageSessionsRegPanelMousePressed
+
 //    private void manageDepartments() {
 //        changeBtnBgs("manageDepartments");
 //        ManageFcDepartmentPanel manageDepartmentPanel = new ManageFcDepartmentPanel(mainPanel, ecosystem, userAccount);
@@ -267,11 +346,11 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
 //        manageAddDepartmentPanel.setBackground(notActiveColor);
 //        manageOrderFitnessPanel.setBackground(notActiveColor);
 //        manageAddStaffPanel.setBackground(notActiveColor);
-//        managePersonalInfoPanel.setBackground(notActiveColor);
+        manageSessionsRegPanel.setBackground(notActiveColor);
         manageSessionsPanel.setBackground(notActiveColor);
 
         manageDashboard.setForeground(nonActiveTxtColor);
-//        manageAppointments.setForeground(nonActiveTxtColor);
+        manageSessionsReg.setForeground(nonActiveTxtColor);
 //        manageDepartments.setForeground(nonActiveTxtColor);
 //        manageOrderFitness.setForeground(nonActiveTxtColor);
 //        manageStaffs.setForeground(nonActiveTxtColor);
@@ -289,18 +368,25 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
         } else if ("dashboard".equalsIgnoreCase(type)) {
             manageDashboardPanel.setBackground(activeColor);
             manageDashboard.setForeground(activeTxtColor);
+        } else if ("reg".equalsIgnoreCase(type)) {
+            manageSessionsRegPanel.setBackground(activeColor);
+            manageSessionsReg.setForeground(activeTxtColor);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel border;
     private javax.swing.JPanel border7;
+    private javax.swing.JPanel border8;
     private javax.swing.JLabel iconDashboard;
     private javax.swing.JLabel iconDashboard7;
+    private javax.swing.JLabel iconDashboard8;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel manageDashboard;
     private javax.swing.JPanel manageDashboardPanel;
     private javax.swing.JLabel manageSessions;
     private javax.swing.JPanel manageSessionsPanel;
+    private javax.swing.JLabel manageSessionsReg;
+    private javax.swing.JPanel manageSessionsRegPanel;
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
 
@@ -308,6 +394,14 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
         changeBtnBgs("dashboard");
         FitnessStaffDashboard fitnessStaffDashboard = new FitnessStaffDashboard(mainPanel, ecosystem, userAccount);
         mainPanel.add("fitnessStaffDashboard", fitnessStaffDashboard);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+
+    private void manageRequests() {
+        changeBtnBgs("reg");
+        ManageUserFitRegRequestPanel mur = new ManageUserFitRegRequestPanel(mainPanel, ecosystem, userAccount);
+        mainPanel.add("ManageUserReuestPanel", mur);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
