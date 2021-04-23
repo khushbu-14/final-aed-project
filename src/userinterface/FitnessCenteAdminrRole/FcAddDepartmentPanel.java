@@ -311,6 +311,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
             } else {
                 if (txtContact.getText().length() > 9) {
                     errorContactNumber.setText("Enter valid 10 digit number");
+                    txtContact.setEditable(false);
 //                    txtContact.setText("");
                 } else {
                     errorContactNumber.setText("");
