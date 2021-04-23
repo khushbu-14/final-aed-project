@@ -20,12 +20,18 @@ public class Service {
     private String ambulanceType;
     private String customerName;
     private User user;
+    private String companyIdentifier;
+    private String userStatus;
 
     public Service(String name, String contact, String oxygenAvailability, String ambulanceType) {
         this.name = name;
         this.contact = contact;
         this.oxygenAvailability = oxygenAvailability;
         this.ambulanceType = ambulanceType;
+
+    }
+
+    public Service() {
     }
 
     public String getName() {
@@ -76,6 +82,23 @@ public class Service {
         this.customerName = customerName;
     }
 
+    public String getCompanyIdentifier() {
+        return companyIdentifier;
+    }
+
+    public void setCompanyIdentifier(String companyIdentifier) {
+        this.companyIdentifier = companyIdentifier;
+    }
+
+    public String getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(String userStatus) {
+        this.userStatus = userStatus;
+    }
+
+    
     @Override
     public String toString() {
         return name;
