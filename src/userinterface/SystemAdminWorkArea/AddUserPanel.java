@@ -465,17 +465,22 @@ public class AddUserPanel extends javax.swing.JPanel {
                 ecosystem.getUserDirectory().addNewUser(userTemp);
                 ecosystem.getUserAccountDirectory().addUserAccount(userTemp);
             }
-             
+
             resetForm();
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
             backAction();
-            String emailSubject = "Care4U Account Information";
-            String emailBodyMessage = "Hi, "+ msg;
-            util.sendEmail(email, emailSubject, emailBodyMessage, false);
+//            String emailSubject = "Care4U Account Information";
+//            String emailBodyMessage = "Hi, " + msg;
+
+            String emailSubject = "Care4U Account Created";
+
+            String emailBodyMessage = "<h4>Hi, " + name + "</h4> <font color='green'> "
+                    + "<p>Thanks for signing up with Care4U!</p> </font> ";
+
+            util.sendEmail(email, emailSubject, emailBodyMessage, true);
             util.setDatabase(ecosystem);
 
-           
         }
     }//GEN-LAST:event_btnSignupActionPerformed
 

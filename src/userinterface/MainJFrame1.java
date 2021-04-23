@@ -320,7 +320,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         lblTitle1.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         lblTitle1.setForeground(new java.awt.Color(153, 153, 153));
         lblTitle1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle1.setText("Please enter you info to register!");
+        lblTitle1.setText("Please enter your info to register!");
 
         btnSignup.setBackground(new java.awt.Color(3, 80, 111));
         btnSignup.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
@@ -751,6 +751,14 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
             JOptionPane.showMessageDialog(this, "Account created successfully!",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
+
+            String emailSubject = "Care4U Account Created";
+
+            String emailBodyMessage = "<h4>Hi, " + name + "</h4> <font color='green'> "
+                    + "<p>Thanks for signing up with Care4U!</p> </font> ";
+
+            util.sendEmail(email, emailSubject, emailBodyMessage, true);
+            util.setDatabase(system);
         }
     }//GEN-LAST:event_btnSignupActionPerformed
 
