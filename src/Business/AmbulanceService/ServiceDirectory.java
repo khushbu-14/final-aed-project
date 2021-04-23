@@ -36,4 +36,27 @@ public class ServiceDirectory {
             serviceList.remove(h);
         }
     }
+    
+    public Service getServiceByName(String name){
+        Service ser = null;
+        if(serviceList != null){
+            for(Service s: serviceList){
+                if(s.getName().equalsIgnoreCase(name))
+                    ser=s;
+            }
+        }  
+        return ser;
+    }
+    
+//     public Service getServiceBypatientName(String name){
+//        Service ser = null;
+//        if(serviceList != null){
+//            for(Service s: serviceList){
+//                if(s.getCustomerName().equalsIgnoreCase(name))
+//                    ser=s;
+//            }
+//        }  
+//        return ser;
+//    }
+ 
 }

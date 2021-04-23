@@ -465,6 +465,40 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
             } else {
                 boolean decision = false;
                 SessionsMedStaff session = new SessionsMedStaff(name, d, startTime, endTime, isRemote, loc, "Created");
+                ArrayList<Hospital> hospitalList = ecosystem.getHospitalDirectory().getHospitalList();
+                for (Hospital fc : hospitalList) {
+                    ArrayList<HospitalDepartment> hospitalDepartmentList = fc.getDepartmentDirectory().getDepartmentList();
+                    for (HospitalDepartment hd : hospitalDepartmentList) {
+                        
+                        Staff staff = hd.getStaffDirectory().getStaffByUserName(userAcount.getUsername());
+                        if(staff !=null){
+                             ArrayList<SessionsMedStaff> st = staff.getSessionDirectory().getSession();
+                        for (SessionsMedStaff s : st) {
+                            if (s.getSessionDate().equalsIgnoreCase(d) && s.getStartTime().equalsIgnoreCase(startTime)) {
+                                flag = false;
+                            }
+                        }
+                        if (flag) {
+                            Boolean f = testTime(startTime.split(":")[0]);
+                            if (date2.equals(date)) {
+                                if (f) {
+                                    staff.getSessionDirectory().addSession(session);
+                                    JOptionPane.showMessageDialog(this, "Session Added successfully!");
+                                    resetForm();
+                                    backAction();
+                                    util.setDatabase(ecosystem);
+                                } else {
+                                    util.showErrorToast("Please select future time slots");
+                                }
+
+                            } else {
+                                session.setDocsIdentifier(staff.getUsername());
+                                staff.getSessionDirectory().addSession(session);
+                                JOptionPane.showMessageDialog(this, "Session Added successfully!");
+                                resetForm();
+                                backAction();
+                                util.setDatabase(ecosystem);
+                            }
 
                 staff.getSessionDirectory().addSession(session);
 
@@ -489,13 +523,8 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
                             util.showErrorToast("Please select future time slots");
                         }
 
-                    } else {
-                        session.setDocsIdentifier(staff.getUsername());
-                        staff.getSessionDirectory().addSession(session);
-                        JOptionPane.showMessageDialog(this, "Session Added successfully!");
-                        resetForm();
-                        backAction();
-                        util.setDatabase(ecosystem);
+                        }
+                       
                     }
 
                 } else {

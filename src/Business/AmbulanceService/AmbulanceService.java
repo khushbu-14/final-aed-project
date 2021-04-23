@@ -21,6 +21,7 @@ public class AmbulanceService extends Business.UserAccount.UserAccount{
     private String zipcode;
     private String email;
     private ServiceDirectory serviceDirectory;
+    private ServiceDirectory bookedServiceDirecotry;
     public AmbulanceService(String userName, String password, String name, String contact, String email, String address, String zipcode) {
         UUID uid = UUID.randomUUID();
         this.id = uid.toString();
@@ -91,6 +92,17 @@ public class AmbulanceService extends Business.UserAccount.UserAccount{
 
     public void setServiceDirectory(ServiceDirectory serviceDirectory) {
         this.serviceDirectory = serviceDirectory;
+    }
+
+    public ServiceDirectory getBookedServiceDirecotry() {
+         if(bookedServiceDirecotry == null){
+        bookedServiceDirecotry = new ServiceDirectory();
+        }
+        return bookedServiceDirecotry;
+    }
+
+    public void setBookedServiceDirecotry(ServiceDirectory bookedServiceDirecotry) {
+        this.bookedServiceDirecotry = bookedServiceDirecotry;
     }
     
     
