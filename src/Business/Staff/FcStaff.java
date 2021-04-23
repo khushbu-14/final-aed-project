@@ -9,6 +9,7 @@ import Business.FitnessCenter.Department.FitnessCenterDepartment;
 import Business.FitnessCenter.FitnessCenter;
 import Business.Hospital.Department.HospitalDepartment;
 import Business.Role.FitnessDepartmentRole;
+import Business.Role.FitnessStaffRole;
 import Business.Role.HospitalDepartmentRole;
 import Business.Role.ShopsRole;
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ public class FcStaff extends Business.UserAccount.UserAccount {
         this.department = department;
         setPassword(password);
         setUsername(userName);
-        setRole(new FitnessDepartmentRole());
+        setRole(new FitnessStaffRole());
     }
 
     public String getName() {

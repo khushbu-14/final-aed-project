@@ -466,7 +466,8 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                     ArrayList<FitnessCenterDepartment> f1 = fc.getFcdepartmentDirectory().getDepartmentList();
                     for (FitnessCenterDepartment fcd : f1) {
                         FcStaff staff = fcd.getStaffDirectory().getStaffByUserName(userAcount.getUsername());
-                        ArrayList<Sessions> sessList = staff.getSdir().getSession();
+                        if(staff != null){
+                            ArrayList<Sessions> sessList = staff.getSdir().getSession();
                         for (Sessions s : sessList) {
                             if (s.getSessionDate().equalsIgnoreCase(d) && s.getStartTime().equalsIgnoreCase(startTime)) {
                                 flag = false;
@@ -497,6 +498,9 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                         } else {
                             util.showErrorToast("Session already Present");
                         }
+                        
+                        }
+                        
 
                     }
                 }
