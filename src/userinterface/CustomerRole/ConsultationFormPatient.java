@@ -453,7 +453,7 @@ private void setData(){
                     goToManageUserConsultationPage();
                      String emailSubject = "Care4U Doctor Consultation Information";
                     String emailBodyMessage = "Hi, "+ user.getName()+"Your Consultation with "+staff.getName() +" Booked successfully";
-                    util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+                    util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage, false);
                     util.setDatabase(ecosystem);
                     }
                    

@@ -259,7 +259,7 @@ public class RegisterCartPanel extends javax.swing.JPanel {
                     goToManageUserFitnessRegistrationPanel();
                     String emailSubject = "Care4U Order Information";
                     String emailBodyMessage = "Hi, "+ user.getName()+" "+"Your Consultation with "+fcstaff.getName() +" booked successfully";
-                    utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+                    utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage, false);
                     utils.setDatabase(ecosystem);
                }
                 

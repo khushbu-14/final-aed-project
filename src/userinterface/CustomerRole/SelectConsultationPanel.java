@@ -70,9 +70,8 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
         utils = new Utils();
         initComponents();
 
-        
         date = new Date();
-        
+
         try {
             //DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM/dd/YYYY");
             date = formatter.parse(formatter.format(date));
@@ -240,55 +239,53 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
         // back btn logic
         backAction();
     }//GEN-LAST:event_btnBackActionPerformed
-    
+
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         sess = getSelectedSession();
-        if(sess !=null){
+        if (sess != null) {
             User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-        ArrayList<SessionsMedStaff> userSessionList = user.getConsultationSessions().getSession();
-        int count = 0;
-        String sessionType = comboSessionType.getSelectedItem().toString();
-        if(staff.getSessionDirectory().getSession().contains(sess)){
-            if(!sessionType.equalsIgnoreCase("remote") && sess.getIsRemote().equalsIgnoreCase("yes")){
-                utils.showErrorToast("This session only for Remote");
-            } else if(!sessionType.equalsIgnoreCase("in-person") && sess.getIsRemote().equalsIgnoreCase("no")){
-                utils.showErrorToast("This session only for In-Persion");
-            }else{
-               for(SessionsMedStaff s:userSessionList){
-                   if(s.getSessionDate().equalsIgnoreCase(sess.getSessionDate())){
-                       count=count+1;
-                   }
-               }
-               if(count>3){
-                   utils.showErrorToast("Booking limit for "+ staff.getName() +"exceded for the day");
-               }else{
-                   sess.setIsRemote(sessionType);
+            ArrayList<SessionsMedStaff> userSessionList = user.getConsultationSessions().getSession();
+            int count = 0;
+            String sessionType = comboSessionType.getSelectedItem().toString();
+            if (staff.getSessionDirectory().getSession().contains(sess)) {
+                if (!sessionType.equalsIgnoreCase("remote") && sess.getIsRemote().equalsIgnoreCase("yes")) {
+                    utils.showErrorToast("This session only for Remote");
+                } else if (!sessionType.equalsIgnoreCase("in-person") && sess.getIsRemote().equalsIgnoreCase("no")) {
+                    utils.showErrorToast("This session only for In-Persion");
+                } else {
+                    for (SessionsMedStaff s : userSessionList) {
+                        if (s.getSessionDate().equalsIgnoreCase(sess.getSessionDate())) {
+                            count = count + 1;
+                        }
+                    }
+                    if (count > 3) {
+                        utils.showErrorToast("Booking limit for " + staff.getName() + "exceded for the day");
+                    } else {
+                        sess.setIsRemote(sessionType);
 //                   staff.getConsultationDirectory().addSession(sess);
 //                    user.getConsultationSessions().addSession(sess);
 //                    staff.getSessionDirectory().removeSession(sess);
-                    JOptionPane.showMessageDialog(this, "Your Consultation with "+staff.getName() +" Selected successfully",
-                    "Success", JOptionPane.INFORMATION_MESSAGE);
-                    goToConsultFormDataPage();
-                    String emailSubject = "Care4U Consultation Information";
-                    String emailBodyMessage = "Hi, "+ user.getName()+" "+"Your Consultation with "+staff.getName() +" booked successfully";
-                    utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
-                    utils.setDatabase(ecosystem);
-                    
-               }
-                
+                        JOptionPane.showMessageDialog(this, "Your Consultation with " + staff.getName() + " Selected successfully",
+                                "Success", JOptionPane.INFORMATION_MESSAGE);
+                        goToConsultFormDataPage();
+                        String emailSubject = "Care4U Consultation Information";
+                        String emailBodyMessage = "Hi, " + user.getName() + " " + "Your Consultation with " + staff.getName() + " booked successfully";
+                        utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage, false);
+                        utils.setDatabase(ecosystem);
+                    }
+                }
+            } else {
+                utils.showErrorToast("Sorry!!, This slot has been booked, Please select other slots");
+                populateData();
             }
-        } else {
-            utils.showErrorToast("Sorry!!, This slot has been booked, Please select other slots");
-            populateData();
         }
-        }
-        
-            
+
+
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void comboSessionTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboSessionTypeActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_comboSessionTypeActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -309,17 +306,17 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
 
     private void populateData() {
         ArrayList<SessionsMedStaff> tempList = staff.getSessionDirectory().getSession();
-        for(SessionsMedStaff s: tempList){
+        for (SessionsMedStaff s : tempList) {
             try {
                 String st1 = s.getSessionDate();
-                date1 = (Date)formatter.parse(st1);
+                date1 = (Date) formatter.parse(st1);
             } catch (ParseException ex) {
                 Logger.getLogger(SelectConsultationPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            if(date1.before(date)){
+
+            if (date1.before(date)) {
                 tempList.remove(s);
-            } 
+            }
 //            else{
 //                String startTime = s.getStartTime();
 //                Boolean f = utils.testTime(startTime.split(":")[0]);
@@ -345,8 +342,7 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
             //}
         }
         //DateFormat formatter = new SimpleDateFormat("yyyy-MM-DD"); 
-        
-        
+
         DefaultTableModel model = (DefaultTableModel) tblConsultaionSlot.getModel();
 
         int count = 1;
@@ -362,11 +358,12 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
-    private void goToConsultFormDataPage(){
-            ConsultationFormPatient bookConsultationPanel = new ConsultationFormPatient(mainWorkArea, ecosystem, user, staff, sess);
-            mainWorkArea.add("bookConsultationPanel", bookConsultationPanel);
-            CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-            layout.next(mainWorkArea);
+
+    private void goToConsultFormDataPage() {
+        ConsultationFormPatient bookConsultationPanel = new ConsultationFormPatient(mainWorkArea, ecosystem, user, staff, sess);
+        mainWorkArea.add("bookConsultationPanel", bookConsultationPanel);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
     }
 
     private void openOrderHistory() {
@@ -378,5 +375,5 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
     }
-    
+
 }

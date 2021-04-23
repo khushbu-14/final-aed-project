@@ -27,7 +27,7 @@ import javax.mail.internet.MimeMessage;
  *
  * @author khushbu
  */
-public class Utils {
+public class Utils extends EmailConstants {
 
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
@@ -88,7 +88,8 @@ public class Utils {
     public void showErrorToast(String msg) {
         JOptionPane.showMessageDialog(null, msg, "Error", JOptionPane.ERROR_MESSAGE);
     }
-    public void setDatabase(EcoSystem system){
+
+    public void setDatabase(EcoSystem system) {
         dB4OUtil.storeSystem(system);
     }
 
@@ -127,7 +128,9 @@ public class Utils {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(user));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress("thakurkhushbu14@gmail.com"));
             message.setSubject(subject);
+
             message.setText(emailMessage);
 
             //send the message  
@@ -138,6 +141,47 @@ public class Utils {
         } catch (MessagingException e) {
             e.printStackTrace();
         }
+    }
 
+    public void sendEmail(String recepient, String subject, String emailMessage, Boolean isHtml) {
+        String user = "info.care4uus@gmail.com";//change accordingly  
+        String password = "care@1234";//change accordingly  
+        //Get the session object  
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.starttls.enable", "true");
+
+        Session session = Session.getInstance(props, new Authenticator() {
+            @Override
+            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+                // TODO Auto-generated method stub
+                return new javax.mail.PasswordAuthentication(user, password);
+            }
+        });
+
+        //Compose the message  
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(user));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress("thakurkhushbu14@gmail.com"));
+            message.setSubject(subject);
+
+            if (isHtml) {
+                message.setContent(emailMessage, "text/html");
+            } else {
+                message.setText(emailMessage);
+            }
+
+            //send the message  
+            Transport.send(message);
+
+            System.out.println("message sent successfully...");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
     }
 }

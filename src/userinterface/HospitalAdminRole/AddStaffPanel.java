@@ -532,7 +532,7 @@ public class AddStaffPanel extends javax.swing.JPanel {
             backAction();
              String emailSubject = "Care4U Account Information";
             String emailBodyMessage = "Hi, "+ msg;
-            util.sendEmail(email, emailSubject, emailBodyMessage);
+            util.sendEmail(email, emailSubject, emailBodyMessage, false);
             util.setDatabase(ecosystem); 
         }
     }//GEN-LAST:event_btnSignupActionPerformed

@@ -402,7 +402,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
                     String msg = txtMessage.getText();
 
-                    String resultMsg = "";
+                    String resultMsg = "", status = "";
+                    Date currentDate = new Date();
 
                     if (!utils.isStringInputValid(msg)) {
                         msg = "";
@@ -415,8 +416,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 //                    newOrderList.setUserAccount(userAccount);
                     newOrderList.setUser(user);
 
-                    newOrderList.setRequestDate(new Date());
-                    newOrderList.setResolveDate(new Date());
+                    newOrderList.setRequestDate(currentDate);
+                    newOrderList.setResolveDate(currentDate);
                     newOrderList.setMessage(msg);
 
                     Boolean isPickup = orderShipmentType.equalsIgnoreCase("PICKUP");
@@ -425,6 +426,34 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
                     Boolean isPrescriptionNeeded = false;
 
+                    if (isPrescriptionNeeded) {
+                        status = "PENDING";
+                        newOrderList.setStatus("PENDING");
+                        resultMsg = "Since some products in your cart need prescription, a doctor will connect with you soon!";
+                    } else {
+                        status = "BOOKED";
+                        newOrderList.setStatus("BOOKED");
+                        resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
+                    }
+
+                    String userFullName = user.getName();
+
+                    String userEmailSubject = "Care4U Order Information | Order placed at " + shop.getShopName();
+                    String shopEmailSubject = "Care4U Order Information | Order placed from " + userFullName;
+
+                    String emailBodyMessage = "Hi, " + userFullName + " " + resultMsg;
+
+                    String mailBody = "\n placed at " + currentDate + "\n Shipment Type : " + orderShipmentType + "\n Status : " + status;
+
+                    String orderDetails = "<ul> <li> <font color='green'> Status : "
+                            + status + " </font> </li> <br> <li> Shipment Type : "
+                            + orderShipmentType + " </li> <br> <li> Placed at : "
+                            + currentDate + " </li> <br>"
+                            + "<li> Total Price : <b>" + txtTotalPrice.getText() + "</b> </li> <br> "
+                            + "<li> Total Quantity : <b>" + txtTotalQuantity.getText() + "</b> </li> </ul>";
+
+                    String orderItemsMsg = "";
+
                     for (OrderItem item : orderList) {
                         if (item.getProduct().getIsPrescriptionNeeded()) {
                             isPrescriptionNeeded = true;
@@ -432,13 +461,19 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                         }
                     }
 
-                    if (isPrescriptionNeeded) {
-                        newOrderList.setStatus("PENDING");
-                        resultMsg = "Since some products in your cart need prescription, a doctor will connect with you soon!";
-                    } else {
-                        newOrderList.setStatus("BOOKED");
-                        resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
+                    for (OrderItem item : orderList) {
+                        int qty = item.getQuantity();
+                        double price = item.getProduct().getPrice();
+                        orderItemsMsg += " <li> Product Name : <b>" + item.getProduct().getProductName()
+                                + "</b> <br>  Quantity : <b>" + qty
+                                + " </b> <br> Unit Price : <b>" + price
+                                + "</b> "
+                                + "<br> Total Price : <b>" + price * qty
+                                + " </b> </li> <br>";
                     }
+
+                    orderDetails += "<br> <font color='teal'> <h4> <i> ----------------------- Product Details  ------------------------ </i> <h4></font> "
+                            + "<br> <ol>" + orderItemsMsg + "</ol>";
 
                     newOrderList.setRequestType("USER-ORDER");
 
@@ -446,12 +481,27 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
                     JOptionPane.showMessageDialog(this, resultMsg);
                     openOrderHistory();
-                     String emailSubject = "Care4U Order Information";
-                    String emailBodyMessage = "Hi, "+ user.getName()+" "+resultMsg;
-                    utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+
+//                    System.out.println("mail : " + mailBody);
+
+                    String shopMailBody = "<h4>Hey!</h4>" + "<b>You have new order from <font color='orange'> " + user.getName() + " </font></b> <br>"
+                            + orderDetails;
+
+                    String userMailBody = "<h4>Hey " + userFullName + ", <br> " + resultMsg + "</h4>" + "<b>Order placed from <font color='orange'> " + shop.getShopName() + " </font></b> <br>"
+                            + orderDetails;
+
+                    // email to user
+                    utils.sendEmail(user.getEmail(), userEmailSubject, userMailBody, true);
+
+                    // email to shop
+                    utils.sendEmail(shop.getEmail(), shopEmailSubject, shopMailBody, true);
+
+//                    utils.sendEmail(shop.getEmail(),
+//                            "Care4U Order Information | New order from "
+//                            + user.getName(),
+//                            "You have new order from " + user.getName() + mailBody);
                     utils.setDatabase(ecosystem);
-                    
-                    
+
                 } else {
                     utils.showErrorToast("Something went wrong! Please try again.");
                 }

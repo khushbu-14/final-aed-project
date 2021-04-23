@@ -658,7 +658,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         btnRejectOrder.setVisible(false);
         btnMarkReadyForShipment.setVisible(false);
         btnAssignDoctor.setVisible(false);
-        
+
         lblOrderStatus.setText(status);
 
         switch (status) {

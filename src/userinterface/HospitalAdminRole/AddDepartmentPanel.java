@@ -381,7 +381,6 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
                 department.setNumberOfBeds(numberOfBeds);
 
 //                ecosystem.getUserAccountDirectory().updateUserAccount(department, userName, password);
-
                 msg = name + " Your account updated successfully!";
             } else {
                 HospitalDepartment departmemntTemp = new HospitalDepartment(name, type, phoneNo, email, numberOfBeds);
@@ -393,13 +392,12 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-            
-            backAction();
-             String emailSubject = "Care4U Order Information";
-            String emailBodyMessage = "Hi, "+ msg;
-            util.sendEmail(email, emailSubject, emailBodyMessage);
-            util.setDatabase(ecosystem);
 
+            String emailSubject = "Care4U Order Information";
+            String emailBodyMessage = "Hi, " + msg;
+            util.sendEmail(email, emailSubject, emailBodyMessage, false);
+            util.setDatabase(ecosystem);
+            backAction();
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
