@@ -74,6 +74,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageDeliveryManPanel = new javax.swing.JPanel();
         iconDeliveryMan = new javax.swing.JLabel();
         ManageDeliveryman = new javax.swing.JLabel();
+        manageJTreePanel = new javax.swing.JPanel();
+        iconJTree = new javax.swing.JLabel();
+        manageJTree = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -329,7 +332,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(iconType, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(manageType, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(manageType, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         manageTypePanelLayout.setVerticalGroup(
@@ -343,7 +346,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
 
         manageAmbulancePanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageAmbulancePanel.setToolTipText("Manage Users");
+        manageAmbulancePanel.setToolTipText("Ambulance Service");
         manageAmbulancePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageAmbulancePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -357,7 +360,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageAmbulance.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageAmbulance.setForeground(new java.awt.Color(255, 255, 255));
         manageAmbulance.setText("Ambulance Service");
-        manageAmbulance.setToolTipText("Users");
+        manageAmbulance.setToolTipText("Ambulance Service");
         manageAmbulance.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageAmbulanceMousePressed(evt);
@@ -372,7 +375,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(iconAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(manageAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(manageAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         manageAmbulancePanelLayout.setVerticalGroup(
@@ -385,7 +388,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         );
 
         manageDeliveryManPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageDeliveryManPanel.setToolTipText("Manage Users");
+        manageDeliveryManPanel.setToolTipText("Delivery Man");
         manageDeliveryManPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageDeliveryManPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -399,7 +402,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         ManageDeliveryman.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         ManageDeliveryman.setForeground(new java.awt.Color(255, 255, 255));
         ManageDeliveryman.setText("Delivery Man");
-        ManageDeliveryman.setToolTipText("Users");
+        ManageDeliveryman.setToolTipText("Delivery Man");
         ManageDeliveryman.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 ManageDeliverymanMousePressed(evt);
@@ -426,23 +429,66 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(0, 11, Short.MAX_VALUE))
         );
 
+        manageJTreePanel.setBackground(new java.awt.Color(3, 80, 111));
+        manageJTreePanel.setToolTipText("jTree");
+        manageJTreePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageJTreePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageJTreePanelMousePressed(evt);
+            }
+        });
+
+        iconJTree.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconJTree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+
+        manageJTree.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        manageJTree.setForeground(new java.awt.Color(255, 255, 255));
+        manageJTree.setText("JTree");
+        manageJTree.setToolTipText("Users");
+        manageJTree.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageJTreeMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout manageJTreePanelLayout = new javax.swing.GroupLayout(manageJTreePanel);
+        manageJTreePanel.setLayout(manageJTreePanelLayout);
+        manageJTreePanelLayout.setHorizontalGroup(
+            manageJTreePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageJTreePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iconJTree, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageJTree, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        manageJTreePanelLayout.setVerticalGroup(
+            manageJTreePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageJTreePanelLayout.createSequentialGroup()
+                .addGroup(manageJTreePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(iconJTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manageJTree, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 11, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout navbarLayout = new javax.swing.GroupLayout(navbar);
         navbar.setLayout(navbarLayout);
         navbarLayout.setHorizontalGroup(
             navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(manageDashboardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(navbarLayout.createSequentialGroup()
                 .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(manageShopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manageUsersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageTypePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manageDeliveryManPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(manageFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageJTreePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageTypePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(manageDashboardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(navbarLayout.createSequentialGroup()
                 .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(manageHospitalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(manageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         navbarLayout.setVerticalGroup(
@@ -463,7 +509,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(manageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(manageDeliveryManPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 87, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageJTreePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 27, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -566,6 +614,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         managedeliveryMan();
     }//GEN-LAST:event_manageDeliveryManPanelMousePressed
 
+    private void manageJTreeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageJTreeMousePressed
+        // TODO add your handling code here:
+        manageJTree();
+    }//GEN-LAST:event_manageJTreeMousePressed
+
+    private void manageJTreePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageJTreePanelMousePressed
+        // TODO add your handling code here:
+        manageJTree();
+    }//GEN-LAST:event_manageJTreePanelMousePressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ManageDeliveryman;
     private javax.swing.JPanel adminPanel;
@@ -574,6 +632,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel iconDeliveryMan;
     private javax.swing.JLabel iconFitness;
     private javax.swing.JLabel iconHospital;
+    private javax.swing.JLabel iconJTree;
     private javax.swing.JLabel iconShop;
     private javax.swing.JLabel iconType;
     private javax.swing.JLabel iconUsers;
@@ -587,6 +646,8 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel manageFitnessPanel;
     private javax.swing.JLabel manageHospital;
     private javax.swing.JPanel manageHospitalPanel;
+    private javax.swing.JLabel manageJTree;
+    private javax.swing.JPanel manageJTreePanel;
     private javax.swing.JLabel manageShop;
     private javax.swing.JPanel manageShopPanel;
     private javax.swing.JLabel manageType;
@@ -667,6 +728,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageAmbulancePanel.setBackground(notActiveColor);
         manageDeliveryManPanel.setBackground(notActiveColor);
         manageTypePanel.setBackground(notActiveColor);
+        manageJTreePanel.setBackground(notActiveColor);
 
         manageDashboard.setForeground(nonActiveTxtColor);
         manageHospital.setForeground(nonActiveTxtColor);
@@ -676,6 +738,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageAmbulance.setForeground(nonActiveTxtColor);
         ManageDeliveryman.setForeground(nonActiveTxtColor);
         manageType.setForeground(nonActiveTxtColor);
+        manageJTree.setBackground(notActiveColor);
 
         if ("dashboard".equalsIgnoreCase(type)) {
             manageDashboardPanel.setBackground(activeColor);
@@ -701,6 +764,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         } else if ("ambulanceService".equalsIgnoreCase(type)) {
             manageAmbulancePanel.setBackground(activeColor);
             manageAmbulance.setForeground(activeTxtColor);
+        } else if ("jtree".equalsIgnoreCase(type)) {
+            manageJTreePanel.setBackground(activeColor);
+            manageJTree.setForeground(activeTxtColor);
         }
     }
 
@@ -712,5 +778,17 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         mainPanel.add("adminDashboard", adminDashboard);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
+    }
+
+    private void manageJTree() {
+
+        changeBtnBgs("jtree");
+
+        ManageJTreePanel manageJTreePanel = new ManageJTreePanel(userProcessContainer, ecosystem);
+
+        mainPanel.add("manageJTreePanel", manageJTreePanel);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+
     }
 }
