@@ -205,6 +205,7 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
 
         errorContactNumber.setForeground(new java.awt.Color(255, 0, 0));
 
+        jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboTypeActionPerformed(evt);
