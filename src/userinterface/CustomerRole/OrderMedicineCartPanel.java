@@ -366,7 +366,7 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                 input = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
                 if (input.matches("^[a-zA-Z0-9]*$")) {
                     response = input;
-                    System.out.println("Name " + response);
+                    // System.out.println("Name " + response);
                 } else {
                     System.out.println("Please enter a valid name containing: ‘a-z’ or ‘A-Z’ lower or upper case or numbers");
                 }
@@ -449,8 +449,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                             + status + " </font> </li> <br> <li> Shipment Type : "
                             + orderShipmentType + " </li> <br> <li> Placed at : "
                             + currentDate + " </li> <br>"
-                            + "<li> Total Price : <b>" + txtTotalPrice.getText() + "</b> </li> <br> "
-                            + "<li> Total Quantity : <b>" + txtTotalQuantity.getText() + "</b> </li> </ul>";
+                            + "<li> Total Price : <b>$" + txtTotalPrice.getText() + "</b> </li> <br> "
+                            + "<li> Total Quantity : <font color='green'> <b>" + txtTotalQuantity.getText() + "</b> </font> </li> </ul>";
 
                     String orderItemsMsg = "";
 
@@ -466,9 +466,9 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                         double price = item.getProduct().getPrice();
                         orderItemsMsg += " <li> Product Name : <b>" + item.getProduct().getProductName()
                                 + "</b> <br>  Quantity : <b>" + qty
-                                + " </b> <br> Unit Price : <b>" + price
+                                + " </b> <br> Unit Price : <b>$" + price
                                 + "</b> "
-                                + "<br> Total Price : <b>" + price * qty
+                                + "<br> Total Price : <b>$" + price * qty
                                 + " </b> </li> <br>";
                     }
 
@@ -483,7 +483,6 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                     openOrderHistory();
 
 //                    System.out.println("mail : " + mailBody);
-
                     String shopMailBody = "<h4>Hey!</h4>" + "<b>You have new order from <font color='orange'> " + user.getName() + " </font></b> <br>"
                             + orderDetails;
 
