@@ -327,24 +327,25 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
 
     private void txtContactKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactKeyPressed
         // TODO add your handling code here:
-        char c = evt.getKeyChar();
-
+         char c = evt.getKeyChar();
+        
         if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
             txtContact.setEditable(true);
         } else {
-
+            
             if (!Character.isDigit(c)) {
-                txtContact.setText("");
+                txtContact.setEditable(false);
                 errorContactNumber.setText("Sorry! only numbers allowed");
                 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
+            } else {
+                if (txtContact.getText().length() > 9) {
+                    txtContact.setEditable(false);
+                    errorContactNumber.setText("Enter 10 digit valid number");
+                } else {
+                    txtContact.setEditable(true);
+                    errorContactNumber.setText("");
+                }
             }
-//            else {
-//                if (util.countOfString(txtContact.getText()) > 10 || util.countOfString(txtContact.getText()) < 10) {
-//                    //                errorContactNumber.setText("Enter 10 digit valid number");
-//                    errorContactNumber.setText("Contact number must be of 10 digits");
-//                    txtContact.setText("");
-//                }
-//            }
         }
     }//GEN-LAST:event_txtContactKeyPressed
 

@@ -304,7 +304,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
             txtContact.setEditable(true);
         } else {
             if (!Character.isDigit(c)) {
-                //txtContact.setEditable(false);
+                txtContact.setEditable(false);
                 errorContactNumber.setText("Sorry! only numbers allowed");
                 txtContact.setText("");
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
@@ -376,7 +376,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
-            //txtSName.setEditable(false);
+            txtSName.setEditable(false);
             JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
             txtSName.setText("");
         } else {

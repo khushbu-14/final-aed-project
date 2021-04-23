@@ -300,23 +300,24 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
     private void txtContactEmergencyKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactEmergencyKeyPressed
         // TODO add your handling code here:
         char c = evt.getKeyChar();
-
+        
         if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
             txtContactEmergency.setEditable(true);
         } else {
-
+            
             if (!Character.isDigit(c)) {
-//                txtContactEmergency.setText("");
+                txtContactEmergency.setEditable(false);
                 errorContactNumber.setText("Sorry! only numbers allowed");
                 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
-            } 
-//            else {
-//                if (util.countOfString(txtContactEmergency.getText())>10 || util.countOfString(txtContactEmergency.getText())<10 ) {
-//                    //                errorContactNumber.setText("Enter 10 digit valid number");
-//                    errorContactNumber.setText("Contact number must be of 10 digits");
-//                    txtContactEmergency.setText("");
-//                }
-//            }
+            } else {
+                if (txtContactEmergency.getText().length() > 9) {
+                    txtContactEmergency.setEditable(false);
+                    errorContactNumber.setText("Enter 10 digit valid number");
+                } else {
+                    txtContactEmergency.setEditable(true);
+                    errorContactNumber.setText("");
+                }
+            }
         }
     }//GEN-LAST:event_txtContactEmergencyKeyPressed
 

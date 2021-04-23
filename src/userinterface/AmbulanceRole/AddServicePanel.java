@@ -72,6 +72,7 @@ public class AddServicePanel extends javax.swing.JPanel {
         jcomboOxygen = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
         jcomboType = new javax.swing.JComboBox<>();
+        contactLable = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(249, 244, 244));
         setLayout(new java.awt.BorderLayout());
@@ -101,7 +102,7 @@ public class AddServicePanel extends javax.swing.JPanel {
 
         lblUserAction.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblUserAction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUserAction.setText("Add User");
+        lblUserAction.setText("Add Ambulance Service");
         lblUserAction.setToolTipText("Add Department");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
@@ -166,10 +167,16 @@ public class AddServicePanel extends javax.swing.JPanel {
 
         jcomboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TYPE 1", "TYPE 2", "TYPE 3" }));
 
+        contactLable.setText(" ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(174, 174, 174)
+                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,16 +187,15 @@ public class AddServicePanel extends javax.swing.JPanel {
                     .addComponent(jcomboOxygen, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(88, 88, 88)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtContact)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contactLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtContact)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                     .addComponent(jcomboType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(217, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(174, 174, 174)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(217, 217, 217))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +210,9 @@ public class AddServicePanel extends javax.swing.JPanel {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtContact)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(contactLable)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
@@ -345,14 +353,15 @@ public class AddServicePanel extends javax.swing.JPanel {
         } else {
 
             if (!Character.isDigit(c)) {
-                util.showErrorToast("Sorry! only numbers allowed");
-                txtContact.setText("");
+                txtContact.setEditable(false);
+                contactLable.setText("Sorry! only numbers allowed");
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
-                if (txtContact.getText().length() !=10) {
+                if (txtContact.getText().length() > 9) {
 //                errorContactNumber.setText("Enter 10 digit valid number");
-//                    txtContact.setEditable(false);
+                    txtContact.setEditable(false);
                 } else {
+                    contactLable.setText("");
                     txtContact.setEditable(true);
                 }
             }
@@ -365,6 +374,7 @@ public class AddServicePanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JLabel contactLable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
