@@ -161,10 +161,12 @@ public class AddServicePanel extends javax.swing.JPanel {
 
         jLabel3.setText("Oxygen Available?");
 
+        jcomboOxygen.setBackground(new java.awt.Color(255, 255, 255));
         jcomboOxygen.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No", "Yes" }));
 
         jLabel4.setText("Ambulance Service Type:");
 
+        jcomboType.setBackground(new java.awt.Color(255, 255, 255));
         jcomboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TYPE 1", "TYPE 2", "TYPE 3" }));
 
         contactLable.setText(" ");
@@ -187,31 +189,33 @@ public class AddServicePanel extends javax.swing.JPanel {
                     .addComponent(jcomboOxygen, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(88, 88, 88)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(contactLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(contactLable, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jcomboType, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 0, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtContact)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-                    .addComponent(jcomboType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(217, 217, 217))
+                        .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(217, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtContact)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contactLable)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(contactLable))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -239,7 +243,7 @@ public class AddServicePanel extends javax.swing.JPanel {
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
 
         splitPanel.setRightComponent(bottomPanel);
@@ -292,7 +296,7 @@ public class AddServicePanel extends javax.swing.JPanel {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         AmbulanceService amb = ecosystem.getAmbulanceDirectory().getAmbulanceServiceByUserName(userAccount.getUsername());
-        
+
         String userName = txtName.getText(),
                 phoneNo = txtContact.getText(),
                 oxygen = jcomboOxygen.getSelectedItem().toString(),
@@ -312,11 +316,11 @@ public class AddServicePanel extends javax.swing.JPanel {
         } else if (!util.isStringInputValid(type)) {
             util.showErrorToast("Plesae Select valid Ambulance Type");
             // JOptionPane.showMessageDialog(this, "Please enter valid address", "Error", JOptionPane.ERROR_MESSAGE);
-        } else if (txtContact.getText().length() !=10) {
+        } else if (txtContact.getText().length() != 10) {
             util.showErrorToast("Contact must be 10 digits only");
             // JOptionPane.showMessageDialog(this, "Please enter valid address", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
-            userName = userName.toLowerCase();
+//            userName = userName.toLowerCase();
             String msg = userName + " created successfully!";
             if (isUpdated) {
                 service.setName(userName);
@@ -325,7 +329,7 @@ public class AddServicePanel extends javax.swing.JPanel {
                 service.setOxygenAvailability(oxygen);
                 msg = userName + " updated successfully!";
             } else {
-                
+
                 Service service1 = new Service(userName, phoneNo, oxygen, type);
                 service1.setStatus("New");
                 amb.getServiceDirectory().addNewService(service1);
@@ -337,7 +341,7 @@ public class AddServicePanel extends javax.swing.JPanel {
                     "Success", JOptionPane.INFORMATION_MESSAGE);
             backAction();
             util.setDatabase(ecosystem);
-            
+
         }
     }//GEN-LAST:event_btnAddActionPerformed
 

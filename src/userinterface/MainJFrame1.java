@@ -4,6 +4,7 @@
  */
 package userinterface;
 
+import Business.AmbulanceService.AmbulanceService;
 import Business.EcoSystem;
 import Business.DB4OUtil.DB4OUtil;
 import Business.DeliveryMan.DeliveryMan;
@@ -950,6 +951,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
                 greetings = ((FcStaff) userAccount).getName();
             } else if (userAccount instanceof FitnessCenter) {
                 greetings = ((FitnessCenter) userAccount).getFitnessCenterName();
+            } else if (userAccount instanceof AmbulanceService) {
+                greetings = ((AmbulanceService) userAccount).getName();
             }
 //            else if (userAccount instanceof Restaurant) {
 //                greetings = ((Restaurant) userAccount).getName();

@@ -79,6 +79,7 @@ public class BookAmbulanceService extends javax.swing.JPanel {
 
         jLabel1.setText("List of Ambulance Providers");
 
+        jcomboBoxList.setBackground(new java.awt.Color(255, 255, 255));
         jcomboBoxList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jcomboBoxListActionPerformed(evt);
@@ -98,6 +99,8 @@ public class BookAmbulanceService extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(ViewTable);
 
+        btnSubmit.setBackground(new java.awt.Color(255, 255, 255));
+        btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
         btnSubmit.setText("Book");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,19 +115,21 @@ public class BookAmbulanceService extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 540, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
-                        .addComponent(jcomboBoxList, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+                            .addComponent(jcomboBoxList, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 804, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -134,13 +139,13 @@ public class BookAmbulanceService extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcomboBoxList, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -156,9 +161,9 @@ public class BookAmbulanceService extends javax.swing.JPanel {
                         .addGap(50, 50, 50)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
+                        .addGap(321, 321, 321)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +172,7 @@ public class BookAmbulanceService extends javax.swing.JPanel {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -175,7 +180,7 @@ public class BookAmbulanceService extends javax.swing.JPanel {
         int selectedRowIndex = ViewTable.getSelectedRow();
         return selectedRowIndex;
     }
-    
+
     private Service getSelectedService() {
         int selectedRowIndex = ViewTable.getSelectedRow();
 
@@ -188,7 +193,7 @@ public class BookAmbulanceService extends javax.swing.JPanel {
 
         return s;
     }
-    
+
     private void jcomboBoxListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboBoxListActionPerformed
         // TODO add your handling code here:
         selectedValue = jcomboBoxList.getSelectedItem().toString();
@@ -198,20 +203,27 @@ public class BookAmbulanceService extends javax.swing.JPanel {
     }//GEN-LAST:event_jcomboBoxListActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        // TODO add your handling code here:
+
         Service service = getSelectedService();
         service.setStatus("Booked");
+
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+
+        service.setUser(user);
+
         service.setCustomerName(userAccount.getUsername());
         user.getAmbulanceServiceDirectory().addNewService(service);
         JOptionPane.showMessageDialog(this, "Service Booked Successfully",
-                    "Success", JOptionPane.INFORMATION_MESSAGE);
-        populateViewTable(selectedValue);  
-         String emailSubject = "Care4U Ambulance Information";
-            String emailBodyMessage = "Hi, "+ user.getName()+" Service Booked Successfully";
-            util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage, false);
-            util.setDatabase(ecosystem);
-           
+                "Success", JOptionPane.INFORMATION_MESSAGE);
+        populateViewTable(selectedValue);
+
+        String emailSubject = "Care4U Ambulance Information";
+
+        String emailBodyMessage = "Hi, " + user.getName() + " " + service.getName() + " Service Booked Successfully";
+        util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage, false);
+        util.setDatabase(ecosystem);
+        backAction();
+
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void backAction() {
@@ -219,6 +231,9 @@ public class BookAmbulanceService extends javax.swing.JPanel {
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
         ManageAmbulanceService manageUserPanel = (ManageAmbulanceService) component;
+
+        manageUserPanel.populateViewTable();
+
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }
@@ -238,8 +253,8 @@ public class BookAmbulanceService extends javax.swing.JPanel {
         DefaultTableModel model = (DefaultTableModel) ViewTable.getModel();
         model.setRowCount(0);
         int count = 1;
-            for (Service st : amb.getServiceDirectory().getServiceList()) {
-                if(!st.getStatus().equalsIgnoreCase("booked")){
+        for (Service st : amb.getServiceDirectory().getServiceList()) {
+            if (!st.getStatus().equalsIgnoreCase("booked")) {
                 Object[] row = new Object[5];
                 row[0] = "" + count++;
                 row[1] = st;
@@ -247,13 +262,14 @@ public class BookAmbulanceService extends javax.swing.JPanel {
                 row[3] = st.getOxygenAvailability();
                 row[4] = st.getAmbulanceType();
                 model.addRow(row);
-                } 
-            } 
+            }
+        }
     }
-     private void populatecomboData() {
+
+    private void populatecomboData() {
         for (AmbulanceService t : ecosystem.getAmbulanceDirectory().getAmbulanceList()) {
-                jcomboBoxList.addItem(t.getName());
-            
+            jcomboBoxList.addItem(t.getName());
+
         }
     }
 }

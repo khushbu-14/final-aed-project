@@ -46,7 +46,7 @@ public class ManageAmbulanceServiceAdmin extends javax.swing.JPanel {
     Boolean isRecordExist = false;
     Boolean flag;
     String selectedValue;
-
+    
     public ManageAmbulanceServiceAdmin(JPanel mainWorkArea, EcoSystem ecosystem, UserAccount userAccount) {
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
@@ -54,6 +54,7 @@ public class ManageAmbulanceServiceAdmin extends javax.swing.JPanel {
         this.userAccount = userAccount;
         initComponents();
         util = new Utils();
+        btnSubmit.setVisible(false);
         populateViewTable();
     }
 
@@ -70,9 +71,8 @@ public class ManageAmbulanceServiceAdmin extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         ViewTable = new javax.swing.JTable();
         btnSubmit = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnCancelAmbulance = new javax.swing.JButton();
+        btnCompleteAmbulance = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(243, 241, 249));
@@ -92,30 +92,33 @@ public class ManageAmbulanceServiceAdmin extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(ViewTable);
 
-        btnSubmit.setText("Book Ambulance");
+        btnSubmit.setBackground(new java.awt.Color(255, 255, 255));
+        btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/plus.png"))); // NOI18N
+        btnSubmit.setText("Add Ambulance");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSubmitActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Available Ambulance Service");
-
-        jButton1.setBackground(new java.awt.Color(255, 153, 153));
-        jButton1.setText("Cancel");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelAmbulance.setBackground(new java.awt.Color(255, 153, 153));
+        btnCancelAmbulance.setText("Cancel Ambulance");
+        btnCancelAmbulance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCancelAmbulanceActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(153, 255, 153));
-        jButton2.setText("Completed");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnCompleteAmbulance.setBackground(new java.awt.Color(153, 255, 153));
+        btnCompleteAmbulance.setText("Mark Complete");
+        btnCompleteAmbulance.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnCompleteAmbulanceActionPerformed(evt);
             }
         });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Manage Ambulance Service");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -123,62 +126,50 @@ public class ManageAmbulanceServiceAdmin extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 704, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(47, 47, 47)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(btnCancelAmbulance)
+                        .addGap(35, 35, 35)
+                        .addComponent(btnCompleteAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(495, 495, 495)
+                            .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 887, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(803, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(104, Short.MAX_VALUE))
+                    .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCompleteAmbulance, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setText("Manage Ambulance Service");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(247, 247, 247)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(36, 36, 36)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -189,72 +180,82 @@ public class ManageAmbulanceServiceAdmin extends javax.swing.JPanel {
     
     private Service getSelectedService() {
         int selectedRowIndex = ViewTable.getSelectedRow();
-
+        
         if (selectedRowIndex < 0) {
             util.showErrorToast("Oops! Please select a Service first.");
             return null;
         }
-
+        
         Service s = (Service) ViewTable.getValueAt(selectedRowIndex, 2);
-
+        
         return s;
     }
-    
+
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-        AddServicePanel bookAmbulanceService = new AddServicePanel(mainWorkArea, ecosystem,false, userAccount, null);
+        AddServicePanel bookAmbulanceService = new AddServicePanel(mainWorkArea, ecosystem, false, userAccount, null);
         mainWorkArea.add("manageAmbulanceService", bookAmbulanceService);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-        layout.next(mainWorkArea);    
+        layout.next(mainWorkArea);
     }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCancelAmbulanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelAmbulanceActionPerformed
         // TODO add your handling code here:
         Service service = getSelectedService();
-        service.setStatus("Cancelled");
-        JOptionPane.showMessageDialog(this, "Service Cancelled Successfully",
-                    "Success", JOptionPane.INFORMATION_MESSAGE);
-        populateViewTable();
-        util.setDatabase(ecosystem);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+        if (service.getStatus().contains("Completed") || service.getStatus().contains("Cancelled")) {
+            util.showErrorToast("Oops! This service is already completed");
+        } else {
+            service.setStatus("Cancelled");
+            JOptionPane.showMessageDialog(this, "Service Cancelled Successfully",
+                    "Success", JOptionPane.INFORMATION_MESSAGE);
+            populateViewTable();
+            util.setDatabase(ecosystem);
+        }
+    }//GEN-LAST:event_btnCancelAmbulanceActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnCompleteAmbulanceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteAmbulanceActionPerformed
         // TODO add your handling code here:
         Service service = getSelectedService();
-        service.setStatus("Completed");
-        JOptionPane.showMessageDialog(this, "Service Completed.",
+        
+        if (service.getStatus().contains("Cancelled") || service.getStatus().contains("Completed")) {
+            util.showErrorToast("Oops! This service is already cancelled");
+        } else {
+            
+            service.setStatus("Completed");
+            JOptionPane.showMessageDialog(this, "Service Completed.",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-        populateViewTable();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+            populateViewTable();
+        }
+    }//GEN-LAST:event_btnCompleteAmbulanceActionPerformed
+    
     private void backAction() {
         mainWorkArea.remove(this);
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
         UserWorkAreaPanel manageUserPanel = (UserWorkAreaPanel) component;
-
+        
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable ViewTable;
+    private javax.swing.JButton btnCancelAmbulance;
+    private javax.swing.JButton btnCompleteAmbulance;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
     public void populateViewTable() {
         DefaultTableModel model = (DefaultTableModel) ViewTable.getModel();
-        AmbulanceService amb =ecosystem.getAmbulanceDirectory().getAmbulanceServiceByUserName(userAccount.getUsername());
+        AmbulanceService amb = ecosystem.getAmbulanceDirectory().getAmbulanceServiceByUserName(userAccount.getUsername());
         model.setRowCount(0);
         
-            for (Service st : amb.getServiceDirectory().getServiceList()) {
-                User user = ecosystem.getUserDirectory().getUserByUserName(st.getCustomerName());
+        for (Service st : amb.getServiceDirectory().getServiceList()) {
+            User user = ecosystem.getUserDirectory().getUserByUserName(st.getCustomerName());
+            if (user != null) {
                 Object[] row = new Object[7];
                 row[0] = user;
                 row[1] = user.getContact();
@@ -264,7 +265,7 @@ public class ManageAmbulanceServiceAdmin extends javax.swing.JPanel {
                 row[5] = st.getAmbulanceType();
                 row[6] = st.getStatus();
                 model.addRow(row);
-                
-            } 
+            }
+        }
     }
 }
