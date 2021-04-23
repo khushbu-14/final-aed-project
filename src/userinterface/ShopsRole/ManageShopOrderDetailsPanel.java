@@ -500,6 +500,16 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
             orderListData.setStatus("READY FOR PICKUP");
             orderListData.setResolveDate(new Date());
             changeBtns();
+
+            String emailSubject = "Care4U Order Information | Ready for Pickup";
+            
+            String emailBodyMessage = "<h4> Hi, " + orderListData.getUser().getName() + " </h4> <font color='green'> Your order is ready for pickup! <font>"
+                    + " <br> <p> You can visit us at <b>" + orderListData.getShop().getAddress() + "</b></p>"
+                    + "<p> Contact Number : <b>" + orderListData.getShop().getContactNo() + "</b></p>";
+
+            utils.sendEmail(orderListData.getUser().getEmail(), emailSubject, emailBodyMessage, true);
+            utils.setDatabase(ecosystem);
+
         } else {
             orderListData.setStatus("PROCESSING");
             orderListData.setResolveDate(new Date());
