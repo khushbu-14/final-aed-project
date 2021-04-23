@@ -12,11 +12,12 @@ import java.util.ArrayList;
  * @author kunal
  */
 public class ServiceDirectory {
+
     private ArrayList<Service> serviceList = new ArrayList<>();
 
     public ArrayList<Service> getServiceList() {
-        if(serviceList == null){
-        serviceList = new ArrayList<>();
+        if (serviceList == null) {
+            serviceList = new ArrayList<>();
         }
         return serviceList;
     }
@@ -24,14 +25,12 @@ public class ServiceDirectory {
     public void setServiceList(ArrayList<Service> serviceList) {
         this.serviceList = serviceList;
     }
-    
-
 
     public Service addNewService(Service service) {
         serviceList.add(service);
         return service;
     }
-    
+
     public void removeService(Service h) {
         if (serviceList != null) {
             serviceList.remove(h);

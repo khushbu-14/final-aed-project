@@ -77,7 +77,7 @@ public class ManageAmbulanceServiceAdmin extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(243, 241, 249));
 
-        jPanel1.setBackground(new java.awt.Color(241, 245, 249));
+        jPanel1.setBackground(new java.awt.Color(243, 241, 249));
 
         ViewTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -137,7 +137,7 @@ public class ManageAmbulanceServiceAdmin extends javax.swing.JPanel {
                             .addGap(495, 495, 495)
                             .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 887, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(803, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
