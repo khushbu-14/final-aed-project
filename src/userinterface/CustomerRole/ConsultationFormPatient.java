@@ -434,7 +434,16 @@ private void setData(){
         // TODO add your handling code here:
         for(ConsultationForm cd: consultDatalist){
             sess.getConsultFormList().add(cd);
-        }           sess.setStatus("New");
+        }           
+                    if(sess.getStatus().equalsIgnoreCase("cancelled")){
+                        sess.setStatus("New");
+                        sess.setUserIdentifier(user.getUsername());
+                        staff.getSessionDirectory().removeSession(sess);
+                        JOptionPane.showMessageDialog(this, "Your Consultation with "+staff.getName() +" Booked successfully",
+                        "Success", JOptionPane.INFORMATION_MESSAGE);
+                        goToManageUserConsultationPage();
+                    }else{
+                    sess.setStatus("New");
                     sess.setUserIdentifier(user.getUsername());
                     staff.getConsultationDirectory().addSession(sess);
                     user.getConsultationSessions().addSession(sess);
@@ -442,6 +451,8 @@ private void setData(){
                     JOptionPane.showMessageDialog(this, "Your Consultation with "+staff.getName() +" Booked successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
                     goToManageUserConsultationPage();
+                    }
+                   
                     
     }//GEN-LAST:event_btnSignup1ActionPerformed
 

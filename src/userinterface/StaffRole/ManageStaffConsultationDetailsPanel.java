@@ -422,6 +422,13 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
 //        mainWorkArea.add("AssignStaffPanel", assignStaffPanel);
 //        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
 //        layout.next(mainWorkArea);
+
+//        User user = orderListData.getUser();
+        ManageUserFitnessRegistrationPanel orderMedicinePanel = new ManageUserFitnessRegistrationPanel(mainWorkArea, ecosystem, user, "DOCTOR");
+
+        mainWorkArea.add("manageHospitalsJPanel", orderMedicinePanel);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
     }//GEN-LAST:event_btnAssignFitnessActionPerformed
 
     private void btnAcceptOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrder1ActionPerformed
@@ -499,13 +506,17 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
     private void changeBtns() {
         String status = sess.getStatus();
 
-        if (status.equalsIgnoreCase("cancelled") || status.equalsIgnoreCase("completed") || status.equalsIgnoreCase("Unattended")) {
+        if (status.equalsIgnoreCase("cancelled") || status.equalsIgnoreCase("completed")) {
             btnAcceptOrder1.setEnabled(false);
             btnRejectOrder.setEnabled(false);
             btnAssignFitness.setEnabled(false);
             
 
-        } else {
+        } else if(status.equalsIgnoreCase("Unattended")){
+            btnAcceptOrder1.setEnabled(true);
+            btnRejectOrder.setEnabled(false);
+            btnAssignFitness.setEnabled(true);         
+        }else {
             btnAcceptOrder1.setEnabled(true);
             btnRejectOrder.setEnabled(true);
             btnAssignFitness.setEnabled(true);
@@ -522,7 +533,7 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
              if(date1.before(date)){
             sess.setStatus("Unattended");  
         }else if(date1.equals(date)){
-                String startTime = sess.getStartTime();
+                String startTime = sess.getEndTime();
                 Boolean f = utils.testTime(startTime.split(":")[0]);
                 if(f==false){
                 sess.setStatus("Unattended");

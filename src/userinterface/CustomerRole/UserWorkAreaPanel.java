@@ -995,7 +995,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
      private void manageConsultationHistory() {
         changeBtnBgs("consultationhistory");
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-        ManageUserConsultationHistoryPanel manageInformationPanel = new ManageUserConsultationHistoryPanel(mainPanel, ecosystem, user);
+        ManageUserConsultationHistoryPanel manageInformationPanel = new ManageUserConsultationHistoryPanel(mainPanel, ecosystem, userAccount);
         mainPanel.add("manageInformationJPanel", manageInformationPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);

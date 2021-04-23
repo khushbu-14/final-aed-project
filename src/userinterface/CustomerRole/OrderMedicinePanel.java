@@ -107,7 +107,7 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
         lblPageTitle2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
         lblPageTitle2.setText("Choose shop type");
 
-        comboBoxDeliveryMan.setBackground(new java.awt.Color(255, 255, 255));
+        comboBoxDeliveryMan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         comboBoxDeliveryMan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxDeliveryManActionPerformed(evt);
@@ -213,10 +213,14 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
         // validations
         String type = comboBoxDeliveryMan.getSelectedItem().toString();
 
-        if (utils.isStringInputValid(type)) {
+        if (!utils.isStringInputValid(type)) {
+           
+        } else if(type.equalsIgnoreCase("select")){
+          utils.showErrorToast("Please select shop type");
+        } 
+        else {
             populateTable(type);
-        } else {
-            utils.showErrorToast("Please select shop type");
+            
         }
     }//GEN-LAST:event_btnSelectShopTypeActionPerformed
 

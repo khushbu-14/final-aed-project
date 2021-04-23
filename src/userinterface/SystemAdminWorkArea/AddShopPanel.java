@@ -176,6 +176,11 @@ public class AddShopPanel extends javax.swing.JPanel {
         lblUsername2.setText("Full Name :");
 
         txtSName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        txtSName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSNameActionPerformed(evt);
+            }
+        });
         txtSName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSNameKeyPressed(evt);
@@ -473,7 +478,7 @@ public class AddShopPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         char c = evt.getKeyChar();
         if (Character.isDigit(c)) {
-            //txtSName.setEditable(false);
+            txtSName.setEditable(false);
             JOptionPane.showMessageDialog(this, "Sorry! no numbers allowed");
         } else {
             txtSName.setEditable(true);
@@ -500,7 +505,7 @@ public class AddShopPanel extends javax.swing.JPanel {
         } else {
 
             if (!Character.isDigit(c)) {
-                //txtContact.setEditable(false);
+                txtContact.setEditable(false);
                 errorContactNumber.setText("Sorry! only numbers allowed");
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
@@ -540,6 +545,10 @@ public class AddShopPanel extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_txtZipcodeKeyPressed
+
+    private void txtSNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSNameActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;

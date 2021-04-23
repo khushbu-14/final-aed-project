@@ -109,6 +109,7 @@ public class BookConsultaionPanel extends javax.swing.JPanel {
         lblPageTitle2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
         lblPageTitle2.setText("Choose Department");
 
+        comboBoxHospitalDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         comboBoxHospitalDepartment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboBoxHospitalDepartmentActionPerformed(evt);
@@ -213,11 +214,14 @@ public class BookConsultaionPanel extends javax.swing.JPanel {
     private void btnSelectShopTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectShopTypeActionPerformed
         // validations
         String type = comboBoxHospitalDepartment.getSelectedItem().toString();
-
-        if (utils.isStringInputValid(type)) {
-            populateTable(type);
-        } else {
+        
+        if (!utils.isStringInputValid(type)) {
+             utils.showErrorToast("Please select Staff type");
+        }else if(type.equalsIgnoreCase("select")){
             utils.showErrorToast("Please select Staff type");
+        } 
+        else {
+           populateTable(type);
         }
     }//GEN-LAST:event_btnSelectShopTypeActionPerformed
 
