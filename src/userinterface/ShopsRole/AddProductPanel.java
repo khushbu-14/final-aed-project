@@ -215,8 +215,10 @@ public class AddProductPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCalories.setForeground(new java.awt.Color(255, 0, 0));
         lblCalories.setText(" ");
 
+        lblPrice.setForeground(new java.awt.Color(255, 0, 0));
         lblPrice.setText(" ");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -402,7 +404,11 @@ public class AddProductPanel extends javax.swing.JPanel {
             util.showErrorToast("Plesae enter valid description");
             //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
             //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
+        } else if (isPrescriptionNeeded.equalsIgnoreCase("select")) {
+            util.showErrorToast("Plesae select valid value for is prescription needed");
+            //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
+            //  JOptionPane.showMessageDialog(this, "Plesae enter valid password", "Error", JOptionPane.ERROR_MESSAGE);
+        }else {
             String msg = name + "  created successfully!";
             if (isUpdatePage) {
 
@@ -460,7 +466,11 @@ public class AddProductPanel extends javax.swing.JPanel {
                 txtCalories.setEditable(false);
                 lblCalories.setText("Sorry! only numbers allowed");
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
-            }   }
+            } else {
+                    lblCalories.setText("");
+                    txtCalories.setEditable(true);
+                }
+        }
     }//GEN-LAST:event_txtCaloriesKeyPressed
 
     private void txtDescription1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDescription1KeyPressed
@@ -479,7 +489,11 @@ public class AddProductPanel extends javax.swing.JPanel {
                 txtPrice.setEditable(false);
                 lblPrice.setText("Sorry! only numbers allowed");
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
-            }   }
+            }  else {
+                    lblPrice.setText("");
+                    txtPrice.setEditable(true);
+                } 
+        }
     }//GEN-LAST:event_txtPriceKeyPressed
 
     private void txtSNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSNameActionPerformed
