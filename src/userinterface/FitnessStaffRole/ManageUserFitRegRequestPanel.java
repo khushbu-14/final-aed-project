@@ -41,7 +41,7 @@ public class ManageUserFitRegRequestPanel extends javax.swing.JPanel {
     Utils utils;
     User user;
     Sessions sessions;
-
+    
     public ManageUserFitRegRequestPanel(JPanel parentContainerPanel, EcoSystem ecosystem, UserAccount userAccount) {
         this.userProcessContainer = parentContainerPanel;
         this.ecosystem = ecosystem;
@@ -49,6 +49,7 @@ public class ManageUserFitRegRequestPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         initComponents();
         populateTable();
+        btnManageSessions.setVisible(false);
     }
 
     /**
@@ -182,27 +183,25 @@ public class ManageUserFitRegRequestPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private int getSelectedRow() {  
-       int selectedRowIndex = tblSession.getSelectedRow();
+    private int getSelectedRow() {        
+        int selectedRowIndex = tblSession.getSelectedRow();
         return selectedRowIndex;
     }
-
     
     private User getSelectedUserSession() {
         int selectedRowIndex = tblSession.getSelectedRow();
-
+        
         if (selectedRowIndex < 0) {
             utils.showErrorToast("Oops! Please select a request first.");
             return null;
         }
         User user = (User) tblSession.getValueAt(selectedRowIndex, 1);
-        return user;    
+        return user;        
     }
-    
     
     private Sessions getSelectedSession() {
         int selectedRowIndex = tblSession.getSelectedRow();
-
+        
         if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(this, "Oops! Please select a session request first.");
             return null;
@@ -221,39 +220,39 @@ public class ManageUserFitRegRequestPanel extends javax.swing.JPanel {
             populateTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
-
+    
     public void refreshTable() {
         populateTable();
     }
-
+    
     private void populateTable() {
         
         DefaultTableModel model = (DefaultTableModel) tblSession.getModel();
-
-         ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
-         for(FitnessCenter fc: fitnessCenterList){
-         ArrayList<FitnessCenterDepartment> deptList = fc.getFcdepartmentDirectory().getDepartmentList();
-         for(FitnessCenterDepartment fcd: deptList){
-         FcStaff staff = fcd.getStaffDirectory().getStaffByUserName(userAccount.getUsername());
-         if(staff != null){
-             int count = 1;
-                            model.setRowCount(0);
-                            for (Sessions req : staff.getRegisterSessDir().getSession()) {
-                                user = ecosystem.getUserDirectory().getUserByUserName(req.getFinduser());
-                                Object[] row = new Object[7];
-                                row[0] = "" + count++;
-                                row[1] = user;
-                                row[2] = req;
-                                row[3] = req.getSessionDate();
-                                row[4] = req.getStartTime();
-                                row[5] = req.getEndTime();
-                                row[6] = req.getRegStatus();
-                                model.addRow(row);
-         }
-         
-         }  
-         }
-         }  
+        
+        ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
+        for (FitnessCenter fc : fitnessCenterList) {
+            ArrayList<FitnessCenterDepartment> deptList = fc.getFcdepartmentDirectory().getDepartmentList();
+            for (FitnessCenterDepartment fcd : deptList) {
+                FcStaff staff = fcd.getStaffDirectory().getStaffByUserName(userAccount.getUsername());
+                if (staff != null) {
+                    int count = 1;
+                    model.setRowCount(0);
+                    for (Sessions req : staff.getRegisterSessDir().getSession()) {
+                        user = ecosystem.getUserDirectory().getUserByUserName(req.getFinduser());
+                        Object[] row = new Object[7];
+                        row[0] = "" + count++;
+                        row[1] = user;
+                        row[2] = req;
+                        row[3] = req.getSessionDate();
+                        row[4] = req.getStartTime();
+                        row[5] = req.getEndTime();
+                        row[6] = req.getRegStatus();
+                        model.addRow(row);
+                    }
+                    
+                }                
+            }
+        }        
     }
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
@@ -263,15 +262,15 @@ public class ManageUserFitRegRequestPanel extends javax.swing.JPanel {
     private void btnAcceptOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrder1ActionPerformed
         // TODO add your handling code here:
         
-       Sessions u = getSelectedSession();
+        Sessions u = getSelectedSession();
         if (u != null) {
 //            User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
 //            ud.getSessionDirectory().getSessionByUserName(userAccount.getUsername());
             u.setRegStatus("Accepted");
             JOptionPane.showMessageDialog(this, "Registration Accepted!");
             populateTable();
-             String emailSubject = "Care4U Fitness Session Information";
-            String emailBodyMessage = "Hi, "+ user.getName()+ " Congratulations!!! Your Session has been booked!";
+            String emailSubject = "Care4U Fitness Session Information";
+            String emailBodyMessage = "Hi, " + user.getName() + " Congratulations!!! Your Session has been booked!";
             utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
             utils.setDatabase(ecosystem);
             
@@ -281,7 +280,7 @@ public class ManageUserFitRegRequestPanel extends javax.swing.JPanel {
     private void btnManageSessionsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageSessionsActionPerformed
         // TODO add your handling code here:
         //ManageStaffConsultationDetailsPanel viewSessionDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user,sess );
-        ManageSessionsPanel newReg = new ManageSessionsPanel(userProcessContainer, ecosystem,userAccount);
+        ManageSessionsPanel newReg = new ManageSessionsPanel(userProcessContainer, ecosystem, userAccount);
         userProcessContainer.add("NewRegistration", newReg);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -297,20 +296,17 @@ public class ManageUserFitRegRequestPanel extends javax.swing.JPanel {
     private javax.swing.JTable tblSession;
     // End of variables declaration//GEN-END:variables
 
-private void changeBtns() {
+    private void changeBtns() {
         String status = sessions.getRegStatus().toUpperCase();
-
+        
         if (status.equalsIgnoreCase("REJECTED") || status.equalsIgnoreCase("APPROVED")) {
             btnAcceptOrder1.setVisible(false);
             btnDelete.setVisible(false);
-
+            
         } else {
             btnAcceptOrder1.setVisible(true);
             btnDelete.setVisible(true);
         }
     }
-
-
-
-
+    
 }

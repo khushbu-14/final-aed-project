@@ -37,7 +37,7 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
     Utils utils;
     UserAccount userAccount;
 
-    public ManageSessionsPanel(JPanel parentContainerPanel, EcoSystem ecosystem,UserAccount userAccount) {
+    public ManageSessionsPanel(JPanel parentContainerPanel, EcoSystem ecosystem, UserAccount userAccount) {
         this.userProcessContainer = parentContainerPanel;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
@@ -45,6 +45,8 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
 
         initComponents();
         populateTable();
+        
+        btnManageUserRegRequests.setVisible(false);
     }
 
     /**
@@ -219,24 +221,24 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
 
         if (u != null) {
             //FitnessCenter fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterByUserName(userAccount.getUsername());
-           // FitnessCenterDepartment fcd = fc.getFcdepartmentDirectory().getFitnessCenterDepartmentByUserName(u.getDepartment().getDepartmentName());
-           // fcd.getStaffDirectory().deleteStaff(u);
+            // FitnessCenterDepartment fcd = fc.getFcdepartmentDirectory().getFitnessCenterDepartmentByUserName(u.getDepartment().getDepartmentName());
+            // fcd.getStaffDirectory().deleteStaff(u);
             ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
-                for(FitnessCenter fc: fitnessCenterList){
-                    ArrayList<FitnessCenterDepartment> f= fc.getFcdepartmentDirectory().getDepartmentList();
-                    for(FitnessCenterDepartment fcd :f) {
-                        ArrayList<FcStaff> fcstaff= fcd.getStaffDirectory().getStaffList();
-                            for(FcStaff staff : fcstaff){
-                                staff.getSdir().removeSession(u);
-                            }
+            for (FitnessCenter fc : fitnessCenterList) {
+                ArrayList<FitnessCenterDepartment> f = fc.getFcdepartmentDirectory().getDepartmentList();
+                for (FitnessCenterDepartment fcd : f) {
+                    ArrayList<FcStaff> fcstaff = fcd.getStaffDirectory().getStaffList();
+                    for (FcStaff staff : fcstaff) {
+                        staff.getSdir().removeSession(u);
                     }
                 }
             }
+        }
 
-            JOptionPane.showMessageDialog(this, "Session deleted successfully!");
-            populateTable();
-            utils.setDatabase(ecosystem);
- //       }
+        JOptionPane.showMessageDialog(this, "Session deleted successfully!");
+        populateTable();
+        utils.setDatabase(ecosystem);
+        //       }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     public void refreshTable() {
@@ -246,44 +248,43 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
     private void populateTable() {
         //FitnessCenter hospital = ecosystem.getHospitalDirectory().getHospitalByUserName(userAccount.getUsername());
         //HospitalDepartmentDirectory hdd = hospital.getDepartmentDirectory();
-        
-       // FitnessCenter fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterByUserName(userAccount.getUsername());
-       // FitnessCenterDepartmentDirectory fcd = fc.getFcdepartmentDirectory();
 
+        // FitnessCenter fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterByUserName(userAccount.getUsername());
+        // FitnessCenterDepartmentDirectory fcd = fc.getFcdepartmentDirectory();
         ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
-        for(FitnessCenter fc: fitnessCenterList){
-            ArrayList<FitnessCenterDepartment> f= fc.getFcdepartmentDirectory().getDepartmentList();                   
-            for(FitnessCenterDepartment fcd :f) {
-               //ArrayList<FcStaff> fcstaff= fcd.getStaffDirectory().getStaffList();
+        for (FitnessCenter fc : fitnessCenterList) {
+            ArrayList<FitnessCenterDepartment> f = fc.getFcdepartmentDirectory().getDepartmentList();
+            for (FitnessCenterDepartment fcd : f) {
+                //ArrayList<FcStaff> fcstaff= fcd.getStaffDirectory().getStaffList();
                 FcStaff staff = fcd.getStaffDirectory().getStaffByUserName(userAccount.getUsername());
                 if (staff != null) {
                     DefaultTableModel model = (DefaultTableModel) tblDepartmentList.getModel();
                     model.setRowCount(0);
                     int count = 1;
-                //ArrayList<Sessions> s =  staff.getSdir().getSession();
-                
-                    for(Sessions st : staff.getSdir().getSession()){
-                          
-                                Object[] row = new Object[7];
-                                row[0] = "" + count++;
-                                row[1] = st;
-                                row[2] = st.getSessionDate();
-                                row[3] = st.getStartTime();
-                                row[4] = st.getEndTime();
-                                row[5] = st.getIsRemote();
-                                row[6] = st.getLocation();
-                               // ArrayList<Sessions> sess = ;
-                                model.addRow(row);
-                            }
-                    } 
+                    //ArrayList<Sessions> s =  staff.getSdir().getSession();
+
+                    for (Sessions st : staff.getSdir().getSession()) {
+
+                        Object[] row = new Object[7];
+                        row[0] = "" + count++;
+                        row[1] = st;
+                        row[2] = st.getSessionDate();
+                        row[3] = st.getStartTime();
+                        row[4] = st.getEndTime();
+                        row[5] = st.getIsRemote();
+                        row[6] = st.getLocation();
+                        // ArrayList<Sessions> sess = ;
+                        model.addRow(row);
+                    }
                 }
             }
-        
+        }
+
     }
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         // logic to go to next screen
-        AddSessionsPanel addSessions = new AddSessionsPanel(userProcessContainer, ecosystem, null, false,userAccount);
+        AddSessionsPanel addSessions = new AddSessionsPanel(userProcessContainer, ecosystem, null, false, userAccount);
         userProcessContainer.add("AddSession", addSessions);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -291,10 +292,10 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
 
     private void btnManageUserRegRequestsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageUserRegRequestsActionPerformed
         // TODO add your handling code here:
-        ManageUserFitRegRequestPanel mur = new ManageUserFitRegRequestPanel(userProcessContainer, ecosystem,userAccount);
+        ManageUserFitRegRequestPanel mur = new ManageUserFitRegRequestPanel(userProcessContainer, ecosystem, userAccount);
         userProcessContainer.add("ManageUserReuestPanel", mur);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-        layout.next(userProcessContainer); 
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_btnManageUserRegRequestsActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
