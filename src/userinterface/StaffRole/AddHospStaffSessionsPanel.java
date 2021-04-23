@@ -456,6 +456,7 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
                 msg = name + " updated successfully!";
                 JOptionPane.showMessageDialog(this, msg,
                         "Success", JOptionPane.INFORMATION_MESSAGE);
+                util.setDatabase(ecosystem);
                 backAction();
             } else {
                 boolean decision = false;
@@ -479,6 +480,7 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
                                     JOptionPane.showMessageDialog(this, "Session Added successfully!");
                                     resetForm();
                                     backAction();
+                                    util.setDatabase(ecosystem);
                                 } else {
                                     util.showErrorToast("Please select future time slots");
                                 }

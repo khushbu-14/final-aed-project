@@ -208,6 +208,7 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
             ecosystem.getUserAccountDirectory().removeUserAccount(u);
 
             JOptionPane.showMessageDialog(this, "Department deleted successfully!");
+            utils.setDatabase(ecosystem);
             populateTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed

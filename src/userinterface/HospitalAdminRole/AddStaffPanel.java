@@ -503,7 +503,7 @@ public class AddStaffPanel extends javax.swing.JPanel {
             // JOptionPane.showMessageDialog(this, "Please enter valid address", "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             userName = userName.toLowerCase();
-            String msg = name + " account created successfully!";
+            String msg = name + " Your account created successfully!";
             if (isUpdatePage) {
 
                 staff.setAddress(address);
@@ -517,7 +517,7 @@ public class AddStaffPanel extends javax.swing.JPanel {
 
                 ecosystem.getUserAccountDirectory().updateUserAccount(staff, userName, password);
 
-                msg = name + " account updated successfully!";
+                msg = name + " Your account updated successfully!";
             } else {
 
                 Staff staffTemp = new Staff(userName, password, name,designation, phoneNo, address, email, zipcode,department);
@@ -530,6 +530,10 @@ public class AddStaffPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
+             String emailSubject = "Care4U Account Information";
+            String emailBodyMessage = "Hi, "+ msg;
+            util.sendEmail(email, emailSubject, emailBodyMessage);
+            util.setDatabase(ecosystem);
 
             backAction();
         }

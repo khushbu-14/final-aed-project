@@ -209,6 +209,7 @@ public class ManageProductPanel extends javax.swing.JPanel {
             ud.getProductDirectory().deleteProduct(u);
 
             JOptionPane.showMessageDialog(this, "Product deleted successfully!");
+            utils.setDatabase(ecosystem);
             populateTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed

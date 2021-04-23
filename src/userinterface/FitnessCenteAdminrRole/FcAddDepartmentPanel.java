@@ -363,6 +363,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
+            util.setDatabase(ecosystem);
 
             backAction();
         }

@@ -324,6 +324,7 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
             sess.getConsultDoc().setDocsPrescription(prescription);
             sess.getConsultDoc().setDocsComment(comment);
             sess.getConsultDoc().setNextConsulationDate(nextDate);
+            util.setDatabase(ecosystem);
             ManageStaffConsultationDetailsPanel manageUserOrderDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user, sess,staff);
             mainWorkArea.add("ManageUserOrderDetailsPanel", manageUserOrderDetailsPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();

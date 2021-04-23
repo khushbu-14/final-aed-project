@@ -78,7 +78,7 @@ public class Utils {
     public void showErrorToast(String msg) {
         JOptionPane.showMessageDialog(null, msg, "Error", JOptionPane.ERROR_MESSAGE);
     }
-    public void setDatabase(){
+    public void setDatabase(EcoSystem system){
         dB4OUtil.storeSystem(system);
     }
     

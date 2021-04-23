@@ -445,6 +445,10 @@ public class AddPersonalInfoPanel extends javax.swing.JPanel {
             setFields(false);
             btnSave.setVisible(false);
             btnEdit.setVisible(true);
+             String emailSubject = "Care4U Account Information";
+            String emailBodyMessage = "Hi, "+ user.getName()+" Records Updates successfully";
+            util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+            util.setDatabase(ecosystem);
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 

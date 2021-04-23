@@ -438,7 +438,7 @@ public class AddProductPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-
+            util.setDatabase(ecosystem);
             backAction();
         }
     }//GEN-LAST:event_btnSignupActionPerformed

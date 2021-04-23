@@ -436,7 +436,7 @@ public class AddAmbulancePanel extends javax.swing.JPanel {
 
         } else {
             userName = userName.toLowerCase();
-            String msg = name + " account created successfully!";
+            String msg = name + " Your account created successfully!";
             if (isUpdatePage) {
 
                 amb.setAddress(address);
@@ -448,7 +448,7 @@ public class AddAmbulancePanel extends javax.swing.JPanel {
 
                 ecosystem.getUserAccountDirectory().updateUserAccount(amb, userName, password);
 
-                msg = name + " account updated successfully!";
+                msg = name + " Your account updated successfully!";
             } else {
 
                 AmbulanceService ambTemp = new AmbulanceService(userName, password, name, phoneNo, email, address, zipcode);
@@ -460,6 +460,10 @@ public class AddAmbulancePanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
+            String emailSubject = "Care4U Account Information";
+            String emailBodyMessage = "Hi, "+ msg;
+            util.sendEmail(email, emailSubject, emailBodyMessage);
+            util.setDatabase(ecosystem);
 
             backAction();
         }

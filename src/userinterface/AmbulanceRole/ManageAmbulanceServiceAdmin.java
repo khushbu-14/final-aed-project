@@ -214,6 +214,7 @@ public class ManageAmbulanceServiceAdmin extends javax.swing.JPanel {
         service.setStatus("Cancelled");
         JOptionPane.showMessageDialog(this, "Service Cancelled Successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
+        util.setDatabase(ecosystem);
         populateViewTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 

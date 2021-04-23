@@ -216,6 +216,10 @@ public class ManageStaffPanel extends javax.swing.JPanel {
             ecosystem.getUserAccountDirectory().removeUserAccount(u);
 
             JOptionPane.showMessageDialog(this, "Staff deleted successfully!");
+             String emailSubject = "Care4U Order Information";
+            String emailBodyMessage = "Hi, "+ u.getName()+" You are no longer registered with us!";
+            utils.sendEmail(u.getEmail(), emailSubject, emailBodyMessage);
+            utils.setDatabase(ecosystem);
             populateTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed

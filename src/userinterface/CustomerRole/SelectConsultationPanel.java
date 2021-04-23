@@ -268,6 +268,10 @@ public class SelectConsultationPanel extends javax.swing.JPanel {
 //                    staff.getSessionDirectory().removeSession(sess);
                     JOptionPane.showMessageDialog(this, "Your Consultation with "+staff.getName() +" Selected successfully",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
+                    String emailSubject = "Care4U Consultation Information";
+                    String emailBodyMessage = "Hi, "+ user.getName()+" "+"Your Consultation with "+staff.getName() +" booked successfully";
+                    utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+                    utils.setDatabase(ecosystem);
                     goToConsultFormDataPage();
                }
                 
