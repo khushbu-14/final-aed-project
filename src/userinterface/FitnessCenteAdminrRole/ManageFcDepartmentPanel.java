@@ -32,7 +32,7 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
     Utils utils;
     UserAccount userAccount;
 
-    public ManageFcDepartmentPanel(JPanel parentContainerPanel, EcoSystem ecosystem,UserAccount userAccount) {
+    public ManageFcDepartmentPanel(JPanel parentContainerPanel, EcoSystem ecosystem, UserAccount userAccount) {
         this.userProcessContainer = parentContainerPanel;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
@@ -63,20 +63,20 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
         tblDepartmentList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         tblDepartmentList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Sr No", "Name", "Username", "Password", "Phone number", "Type"
+                "Sr No", "Name", "Phone number", "Type"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -210,7 +210,7 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Department deleted successfully!");
             populateTable();
             utils.setDatabase(ecosystem);
-            
+
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
@@ -220,8 +220,7 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
 
     private void populateTable() {
         FitnessCenter fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterByUserName(userAccount.getUsername());
-        FitnessCenterDepartmentDirectory dDir= fc.getFcdepartmentDirectory();
-        
+        FitnessCenterDepartmentDirectory dDir = fc.getFcdepartmentDirectory();
 
         if (dDir != null) {
             DefaultTableModel model = (DefaultTableModel) tblDepartmentList.getModel();
@@ -231,17 +230,17 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
 
             for (FitnessCenterDepartment depart : dDir.getDepartmentList()) {
 
-                Object[] row = new Object[6];
+                Object[] row = new Object[4];
                 row[0] = "" + count++;
                 row[1] = depart;
-                row[2] = depart.getUsername();
-                row[3] = depart.getPassword();
-                row[4] = depart.getContact();
-                row[5] = depart.getType();
+//                row[2] = depart.getUsername();
+//                row[3] = depart.getPassword();
+                row[2] = depart.getContact();
+                row[3] = depart.getType();
 //                row[6] = depart.getSchedule();
 //                row[7] = depart.getLocation();
 //                row[8] = depart.getIsRemote();
-                
+
                 model.addRow(row);
             }
         }
@@ -249,11 +248,11 @@ public class ManageFcDepartmentPanel extends javax.swing.JPanel {
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         // logic to go to next screen
-        FcAddDepartmentPanel addDept = new FcAddDepartmentPanel(userProcessContainer, ecosystem, null, false,userAccount);
+        FcAddDepartmentPanel addDept = new FcAddDepartmentPanel(userProcessContainer, ecosystem, null, false, userAccount);
         userProcessContainer.add("AddFitnessDepartmentPanel", addDept);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-        
+
     }//GEN-LAST:event_btnAddUserActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

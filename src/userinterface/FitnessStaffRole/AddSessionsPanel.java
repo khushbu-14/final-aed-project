@@ -460,11 +460,11 @@ public class AddSessionsPanel extends javax.swing.JPanel {
                 backAction();
             } else {
                 boolean decision = false;
-                Sessions session = new Sessions(name, d, startTime,endTime, isRemote, loc, "Created");
+                Sessions session = new Sessions(name, d, startTime, endTime, isRemote, loc, "Created");
                 ArrayList<FitnessCenter> fitnessCenterList = ecosystem.getFitnessCenterDirectory().getFitnessCenterList();
-                for(FitnessCenter fc: fitnessCenterList){
-                    ArrayList<FitnessCenterDepartment> f1= fc.getFcdepartmentDirectory().getDepartmentList();
-                    for(FitnessCenterDepartment fcd :f1) {
+                for (FitnessCenter fc : fitnessCenterList) {
+                    ArrayList<FitnessCenterDepartment> f1 = fc.getFcdepartmentDirectory().getDepartmentList();
+                    for (FitnessCenterDepartment fcd : f1) {
                         FcStaff staff = fcd.getStaffDirectory().getStaffByUserName(userAcount.getUsername());
                         ArrayList<Sessions> sessList = staff.getSdir().getSession();
                         for (Sessions s : sessList) {
@@ -503,8 +503,8 @@ public class AddSessionsPanel extends javax.swing.JPanel {
             }
 
         }
-        
-        
+
+
     }//GEN-LAST:event_btnSignupActionPerformed
 
     private void txtSNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSNameKeyPressed
