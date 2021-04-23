@@ -106,7 +106,7 @@
                       <Component id="manageDeliveryManPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="manageJTreePanel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="26" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -156,7 +156,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/assets/dinner.png"/>
+                      <Image iconType="3" name="/assets/small/dashboard.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -221,7 +221,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/assets/dinner.png"/>
+                      <Image iconType="3" name="/assets/small/hospital.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -286,7 +286,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/assets/dinner.png"/>
+                      <Image iconType="3" name="/assets/small/store-1.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -351,7 +351,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/assets/dinner.png"/>
+                      <Image iconType="3" name="/assets/small/fitness.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -416,7 +416,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/assets/dinner.png"/>
+                      <Image iconType="3" name="/assets/small/users-1.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -481,7 +481,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/assets/dinner.png"/>
+                      <Image iconType="3" name="/assets/small/type.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -545,7 +545,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/assets/dinner.png"/>
+                      <Image iconType="3" name="/assets/small/ambulance.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -609,7 +609,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/assets/dinner.png"/>
+                      <Image iconType="3" name="/assets/small/delivery-man-1.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -663,7 +663,7 @@
                               <Component id="iconJTree" alignment="0" max="32767" attributes="0"/>
                               <Component id="manageJTree" alignment="0" min="-2" pref="43" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -673,7 +673,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/assets/dinner.png"/>
+                      <Image iconType="3" name="/assets/small/jtree.png"/>
                     </Property>
                   </Properties>
                 </Component>
