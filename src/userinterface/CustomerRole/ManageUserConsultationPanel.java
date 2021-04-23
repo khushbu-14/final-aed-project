@@ -226,6 +226,7 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
             u.setStatus("Cancelled");
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
+                    utils.setDatabase(ecosystem);
                 }
             }  else{
             User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());

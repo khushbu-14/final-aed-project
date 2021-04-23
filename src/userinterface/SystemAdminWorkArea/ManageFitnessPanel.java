@@ -209,6 +209,10 @@ public class ManageFitnessPanel extends javax.swing.JPanel {
             ecosystem.getUserAccountDirectory().removeUserAccount(u);
 
             JOptionPane.showMessageDialog(this, "Fitness Center deleted successfully!");
+            String emailSubject = "Care4U Account Information";
+            String emailBodyMessage = "Hi, "+ u.getFitnessCenterName()+" I am sorry, you are no longer registered with us";
+            utils.sendEmail(u.getEmail(), emailSubject, emailBodyMessage);
+            utils.setDatabase(ecosystem);
             populateTable();
         }
     }//GEN-LAST:event_btnDeleteActionPerformed

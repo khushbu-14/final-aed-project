@@ -235,6 +235,7 @@ public class ManageSessionsPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
+            utils.setDatabase(ecosystem);
  //       }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

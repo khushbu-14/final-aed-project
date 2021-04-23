@@ -409,6 +409,9 @@ public class AddHospitalPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
+           
+            utils.setDatabase(ecosystem);
+
 
             backAction();
         }

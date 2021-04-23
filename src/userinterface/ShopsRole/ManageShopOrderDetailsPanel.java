@@ -482,6 +482,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         orderListData.setResolveDate(new Date());
         changeBtns();
         JOptionPane.showMessageDialog(null, "Order approved successfully!");
+        utils.setDatabase(ecosystem);
     }//GEN-LAST:event_btnAcceptOrderActionPerformed
 
     private void btnRejectOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectOrderActionPerformed
@@ -490,6 +491,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         changeBtns();
         JOptionPane.showMessageDialog(null, "Order rejected successfully!");
         lblOrderStatus.setText("SHOP REJECTED");
+        utils.setDatabase(ecosystem);
     }//GEN-LAST:event_btnRejectOrderActionPerformed
 
     private void btnMarkReadyForShipmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarkReadyForShipmentActionPerformed
@@ -506,6 +508,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
 
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
+            utils.setDatabase(ecosystem);
         }
     }//GEN-LAST:event_btnMarkReadyForShipmentActionPerformed
 
