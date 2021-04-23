@@ -184,6 +184,7 @@ public class ManageUserFitnessRegistrationPanel extends javax.swing.JPanel {
         Sessions u = getSelectedSession();
         if (u != null) {
 //            User ud = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
+u.setRegStatus("Cancelled by customer "+u.getFinduser());
             user.getSessionDirectory().removeSession(u);
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
