@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.SystemAdminWorkArea;
+package userinterface.FitnessCenteAdminrRole;
 
+import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
+import Business.FitnessCenter.FitnessCenter;
 import Business.Shop.Shop;
 import Business.Type.Type;
 import Business.User.User;
@@ -23,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author khushbu
  */
-public class AddShopPanel extends javax.swing.JPanel {
+public class FitnessInformationPanel extends javax.swing.JPanel {
 
     private JPanel mainWorkArea;
     private EcoSystem ecosystem;
@@ -31,7 +33,7 @@ public class AddShopPanel extends javax.swing.JPanel {
     Utils util;
 
     DefaultTableModel model;
-    private Shop shop;
+    private FitnessCenter fc;
 
     Boolean isUpdatePage = false;
 
@@ -43,11 +45,11 @@ public class AddShopPanel extends javax.swing.JPanel {
      * @param user
      * @param isUpdatePage
      */
-    public AddShopPanel(JPanel mainWorkArea, EcoSystem ecosystem, Shop shop, Boolean isUpdatePage) {
+    public FitnessInformationPanel(JPanel mainWorkArea, EcoSystem ecosystem, FitnessCenter fc, Boolean isUpdatePage) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
-        this.shop = shop;
+        this.fc = fc;
         this.isUpdatePage = isUpdatePage;
         util = new Utils();
         setData();
@@ -67,7 +69,6 @@ public class AddShopPanel extends javax.swing.JPanel {
         buttonGroup2 = new javax.swing.ButtonGroup();
         splitPanel = new javax.swing.JSplitPane();
         topPanel = new javax.swing.JPanel();
-        btnBack = new javax.swing.JButton();
         lblUserAction = new javax.swing.JLabel();
         bottomPanel = new javax.swing.JPanel();
         btnSubmit = new javax.swing.JButton();
@@ -86,8 +87,6 @@ public class AddShopPanel extends javax.swing.JPanel {
         errorEmail = new javax.swing.JLabel();
         txtContact = new javax.swing.JTextField();
         errorContactNumber = new javax.swing.JLabel();
-        jComboType = new javax.swing.JComboBox<>();
-        lblUsername4 = new javax.swing.JLabel();
         txtZipcode = new javax.swing.JTextField();
         errorZipcode = new javax.swing.JLabel();
 
@@ -99,27 +98,9 @@ public class AddShopPanel extends javax.swing.JPanel {
 
         topPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
-        btnBack.setText("Back");
-        btnBack.setToolTipText("View university list");
-        btnBack.setActionCommand("University");
-        btnBack.setAlignmentY(0.0F);
-        btnBack.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true)));
-        btnBack.setBorderPainted(false);
-        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnBack.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnBack.setIconTextGap(10);
-        btnBack.setMargin(new java.awt.Insets(10, 5, 0, 2));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
         lblUserAction.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblUserAction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUserAction.setText("Add Shop");
+        lblUserAction.setText("Personal Information");
         lblUserAction.setToolTipText("Add Department");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
@@ -127,9 +108,7 @@ public class AddShopPanel extends javax.swing.JPanel {
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156)
+                .addGap(301, 301, 301)
                 .addComponent(lblUserAction, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(347, Short.MAX_VALUE))
         );
@@ -137,10 +116,8 @@ public class AddShopPanel extends javax.swing.JPanel {
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUserAction, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblUserAction, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         splitPanel.setTopComponent(topPanel);
@@ -151,7 +128,7 @@ public class AddShopPanel extends javax.swing.JPanel {
         btnSubmit.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnSubmit.setText("Add Shop");
+        btnSubmit.setText("Update");
         btnSubmit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +140,9 @@ public class AddShopPanel extends javax.swing.JPanel {
         lblUsername1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername1.setText("Username :");
 
+        txtSUserName.setEditable(false);
         txtSUserName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        txtSUserName.setEnabled(false);
 
         lblPassword1.setBackground(new java.awt.Color(249, 244, 244));
         lblPassword1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -176,11 +155,6 @@ public class AddShopPanel extends javax.swing.JPanel {
         lblUsername2.setText("Full Name :");
 
         txtSName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
-        txtSName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSNameActionPerformed(evt);
-            }
-        });
         txtSName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSNameKeyPressed(evt);
@@ -223,12 +197,6 @@ public class AddShopPanel extends javax.swing.JPanel {
 
         errorContactNumber.setForeground(new java.awt.Color(255, 0, 0));
 
-        jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
-
-        lblUsername4.setBackground(new java.awt.Color(249, 244, 244));
-        lblUsername4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblUsername4.setText("Shop type:");
-
         txtZipcode.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
         txtZipcode.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -245,76 +213,71 @@ public class AddShopPanel extends javax.swing.JPanel {
             .addGroup(bottomPanelLayout.createSequentialGroup()
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bottomPanelLayout.createSequentialGroup()
+                        .addGap(402, 402, 402)
+                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(bottomPanelLayout.createSequentialGroup()
                         .addGap(201, 201, 201)
                         .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(bottomPanelLayout.createSequentialGroup()
+                            .addComponent(lblUsername2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(bottomPanelLayout.createSequentialGroup()
+                                    .addComponent(lblUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(100, 100, 100)
+                                    .addComponent(lblPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtSAddress, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                    .addComponent(txtSUserName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblUsername1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
-                                .addGap(100, 100, 100)
-                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(lblUsername4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblPassword1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtSPassword, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                    .addComponent(jComboType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(bottomPanelLayout.createSequentialGroup()
-                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(errorZipcode, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                    .addComponent(lblPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtContact)
-                                    .addComponent(errorContactNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                    .addComponent(txtZipcode, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(100, 100, 100)
-                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtSEmail)
-                                        .addComponent(lblUsername3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtSName)
-                                        .addComponent(lblUsername2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(bottomPanelLayout.createSequentialGroup()
-                        .addGap(402, 402, 402)
-                        .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(bottomPanelLayout.createSequentialGroup()
+                                        .addComponent(txtSUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtSPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, bottomPanelLayout.createSequentialGroup()
+                                        .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(lblPhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(txtContact, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(txtZipcode)
+                                            .addComponent(errorZipcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(bottomPanelLayout.createSequentialGroup()
+                                                .addGap(100, 100, 100)
+                                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(txtSEmail)
+                                                    .addComponent(lblUsername3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(txtSAddress)))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
                 .addContainerGap(275, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bottomPanelLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(bottomPanelLayout.createSequentialGroup()
-                        .addComponent(lblUsername1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(bottomPanelLayout.createSequentialGroup()
-                        .addComponent(lblPassword1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtSPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(43, 43, 43)
+                .addComponent(lblUsername2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblUsername1)
+                    .addComponent(lblPassword1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblUsername4))
-                .addGap(12, 12, 12)
+                    .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboType, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(bottomPanelLayout.createSequentialGroup()
-                        .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(bottomPanelLayout.createSequentialGroup()
-                        .addComponent(lblUsername2)
-                        .addGap(12, 12, 12)
-                        .addComponent(txtSName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(8, 8, 8)
-                .addComponent(errorZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(errorZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8)
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
                         .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -330,7 +293,7 @@ public class AddShopPanel extends javax.swing.JPanel {
                         .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(25, 25, 25)
                 .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addContainerGap())
         );
 
         splitPanel.setRightComponent(bottomPanel);
@@ -345,30 +308,30 @@ public class AddShopPanel extends javax.swing.JPanel {
         txtSName.setText("");
         txtContact.setText("");
         txtSEmail.setText("");
-        txtZipcode.setText("");
-        jComboType.setSelectedItem("Select");
+        txtZipcode.setText(null);
+        //jComboType.setSelectedItem("Select");
     }
 
     private void setData() {
         resetForm();
-        populateComboBox();
+        //populateComboBox();
         if (isUpdatePage) {
-            btnSubmit.setText("Update Shop");
-            lblUserAction.setText("Update Shop");
+            btnSubmit.setText("Update Fitness Center");
+            lblUserAction.setText("Update Fitness Center");
 
-            txtSUserName.setText(shop.getUsername());
-            txtSPassword.setText(shop.getPassword());
-            txtSAddress.setText(shop.getAddress());
-            txtSName.setText(shop.getShopName());
-            txtContact.setText(shop.getContactNo());
-            txtSEmail.setText(shop.getEmail());
-            txtZipcode.setText(shop.getZipcode());
-            jComboType.setSelectedItem(shop.getShopType());
+            txtSUserName.setText(fc.getUsername());
+            txtSPassword.setText(fc.getPassword());
+            txtSAddress.setText(fc.getAddress());
+            txtSName.setText(fc.getFitnessCenterName());
+            txtContact.setText(fc.getContact());
+            txtSEmail.setText(fc.getEmail());
+            txtZipcode.setText(fc.getZipcode());
+            //jComboType.setSelectedItem(fc.getShopType());
             txtSUserName.setEditable(false);
 
         } else {
-            btnSubmit.setText("Add Shop");
-            lblUserAction.setText("Add Shop");
+            btnSubmit.setText("Add Fitness Center");
+            lblUserAction.setText("Add Fitness Center");
             txtSUserName.setEditable(true);
         }
     }
@@ -377,18 +340,13 @@ public class AddShopPanel extends javax.swing.JPanel {
         mainWorkArea.remove(this);
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        ManageShopPanel manageShopPanel = (ManageShopPanel) component;
+        ManageFitnessPanel manageFitnessPanel = (ManageFitnessPanel) component;
 
-        manageShopPanel.refreshTable();
+        manageFitnessPanel.refreshTable();
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }
-
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // back btn logic
-        backAction();
-    }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
@@ -401,7 +359,7 @@ public class AddShopPanel extends javax.swing.JPanel {
                 email = txtSEmail.getText(),
                 address = txtSAddress.getText(),
                 zipcode = txtZipcode.getText();
-        String type = jComboType.getSelectedItem().toString();
+        //String type = jComboType.getSelectedItem().toString();
 
         if (!util.isStringInputValid(userName)) {
             util.showErrorToast("Plesae enter valid user name");
@@ -436,47 +394,41 @@ public class AddShopPanel extends javax.swing.JPanel {
             //  JOptionPane.showMessageDialog(this, "Zipcode should be 5 characters only", "Error", JOptionPane.ERROR_MESSAGE);
             util.showErrorToast("Zipcode should be 5 characters only");
 
-        } else if (!util.isStringInputValid(type)) {
-            //  JOptionPane.showMessageDialog(this, "Please enter valid Zipcode", "Error", JOptionPane.ERROR_MESSAGE);
-            util.showErrorToast("Plesae select valid type");
-        } else if (type.toLowerCase().equals("select")) {
-            //  JOptionPane.showMessageDialog(this, "Please enter valid Zipcode", "Error", JOptionPane.ERROR_MESSAGE);
-            util.showErrorToast("Plesae select valid type");
+//        } else if (!util.isStringInputValid(type)) {
+//            //  JOptionPane.showMessageDialog(this, "Please enter valid Zipcode", "Error", JOptionPane.ERROR_MESSAGE);
+//            util.showErrorToast("Plesae select valid type");
+//        } else if (type.toLowerCase().equals("select")) {
+//            //  JOptionPane.showMessageDialog(this, "Please enter valid Zipcode", "Error", JOptionPane.ERROR_MESSAGE);
+//            util.showErrorToast("Plesae select valid type");
+//        } 
         } else {
             userName = userName.toLowerCase();
-            String msg = name + " Your account created successfully!";
+            String msg = name + " account created successfully!";
             if (isUpdatePage) {
 
-                shop.setAddress(address);
-                shop.setContactNo(phoneNo);
-                shop.setEmail(email);
-                shop.setShopName(name);
-                shop.setZipcode(zipcode);
-                shop.setPassword(password);
-                shop.setShopType(type);
+                fc.setAddress(address);
+                fc.setContact(phoneNo);
+                fc.setEmail(email);
+                fc.setFitnessCenterName(name);
+                fc.setZipcode(zipcode);
+                fc.setPassword(password);
+                //shop.setShopType(type);
 
-                ecosystem.getUserAccountDirectory().updateUserAccount(shop, userName, password);
+                ecosystem.getUserAccountDirectory().updateUserAccount(fc, userName, password);
 
-                msg = name + " Your account updated successfully!";
+                msg = name + " account updated successfully!";
             } else {
 
-                Shop shopTemp = new Shop(userName, password, name, type, phoneNo, address, email, zipcode);
-                ecosystem.getShopDirectory().addNewShop(shopTemp);
-                ecosystem.getUserAccountDirectory().addUserAccount(shopTemp);
+                FitnessCenter fcTemp = new FitnessCenter(userName, password, name, phoneNo, address, zipcode, email);
+                ecosystem.getFitnessCenterDirectory().addNewFitnessCenter(fcTemp);
+                ecosystem.getUserAccountDirectory().addUserAccount(fcTemp);
             }
 
-            resetForm();
-
+//            resetForm();
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-             backAction();
-            String emailSubject = "Care4U Account Information";
-            String emailBodyMessage = "Hi, "+ msg;
-            util.sendEmail(email, emailSubject, emailBodyMessage, false);
-            util.setDatabase(ecosystem);
 
-
-           
+//            backAction();
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -516,7 +468,7 @@ public class AddShopPanel extends javax.swing.JPanel {
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
                 if (txtContact.getText().length() > 9) {
-                errorContactNumber.setText("Enter 10 digit valid number");
+                    errorContactNumber.setText("Enter 10 digit valid number");
                     txtContact.setEditable(false);
                 } else {
                     errorContactNumber.setText("");
@@ -552,20 +504,14 @@ public class AddShopPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtZipcodeKeyPressed
 
-    private void txtSNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSNameActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel errorContactNumber;
     private javax.swing.JLabel errorEmail;
     private javax.swing.JLabel errorZipcode;
-    private javax.swing.JComboBox<String> jComboType;
     private javax.swing.JLabel lblPassword1;
     private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lblPhoneNumber1;
@@ -574,7 +520,6 @@ public class AddShopPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblUsername1;
     private javax.swing.JLabel lblUsername2;
     private javax.swing.JLabel lblUsername3;
-    private javax.swing.JLabel lblUsername4;
     private javax.swing.JSplitPane splitPanel;
     private javax.swing.JPanel topPanel;
     private javax.swing.JTextField txtContact;
@@ -586,12 +531,4 @@ public class AddShopPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtZipcode;
     // End of variables declaration//GEN-END:variables
 
-    public void populateComboBox() {
-        for (Type t : ecosystem.getTypeDirectory().getTypeList()) {
-            if (t.getParent().toLowerCase().equals("shop")) {
-                jComboType.addItem(t.getType());
-            }
-
-        }
-    }
 }

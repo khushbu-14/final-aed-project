@@ -209,7 +209,7 @@ public class BookAmbulanceService extends javax.swing.JPanel {
         populateViewTable(selectedValue);  
          String emailSubject = "Care4U Ambulance Information";
             String emailBodyMessage = "Hi, "+ user.getName()+" Service Booked Successfully";
-            util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+            util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage, false);
             util.setDatabase(ecosystem);
            
     }//GEN-LAST:event_btnSubmitActionPerformed

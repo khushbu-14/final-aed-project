@@ -15,6 +15,7 @@ import Business.WorkQueue.OrderList;
 import constants.Utils;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -139,7 +140,7 @@ public class AssignStaffPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 717, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(300, 300, 300)
                 .addComponent(btnAssignDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(271, 271, 271))
         );
@@ -175,13 +176,13 @@ public class AssignStaffPanel extends javax.swing.JPanel {
                     "Success", JOptionPane.INFORMATION_MESSAGE);
             
             orderListData.setStatus("STAFF ASSIGNED");
+            orderListData.setResolveDate(new Date());
+
             backAction();
             String emailSubject = "Care4U Order Information";
             String emailBodyMessage = "Hi, "+ staff.getName()+" Consultation from "+orderListData.getShop()+" has been Assigned to you";
             utils.sendEmail(staff.getEmail(), emailSubject, emailBodyMessage);
             utils.setDatabase(ecosystem);
-
-            
         }
     }//GEN-LAST:event_btnAssignDoctorActionPerformed
 

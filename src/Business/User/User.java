@@ -130,9 +130,4 @@ public class User extends Business.UserAccount.UserAccount {
     public void setAmbulanceServiceDirectory(ServiceDirectory ambulanceServiceDirectory) {
         this.ambulanceServiceDirectory = ambulanceServiceDirectory;
     }
-
-
-
-
-
 }

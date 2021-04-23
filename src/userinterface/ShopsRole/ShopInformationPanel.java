@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.SystemAdminWorkArea;
+package userinterface.ShopsRole;
 
+import userinterface.SystemAdminWorkArea.*;
 import Business.EcoSystem;
 import Business.Shop.Shop;
 import Business.Type.Type;
@@ -23,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author khushbu
  */
-public class AddShopPanel extends javax.swing.JPanel {
+public class ShopInformationPanel extends javax.swing.JPanel {
 
     private JPanel mainWorkArea;
     private EcoSystem ecosystem;
@@ -43,7 +44,7 @@ public class AddShopPanel extends javax.swing.JPanel {
      * @param user
      * @param isUpdatePage
      */
-    public AddShopPanel(JPanel mainWorkArea, EcoSystem ecosystem, Shop shop, Boolean isUpdatePage) {
+    public ShopInformationPanel(JPanel mainWorkArea, EcoSystem ecosystem, Shop shop, Boolean isUpdatePage) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
@@ -67,7 +68,6 @@ public class AddShopPanel extends javax.swing.JPanel {
         buttonGroup2 = new javax.swing.ButtonGroup();
         splitPanel = new javax.swing.JSplitPane();
         topPanel = new javax.swing.JPanel();
-        btnBack = new javax.swing.JButton();
         lblUserAction = new javax.swing.JLabel();
         bottomPanel = new javax.swing.JPanel();
         btnSubmit = new javax.swing.JButton();
@@ -99,27 +99,9 @@ public class AddShopPanel extends javax.swing.JPanel {
 
         topPanel.setBackground(new java.awt.Color(255, 255, 255));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
-        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/back.png"))); // NOI18N
-        btnBack.setText("Back");
-        btnBack.setToolTipText("View university list");
-        btnBack.setActionCommand("University");
-        btnBack.setAlignmentY(0.0F);
-        btnBack.setBorder(javax.swing.BorderFactory.createCompoundBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true), new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true)));
-        btnBack.setBorderPainted(false);
-        btnBack.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnBack.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        btnBack.setIconTextGap(10);
-        btnBack.setMargin(new java.awt.Insets(10, 5, 0, 2));
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
-            }
-        });
-
         lblUserAction.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         lblUserAction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUserAction.setText("Add Shop");
+        lblUserAction.setText("Personal Information");
         lblUserAction.setToolTipText("Add Department");
 
         javax.swing.GroupLayout topPanelLayout = new javax.swing.GroupLayout(topPanel);
@@ -127,9 +109,7 @@ public class AddShopPanel extends javax.swing.JPanel {
         topPanelLayout.setHorizontalGroup(
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156)
+                .addGap(301, 301, 301)
                 .addComponent(lblUserAction, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(347, Short.MAX_VALUE))
         );
@@ -137,10 +117,8 @@ public class AddShopPanel extends javax.swing.JPanel {
             topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(topPanelLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(topPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUserAction, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(lblUserAction, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         splitPanel.setTopComponent(topPanel);
@@ -151,7 +129,7 @@ public class AddShopPanel extends javax.swing.JPanel {
         btnSubmit.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
-        btnSubmit.setText("Add Shop");
+        btnSubmit.setText("Update");
         btnSubmit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,7 +141,9 @@ public class AddShopPanel extends javax.swing.JPanel {
         lblUsername1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername1.setText("Username :");
 
+        txtSUserName.setEditable(false);
         txtSUserName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 10, true));
+        txtSUserName.setEnabled(false);
 
         lblPassword1.setBackground(new java.awt.Color(249, 244, 244));
         lblPassword1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -385,11 +365,6 @@ public class AddShopPanel extends javax.swing.JPanel {
         layout.previous(mainWorkArea);
     }
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // back btn logic
-        backAction();
-    }//GEN-LAST:event_btnBackActionPerformed
-
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         String userName = txtSUserName.getText();
@@ -444,7 +419,7 @@ public class AddShopPanel extends javax.swing.JPanel {
             util.showErrorToast("Plesae select valid type");
         } else {
             userName = userName.toLowerCase();
-            String msg = name + " Your account created successfully!";
+            String msg = name + " account created successfully!";
             if (isUpdatePage) {
 
                 shop.setAddress(address);
@@ -457,7 +432,7 @@ public class AddShopPanel extends javax.swing.JPanel {
 
                 ecosystem.getUserAccountDirectory().updateUserAccount(shop, userName, password);
 
-                msg = name + " Your account updated successfully!";
+                msg = name + " account updated successfully!";
             } else {
 
                 Shop shopTemp = new Shop(userName, password, name, type, phoneNo, address, email, zipcode);
@@ -465,18 +440,11 @@ public class AddShopPanel extends javax.swing.JPanel {
                 ecosystem.getUserAccountDirectory().addUserAccount(shopTemp);
             }
 
-            resetForm();
-
+//            resetForm();
             JOptionPane.showMessageDialog(this, msg,
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-             backAction();
-            String emailSubject = "Care4U Account Information";
-            String emailBodyMessage = "Hi, "+ msg;
-            util.sendEmail(email, emailSubject, emailBodyMessage, false);
-            util.setDatabase(ecosystem);
 
-
-           
+//            backAction();
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -516,7 +484,7 @@ public class AddShopPanel extends javax.swing.JPanel {
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
                 if (txtContact.getText().length() > 9) {
-                errorContactNumber.setText("Enter 10 digit valid number");
+                    errorContactNumber.setText("Enter 10 digit valid number");
                     txtContact.setEditable(false);
                 } else {
                     errorContactNumber.setText("");
@@ -558,7 +526,6 @@ public class AddShopPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
-    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSubmit;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;

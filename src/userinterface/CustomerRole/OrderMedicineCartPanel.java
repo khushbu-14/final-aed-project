@@ -56,7 +56,7 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         if (userType.equalsIgnoreCase("USER")) {
             this.user = (User) userAccount;
-        }else{
+        } else {
             this.staff = (Staff) userAccount;
         }
         utils = new Utils();
@@ -73,6 +73,9 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jDialog2 = new javax.swing.JDialog();
+        jFrame1 = new javax.swing.JFrame();
         btnBack = new javax.swing.JButton();
         lblPageTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -89,6 +92,39 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         lblQty = new javax.swing.JLabel();
         comboOrderShipmentType = new javax.swing.JComboBox<>();
         lblShipmentType = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setBackground(new java.awt.Color(244, 249, 249));
 
@@ -324,8 +360,19 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
         if (p != null) {
 
-            String response = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
+            String input;
+            String response = "";
+            do {
+                input = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
+                if (input.matches("^[a-zA-Z0-9]*$")) {
+                    response = input;
+                    System.out.println("Name " + response);
+                } else {
+                    System.out.println("Please enter a valid name containing: ‘a-z’ or ‘A-Z’ lower or upper case or numbers");
+                }
+            } while (!input.matches("^[a-zA-Z0-9]*$"));
 
+//            String response = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
             try {
                 qty = Integer.parseInt(response);
             } catch (NumberFormatException e) {
@@ -355,7 +402,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
                     String msg = txtMessage.getText();
 
-                    String resultMsg = "";
+                    String resultMsg = "", status = "";
+                    Date currentDate = new Date();
 
                     if (!utils.isStringInputValid(msg)) {
                         msg = "";
@@ -368,7 +416,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 //                    newOrderList.setUserAccount(userAccount);
                     newOrderList.setUser(user);
 
-                    newOrderList.setRequestDate(new Date());
+                    newOrderList.setRequestDate(currentDate);
+                    newOrderList.setResolveDate(currentDate);
                     newOrderList.setMessage(msg);
 
                     Boolean isPickup = orderShipmentType.equalsIgnoreCase("PICKUP");
@@ -377,6 +426,34 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
                     Boolean isPrescriptionNeeded = false;
 
+                    if (isPrescriptionNeeded) {
+                        status = "PENDING";
+                        newOrderList.setStatus("PENDING");
+                        resultMsg = "Since some products in your cart need prescription, a doctor will connect with you soon!";
+                    } else {
+                        status = "BOOKED";
+                        newOrderList.setStatus("BOOKED");
+                        resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
+                    }
+
+                    String userFullName = user.getName();
+
+                    String userEmailSubject = "Care4U Order Information | Order placed at " + shop.getShopName();
+                    String shopEmailSubject = "Care4U Order Information | Order placed from " + userFullName;
+
+                    String emailBodyMessage = "Hi, " + userFullName + " " + resultMsg;
+
+                    String mailBody = "\n placed at " + currentDate + "\n Shipment Type : " + orderShipmentType + "\n Status : " + status;
+
+                    String orderDetails = "<ul> <li> <font color='green'> Status : "
+                            + status + " </font> </li> <br> <li> Shipment Type : "
+                            + orderShipmentType + " </li> <br> <li> Placed at : "
+                            + currentDate + " </li> <br>"
+                            + "<li> Total Price : <b>" + txtTotalPrice.getText() + "</b> </li> <br> "
+                            + "<li> Total Quantity : <b>" + txtTotalQuantity.getText() + "</b> </li> </ul>";
+
+                    String orderItemsMsg = "";
+
                     for (OrderItem item : orderList) {
                         if (item.getProduct().getIsPrescriptionNeeded()) {
                             isPrescriptionNeeded = true;
@@ -384,13 +461,19 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                         }
                     }
 
-                    if (isPrescriptionNeeded) {
-                        newOrderList.setStatus("PENDING");
-                        resultMsg = "Since some products in your cart need prescription, a doctor will connect with you soon!";
-                    } else {
-                        newOrderList.setStatus("BOOKED");
-                        resultMsg = "Yaayy! Your order is placed. Sit back and enjoy.";
+                    for (OrderItem item : orderList) {
+                        int qty = item.getQuantity();
+                        double price = item.getProduct().getPrice();
+                        orderItemsMsg += " <li> Product Name : <b>" + item.getProduct().getProductName()
+                                + "</b> <br>  Quantity : <b>" + qty
+                                + " </b> <br> Unit Price : <b>" + price
+                                + "</b> "
+                                + "<br> Total Price : <b>" + price * qty
+                                + " </b> </li> <br>";
                     }
+
+                    orderDetails += "<br> <font color='teal'> <h4> <i> ----------------------- Product Details  ------------------------ </i> <h4></font> "
+                            + "<br> <ol>" + orderItemsMsg + "</ol>";
 
                     newOrderList.setRequestType("USER-ORDER");
 
@@ -398,12 +481,27 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
                     JOptionPane.showMessageDialog(this, resultMsg);
                     openOrderHistory();
-                     String emailSubject = "Care4U Order Information";
-                    String emailBodyMessage = "Hi, "+ user.getName()+" "+resultMsg;
-                    utils.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+
+//                    System.out.println("mail : " + mailBody);
+
+                    String shopMailBody = "<h4>Hey!</h4>" + "<b>You have new order from <font color='orange'> " + user.getName() + " </font></b> <br>"
+                            + orderDetails;
+
+                    String userMailBody = "<h4>Hey " + userFullName + ", <br> " + resultMsg + "</h4>" + "<b>Order placed from <font color='orange'> " + shop.getShopName() + " </font></b> <br>"
+                            + orderDetails;
+
+                    // email to user
+                    utils.sendEmail(user.getEmail(), userEmailSubject, userMailBody, true);
+
+                    // email to shop
+                    utils.sendEmail(shop.getEmail(), shopEmailSubject, shopMailBody, true);
+
+//                    utils.sendEmail(shop.getEmail(),
+//                            "Care4U Order Information | New order from "
+//                            + user.getName(),
+//                            "You have new order from " + user.getName() + mailBody);
                     utils.setDatabase(ecosystem);
-                    
-                    
+
                 } else {
                     utils.showErrorToast("Something went wrong! Please try again.");
                 }
@@ -420,6 +518,9 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPlaceOrder;
     private javax.swing.JComboBox<String> comboOrderShipmentType;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblMsg;
@@ -464,8 +565,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
             row[0] = "" + count++;
             row[1] = p;
             row[2] = p.getPrice();
-            row[3] = p.getIsPrescriptionNeeded();
-            row[4] = prescriptionTxt;
+            row[3] = prescriptionTxt;
+            row[4] = p.getDescription();
             row[5] = p.getCalories();
 
             model.addRow(row);

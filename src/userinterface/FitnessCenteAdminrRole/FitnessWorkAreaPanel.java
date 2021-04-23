@@ -6,6 +6,7 @@
 package userinterface.FitnessCenteAdminrRole;
 
 import Business.EcoSystem;
+import Business.FitnessCenter.FitnessCenter;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import java.awt.Color;
@@ -66,7 +67,7 @@ public class FitnessWorkAreaPanel extends javax.swing.JPanel {
         sideBar.setBackground(new java.awt.Color(3, 80, 111));
 
         manageDashboardPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageDashboardPanel.setToolTipText("Manage Hospital");
+        manageDashboardPanel.setToolTipText("Dashboard");
         manageDashboardPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageDashboardPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -128,7 +129,7 @@ public class FitnessWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageAddDepartmentPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageAddDepartmentPanel.setToolTipText("Manage Hospital");
+        manageAddDepartmentPanel.setToolTipText("Manage Departments");
         manageAddDepartmentPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageAddDepartmentPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -142,7 +143,7 @@ public class FitnessWorkAreaPanel extends javax.swing.JPanel {
         manageDepartments.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageDepartments.setForeground(new java.awt.Color(255, 255, 255));
         manageDepartments.setText("Manage Departments");
-        manageDepartments.setToolTipText("Dashboard");
+        manageDepartments.setToolTipText("Manage Departments");
         manageDepartments.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageDepartmentsMousePressed(evt);
@@ -190,7 +191,7 @@ public class FitnessWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageAddStaffPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageAddStaffPanel.setToolTipText("Manage Hospital");
+        manageAddStaffPanel.setToolTipText("Manage Staffs");
         manageAddStaffPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageAddStaffPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -204,7 +205,7 @@ public class FitnessWorkAreaPanel extends javax.swing.JPanel {
         manageStaffs.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageStaffs.setForeground(new java.awt.Color(255, 255, 255));
         manageStaffs.setText("Manage Staffs");
-        manageStaffs.setToolTipText("Dashboard");
+        manageStaffs.setToolTipText("Manage Staffs");
         manageStaffs.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageStaffsMousePressed(evt);
@@ -252,7 +253,7 @@ public class FitnessWorkAreaPanel extends javax.swing.JPanel {
         );
 
         managePersonalInfoPanel.setBackground(new java.awt.Color(3, 80, 111));
-        managePersonalInfoPanel.setToolTipText("Manage Hospital");
+        managePersonalInfoPanel.setToolTipText("Information");
         managePersonalInfoPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         managePersonalInfoPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -266,7 +267,7 @@ public class FitnessWorkAreaPanel extends javax.swing.JPanel {
         managePersonalInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         managePersonalInfo.setForeground(new java.awt.Color(255, 255, 255));
         managePersonalInfo.setText("Information");
-        managePersonalInfo.setToolTipText("Dashboard");
+        managePersonalInfo.setToolTipText("Information");
         managePersonalInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 managePersonalInfoMousePressed(evt);
@@ -349,7 +350,7 @@ public class FitnessWorkAreaPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -486,9 +487,13 @@ public class FitnessWorkAreaPanel extends javax.swing.JPanel {
     }
 
     private void managePersonalInfo() {
-        changeBtnBgs("managestaffs");
-        ManageFcStaffPanel manageStaffPanel = new ManageFcStaffPanel(mainPanel, ecosystem, userAccount);
-        mainPanel.add("manageStaffPanel", manageStaffPanel);
+        
+        changeBtnBgs("personal");
+        
+        FitnessCenter fc = (FitnessCenter) userAccount;
+        FitnessInformationPanel fitnessInformationPanel = new FitnessInformationPanel(mainPanel, ecosystem, fc, true);
+
+        mainPanel.add("fitnessInformationPanel", fitnessInformationPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }

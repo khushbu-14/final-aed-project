@@ -48,7 +48,7 @@ public class AddStaffPanel extends javax.swing.JPanel {
      * @param user
      * @param isUpdatePage
      */
-    public AddStaffPanel(JPanel mainWorkArea, EcoSystem ecosystem, Staff staff, Boolean isUpdatePage,UserAccount userAccount) {
+    public AddStaffPanel(JPanel mainWorkArea, EcoSystem ecosystem, Staff staff, Boolean isUpdatePage, UserAccount userAccount) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
@@ -453,12 +453,11 @@ public class AddStaffPanel extends javax.swing.JPanel {
                 address = txtSAddress.getText(),
                 zipcode = txtZipcode.getText(),
                 designation = txtDesignation.getText(),
-                type=jComboType.getSelectedItem().toString();
+                type = jComboType.getSelectedItem().toString();
 
         Hospital hospital = ecosystem.getHospitalDirectory().getHospitalByUserName(userAccount.getUsername());
         HospitalDepartment department = hospital.getDepartmentDirectory().getHospitalDepartmentByName(type);
-            
-            
+
         if (!util.isStringInputValid(userName)) {
             util.showErrorToast("Plesae enter valid user name");
             //  JOptionPane.showMessageDialog(null, "Plesae enter valid user name");
@@ -520,10 +519,10 @@ public class AddStaffPanel extends javax.swing.JPanel {
                 msg = name + " Your account updated successfully!";
             } else {
 
-                Staff staffTemp = new Staff(userName, password, name,designation, phoneNo, address, email, zipcode,department);
+                Staff staffTemp = new Staff(userName, password, name, designation, phoneNo, address, email, zipcode, department);
                 department.getStaffDirectory().addNewStaff(staffTemp);
                 ecosystem.getUserAccountDirectory().addUserAccount(staffTemp);
-                
+
             }
 
             resetForm();
@@ -533,7 +532,7 @@ public class AddStaffPanel extends javax.swing.JPanel {
             backAction();
              String emailSubject = "Care4U Account Information";
             String emailBodyMessage = "Hi, "+ msg;
-            util.sendEmail(email, emailSubject, emailBodyMessage);
+            util.sendEmail(email, emailSubject, emailBodyMessage, false);
             util.setDatabase(ecosystem); 
         }
     }//GEN-LAST:event_btnSignupActionPerformed
@@ -652,11 +651,11 @@ public class AddStaffPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSUserName;
     private javax.swing.JTextField txtZipcode;
     // End of variables declaration//GEN-END:variables
-         public void populateComboBox(){
-             Hospital hosp = ecosystem.getHospitalDirectory().getHospitalByUserName(userAccount.getUsername());
-            for (HospitalDepartment hd: hosp.getDepartmentDirectory().getDepartmentList()) {
-                    jComboType.addItem(hd.getDepartmentName()); 
-                }
+         public void populateComboBox() {
+        Hospital hosp = ecosystem.getHospitalDirectory().getHospitalByUserName(userAccount.getUsername());
+        for (HospitalDepartment hd : hosp.getDepartmentDirectory().getDepartmentList()) {
+            jComboType.addItem(hd.getDepartmentName());
+        }
     }
 
 }

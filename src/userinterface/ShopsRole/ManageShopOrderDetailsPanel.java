@@ -498,9 +498,21 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
 
         if (shipmentType.equals("PICKUP")) {
             orderListData.setStatus("READY FOR PICKUP");
+            orderListData.setResolveDate(new Date());
             changeBtns();
+
+            String emailSubject = "Care4U Order Information | Ready for Pickup";
+            
+            String emailBodyMessage = "<h4> Hi, " + orderListData.getUser().getName() + " </h4> <font color='green'> Your order is ready for pickup! <font>"
+                    + " <br> <p> You can visit us at <b>" + orderListData.getShop().getAddress() + "</b></p>"
+                    + "<p> Contact Number : <b>" + orderListData.getShop().getContactNo() + "</b></p>";
+
+            utils.sendEmail(orderListData.getUser().getEmail(), emailSubject, emailBodyMessage, true);
+            utils.setDatabase(ecosystem);
+
         } else {
             orderListData.setStatus("PROCESSING");
+            orderListData.setResolveDate(new Date());
 
             AssignDeliveryManPanel assignDeliveryManPanel = new AssignDeliveryManPanel(mainWorkArea, ecosystem, orderListData);
             // AssignStaffPanel assignStaffPanel = new AssignStaffPanel(mainWorkArea, ecosystem, orderListData);
@@ -656,7 +668,7 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
         btnRejectOrder.setVisible(false);
         btnMarkReadyForShipment.setVisible(false);
         btnAssignDoctor.setVisible(false);
-        
+
         lblOrderStatus.setText(status);
 
         switch (status) {

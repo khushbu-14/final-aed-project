@@ -66,7 +66,7 @@ public class HospitalDirectory {
     public Hospital getHospitalByUserName(String userName) {
         Hospital hospital = null;
         for (Hospital hosp : hospitalList) {
-            if (hosp.getUsername().equals(userName)) {
+            if (hosp.getUsername() != null && hosp.getUsername().equals(userName)) {
                 hospital = hosp;
             }
         }

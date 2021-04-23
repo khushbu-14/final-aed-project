@@ -52,30 +52,14 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         iconProducts = new javax.swing.JLabel();
         manageProducts = new javax.swing.JLabel();
         border1 = new javax.swing.JPanel();
-        manageOrderMedicinePanel = new javax.swing.JPanel();
-        iconDashboard2 = new javax.swing.JLabel();
-        manageOrderMedicine = new javax.swing.JLabel();
-        border2 = new javax.swing.JPanel();
-        manageOrderFitnessPanel = new javax.swing.JPanel();
-        iconDashboard3 = new javax.swing.JLabel();
-        manageOrderFitness = new javax.swing.JLabel();
-        border3 = new javax.swing.JPanel();
         managePersonalInfoPanel = new javax.swing.JPanel();
         iconDashboard4 = new javax.swing.JLabel();
         managePersonalInfo = new javax.swing.JLabel();
         border4 = new javax.swing.JPanel();
-        manageAppointmentsPanel = new javax.swing.JPanel();
-        iconDashboard5 = new javax.swing.JLabel();
-        manageAppointments = new javax.swing.JLabel();
-        border5 = new javax.swing.JPanel();
         manageOrdersPanel = new javax.swing.JPanel();
         iconDashboard6 = new javax.swing.JLabel();
         manageOrders = new javax.swing.JLabel();
         border6 = new javax.swing.JPanel();
-        manageSessionsPanel = new javax.swing.JPanel();
-        iconDashboard7 = new javax.swing.JLabel();
-        manageSessions = new javax.swing.JLabel();
-        border7 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(244, 249, 249));
@@ -212,130 +196,6 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(border1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        manageOrderMedicinePanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageOrderMedicinePanel.setToolTipText("Manage Hospital");
-        manageOrderMedicinePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        manageOrderMedicinePanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageOrderMedicinePanelMousePressed(evt);
-            }
-        });
-
-        iconDashboard2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
-
-        manageOrderMedicine.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        manageOrderMedicine.setForeground(new java.awt.Color(255, 255, 255));
-        manageOrderMedicine.setText("Order Products");
-        manageOrderMedicine.setToolTipText("Dashboard");
-        manageOrderMedicine.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageOrderMedicineMousePressed(evt);
-            }
-        });
-
-        border2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        border2.setPreferredSize(new java.awt.Dimension(2, 1));
-
-        javax.swing.GroupLayout border2Layout = new javax.swing.GroupLayout(border2);
-        border2.setLayout(border2Layout);
-        border2Layout.setHorizontalGroup(
-            border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
-        );
-        border2Layout.setVerticalGroup(
-            border2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout manageOrderMedicinePanelLayout = new javax.swing.GroupLayout(manageOrderMedicinePanel);
-        manageOrderMedicinePanel.setLayout(manageOrderMedicinePanelLayout);
-        manageOrderMedicinePanelLayout.setHorizontalGroup(
-            manageOrderMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrderMedicinePanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(manageOrderMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manageOrderMedicinePanelLayout.createSequentialGroup()
-                        .addComponent(border2, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(manageOrderMedicinePanelLayout.createSequentialGroup()
-                        .addComponent(iconDashboard2, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(manageOrderMedicine, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        manageOrderMedicinePanelLayout.setVerticalGroup(
-            manageOrderMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrderMedicinePanelLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(manageOrderMedicinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(manageOrderMedicine, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconDashboard2, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
-                .addGap(10, 10, 10)
-                .addComponent(border2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        manageOrderFitnessPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageOrderFitnessPanel.setToolTipText("Manage Hospital");
-        manageOrderFitnessPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        manageOrderFitnessPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageOrderFitnessPanelMousePressed(evt);
-            }
-        });
-
-        iconDashboard3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
-
-        manageOrderFitness.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        manageOrderFitness.setForeground(new java.awt.Color(255, 255, 255));
-        manageOrderFitness.setText("Fitness Centre");
-        manageOrderFitness.setToolTipText("Dashboard");
-        manageOrderFitness.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageOrderFitnessMousePressed(evt);
-            }
-        });
-
-        border3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        border3.setPreferredSize(new java.awt.Dimension(2, 1));
-
-        javax.swing.GroupLayout border3Layout = new javax.swing.GroupLayout(border3);
-        border3.setLayout(border3Layout);
-        border3Layout.setHorizontalGroup(
-            border3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
-        );
-        border3Layout.setVerticalGroup(
-            border3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout manageOrderFitnessPanelLayout = new javax.swing.GroupLayout(manageOrderFitnessPanel);
-        manageOrderFitnessPanel.setLayout(manageOrderFitnessPanelLayout);
-        manageOrderFitnessPanelLayout.setHorizontalGroup(
-            manageOrderFitnessPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrderFitnessPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(manageOrderFitnessPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manageOrderFitnessPanelLayout.createSequentialGroup()
-                        .addComponent(border3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(manageOrderFitnessPanelLayout.createSequentialGroup()
-                        .addComponent(iconDashboard3, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(manageOrderFitness, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        manageOrderFitnessPanelLayout.setVerticalGroup(
-            manageOrderFitnessPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageOrderFitnessPanelLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(manageOrderFitnessPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(manageOrderFitness, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconDashboard3, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
-                .addGap(10, 10, 10)
-                .addComponent(border3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
         managePersonalInfoPanel.setBackground(new java.awt.Color(3, 80, 111));
         managePersonalInfoPanel.setToolTipText("Manage Hospital");
         managePersonalInfoPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -396,68 +256,6 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
                     .addComponent(iconDashboard4, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
                 .addGap(5, 5, 5)
                 .addComponent(border4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        manageAppointmentsPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageAppointmentsPanel.setToolTipText("Manage Hospital");
-        manageAppointmentsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        manageAppointmentsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageAppointmentsPanelMousePressed(evt);
-            }
-        });
-
-        iconDashboard5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
-
-        manageAppointments.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        manageAppointments.setForeground(new java.awt.Color(255, 255, 255));
-        manageAppointments.setText("Appointments");
-        manageAppointments.setToolTipText("Dashboard");
-        manageAppointments.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageAppointmentsMousePressed(evt);
-            }
-        });
-
-        border5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        border5.setPreferredSize(new java.awt.Dimension(2, 1));
-
-        javax.swing.GroupLayout border5Layout = new javax.swing.GroupLayout(border5);
-        border5.setLayout(border5Layout);
-        border5Layout.setHorizontalGroup(
-            border5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
-        );
-        border5Layout.setVerticalGroup(
-            border5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout manageAppointmentsPanelLayout = new javax.swing.GroupLayout(manageAppointmentsPanel);
-        manageAppointmentsPanel.setLayout(manageAppointmentsPanelLayout);
-        manageAppointmentsPanelLayout.setHorizontalGroup(
-            manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                        .addComponent(border5, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                        .addComponent(iconDashboard5, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(manageAppointments, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        manageAppointmentsPanelLayout.setVerticalGroup(
-            manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageAppointmentsPanelLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(manageAppointmentsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(manageAppointments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconDashboard5, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
-                .addGap(10, 10, 10)
-                .addComponent(border5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         manageOrdersPanel.setBackground(new java.awt.Color(3, 80, 111));
@@ -522,68 +320,6 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(border6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        manageSessionsPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageSessionsPanel.setToolTipText("Manage Hospital");
-        manageSessionsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        manageSessionsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageSessionsPanelMousePressed(evt);
-            }
-        });
-
-        iconDashboard7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
-
-        manageSessions.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        manageSessions.setForeground(new java.awt.Color(255, 255, 255));
-        manageSessions.setText("Session / Events");
-        manageSessions.setToolTipText("Dashboard");
-        manageSessions.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                manageSessionsMousePressed(evt);
-            }
-        });
-
-        border7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        border7.setPreferredSize(new java.awt.Dimension(2, 1));
-
-        javax.swing.GroupLayout border7Layout = new javax.swing.GroupLayout(border7);
-        border7.setLayout(border7Layout);
-        border7Layout.setHorizontalGroup(
-            border7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
-        );
-        border7Layout.setVerticalGroup(
-            border7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout manageSessionsPanelLayout = new javax.swing.GroupLayout(manageSessionsPanel);
-        manageSessionsPanel.setLayout(manageSessionsPanelLayout);
-        manageSessionsPanelLayout.setHorizontalGroup(
-            manageSessionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageSessionsPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(manageSessionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(manageSessionsPanelLayout.createSequentialGroup()
-                        .addComponent(border7, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(manageSessionsPanelLayout.createSequentialGroup()
-                        .addComponent(iconDashboard7, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(manageSessions, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        manageSessionsPanelLayout.setVerticalGroup(
-            manageSessionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(manageSessionsPanelLayout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(manageSessionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(manageSessions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconDashboard7, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
-                .addGap(10, 10, 10)
-                .addComponent(border7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
         javax.swing.GroupLayout sideBarLayout = new javax.swing.GroupLayout(sideBar);
         sideBar.setLayout(sideBarLayout);
         sideBarLayout.setHorizontalGroup(
@@ -593,12 +329,8 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
                 .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(manageDashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manageProductPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageOrderMedicinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageOrderFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(managePersonalInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageAppointmentsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(manageOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sideBarLayout.setVerticalGroup(
@@ -609,18 +341,10 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
                 .addGap(0, 0, 0)
                 .addComponent(manageProductPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(manageOrderMedicinePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(manageOrderFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addComponent(managePersonalInfoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(manageAppointmentsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
                 .addComponent(manageOrdersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(manageSessionsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addContainerGap(399, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -662,39 +386,15 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         manageProducts();
     }//GEN-LAST:event_manageProductPanelMousePressed
 
-    private void manageOrderMedicineMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderMedicineMousePressed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_manageOrderMedicineMousePressed
-
-    private void manageOrderMedicinePanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderMedicinePanelMousePressed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_manageOrderMedicinePanelMousePressed
-
-    private void manageOrderFitnessMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderFitnessMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manageOrderFitnessMousePressed
-
-    private void manageOrderFitnessPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrderFitnessPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manageOrderFitnessPanelMousePressed
-
     private void managePersonalInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePersonalInfoMousePressed
         // TODO add your handling code here:
+        managePersonalInfo();
     }//GEN-LAST:event_managePersonalInfoMousePressed
 
     private void managePersonalInfoPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePersonalInfoPanelMousePressed
         // TODO add your handling code here:
+        managePersonalInfo();
     }//GEN-LAST:event_managePersonalInfoPanelMousePressed
-
-    private void manageAppointmentsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAppointmentsMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manageAppointmentsMousePressed
-
-    private void manageAppointmentsPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAppointmentsPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manageAppointmentsPanelMousePressed
 
     private void manageOrdersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageOrdersMousePressed
         // TODO add your handling code here:
@@ -705,14 +405,6 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         manageOrderHistory();
     }//GEN-LAST:event_manageOrdersPanelMousePressed
-
-    private void manageSessionsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manageSessionsMousePressed
-
-    private void manageSessionsPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageSessionsPanelMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_manageSessionsPanelMousePressed
 
     private void iconDashboardMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconDashboardMousePressed
         // TODO add your handling code here:
@@ -745,23 +437,23 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         Color activeTxtColor = Color.BLACK;
         Color nonActiveTxtColor = Color.WHITE;
 
-        manageAppointmentsPanel.setBackground(notActiveColor);
+//        manageAppointmentsPanel.setBackground(notActiveColor);
         manageDashboardPanel.setBackground(notActiveColor);
         manageProductPanel.setBackground(notActiveColor);
-        manageOrderFitnessPanel.setBackground(notActiveColor);
-        manageOrderMedicinePanel.setBackground(notActiveColor);
+//        manageOrderFitnessPanel.setBackground(notActiveColor);
+//        manageOrderMedicinePanel.setBackground(notActiveColor);
         managePersonalInfoPanel.setBackground(notActiveColor);
-        manageSessionsPanel.setBackground(notActiveColor);
+//        manageSessionsPanel.setBackground(notActiveColor);
         manageOrdersPanel.setBackground(notActiveColor);
 
         manageDashboard.setForeground(nonActiveTxtColor);
-        manageAppointments.setForeground(nonActiveTxtColor);
+//        manageAppointments.setForeground(nonActiveTxtColor);
         manageProducts.setForeground(nonActiveTxtColor);
-        manageOrderFitness.setForeground(nonActiveTxtColor);
-        manageOrderMedicine.setForeground(nonActiveTxtColor);
+//        manageOrderFitness.setForeground(nonActiveTxtColor);
+//        manageOrderMedicine.setForeground(nonActiveTxtColor);
         manageOrders.setForeground(nonActiveTxtColor);
         managePersonalInfo.setForeground(nonActiveTxtColor);
-        manageSessions.setForeground(nonActiveTxtColor);
+//        manageSessions.setForeground(nonActiveTxtColor);
 
         if ("manage-products".equalsIgnoreCase(type)) {
             manageProductPanel.setBackground(activeColor);
@@ -772,43 +464,30 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         } else if ("dashboard".equalsIgnoreCase(type)) {
             manageDashboardPanel.setBackground(activeColor);
             manageDashboard.setForeground(activeTxtColor);
+        } else if ("personal".equalsIgnoreCase(type)) {
+            managePersonalInfoPanel.setBackground(activeColor);
+            managePersonalInfo.setForeground(activeTxtColor);
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel border;
     private javax.swing.JPanel border1;
-    private javax.swing.JPanel border2;
-    private javax.swing.JPanel border3;
     private javax.swing.JPanel border4;
-    private javax.swing.JPanel border5;
     private javax.swing.JPanel border6;
-    private javax.swing.JPanel border7;
     private javax.swing.JLabel iconDashboard;
-    private javax.swing.JLabel iconDashboard2;
-    private javax.swing.JLabel iconDashboard3;
     private javax.swing.JLabel iconDashboard4;
-    private javax.swing.JLabel iconDashboard5;
     private javax.swing.JLabel iconDashboard6;
-    private javax.swing.JLabel iconDashboard7;
     private javax.swing.JLabel iconProducts;
     private javax.swing.JPanel mainPanel;
-    private javax.swing.JLabel manageAppointments;
-    private javax.swing.JPanel manageAppointmentsPanel;
     private javax.swing.JLabel manageDashboard;
     private javax.swing.JPanel manageDashboardPanel;
-    private javax.swing.JLabel manageOrderFitness;
-    private javax.swing.JPanel manageOrderFitnessPanel;
-    private javax.swing.JLabel manageOrderMedicine;
-    private javax.swing.JPanel manageOrderMedicinePanel;
     private javax.swing.JLabel manageOrders;
     private javax.swing.JPanel manageOrdersPanel;
     private javax.swing.JLabel managePersonalInfo;
     private javax.swing.JPanel managePersonalInfoPanel;
     private javax.swing.JPanel manageProductPanel;
     private javax.swing.JLabel manageProducts;
-    private javax.swing.JLabel manageSessions;
-    private javax.swing.JPanel manageSessionsPanel;
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
 
@@ -816,11 +495,20 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         changeBtnBgs("dashboard");
 
 //        Shop shop = (Shop) userAccount;
-
         ShopDashboard shopDashboard = new ShopDashboard(mainPanel, ecosystem, userAccount);
 
         // ManageProductPanel prodcutPanel = new ManageProductPanel(mainPanel, ecosystem, userAccount);
         mainPanel.add("shopDashboard", shopDashboard);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
+
+    private void managePersonalInfo() {
+        changeBtnBgs("personal");
+        Shop shop = (Shop) userAccount;
+        ShopInformationPanel shopInformationPanel = new ShopInformationPanel(mainPanel, ecosystem, shop, true);
+        
+        mainPanel.add("shopInformationPanel", shopInformationPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }

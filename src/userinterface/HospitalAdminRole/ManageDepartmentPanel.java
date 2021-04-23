@@ -37,7 +37,7 @@ public class ManageDepartmentPanel extends javax.swing.JPanel {
     Utils utils;
     UserAccount userAccount;
 
-    public ManageDepartmentPanel(JPanel parentContainerPanel, EcoSystem ecosystem,UserAccount userAccount) {
+    public ManageDepartmentPanel(JPanel parentContainerPanel, EcoSystem ecosystem, UserAccount userAccount) {
         this.userProcessContainer = parentContainerPanel;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
@@ -68,20 +68,20 @@ public class ManageDepartmentPanel extends javax.swing.JPanel {
         tblDepartmentList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         tblDepartmentList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Sr No", "Name", "Username", "Password", "E-mail Id", "Phone number", "Type", "NumberOfBeds", "NumberOfStaffs"
+                "Sr No", "Name", "E-mail Id", "Phone number", "Type", "No. of Beds", "Number of Staff"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, true, true, true
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -228,8 +228,7 @@ public class ManageDepartmentPanel extends javax.swing.JPanel {
 
     private void populateTable() {
         Hospital hospital = ecosystem.getHospitalDirectory().getHospitalByUserName(userAccount.getUsername());
-        HospitalDepartmentDirectory dDir= hospital.getDepartmentDirectory();
-        
+        HospitalDepartmentDirectory dDir = hospital.getDepartmentDirectory();
 
         if (dDir != null) {
             DefaultTableModel model = (DefaultTableModel) tblDepartmentList.getModel();
@@ -239,22 +238,22 @@ public class ManageDepartmentPanel extends javax.swing.JPanel {
 
             for (HospitalDepartment depart : dDir.getDepartmentList()) {
 
-                Object[] row = new Object[9];
+                Object[] row = new Object[7];
                 row[0] = "" + count++;
                 row[1] = depart;
-                row[2] = depart.getUsername();
-                row[3] = depart.getPassword();
-                row[4] = depart.getEmail();
-                row[5] = depart.getContact();
-                row[6] = depart.getType();
-                row[7] = depart.getNumberOfBeds();
+//                row[2] = depart.getUsername();
+//                row[3] = depart.getPassword();
+                row[2] = depart.getEmail();
+                row[3] = depart.getContact();
+                row[4] = depart.getType();
+                row[5] = depart.getNumberOfBeds();
                 ArrayList<Staff> stfList = depart.getStaffDirectory().getStaffList();
-                if(stfList==null){
-                    row[8] = 0;
-                }else {
-                    row[8] = stfList.size();
+                if (stfList == null) {
+                    row[6] = 0;
+                } else {
+                    row[6] = stfList.size();
                 }
-                
+
                 model.addRow(row);
             }
         }
@@ -262,7 +261,7 @@ public class ManageDepartmentPanel extends javax.swing.JPanel {
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         // logic to go to next screen
-        AddDepartmentPanel addShop = new AddDepartmentPanel(userProcessContainer, ecosystem, null, false,userAccount);
+        AddDepartmentPanel addShop = new AddDepartmentPanel(userProcessContainer, ecosystem, null, false, userAccount);
 
         userProcessContainer.add("AddShopPanel", addShop);
 

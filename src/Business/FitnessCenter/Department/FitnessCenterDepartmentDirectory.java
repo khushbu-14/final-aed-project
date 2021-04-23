@@ -47,7 +47,7 @@ public class FitnessCenterDepartmentDirectory {
       public FitnessCenterDepartment getFitnessCenterDepartmentByUserName(String userName){
          FitnessCenterDepartment fitDept = null;
          for(FitnessCenterDepartment fitD: departmentList){
-             if(fitD.getUsername().equals(userName)){
+             if(fitD.getUsername() != null && fitD.getUsername().equals(userName)){
                  fitDept = fitD;
              }    
          }

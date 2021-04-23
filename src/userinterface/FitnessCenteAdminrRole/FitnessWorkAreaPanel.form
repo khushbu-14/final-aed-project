@@ -26,7 +26,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Component id="sideBar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
               <Component id="mainPanel" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -83,7 +83,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Manage Hospital"/>
+            <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -183,7 +183,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Manage Hospital"/>
+            <Property name="toolTipText" type="java.lang.String" value="Manage Departments"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -243,7 +243,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Manage Departments"/>
-                <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
+                <Property name="toolTipText" type="java.lang.String" value="Manage Departments"/>
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageDepartmentsMousePressed"/>
@@ -283,7 +283,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Manage Hospital"/>
+            <Property name="toolTipText" type="java.lang.String" value="Manage Staffs"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -343,7 +343,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Manage Staffs"/>
-                <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
+                <Property name="toolTipText" type="java.lang.String" value="Manage Staffs"/>
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageStaffsMousePressed"/>
@@ -383,7 +383,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Manage Hospital"/>
+            <Property name="toolTipText" type="java.lang.String" value="Information"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -443,7 +443,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Information"/>
-                <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
+                <Property name="toolTipText" type="java.lang.String" value="Information"/>
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="managePersonalInfoMousePressed"/>

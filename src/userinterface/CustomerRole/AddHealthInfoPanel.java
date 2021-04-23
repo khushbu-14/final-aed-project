@@ -373,7 +373,7 @@ public class AddHealthInfoPanel extends javax.swing.JPanel {
          btnEdit.setVisible(true);
             String emailSubject = "Care4U Account Information";
             String emailBodyMessage = "Hi, "+ user.getName()+" Records Updates successfully";
-            util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage);
+            util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage, false);
             util.setDatabase(ecosystem);
         }
        

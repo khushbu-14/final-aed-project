@@ -270,7 +270,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         } else {
             btnSubmit.setText("Add Department");
             lblUserAction.setText("Add Department");
-        
+
         }
     }
 
@@ -331,7 +331,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
 //        schedule = txtSchedule.getText(),
 //        String isRemote = jComboType1.getSelectedItem().toString();
 //        Double numberOfBeds = Double.parseDouble(NumberOfBeds.getText());
-         if (!util.isStringInputValid(name)) {
+        if (!util.isStringInputValid(name)) {
             util.showErrorToast("Plesae enter valid name");
         } else if (!util.isStringInputValid(phoneNo) || phoneNo.length() != 10) {
             util.showErrorToast("Plesae enter valid 10 digit phone number");
@@ -351,7 +351,6 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
 //               department.setIsRemote(isRemote);
 
 //                ecosystem.getUserAccountDirectory().updateUserAccount(department, userName, password);
-
                 msg = name + " account updated successfully!";
             } else {
                 FitnessCenterDepartment departmemntTemp = new FitnessCenterDepartment(name, type, phoneNo);

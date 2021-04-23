@@ -28,7 +28,7 @@ public class UserAccountDirectory {
 
     public UserAccount authenticateUser(String username, String password) {
         for (UserAccount ua : userAccountList) {
-            if (ua.getUsername().equals(username) && ua.getPassword().equals(password)) {
+            if (ua.getUsername() != null && ua.getUsername().equals(username) && ua.getPassword().equals(password)) {
                 return ua;
             }
         }
@@ -51,12 +51,19 @@ public class UserAccountDirectory {
     }
 
     public boolean checkIfUsernameIsUnique(String username) {
+        Boolean res = true;
         for (UserAccount ua : userAccountList) {
-            if (ua.getUsername().equalsIgnoreCase(username)) {
-                return false;
+            try {
+                if (ua.getUsername() != null && ua.getUsername().equalsIgnoreCase(username)) {
+                    res = false;
+                    break;
+                }
+            } catch (Exception e) {
+                System.out.println("e " + e);
             }
+
         }
-        return true;
+        return res;
     }
 
     public UserAccount addUserAccount(UserAccount userAccount) {

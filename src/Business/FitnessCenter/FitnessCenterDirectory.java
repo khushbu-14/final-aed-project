@@ -49,7 +49,7 @@ public class FitnessCenterDirectory {
     public FitnessCenter getFitnessCenterByUserName(String userName) {
         FitnessCenter fitnessCenter = null;
         for (FitnessCenter fit : fitnessCenterList) {
-            if (fit.getUsername().equals(userName)) {
+            if (fit.getUsername() != null && fit.getUsername().equals(userName)) {
                 fitnessCenter = fit;
             }
         }
