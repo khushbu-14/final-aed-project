@@ -63,10 +63,6 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         iconDashboard4 = new javax.swing.JLabel();
         patientsAppointment = new javax.swing.JLabel();
         border4 = new javax.swing.JPanel();
-        patientsAppointmentPanel1 = new javax.swing.JPanel();
-        iconDashboard5 = new javax.swing.JLabel();
-        patientsAppointment1 = new javax.swing.JLabel();
-        border5 = new javax.swing.JPanel();
         mainPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(244, 249, 249));
@@ -321,71 +317,9 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
                 .addGap(5, 5, 5)
                 .addGroup(patientsAppointmentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(patientsAppointment, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconDashboard4, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE))
+                    .addComponent(iconDashboard4, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
                 .addGap(5, 5, 5)
                 .addComponent(border4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        patientsAppointmentPanel1.setBackground(new java.awt.Color(3, 80, 111));
-        patientsAppointmentPanel1.setToolTipText("Manage Appointments");
-        patientsAppointmentPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        patientsAppointmentPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                patientsAppointmentPanel1MousePressed(evt);
-            }
-        });
-
-        iconDashboard5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
-
-        patientsAppointment1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        patientsAppointment1.setForeground(new java.awt.Color(255, 255, 255));
-        patientsAppointment1.setText("Appointments");
-        patientsAppointment1.setToolTipText("Dashboard");
-        patientsAppointment1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                patientsAppointment1MousePressed(evt);
-            }
-        });
-
-        border5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        border5.setPreferredSize(new java.awt.Dimension(2, 1));
-
-        javax.swing.GroupLayout border5Layout = new javax.swing.GroupLayout(border5);
-        border5.setLayout(border5Layout);
-        border5Layout.setHorizontalGroup(
-            border5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
-        );
-        border5Layout.setVerticalGroup(
-            border5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout patientsAppointmentPanel1Layout = new javax.swing.GroupLayout(patientsAppointmentPanel1);
-        patientsAppointmentPanel1.setLayout(patientsAppointmentPanel1Layout);
-        patientsAppointmentPanel1Layout.setHorizontalGroup(
-            patientsAppointmentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patientsAppointmentPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(patientsAppointmentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(patientsAppointmentPanel1Layout.createSequentialGroup()
-                        .addComponent(border5, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(patientsAppointmentPanel1Layout.createSequentialGroup()
-                        .addComponent(iconDashboard5, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(patientsAppointment1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-        patientsAppointmentPanel1Layout.setVerticalGroup(
-            patientsAppointmentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(patientsAppointmentPanel1Layout.createSequentialGroup()
-                .addGap(5, 5, 5)
-                .addGroup(patientsAppointmentPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(patientsAppointment1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(iconDashboard5, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
-                .addGap(5, 5, 5)
-                .addComponent(border5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout sideBarLayout = new javax.swing.GroupLayout(sideBar);
@@ -395,16 +329,11 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
             .addGroup(sideBarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(sideBarLayout.createSequentialGroup()
-                        .addGroup(sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manageDashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageDirectConsultDoctorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manageAvailabilityPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(patientsAppointmentPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarLayout.createSequentialGroup()
-                        .addComponent(patientsAppointmentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
+                    .addComponent(manageDashboardPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageDirectConsultDoctorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageAvailabilityPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(patientsAppointmentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
         sideBarLayout.setVerticalGroup(
             sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -417,9 +346,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(manageAvailabilityPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(patientsAppointmentPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(patientsAppointmentPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(307, Short.MAX_VALUE))
+                .addContainerGap(391, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -471,13 +398,6 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         manageSessions();
     }//GEN-LAST:event_manageAvailabilityPanelMousePressed
 
-    private void patientsAppointmentMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientsAppointmentMousePressed
-        managePatientsAppointments();
-    }//GEN-LAST:event_patientsAppointmentMousePressed
-
-    private void patientsAppointmentPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientsAppointmentPanelMousePressed
-        managePatientsAppointments();
-    }//GEN-LAST:event_patientsAppointmentPanelMousePressed
     private void managePersonalInfoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_managePersonalInfoMousePressed
 //        try {
 //            // TODO add your handling code here:
@@ -507,6 +427,14 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
     private void patientsAppointmentPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientsAppointmentPanel1MousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_patientsAppointmentPanel1MousePressed
+
+    private void patientsAppointmentPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientsAppointmentPanelMousePressed
+        managePatientsAppointments();
+    }//GEN-LAST:event_patientsAppointmentPanelMousePressed
+
+    private void patientsAppointmentMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_patientsAppointmentMousePressed
+        managePatientsAppointments();
+    }//GEN-LAST:event_patientsAppointmentMousePressed
 
     private void manageOrderProducts() {
         changeBtnBgs("order-products");
@@ -591,12 +519,10 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JPanel border1;
     private javax.swing.JPanel border3;
     private javax.swing.JPanel border4;
-    private javax.swing.JPanel border5;
     private javax.swing.JLabel iconDashboard;
     private javax.swing.JLabel iconDashboard1;
     private javax.swing.JLabel iconDashboard3;
     private javax.swing.JLabel iconDashboard4;
-    private javax.swing.JLabel iconDashboard5;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel manageAvailability;
     private javax.swing.JPanel manageAvailabilityPanel;
@@ -605,9 +531,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
     private javax.swing.JLabel manageDirectConsultDoctor;
     private javax.swing.JPanel manageDirectConsultDoctorPanel;
     private javax.swing.JLabel patientsAppointment;
-    private javax.swing.JLabel patientsAppointment1;
     private javax.swing.JPanel patientsAppointmentPanel;
-    private javax.swing.JPanel patientsAppointmentPanel1;
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
 
