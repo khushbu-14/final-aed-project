@@ -98,6 +98,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         lblSignup = new javax.swing.JLabel();
         lblMemberSignup = new javax.swing.JLabel();
+        iconUserName = new javax.swing.JLabel();
+        iconUserName1 = new javax.swing.JLabel();
         imgLogin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -471,9 +473,10 @@ public class MainJFrame1 extends javax.swing.JFrame {
         btnLogin.setBackground(new java.awt.Color(243, 248, 255));
         btnLogin.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(3, 80, 111));
+        btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save_1.png"))); // NOI18N
         btnLogin.setText("LOGIN");
-        btnLogin.setBorder(null);
         btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -501,12 +504,22 @@ public class MainJFrame1 extends javax.swing.JFrame {
             }
         });
 
+        iconUserName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconUserName.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/user.png"))); // NOI18N
+
+        iconUserName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconUserName1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/padlock.png"))); // NOI18N
+
         javax.swing.GroupLayout loginPanelContentLayout = new javax.swing.GroupLayout(loginPanelContent);
         loginPanelContent.setLayout(loginPanelContentLayout);
         loginPanelContentLayout.setHorizontalGroup(
             loginPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, loginPanelContentLayout.createSequentialGroup()
-                .addContainerGap(237, Short.MAX_VALUE)
+                .addContainerGap(182, Short.MAX_VALUE)
+                .addGroup(loginPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(iconUserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iconUserName1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(loginPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginPanelContentLayout.createSequentialGroup()
                         .addGap(6, 6, 6)
@@ -530,18 +543,22 @@ public class MainJFrame1 extends javax.swing.JFrame {
                 .addGap(36, 36, 36)
                 .addComponent(lblUsername)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(loginPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(userNameJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iconUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGroup(loginPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(iconUserName1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(45, 45, 45)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addGroup(loginPanelContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSignup)
                     .addComponent(lblMemberSignup))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(354, Short.MAX_VALUE))
         );
 
         imgLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -567,13 +584,13 @@ public class MainJFrame1 extends javax.swing.JFrame {
         );
         loginPanelLayout.setVerticalGroup(
             loginPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(loginPanelContent, javax.swing.GroupLayout.DEFAULT_SIZE, 801, Short.MAX_VALUE)
+            .addComponent(loginPanelContent, javax.swing.GroupLayout.DEFAULT_SIZE, 921, Short.MAX_VALUE)
             .addGroup(loginPanelLayout.createSequentialGroup()
                 .addGap(139, 139, 139)
                 .addComponent(jLabel1)
                 .addGap(27, 27, 27)
                 .addComponent(imgLogin)
-                .addContainerGap(215, Short.MAX_VALUE))
+                .addContainerGap(335, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -876,6 +893,8 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private javax.swing.JPanel container;
     private javax.swing.JLabel errorContactNumber;
     private javax.swing.JLabel errorEmail;
+    private javax.swing.JLabel iconUserName;
+    private javax.swing.JLabel iconUserName1;
     private javax.swing.JLabel imgLogin;
     private javax.swing.JLabel imgLogin1;
     private javax.swing.JLabel jLabel1;

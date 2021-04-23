@@ -80,7 +80,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/dashboard.png"))); // NOI18N
 
         manageDashboard.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageDashboard.setForeground(new java.awt.Color(255, 255, 255));

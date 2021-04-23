@@ -444,7 +444,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageJTree.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageJTree.setForeground(new java.awt.Color(255, 255, 255));
         manageJTree.setText("JTree");
-        manageJTree.setToolTipText("Users");
+        manageJTree.setToolTipText("jTree");
         manageJTree.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageJTreeMousePressed(evt);

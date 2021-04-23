@@ -59,7 +59,7 @@ public class StaffDirectory {
     public Staff getStaffByUserName(String userName) {
         Staff staff = null;
         for (Staff st : staffList) {
-            if (st.getUsername().equals(userName)) {
+            if (st.getUsername().equalsIgnoreCase(userName)) {
                 staff = st;
             }
         }

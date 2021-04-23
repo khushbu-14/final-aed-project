@@ -686,7 +686,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="JTree"/>
-                    <Property name="toolTipText" type="java.lang.String" value="Users"/>
+                    <Property name="toolTipText" type="java.lang.String" value="jTree"/>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageJTreeMousePressed"/>
