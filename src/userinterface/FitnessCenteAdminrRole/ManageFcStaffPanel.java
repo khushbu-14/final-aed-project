@@ -245,7 +245,7 @@ public class ManageFcStaffPanel extends javax.swing.JPanel {
                 row[6] = st.getContact();
                 row[7] = st.getAddress();
                 row[8] = st.getZipcode();
-                row[9] = st.getDepartment().getType();
+                row[9] = st.getDepartment().getDepartmentName();
                 ArrayList<FcStaff> stfList = depart.getStaffDirectory().getStaffList();
                 model.addRow(row);
                 }

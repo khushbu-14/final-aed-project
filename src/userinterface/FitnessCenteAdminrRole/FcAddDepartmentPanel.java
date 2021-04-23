@@ -182,7 +182,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
 
         errorContactNumber.setForeground(new java.awt.Color(255, 0, 0));
 
-        jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Yoga" }));
+        jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboTypeActionPerformed(evt);
@@ -336,6 +336,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
         } else if (!util.isStringInputValid(phoneNo) || phoneNo.length() != 10) {
             util.showErrorToast("Plesae enter valid 10 digit phone number");
             txtContact.setText("");
+            errorContactNumber.setText("");
         } else if (!util.isStringInputValid(type)) {
             util.showErrorToast("Plesae select valid type");
         } else if (type.toLowerCase().equals("select")) {
@@ -405,7 +406,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
 
     public void populateComboBox() {
         for (Type t : ecosystem.getTypeDirectory().getTypeList()) {
-            if (t.getParent().toLowerCase().equals("fitnessdepartment")) {
+            if (t.getParent().toLowerCase().equals("fitness department")) {
                 jComboType.addItem(t.getType());
             }
 

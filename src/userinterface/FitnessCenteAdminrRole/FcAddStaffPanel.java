@@ -654,9 +654,7 @@ public class FcAddStaffPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtZipcode;
     // End of variables declaration//GEN-END:variables
          public void populateComboBox(){
-             //Hospital hosp = ecosystem.getHospitalDirectory().getHospitalByUserName(userAccount.getUsername());
              FitnessCenter fc = ecosystem.getFitnessCenterDirectory().getFitnessCenterByUserName(userAccount.getUsername());
-             //fc.getFcdepartmentDirectory().getDepartmentList().forEach((fcd) -> {
                  for (FitnessCenterDepartment fcd: fc.getFcdepartmentDirectory().getDepartmentList()){
                  jComboType.addItem(fcd.getDepartmentName());
         }

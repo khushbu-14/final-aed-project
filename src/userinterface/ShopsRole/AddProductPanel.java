@@ -320,7 +320,7 @@ public class AddProductPanel extends javax.swing.JPanel {
         txtSName.setText("");
         txtPrice.setText("");
         txtCalories.setText("");
-        txtCalories.setText("");
+        txtDescription1.setText("");
         jComboType.setSelectedItem("Select");
     }
 
