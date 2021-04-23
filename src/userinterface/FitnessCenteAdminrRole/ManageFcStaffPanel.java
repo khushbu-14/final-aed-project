@@ -213,6 +213,7 @@ public class ManageFcStaffPanel extends javax.swing.JPanel {
 
             JOptionPane.showMessageDialog(this, "Staff deleted successfully!");
             populateTable();
+            utils.setDatabase(ecosystem);
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 

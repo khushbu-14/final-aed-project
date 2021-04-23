@@ -491,6 +491,7 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
                                 JOptionPane.showMessageDialog(this, "Session Added successfully!");
                                 resetForm();
                                 backAction();
+                                util.setDatabase(ecosystem);
                             }
 
                         } else {
