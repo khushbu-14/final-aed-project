@@ -35,6 +35,7 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
         initComponents();
+        manageDashboard();
     }
 
     /**
@@ -196,7 +197,7 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
         );
 
         manageAmbulanceBookingPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageAmbulanceBookingPanel.setToolTipText("Manage Service");
+        manageAmbulanceBookingPanel.setToolTipText("Service History");
         manageAmbulanceBookingPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageAmbulanceBookingPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -209,8 +210,8 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
 
         manageAmbulanceBooking.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageAmbulanceBooking.setForeground(new java.awt.Color(255, 255, 255));
-        manageAmbulanceBooking.setText("Manage Service");
-        manageAmbulanceBooking.setToolTipText("Manage Service");
+        manageAmbulanceBooking.setText("Service History");
+        manageAmbulanceBooking.setToolTipText("Service History");
         manageAmbulanceBooking.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageAmbulanceBookingMousePressed(evt);
@@ -301,11 +302,12 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void manageDashboardMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardMousePressed
-
+        manageDashboard();
     }//GEN-LAST:event_manageDashboardMousePressed
 
     private void manageDashboardPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageDashboardPanelMousePressed
         // TODO add your handling code here:
+        manageDashboard();
     }//GEN-LAST:event_manageDashboardPanelMousePressed
 
     private void manageAmbulanceMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAmbulanceMousePressed
@@ -398,6 +400,9 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
         } else if ("manageambulancebooking".equalsIgnoreCase(type)) {
             manageAmbulanceBookingPanel.setBackground(activeColor);
             manageAmbulanceBooking.setForeground(activeTxtColor);
+        } else if ("dashboard".equalsIgnoreCase(type)) {
+            manageDashboardPanel.setBackground(activeColor);
+            manageDashboard.setForeground(activeTxtColor);
         }
     }
 
@@ -417,5 +422,15 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JPanel manageDashboardPanel;
     private javax.swing.JPanel sideBar;
     // End of variables declaration//GEN-END:variables
+
+    private void manageDashboard() {
+        changeBtnBgs("dashboard");
+        AmbulanceDashboard ambulanceDashboard = new AmbulanceDashboard(mainPanel, ecosystem, userAccount);
+        // ManageServicePanel manageServicePanel = new ManageServicePanel(mainPanel, ecosystem, userAccount);
+
+        mainPanel.add("ambulanceDashboard", ambulanceDashboard);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+    }
 
 }

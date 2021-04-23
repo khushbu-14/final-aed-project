@@ -292,16 +292,15 @@ public class ManageTypePanel extends javax.swing.JPanel {
 
         if (!utils.isStringInputValid(typeName)) {
             JOptionPane.showMessageDialog(this, "Please enter valid type");
-        } else if(parent.toLowerCase().equals("select")){
+        } else if (parent.toLowerCase().equals("select")) {
             JOptionPane.showMessageDialog(this, "Please Select valid parent type");
-        }
-        else {
-            Type type = new Type(typeName,parent);
+        } else {
+            Type type = new Type(typeName, parent);
 //            Hospital temp = ecosystem.getHospitalDirectory().addNewHospital(name, phoneNo, address, zipcode, username, password);
             ecosystem.getTypeDirectory().addNewType(type);
 //            ecosystem.getUserAccountDirectory().createUserAccount(username, password, null, new HospitalRole());
 //            hospitalId++;
-        JOptionPane.showMessageDialog(this,typeName + " Added Successfully");
+            JOptionPane.showMessageDialog(this, typeName + " Added Successfully");
             populateTable();
             resetForm();
             utils.setDatabase(ecosystem);
@@ -314,7 +313,7 @@ public class ManageTypePanel extends javax.swing.JPanel {
 
         if (type != null) {
             String typeName = txtTypeName.getText().trim(),
-                parent = jComboBox1.getSelectedItem().toString();
+                    parent = jComboBox1.getSelectedItem().toString();
 
             if (!utils.isStringInputValid(typeName)) {
                 JOptionPane.showMessageDialog(this, "Please enter valid type");
@@ -330,7 +329,7 @@ public class ManageTypePanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, type + " updated in the list successfully!");
                 resetForm();
                 utils.setDatabase(ecosystem);
-                
+
             }
         }
     }//GEN-LAST:event_btnUpdateSaveActionPerformed
@@ -372,10 +371,11 @@ public class ManageTypePanel extends javax.swing.JPanel {
             model.addRow(row);
         }
     }
-    public void populateComboBox(){
-            List<String> enterpriseList = Arrays.asList("Select","Hospital Department","Fitness Department","Shop","Ambulance Service","DeliveryMan");      
-            for (String i:enterpriseList) {
-                jComboBox1.addItem(i);
-                }
+
+    public void populateComboBox() {
+        List<String> enterpriseList = Arrays.asList("Select", "Hospital Department", "Fitness Department", "Shop", "Ambulance Service", "DeliveryMan");
+        for (String i : enterpriseList) {
+            jComboBox1.addItem(i);
+        }
     }
 }
