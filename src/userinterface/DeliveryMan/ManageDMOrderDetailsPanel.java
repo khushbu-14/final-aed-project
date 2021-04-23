@@ -394,23 +394,31 @@ public class ManageDMOrderDetailsPanel extends javax.swing.JPanel {
         orderListData.setResolveDate(new Date());
         changeBtns();
         JOptionPane.showMessageDialog(null, "Order pickup successful!");
-         String emailSubject = "Care4U Order Information";
-            String emailBodyMessage = "Hi, "+ orderListData.getUser().getName()+" Your Order is out for delivery";
-            utils.sendEmail(orderListData.getUser().getEmail(), emailSubject, emailBodyMessage);
-            utils.setDatabase(ecosystem);
+        String emailSubject = "Care4U Order Information";
+        String emailBodyMessage = "Hi, " + orderListData.getUser().getName() + " Your Order is out for delivery";
+        utils.sendEmail(orderListData.getUser().getEmail(), emailSubject, emailBodyMessage);
+        utils.setDatabase(ecosystem);
     }//GEN-LAST:event_btnPickupOrderActionPerformed
 
     private void btnMarkDeliverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMarkDeliverActionPerformed
         // TODO add your handling code here:
         orderListData.setStatus("COMPLETED");
         lblOrderStatus.setText("COMPLETED");
-        orderListData.setResolveDate(new Date());
+        Date currentDate = new Date();
+        orderListData.setResolveDate(currentDate);
         changeBtns();
         JOptionPane.showMessageDialog(null, "Hey thanks for delivering the order to customer successfully!");
-        String emailSubject = "Care4U Order Information";
-            String emailBodyMessage = "Hi, "+ orderListData.getUser().getName()+" Your Order have been successfully delivered";
-            utils.sendEmail(orderListData.getUser().getEmail(), emailSubject, emailBodyMessage);
-            utils.setDatabase(ecosystem);
+        String emailSubject = "Care4U Order Information | Order Delivered";
+
+        String emailBodyMessage = "Hi, " + orderListData.getUser().getName() + " Your Order have been successfully delivered";
+
+        //  String emailBodyMessage = "Hi, " + orderListData.getUser().getName() + " Your Order have been successfully delivered";
+        utils.sendEmail(orderListData.getUser().getEmail(), emailSubject, emailBodyMessage);
+
+        // email to shop
+        utils.sendEmail(orderListData.getShop().getEmail(), emailSubject, "Order of " + orderListData.getUser().getName() + " is delivered at " + currentDate);
+        
+        utils.setDatabase(ecosystem);
     }//GEN-LAST:event_btnMarkDeliverActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

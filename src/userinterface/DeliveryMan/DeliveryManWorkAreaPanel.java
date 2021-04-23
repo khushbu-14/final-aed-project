@@ -276,7 +276,7 @@ public class DeliveryManWorkAreaPanel extends javax.swing.JPanel {
         manageProfilePanel.setBackground(notActiveColor);
         manageOrdersPanel.setBackground(notActiveColor);
 
-        manageProfile.setBackground(nonActiveTxtColor);
+        manageProfile.setForeground(nonActiveTxtColor);
         manageOrders.setForeground(nonActiveTxtColor);
 
         if ("profile".equalsIgnoreCase(type)) {

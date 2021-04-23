@@ -5,17 +5,21 @@
  */
 package Business.AmbulanceService;
 
+import Business.User.User;
+
 /**
  *
  * @author kunal
  */
 public class Service {
+
     private String name;
     private String contact;
     private String status;
     private String oxygenAvailability;
     private String ambulanceType;
     private String customerName;
+    private User user;
 
     public Service(String name, String contact, String oxygenAvailability, String ambulanceType) {
         this.name = name;
@@ -71,11 +75,18 @@ public class Service {
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
     }
-    
-    
+
     @Override
     public String toString() {
         return name;
     }
-    
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
 }
