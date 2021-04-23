@@ -223,8 +223,9 @@ public class ManageAmbulanceService extends javax.swing.JPanel {
         service.setStatus("Completed");
         JOptionPane.showMessageDialog(this, "Service Completed, Thank you for choosing us!",
                     "Success", JOptionPane.INFORMATION_MESSAGE);
-        util.setDatabase(ecosystem);
+        
         populateViewTable();
+        util.setDatabase(ecosystem);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void backAction() {

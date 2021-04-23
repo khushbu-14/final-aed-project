@@ -242,6 +242,7 @@ public class ManageUserConsultationPanel extends javax.swing.JPanel {
             u.setStatus("Cancelled");
             JOptionPane.showMessageDialog(this, "Session deleted successfully!");
             populateTable();
+            utils.setDatabase(ecosystem);
                 }
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
