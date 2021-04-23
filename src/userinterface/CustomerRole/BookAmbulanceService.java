@@ -205,6 +205,8 @@ public class BookAmbulanceService extends javax.swing.JPanel {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
 
         Service service = getSelectedService();
+        if(!service.getStatus().equalsIgnoreCase("Booked")){
+        }
         service.setStatus("Booked");
 
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
@@ -218,11 +220,11 @@ public class BookAmbulanceService extends javax.swing.JPanel {
         populateViewTable(selectedValue);
 
         String emailSubject = "Care4U Ambulance Information";
-
+        backAction();
         String emailBodyMessage = "Hi, " + user.getName() + " " + service.getName() + " Service Booked Successfully";
         util.sendEmail(user.getEmail(), emailSubject, emailBodyMessage, false);
         util.setDatabase(ecosystem);
-        backAction();
+        
 
     }//GEN-LAST:event_btnSubmitActionPerformed
 
