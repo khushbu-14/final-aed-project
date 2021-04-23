@@ -16,6 +16,7 @@ import Business.WorkQueue.OrderList;
 import constants.Utils;
 import java.awt.CardLayout;
 import java.awt.Component;
+import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -176,7 +177,7 @@ public class AssignDeliveryManPanel extends javax.swing.JPanel {
                     "Success", JOptionPane.INFORMATION_MESSAGE);
 
             orderListData.setStatus("DELIVERY MAN ASSIGNED");
-
+            orderListData.setResolveDate(new Date());
             backAction();
         }
     }//GEN-LAST:event_btnAssignDeliveryManActionPerformed

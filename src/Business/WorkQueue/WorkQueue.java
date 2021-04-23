@@ -33,7 +33,7 @@ public class WorkQueue {
 
         for (WorkRequest wr : workRequestList) {
             if (wr.getUser() != null) {
-                if (wr.getUser().getUsername().equals(account.getUsername())) {
+                if (wr.getUser().getUsername() != null && wr.getUser().getUsername().equals(account.getUsername())) {
                     if (wr.getRequestType().equalsIgnoreCase(requestType)) {
                         userRequestList.add(wr);
                     }

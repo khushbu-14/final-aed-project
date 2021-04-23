@@ -27,11 +27,18 @@ import javax.mail.internet.MimeMessage;
  *
  * @author khushbu
  */
-
 public class Utils {
+
     private EcoSystem system;
     private DB4OUtil dB4OUtil = DB4OUtil.getInstance();
     LocalDateTime now;
+
+//    private static final String EMAIL_PATTERN
+//            = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
+//            + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
+    private static final String EMAIL_PATTERN = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+    private static final Pattern pattern = Pattern.compile(EMAIL_PATTERN);
+
     public Utils() {
         system = dB4OUtil.retrieveSystem();
         now = LocalDateTime.now();
@@ -64,71 +71,74 @@ public class Utils {
     }
 
     public Boolean isEmailValid(String email) {
-        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-
-        Pattern pattern = Pattern.compile(regex);
+//        String regex = "^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$";
+//        String regex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+//        String regex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\\\.[A-Za-z0-9-]+)*(\\\\.[A-Za-z]{2,})$";
+//        Pattern pattern = Pattern.compile(regex);
+//        Matcher matcher = pattern.matcher(email);
+//        Boolean res = matcher.matches();
+        // Boolean res1 = matcher.find();
+        // return res1;
+//        return res;
 
         Matcher matcher = pattern.matcher(email);
-
-        Boolean res = matcher.matches();
-
-        return res;
+        return matcher.matches();
     }
 
     public void showErrorToast(String msg) {
         JOptionPane.showMessageDialog(null, msg, "Error", JOptionPane.ERROR_MESSAGE);
     }
-    public void setDatabase(){
+
+    public void setDatabase() {
         dB4OUtil.storeSystem(system);
     }
-    
-     public Boolean testTime(String time2){
+
+    public Boolean testTime(String time2) {
         String time = now.toString();
         time = time.split("T")[1].split(":")[0];
         int timeNow = Integer.parseInt(time);
         int timeSelected = Integer.parseInt(time2);
-        if(timeSelected<=timeNow){
-        return false;
-        }else {
+        if (timeSelected <= timeNow) {
+            return false;
+        } else {
             return true;
-        }         
+        }
     }
-     
-     public void sendEmail(String recepient, String subject, String emailMessage){
-         String user="info.care4uus@gmail.com";//change accordingly  
-		   String password="care@1234";//change accordingly  
-		   //Get the session object  
-		   Properties props = new Properties();  
-		   props.put("mail.smtp.host","smtp.gmail.com");  
-		   props.put("mail.smtp.auth", "true");
-		   props.put("mail.smtp.port", "587");
-		   props.put("mail.smtp.starttls.enable", "true");
 
-		   Session session=Session.getInstance(props, new Authenticator() {
-			   @Override
-			protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
-				// TODO Auto-generated method stub
-				return new javax.mail.PasswordAuthentication(user, password);
-			}
-		});
-		 
-		   
-		   
-		  
-		   //Compose the message  
-		    try {  
-		     Message message = new MimeMessage(session);  
-		     message.setFrom(new InternetAddress(user));  
-		     message.addRecipient(Message.RecipientType.TO,new InternetAddress(recepient));  
-		     message.setSubject(subject);  
-		     message.setText(emailMessage);  
-		       
-		    //send the message  
-		     Transport.send(message);  
-		  
-		     System.out.println("message sent successfully...");  
-		   
-		     } catch (MessagingException e) {e.printStackTrace();}  
-     
-     }
+    public void sendEmail(String recepient, String subject, String emailMessage) {
+        String user = "info.care4uus@gmail.com";//change accordingly  
+        String password = "care@1234";//change accordingly  
+        //Get the session object  
+        Properties props = new Properties();
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.starttls.enable", "true");
+
+        Session session = Session.getInstance(props, new Authenticator() {
+            @Override
+            protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
+                // TODO Auto-generated method stub
+                return new javax.mail.PasswordAuthentication(user, password);
+            }
+        });
+
+        //Compose the message  
+        try {
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(user));
+            message.addRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+            message.setSubject(subject);
+            message.setText(emailMessage);
+
+            //send the message  
+            Transport.send(message);
+
+            System.out.println("message sent successfully...");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

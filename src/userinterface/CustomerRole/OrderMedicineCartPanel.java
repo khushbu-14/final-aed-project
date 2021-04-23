@@ -56,7 +56,7 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         this.userAccount = userAccount;
         if (userType.equalsIgnoreCase("USER")) {
             this.user = (User) userAccount;
-        }else{
+        } else {
             this.staff = (Staff) userAccount;
         }
         utils = new Utils();
@@ -73,6 +73,9 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jDialog2 = new javax.swing.JDialog();
+        jFrame1 = new javax.swing.JFrame();
         btnBack = new javax.swing.JButton();
         lblPageTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -89,6 +92,39 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
         lblQty = new javax.swing.JLabel();
         comboOrderShipmentType = new javax.swing.JComboBox<>();
         lblShipmentType = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jDialog2Layout = new javax.swing.GroupLayout(jDialog2.getContentPane());
+        jDialog2.getContentPane().setLayout(jDialog2Layout);
+        jDialog2Layout.setHorizontalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog2Layout.setVerticalGroup(
+            jDialog2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setBackground(new java.awt.Color(244, 249, 249));
 
@@ -324,8 +360,19 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
         if (p != null) {
 
-            String response = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
+            String input;
+            String response = "";
+            do {
+                input = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
+                if (input.matches("^[a-zA-Z0-9]*$")) {
+                    response = input;
+                    System.out.println("Name " + response);
+                } else {
+                    System.out.println("Please enter a valid name containing: ‘a-z’ or ‘A-Z’ lower or upper case or numbers");
+                }
+            } while (!input.matches("^[a-zA-Z0-9]*$"));
 
+//            String response = JOptionPane.showInputDialog("Please provide quantity for " + p.getProductName());
             try {
                 qty = Integer.parseInt(response);
             } catch (NumberFormatException e) {
@@ -369,6 +416,7 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                     newOrderList.setUser(user);
 
                     newOrderList.setRequestDate(new Date());
+                    newOrderList.setResolveDate(new Date());
                     newOrderList.setMessage(msg);
 
                     Boolean isPickup = orderShipmentType.equalsIgnoreCase("PICKUP");
@@ -415,6 +463,9 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnPlaceOrder;
     private javax.swing.JComboBox<String> comboOrderShipmentType;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JDialog jDialog2;
+    private javax.swing.JFrame jFrame1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblMsg;
@@ -459,8 +510,8 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
             row[0] = "" + count++;
             row[1] = p;
             row[2] = p.getPrice();
-            row[3] = p.getIsPrescriptionNeeded();
-            row[4] = prescriptionTxt;
+            row[3] = prescriptionTxt;
+            row[4] = p.getDescription();
             row[5] = p.getCalories();
 
             model.addRow(row);

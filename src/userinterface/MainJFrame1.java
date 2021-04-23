@@ -18,6 +18,7 @@ import Business.User.User;
 import Business.UserAccount.UserAccount;
 import constants.Utils;
 import java.awt.CardLayout;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -89,13 +90,14 @@ public class MainJFrame1 extends javax.swing.JFrame {
         txtSName = new javax.swing.JTextField();
         txtSEmail = new javax.swing.JTextField();
         lblUsername3 = new javax.swing.JLabel();
-        txtZipcode = new javax.swing.JFormattedTextField();
         lblPhoneNumber = new javax.swing.JLabel();
         lblPhoneNumber1 = new javax.swing.JLabel();
         txtSAddress = new javax.swing.JTextField();
         lblPhoneNumber2 = new javax.swing.JLabel();
         errorEmail = new javax.swing.JLabel();
-        txtSPhoneNumber1 = new javax.swing.JFormattedTextField();
+        txtContact = new javax.swing.JTextField();
+        errorContactNumber = new javax.swing.JLabel();
+        txtZipcode = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -104,10 +106,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setPreferredSize(new java.awt.Dimension(1270, 861));
 
-        navbarPanel.setBackground(new java.awt.Color(204, 242, 244));
+        navbarPanel.setBackground(new java.awt.Color(3, 80, 111));
         navbarPanel.setPreferredSize(new java.awt.Dimension(1270, 48));
 
         lblMainTitle.setFont(new java.awt.Font("Lucida Grande", 1, 24)); // NOI18N
+        lblMainTitle.setForeground(new java.awt.Color(255, 255, 255));
         lblMainTitle.setText("Care4U");
 
         btnLogout.setBackground(new java.awt.Color(255, 255, 255));
@@ -121,6 +124,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         });
 
         lblGreeting.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        lblGreeting.setForeground(new java.awt.Color(255, 255, 255));
         lblGreeting.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout navbarPanelLayout = new javax.swing.GroupLayout(navbarPanel);
@@ -320,6 +324,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         btnSignup.setBackground(new java.awt.Color(3, 80, 111));
         btnSignup.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnSignup.setForeground(new java.awt.Color(255, 255, 255));
         btnSignup.setText("SIGNUP");
         btnSignup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -410,18 +415,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
         lblUsername3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername3.setText("E-mail Id :");
 
-        txtZipcode.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        try {
-            txtZipcode.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#####")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtZipcode.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtZipcodeActionPerformed(evt);
-            }
-        });
-
         lblPhoneNumber.setBackground(new java.awt.Color(249, 244, 244));
         lblPhoneNumber.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPhoneNumber.setText("Contact Number :");
@@ -438,15 +431,19 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
         errorEmail.setForeground(new java.awt.Color(255, 0, 0));
 
-        txtSPhoneNumber1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
-        try {
-            txtSPhoneNumber1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##########")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        txtSPhoneNumber1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSPhoneNumber1ActionPerformed(evt);
+        txtContact.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtContact.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtContactKeyPressed(evt);
+            }
+        });
+
+        errorContactNumber.setForeground(new java.awt.Color(255, 0, 0));
+
+        txtZipcode.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtZipcode.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtZipcodeKeyPressed(evt);
             }
         });
 
@@ -462,13 +459,14 @@ public class MainJFrame1 extends javax.swing.JFrame {
         jLayeredPane2.setLayer(txtSName, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(txtSEmail, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(lblUsername3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(txtZipcode, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(lblPhoneNumber, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(lblPhoneNumber1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(txtSAddress, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(lblPhoneNumber2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(errorEmail, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(txtSPhoneNumber1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(txtContact, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(errorContactNumber, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(txtZipcode, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
@@ -485,37 +483,43 @@ public class MainJFrame1 extends javax.swing.JFrame {
                         .addGap(208, 208, 208))))
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addComponent(imgLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 527, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtSUserName)
-                            .addComponent(lblUsername1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
-                        .addGap(36, 36, 36)
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblPassword1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtSPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(89, 89, 89))
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtSName)
-                                    .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                    .addComponent(txtZipcode)
-                                    .addComponent(lblPhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtSPhoneNumber1, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(txtSUserName)
+                                    .addComponent(lblUsername1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE))
                                 .addGap(36, 36, 36)
                                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(errorEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                    .addComponent(txtSEmail)
-                                    .addComponent(lblUsername3, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
-                                    .addComponent(txtSAddress)))
-                            .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(lblPassword1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtSPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(89, 89, 89))
+                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtSName)
+                                            .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                            .addComponent(lblPhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtContact)
+                                            .addComponent(txtZipcode))
+                                        .addGap(36, 36, 36)
+                                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(errorEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                            .addComponent(txtSEmail)
+                                            .addComponent(lblUsername3, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+                                            .addComponent(txtSAddress)))
+                                    .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addGap(227, 227, 227)
+                        .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -551,17 +555,20 @@ public class MainJFrame1 extends javax.swing.JFrame {
                             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                                 .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtSPhoneNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                                 .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(12, 12, 12)
                                 .addComponent(txtSAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(30, 30, 30)
+                        .addGap(1, 1, 1)
+                        .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
                         .addComponent(lblPhoneNumber2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
-                        .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
                     .addComponent(imgLogin1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addComponent(panelLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -696,7 +703,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         String password = String.valueOf(passwordCharArray);
 
         String name = txtSName.getText(),
-                phoneNo = txtSPhoneNumber1.getText(),
+                phoneNo = txtContact.getText(),
                 email = txtSEmail.getText(),
                 address = txtSAddress.getText(),
                 zipcode = txtZipcode.getText();
@@ -762,10 +769,6 @@ public class MainJFrame1 extends javax.swing.JFrame {
         toggleForm("LOGIN");
     }//GEN-LAST:event_panelLoginMousePressed
 
-    private void txtZipcodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtZipcodeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtZipcodeActionPerformed
-
     private void txtSEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSEmailKeyPressed
         // TODO add your handling code here:
         String val = txtSEmail.getText();
@@ -788,9 +791,54 @@ public class MainJFrame1 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtSNameKeyPressed
 
-    private void txtSPhoneNumber1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSPhoneNumber1ActionPerformed
+    private void txtContactKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSPhoneNumber1ActionPerformed
+        char c = evt.getKeyChar();
+
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            txtContact.setEditable(true);
+        } else {
+
+            if (!Character.isDigit(c)) {
+                txtContact.setEditable(false);
+                errorContactNumber.setText("Sorry! only numbers allowed");
+//                JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
+            } else {
+                if (txtContact.getText().length() > 9) {
+                    errorContactNumber.setText("Enter 10 digit valid number");
+                    txtContact.setEditable(false);
+                } else {
+                    errorContactNumber.setText("");
+                    txtContact.setEditable(true);
+                }
+            }
+        }
+    }//GEN-LAST:event_txtContactKeyPressed
+
+    private void txtZipcodeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtZipcodeKeyPressed
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+
+        if (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+            txtZipcode.setEditable(true);
+        } else {
+
+            if (!Character.isDigit(c)) {
+                //txtZipcode.setEditable(false);
+                //                errorZipcode.setText("Sorry! only numbers allowed");
+                JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
+            } else {
+                //                System.out.println(txtZipcode.getText() +" "+ txtZipcode.getText().length());
+                if (txtZipcode.getText().length() > 4) {
+                    //                errorContactNumber.setText("Enter 10 digit valid number");
+                    txtZipcode.setEditable(false);
+                } else {
+                    //                    errorZipcode.setText("");
+                    txtZipcode.setEditable(true);
+                }
+            }
+        }
+    }//GEN-LAST:event_txtZipcodeKeyPressed
 
     /**
      * @param args the command line arguments
@@ -834,6 +882,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private javax.swing.JButton btnLogout;
     private javax.swing.JButton btnSignup;
     private javax.swing.JPanel container;
+    private javax.swing.JLabel errorContactNumber;
     private javax.swing.JLabel errorEmail;
     private javax.swing.JLabel imgLogin;
     private javax.swing.JLabel imgLogin1;
@@ -862,14 +911,14 @@ public class MainJFrame1 extends javax.swing.JFrame {
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelSignup;
     private javax.swing.JPanel signupPanel;
+    private javax.swing.JTextField txtContact;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtSAddress;
     private javax.swing.JTextField txtSEmail;
     private javax.swing.JTextField txtSName;
     private javax.swing.JPasswordField txtSPassword;
-    private javax.swing.JFormattedTextField txtSPhoneNumber1;
     private javax.swing.JTextField txtSUserName;
-    private javax.swing.JFormattedTextField txtZipcode;
+    private javax.swing.JTextField txtZipcode;
     private javax.swing.JTextField userNameJTextField;
     // End of variables declaration//GEN-END:variables
 
@@ -921,7 +970,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
         txtSPassword.setText("");
         txtSAddress.setText("");
         txtSName.setText("");
-        txtSPhoneNumber1.setText(null);
+        txtContact.setText(null);
         txtSEmail.setText("");
         txtZipcode.setText(null);
 

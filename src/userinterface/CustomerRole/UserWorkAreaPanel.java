@@ -90,7 +90,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         sideBar.setBackground(new java.awt.Color(3, 80, 111));
 
         manageDashboardPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageDashboardPanel.setToolTipText("Manage Hospital");
+        manageDashboardPanel.setToolTipText("Dashboard");
         manageDashboardPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageDashboardPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -152,7 +152,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageConsultDoctorPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageConsultDoctorPanel.setToolTipText("Manage Hospital");
+        manageConsultDoctorPanel.setToolTipText("Consult Doctor");
         manageConsultDoctorPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageConsultDoctorPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -166,7 +166,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageConsultDoctor.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageConsultDoctor.setForeground(new java.awt.Color(255, 255, 255));
         manageConsultDoctor.setText("Consult Doctor");
-        manageConsultDoctor.setToolTipText("Dashboard");
+        manageConsultDoctor.setToolTipText("Consult Doctor");
         manageConsultDoctor.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageConsultDoctorMousePressed(evt);
@@ -214,7 +214,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageOrderMedicinePanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageOrderMedicinePanel.setToolTipText("Manage Hospital");
+        manageOrderMedicinePanel.setToolTipText("Order Products");
         manageOrderMedicinePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageOrderMedicinePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -228,7 +228,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageOrderMedicine.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageOrderMedicine.setForeground(new java.awt.Color(255, 255, 255));
         manageOrderMedicine.setText("Order Products");
-        manageOrderMedicine.setToolTipText("Dashboard");
+        manageOrderMedicine.setToolTipText("Order Products");
         manageOrderMedicine.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageOrderMedicineMousePressed(evt);
@@ -276,7 +276,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageOrderFitnessPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageOrderFitnessPanel.setToolTipText("Manage Hospital");
+        manageOrderFitnessPanel.setToolTipText("Sessions / Events");
         manageOrderFitnessPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageOrderFitnessPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -290,7 +290,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageOrderFitness.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageOrderFitness.setForeground(new java.awt.Color(255, 255, 255));
         manageOrderFitness.setText("Sessions / Events");
-        manageOrderFitness.setToolTipText("Dashboard");
+        manageOrderFitness.setToolTipText("Sessions / Events");
         manageOrderFitness.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageOrderFitnessMousePressed(evt);
@@ -338,7 +338,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageProfilePanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageProfilePanel.setToolTipText("Manage Hospital");
+        manageProfilePanel.setToolTipText("Profile");
         manageProfilePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageProfilePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -352,7 +352,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         managePersonalInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         managePersonalInfo.setForeground(new java.awt.Color(255, 255, 255));
         managePersonalInfo.setText("Profile");
-        managePersonalInfo.setToolTipText("Dashboard");
+        managePersonalInfo.setToolTipText("Profile");
         managePersonalInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 managePersonalInfoMousePressed(evt);
@@ -400,7 +400,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageAppointmentsPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageAppointmentsPanel.setToolTipText("Manage Hospital");
+        manageAppointmentsPanel.setToolTipText("Appointments");
         manageAppointmentsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageAppointmentsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -414,7 +414,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageAppointments.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageAppointments.setForeground(new java.awt.Color(255, 255, 255));
         manageAppointments.setText("Appointments");
-        manageAppointments.setToolTipText("Dashboard");
+        manageAppointments.setToolTipText("Appointments");
         manageAppointments.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageAppointmentsMousePressed(evt);
@@ -462,7 +462,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageOrdersPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageOrdersPanel.setToolTipText("Manage Hospital");
+        manageOrdersPanel.setToolTipText("Order History");
         manageOrdersPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageOrdersPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -476,7 +476,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageOrders.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageOrders.setForeground(new java.awt.Color(255, 255, 255));
         manageOrders.setText("Order History");
-        manageOrders.setToolTipText("Dashboard");
+        manageOrders.setToolTipText("Order History");
         manageOrders.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageOrdersMousePressed(evt);
@@ -524,7 +524,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         );
 
         ManageAmbulancePanel.setBackground(new java.awt.Color(3, 80, 111));
-        ManageAmbulancePanel.setToolTipText("Manage Hospital");
+        ManageAmbulancePanel.setToolTipText("Book Ambulance");
         ManageAmbulancePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ManageAmbulancePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -538,7 +538,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageAmbulanceLabel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageAmbulanceLabel.setForeground(new java.awt.Color(255, 255, 255));
         manageAmbulanceLabel.setText("Book Ambulance");
-        manageAmbulanceLabel.setToolTipText("Dashboard");
+        manageAmbulanceLabel.setToolTipText("Book Ambulance");
         manageAmbulanceLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageAmbulanceLabelMousePressed(evt);
@@ -586,7 +586,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageConsultHistoryPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageConsultHistoryPanel.setToolTipText("Manage Hospital");
+        manageConsultHistoryPanel.setToolTipText("Consultation History");
         manageConsultHistoryPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageConsultHistoryPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -600,7 +600,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         manageConsultHistory.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageConsultHistory.setForeground(new java.awt.Color(255, 255, 255));
         manageConsultHistory.setText("Consultation History");
-        manageConsultHistory.setToolTipText("Dashboard");
+        manageConsultHistory.setToolTipText("Consultation History");
         manageConsultHistory.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageConsultHistoryMousePressed(evt);
@@ -688,7 +688,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
                 .addComponent(ManageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(manageConsultHistoryPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -701,7 +701,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 982, Short.MAX_VALUE))
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 986, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -769,6 +769,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
 
     private void manageAppointmentsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAppointmentsMousePressed
         // TODO add your handling code here:
+        manageAppointments();
     }//GEN-LAST:event_manageAppointmentsMousePressed
 
     private void manageAppointmentsPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAppointmentsPanelMousePressed
@@ -922,6 +923,9 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         } else if ("consultationhistory".equalsIgnoreCase(type)) {
             manageConsultHistoryPanel.setBackground(activeColor);
             manageConsultHistory.setForeground(activeTxtColor);
+        } else if ("appointments".equalsIgnoreCase(type)) {
+            manageAppointments.setForeground(activeTxtColor);
+            manageAppointmentsPanel.setBackground(activeColor);
         }
     }
 
@@ -984,20 +988,36 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
     }
-    
-     private void bookAmbulance() {
+
+    private void bookAmbulance() {
+        
         changeBtnBgs("bookambulance");
-        ManageAmbulanceService manageAmbSer= new ManageAmbulanceService(mainPanel, ecosystem, userAccount);
+        ManageAmbulanceService manageAmbSer = new ManageAmbulanceService(mainPanel, ecosystem, userAccount);
         mainPanel.add("manageAmbulance", manageAmbSer);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
+        
     }
-     private void manageConsultationHistory() {
+
+    private void manageConsultationHistory() {
+        
         changeBtnBgs("consultationhistory");
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
         ManageUserConsultationHistoryPanel manageInformationPanel = new ManageUserConsultationHistoryPanel(mainPanel, ecosystem, userAccount);
         mainPanel.add("manageInformationJPanel", manageInformationPanel);
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
+        
+    }
+
+    private void manageAppointments() {
+
+        changeBtnBgs("appointments");
+        ManageUserAppointments manageUserAppointments = new ManageUserAppointments(mainPanel, ecosystem, userAccount);
+
+        mainPanel.add("manageUserAppointments", manageUserAppointments);
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
+
     }
 }

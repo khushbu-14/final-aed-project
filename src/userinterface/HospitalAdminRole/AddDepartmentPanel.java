@@ -148,6 +148,7 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
 
         btnSubmit.setBackground(new java.awt.Color(3, 80, 111));
         btnSubmit.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
         btnSubmit.setText("Add Department");
         btnSubmit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -224,34 +225,34 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
                 .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(bottomPanelLayout.createSequentialGroup()
                         .addGap(201, 201, 201)
-                        .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(bottomPanelLayout.createSequentialGroup()
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtSName, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(100, 100, 100)
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(lblUsername4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jComboType, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtSEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
-                                    .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(348, 348, 348))
-                                .addGroup(bottomPanelLayout.createSequentialGroup()
+                        .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(bottomPanelLayout.createSequentialGroup()
+                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtSName, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPhoneNumber1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(100, 100, 100)
+                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(lblUsername4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboType, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtSEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
+                                .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(348, 348, 348))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bottomPanelLayout.createSequentialGroup()
+                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblPhoneNumber, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtContact))
-                                    .addGap(100, 100, 100)
-                                    .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(NumberOfBeds)
-                                        .addComponent(lblUsername3, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtContact)))
+                                .addGap(100, 100, 100)
+                                .addGroup(bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(NumberOfBeds)
+                                    .addComponent(lblUsername3, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(bottomPanelLayout.createSequentialGroup()
                         .addGap(383, 383, 383)
                         .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(277, Short.MAX_VALUE))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         bottomPanelLayout.setVerticalGroup(
             bottomPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,11 +281,11 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
                         .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, 45)
-                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(errorContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(97, 97, 97))
+                .addGap(28, 28, 28)
+                .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
 
         splitPanel.setRightComponent(bottomPanel);
@@ -306,7 +307,6 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
         if (isUpdatePage) {
             btnSubmit.setText("Update Department");
             lblUserAction.setText("Update Department");
-
 
             txtSName.setText(department.getDepartmentName());
             txtSEmail.setText(department.getEmail());
@@ -346,7 +346,7 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
         String type = jComboType.getSelectedItem().toString();
         String numofB = NumberOfBeds.getText();
 
-         if (!util.isStringInputValid(name)) {
+        if (!util.isStringInputValid(name)) {
             util.showErrorToast("Plesae enter valid name");
             //  JOptionPane.showMessageDialog(this, "Please enter valid name", "Error", JOptionPane.ERROR_MESSAGE);
         } else if (!util.isStringInputValid(email) || !util.isEmailValid(email)) {
@@ -376,7 +376,6 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
                 department.setNumberOfBeds(numberOfBeds);
 
 //                ecosystem.getUserAccountDirectory().updateUserAccount(department, userName, password);
-
                 msg = name + " account updated successfully!";
             } else {
                 HospitalDepartment departmemntTemp = new HospitalDepartment(name, type, phoneNo, email, numberOfBeds);
@@ -429,14 +428,15 @@ public class AddDepartmentPanel extends javax.swing.JPanel {
         } else {
 
             if (!Character.isDigit(c)) {
-                //txtContact.setEditable(false);
+                txtContact.setEditable(false);
                 errorContactNumber.setText("Sorry! only numbers allowed");
-                txtContact.setText("");
+//                txtContact.setText("");
 //            JOptionPane.showMessageDialog(this, "Sorry! only numbers allowed");
             } else {
                 if (txtContact.getText().length() > 9) {
-                errorContactNumber.setText("Enter 10 digit valid number");
-                    txtContact.setText("");
+                    errorContactNumber.setText("Enter 10 digit valid number");
+                    txtContact.setEditable(false);
+//                    txtContact.setText("");
                 } else {
                     errorContactNumber.setText("");
                     txtContact.setEditable(true);

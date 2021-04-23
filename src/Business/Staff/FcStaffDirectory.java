@@ -43,7 +43,7 @@ public class FcStaffDirectory {
       public FcStaff getStaffByUserName(String userName){
          FcStaff staff = null;
          for(FcStaff st: staffList){
-             if(st.getUsername().equals(userName)){
+             if(st.getUsername() != null && st.getUsername().equals(userName)){
                  staff = st;
              }    
          }

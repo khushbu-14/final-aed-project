@@ -496,9 +496,11 @@ public class ManageShopOrderDetailsPanel extends javax.swing.JPanel {
 
         if (shipmentType.equals("PICKUP")) {
             orderListData.setStatus("READY FOR PICKUP");
+            orderListData.setResolveDate(new Date());
             changeBtns();
         } else {
             orderListData.setStatus("PROCESSING");
+            orderListData.setResolveDate(new Date());
 
             AssignDeliveryManPanel assignDeliveryManPanel = new AssignDeliveryManPanel(mainWorkArea, ecosystem, orderListData);
             // AssignStaffPanel assignStaffPanel = new AssignStaffPanel(mainWorkArea, ecosystem, orderListData);
