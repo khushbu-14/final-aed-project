@@ -163,6 +163,11 @@ public class AddProductPanel extends javax.swing.JPanel {
         });
 
         txtSName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
+        txtSName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSNameActionPerformed(evt);
+            }
+        });
         txtSName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSNameKeyPressed(evt);
@@ -430,6 +435,10 @@ public class AddProductPanel extends javax.swing.JPanel {
     private void txtPriceKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPriceKeyPressed
+
+    private void txtSNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSNameActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bottomPanel;
