@@ -140,7 +140,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/ambulance-1.png"/>
             </Property>
           </Properties>
         </Component>
@@ -219,7 +219,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/file.png"/>
             </Property>
           </Properties>
         </Component>
@@ -304,7 +304,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/courses-dashboard.png"/>
+              <Image iconType="3" name="/assets/interview.png"/>
             </Property>
           </Properties>
         </Component>
@@ -654,7 +654,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/courses-dashboard.png"/>
+              <Image iconType="3" name="/assets/reminder.png"/>
             </Property>
           </Properties>
         </Component>
@@ -733,7 +733,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/oxygen-tank.png"/>
             </Property>
           </Properties>
         </Component>
@@ -812,7 +812,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/error.png"/>
             </Property>
           </Properties>
         </Component>
