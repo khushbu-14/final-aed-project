@@ -124,7 +124,7 @@ public class FitnessCentreDashboard extends javax.swing.JPanel {
         lblIconStudent.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/student-dash.png"))); // NOI18N
+        lblIconStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/maintenance.png"))); // NOI18N
 
         lblOrders1.setForeground(new java.awt.Color(102, 102, 102));
         lblOrders1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -166,7 +166,7 @@ public class FitnessCentreDashboard extends javax.swing.JPanel {
         lblIconCourse.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/courses-dashboard.png"))); // NOI18N
+        lblIconCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/staff-1.png"))); // NOI18N
 
         lblShops.setForeground(new java.awt.Color(102, 102, 102));
         lblShops.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -358,7 +358,7 @@ public class FitnessCentreDashboard extends javax.swing.JPanel {
         lblIconCourse5.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse5.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconCourse5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconCourse5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/courses-dashboard.png"))); // NOI18N
+        lblIconCourse5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/webinar.png"))); // NOI18N
 
         lblShops1.setForeground(new java.awt.Color(102, 102, 102));
         lblShops1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -398,7 +398,7 @@ public class FitnessCentreDashboard extends javax.swing.JPanel {
         lblIconStudent4.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent4.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconStudent4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconStudent4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/student-dash.png"))); // NOI18N
+        lblIconStudent4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/presentation.png"))); // NOI18N
 
         lblUsers1.setForeground(new java.awt.Color(102, 102, 102));
         lblUsers1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -590,7 +590,7 @@ public class FitnessCentreDashboard extends javax.swing.JPanel {
         lblIconCourse6.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse6.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconCourse6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconCourse6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/courses-dashboard.png"))); // NOI18N
+        lblIconCourse6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/class.png"))); // NOI18N
 
         lblShops2.setForeground(new java.awt.Color(102, 102, 102));
         lblShops2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

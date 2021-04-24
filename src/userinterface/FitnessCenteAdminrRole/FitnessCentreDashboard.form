@@ -140,7 +140,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/maintenance.png"/>
             </Property>
           </Properties>
         </Component>
@@ -225,7 +225,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/courses-dashboard.png"/>
+              <Image iconType="3" name="/assets/staff-1.png"/>
             </Property>
           </Properties>
         </Component>
@@ -575,7 +575,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/courses-dashboard.png"/>
+              <Image iconType="3" name="/assets/webinar.png"/>
             </Property>
           </Properties>
         </Component>
@@ -654,7 +654,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/presentation.png"/>
             </Property>
           </Properties>
         </Component>
@@ -1006,7 +1006,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/courses-dashboard.png"/>
+              <Image iconType="3" name="/assets/class.png"/>
             </Property>
           </Properties>
         </Component>
