@@ -205,14 +205,11 @@ public class BookAmbulanceService extends javax.swing.JPanel {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
 
         Service service = getSelectedService();
-        if(!service.getStatus().equalsIgnoreCase("Booked")){
-        }
+//        if(!service.getStatus().equalsIgnoreCase("Booked")){
+//        }
         service.setStatus("Booked");
-
         User user = ecosystem.getUserDirectory().getUserByUserName(userAccount.getUsername());
-
         service.setUser(user);
-
         service.setCustomerName(userAccount.getUsername());
         user.getAmbulanceServiceDirectory().addNewService(service);
         JOptionPane.showMessageDialog(this, "Service Booked Successfully",
