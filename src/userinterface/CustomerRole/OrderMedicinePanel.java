@@ -64,7 +64,7 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
 
         lblPageTitle.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/pills.png"))); // NOI18N
         lblPageTitle.setText("Order Products");
 
         tblShopList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
@@ -99,12 +99,12 @@ public class OrderMedicinePanel extends javax.swing.JPanel {
 
         lblPageTitle1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPageTitle1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        lblPageTitle1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/box.png"))); // NOI18N
         lblPageTitle1.setText("Choose shop");
 
         lblPageTitle2.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblPageTitle2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        lblPageTitle2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/store-1.png"))); // NOI18N
         lblPageTitle2.setText("Choose shop type");
 
         comboBoxDeliveryMan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));

@@ -139,7 +139,7 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
 
         lblPageTitle.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/box.png"))); // NOI18N
         lblPageTitle.setText("Order Details");
 
         btnUpdateMessage.setBackground(new java.awt.Color(255, 255, 255));

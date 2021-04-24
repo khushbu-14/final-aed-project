@@ -148,7 +148,7 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
         lblPageTitle.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/shopping-cart.png"))); // NOI18N
         lblPageTitle.setText("Cart");
 
         tblProductsList.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N

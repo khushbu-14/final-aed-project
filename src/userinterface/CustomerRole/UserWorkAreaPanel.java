@@ -161,7 +161,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/hospital.png"))); // NOI18N
 
         manageConsultDoctor.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageConsultDoctor.setForeground(new java.awt.Color(255, 255, 255));
@@ -223,7 +223,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/pills.png"))); // NOI18N
 
         manageOrderMedicine.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageOrderMedicine.setForeground(new java.awt.Color(255, 255, 255));
@@ -285,7 +285,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/students-teacher-and-blackboard.png"))); // NOI18N
 
         manageOrderFitness.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageOrderFitness.setForeground(new java.awt.Color(255, 255, 255));
@@ -347,7 +347,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/profile.png"))); // NOI18N
 
         managePersonalInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         managePersonalInfo.setForeground(new java.awt.Color(255, 255, 255));
@@ -409,7 +409,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/appointment.png"))); // NOI18N
 
         manageAppointments.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageAppointments.setForeground(new java.awt.Color(255, 255, 255));
@@ -471,7 +471,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/box.png"))); // NOI18N
 
         manageOrders.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageOrders.setForeground(new java.awt.Color(255, 255, 255));
@@ -533,7 +533,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/ambulance.png"))); // NOI18N
 
         manageAmbulanceLabel.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageAmbulanceLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -595,7 +595,7 @@ public class UserWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/stethoscope.png"))); // NOI18N
 
         manageConsultHistory.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageConsultHistory.setForeground(new java.awt.Color(255, 255, 255));
