@@ -347,7 +347,7 @@ public class ManageUserOrderDetailsPanel extends javax.swing.JPanel {
         );
 
         btnPickupOrder.setBackground(new java.awt.Color(255, 255, 255));
-        btnPickupOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnPickupOrder.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save_1.png"))); // NOI18N
         btnPickupOrder.setText("Pickup Order");
         btnPickupOrder.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
         btnPickupOrder.setBorderPainted(false);

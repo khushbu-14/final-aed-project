@@ -426,6 +426,13 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
 
                     Boolean isPrescriptionNeeded = false;
 
+                    for (OrderItem item : orderList) {
+                        if (item.getProduct().getIsPrescriptionNeeded()) {
+                            isPrescriptionNeeded = true;
+                            break;
+                        }
+                    }
+
                     if (isPrescriptionNeeded) {
                         status = "PENDING";
                         newOrderList.setStatus("PENDING");
@@ -453,13 +460,6 @@ public class OrderMedicineCartPanel extends javax.swing.JPanel {
                             + "<li> Total Quantity : <font color='green'> <b>" + txtTotalQuantity.getText() + "</b> </font> </li> </ul>";
 
                     String orderItemsMsg = "";
-
-                    for (OrderItem item : orderList) {
-                        if (item.getProduct().getIsPrescriptionNeeded()) {
-                            isPrescriptionNeeded = true;
-                            break;
-                        }
-                    }
 
                     for (OrderItem item : orderList) {
                         int qty = item.getQuantity();

@@ -405,7 +405,7 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
         });
 
         btnAcceptOrder1.setBackground(new java.awt.Color(255, 255, 255));
-        btnAcceptOrder1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnAcceptOrder1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save_1.png"))); // NOI18N
         btnAcceptOrder1.setText("Approve");
         btnAcceptOrder1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
         btnAcceptOrder1.setBorderPainted(false);
@@ -517,6 +517,12 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
 
     private void btnAcceptOrder1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptOrder1ActionPerformed
         // TODO add your handling code here:
+        orderListData.setStatus("STAFF APPROVED");
+        orderListData.setResolveDate(new Date());
+        changeBtns();
+        JOptionPane.showMessageDialog(null, "Order approved successfully!");
+        lblOrderStatus.setText("STAFF APPROVED");
+        utils.setDatabase(ecosystem);
     }//GEN-LAST:event_btnAcceptOrder1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -652,10 +658,11 @@ public class ManageStaffOrderDetailsPanel extends javax.swing.JPanel {
         if (status.equalsIgnoreCase("STAFF REJECTED") || status.equalsIgnoreCase("STAFF APPROVED")) {
             btnViewPatientDetails.setVisible(false);
             btnRejectOrder.setVisible(false);
-
+            btnAcceptOrder1.setVisible(false);
         } else {
             btnViewPatientDetails.setVisible(true);
             btnRejectOrder.setVisible(true);
+            btnAcceptOrder1.setVisible(true);
         }
     }
 }

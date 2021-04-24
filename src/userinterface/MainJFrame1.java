@@ -708,6 +708,13 @@ public class MainJFrame1 extends javax.swing.JFrame {
             Dialog d = new Dialog("Account created successfully!");
             d.setVisible(true);
 
+//            try {
+//
+//                Thread.sleep(3000);
+//                d.setVisible(false);
+//            } catch (InterruptedException ex) {
+//
+//            }
 //            JOptionPane.showMessageDialog(this, "Account created successfully!",
 //                    "Success", JOptionPane.INFORMATION_MESSAGE);
             String emailSubject = "Care4U Account Created";
@@ -835,8 +842,10 @@ public class MainJFrame1 extends javax.swing.JFrame {
                 //                JOptionPane.showMessageDialog(null, "Invalid credentials");
             } else {
 
-                Dialog d = new Dialog("Login Successful");
-                d.setVisible(true);
+                if (userName.equalsIgnoreCase("admin") && password.equalsIgnoreCase("admin")) {
+                    Dialog d = new Dialog("Login Successful");
+                    d.setVisible(true);
+                }
 
                 userNameJTextField.setText("");
                 txtPassword.setText("");

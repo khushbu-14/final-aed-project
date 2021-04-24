@@ -160,7 +160,6 @@ public class ManageDeliveryManOrderHistory extends javax.swing.JPanel {
 
             // ManageShopOrderDetailsPanel manageShopOrderDetailsPanel = new ManageShopOrderDetailsPanel(mainWorkArea, userAccount, ecosystem, orderListData);
             // ManageUserOrderDetailsPanel manageUserOrderDetailsPanel = new ManageUserOrderDetailsPanel(mainWorkArea, userAccount, ecosystem, orderListData);
-            
             mainWorkArea.add("manageDMOrderDetailsPanel", manageDMOrderDetailsPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
@@ -191,7 +190,7 @@ public class ManageDeliveryManOrderHistory extends javax.swing.JPanel {
             Object[] row = new Object[6];
             row[0] = "" + count++;
             row[1] = req;
-            row[2] = req.getDeliveryMan().getName();
+            row[2] = req.getUser().getName();
             row[3] = req.getShop().getShopName();
             row[4] = req.getStatus();
             row[5] = req.getRequestDate();
