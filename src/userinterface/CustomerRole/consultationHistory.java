@@ -139,7 +139,7 @@ public class consultationHistory extends javax.swing.JPanel {
 
         lblPageTitle.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         lblPageTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        lblPageTitle.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/profile.png"))); // NOI18N
         lblPageTitle.setText("Consultation Details");
 
         jPanel3.setBackground(new java.awt.Color(221, 248, 249));

@@ -77,7 +77,7 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/dashboard.png"))); // NOI18N
         iconDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 iconDashboardMousePressed(evt);
@@ -144,7 +144,7 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconProducts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/pills.png"))); // NOI18N
 
         manageProducts.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageProducts.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,7 +206,7 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/profile.png"))); // NOI18N
 
         managePersonalInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         managePersonalInfo.setForeground(new java.awt.Color(255, 255, 255));
@@ -268,7 +268,7 @@ public class ShopWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/box.png"))); // NOI18N
 
         manageOrders.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageOrders.setForeground(new java.awt.Color(255, 255, 255));

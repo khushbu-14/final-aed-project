@@ -156,12 +156,12 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
         });
 
         iconDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/profile.png"))); // NOI18N
 
         managePerosnalInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         managePerosnalInfo.setForeground(new java.awt.Color(255, 255, 255));
         managePerosnalInfo.setText("Personal Information");
-        managePerosnalInfo.setToolTipText("Personal Information");
+        managePerosnalInfo.setToolTipText("Dashboard");
         managePerosnalInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 managePerosnalInfoMousePressed(evt);
@@ -200,12 +200,12 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
         });
 
         iconHospital.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/pills.png"))); // NOI18N
 
         manageHealth.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageHealth.setForeground(new java.awt.Color(255, 255, 255));
         manageHealth.setText("Health Profile");
-        manageHealth.setToolTipText("Health Profile");
+        manageHealth.setToolTipText("Hospital");
         manageHealth.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageHealthMousePressed(evt);
@@ -244,12 +244,12 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
         });
 
         iconShop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconShop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconShop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/stethoscope.png"))); // NOI18N
 
         manageMedicalCondition.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageMedicalCondition.setForeground(new java.awt.Color(255, 255, 255));
         manageMedicalCondition.setText("Medical Conditions");
-        manageMedicalCondition.setToolTipText("Medical Conditions");
+        manageMedicalCondition.setToolTipText("Shop");
         manageMedicalCondition.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageMedicalConditionMousePressed(evt);
