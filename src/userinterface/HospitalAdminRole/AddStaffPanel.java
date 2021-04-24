@@ -248,6 +248,7 @@ public class AddStaffPanel extends javax.swing.JPanel {
         lblUsername4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblUsername4.setText("Designation:");
 
+        jComboType.setBackground(new java.awt.Color(255, 255, 255));
         jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
