@@ -142,7 +142,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/stethoscope.png"))); // NOI18N
         iconDashboard1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 iconDashboard1KeyPressed(evt);
@@ -209,7 +209,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/appointment.png"))); // NOI18N
 
         manageAvailability.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageAvailability.setForeground(new java.awt.Color(255, 255, 255));
@@ -271,7 +271,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/students-teacher-and-blackboard.png"))); // NOI18N
 
         patientsAppointment.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         patientsAppointment.setForeground(new java.awt.Color(255, 255, 255));
