@@ -66,6 +66,7 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
     static LocalDateTime now;
     Date date;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    private Staff staff;
 
     /**
      * Creates new form AddUniversity
@@ -82,6 +83,7 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
         this.sessions = sessions;
         this.isUpdatePage = isUpdatePage;
         this.userAcount = userAcount;
+        this.staff = (Staff) userAcount;
         util = new Utils();
         setData();
         date = new Date();
@@ -220,6 +222,7 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
         lblPassword2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblPassword2.setText("Time:");
 
+        jComboType.setBackground(new java.awt.Color(255, 255, 255));
         jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Yes", "No", "Both" }));
         jComboType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,6 +242,7 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
             }
         });
 
+        jComboStartTime.setBackground(new java.awt.Color(255, 255, 255));
         jComboStartTime.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "08:00-09:00", "09:00-10:00", "10:00-11:00", "11:00-12:00", "12:00-13:00", "13:00-14:00", "14:00-15:00", "15:00-16:00", "16:00-17:00", "17:00-18:00", "18:00-19:00", "19:00-20:00", "20:00-21:00", "21:00-22:00", "22:00-23:00" }));
         jComboStartTime.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -465,47 +469,85 @@ public class AddHospStaffSessionsPanel extends javax.swing.JPanel {
                 for (Hospital fc : hospitalList) {
                     ArrayList<HospitalDepartment> hospitalDepartmentList = fc.getDepartmentDirectory().getDepartmentList();
                     for (HospitalDepartment hd : hospitalDepartmentList) {
-                        
+
                         Staff staff = hd.getStaffDirectory().getStaffByUserName(userAcount.getUsername());
-                        if(staff !=null){
-                             ArrayList<SessionsMedStaff> st = staff.getSessionDirectory().getSession();
-                        for (SessionsMedStaff s : st) {
-                            if (s.getSessionDate().equalsIgnoreCase(d) && s.getStartTime().equalsIgnoreCase(startTime)) {
-                                flag = false;
+                        if (staff != null) {
+                            ArrayList<SessionsMedStaff> st = staff.getSessionDirectory().getSession();
+                            for (SessionsMedStaff s : st) {
+                                if (s.getSessionDate().equalsIgnoreCase(d) && s.getStartTime().equalsIgnoreCase(startTime)) {
+                                    flag = false;
+                                }
                             }
-                        }
-                        if (flag) {
-                            Boolean f = testTime(startTime.split(":")[0]);
-                            if (date2.equals(date)) {
-                                if (f) {
+                            if (flag) {
+                                Boolean f = testTime(startTime.split(":")[0]);
+                                if (date2.equals(date)) {
+                                    if (f) {
+                                        staff.getSessionDirectory().addSession(session);
+                                        JOptionPane.showMessageDialog(this, "Session Added successfully!");
+                                        resetForm();
+                                        backAction();
+                                        util.setDatabase(ecosystem);
+                                    } else {
+                                        util.showErrorToast("Please select future time slots");
+                                    }
+
+                                } else {
+                                    session.setDocsIdentifier(staff.getUsername());
                                     staff.getSessionDirectory().addSession(session);
                                     JOptionPane.showMessageDialog(this, "Session Added successfully!");
                                     resetForm();
                                     backAction();
                                     util.setDatabase(ecosystem);
-                                } else {
-                                    util.showErrorToast("Please select future time slots");
                                 }
 
                             } else {
-                                session.setDocsIdentifier(staff.getUsername());
-                                staff.getSessionDirectory().addSession(session);
-                                JOptionPane.showMessageDialog(this, "Session Added successfully!");
-                                resetForm();
-                                backAction();
-                                util.setDatabase(ecosystem);
+                                util.showErrorToast("Session already Present");
                             }
-
-                        } else {
-                            util.showErrorToast("Session already Present");
+//                ArrayList<Hospital> hospitalList = ecosystem.getHospitalDirectory().getHospitalList();
+//                for (Hospital fc : hospitalList) {
+//                    ArrayList<HospitalDepartment> hospitalDepartmentList = fc.getDepartmentDirectory().getDepartmentList();
+//                    for (HospitalDepartment hd : hospitalDepartmentList) {
+//                        Staff staff = hd.getStaffDirectory().getStaffByUserName(userAcount.getUsername());
+//                        ArrayList<SessionsMedStaff> st = staff.getSessionDirectory().getSession();
+//                        for (SessionsMedStaff s : st) {
+//                            if (s.getSessionDate().equalsIgnoreCase(d) && s.getStartTime().equalsIgnoreCase(startTime)) {
+//                                flag = false;
+//                            }
+//                        }
+//                        if (flag) {
+//                            Boolean f = testTime(startTime.split(":")[0]);
+//                            if (date2.equals(date)) {
+//                                if (f) {
+//                                    staff.getSessionDirectory().addSession(session);
+//                                    JOptionPane.showMessageDialog(this, "Session Added successfully!");
+//                                    resetForm();
+//                                    backAction();
+//                                    util.setDatabase(ecosystem);
+//                                } else {
+//                                    util.showErrorToast("Please select future time slots");
+//                                }
+//
+//                            } else {
+//                                session.setDocsIdentifier(staff.getUsername());
+//                                staff.getSessionDirectory().addSession(session);
+//                                JOptionPane.showMessageDialog(this, "Session Added successfully!");
+//                                resetForm();
+//                                backAction();
+//                                util.setDatabase(ecosystem);
+//                            }
+//
+//                        } else {
+//                            util.showErrorToast("Session already Present");
+//                        }
+//
+//                    }
+//                }
                         }
 
-                        }
-                       
                     }
                 }
-            }
 
+            }
         }
     }//GEN-LAST:event_btnSignupActionPerformed
 

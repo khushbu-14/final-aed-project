@@ -71,7 +71,7 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/dashboard.png"))); // NOI18N
 
         manageDashboard.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageDashboard.setForeground(new java.awt.Color(255, 255, 255));
@@ -138,7 +138,7 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
         manageSessions.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageSessions.setForeground(new java.awt.Color(255, 255, 255));
         manageSessions.setText("Session / Events");
-        manageSessions.setToolTipText("Dashboard");
+        manageSessions.setToolTipText("Session / Events");
         manageSessions.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageSessionsMousePressed(evt);

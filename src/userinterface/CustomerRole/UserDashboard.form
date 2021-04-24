@@ -160,7 +160,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/box-order.png"/>
             </Property>
           </Properties>
         </Component>
@@ -239,7 +239,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/cancel.png"/>
             </Property>
           </Properties>
         </Component>
@@ -545,7 +545,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/courses-dashboard.png"/>
+              <Image iconType="3" name="/assets/received.png"/>
             </Property>
           </Properties>
         </Component>
@@ -879,7 +879,7 @@
               <Font name="Lucida Grande" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="0" type="rgb"/>
+              <Color blue="6f" green="50" red="3" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="0"/>
@@ -895,7 +895,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/courses-dashboard.png"/>
+              <Image iconType="3" name="/assets/quantity.png"/>
             </Property>
           </Properties>
         </Component>
@@ -961,7 +961,7 @@
               <Font name="Lucida Grande" size="18" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="99" red="0" type="rgb"/>
+              <Color blue="6f" green="50" red="3" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="0"/>
@@ -977,7 +977,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/courses-dashboard.png"/>
+              <Image iconType="3" name="/assets/shopping.png"/>
             </Property>
           </Properties>
         </Component>
@@ -1056,7 +1056,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/price-tag.png"/>
             </Property>
           </Properties>
         </Component>
@@ -1141,7 +1141,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/courses-dashboard.png"/>
+              <Image iconType="3" name="/assets/appointment.png"/>
             </Property>
           </Properties>
         </Component>
@@ -1220,7 +1220,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/stethoscope.png"/>
             </Property>
           </Properties>
         </Component>
@@ -1299,7 +1299,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/assets/student-dash.png"/>
+              <Image iconType="3" name="/assets/sessions.png"/>
             </Property>
           </Properties>
         </Component>

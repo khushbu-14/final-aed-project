@@ -161,7 +161,7 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
         managePerosnalInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         managePerosnalInfo.setForeground(new java.awt.Color(255, 255, 255));
         managePerosnalInfo.setText("Personal Information");
-        managePerosnalInfo.setToolTipText("Dashboard");
+        managePerosnalInfo.setToolTipText("Personal Information");
         managePerosnalInfo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 managePerosnalInfoMousePressed(evt);
@@ -205,7 +205,7 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
         manageHealth.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageHealth.setForeground(new java.awt.Color(255, 255, 255));
         manageHealth.setText("Health Profile");
-        manageHealth.setToolTipText("Hospital");
+        manageHealth.setToolTipText("Health Profile");
         manageHealth.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageHealthMousePressed(evt);
@@ -249,7 +249,7 @@ public class AddMedicalProfilePanel extends javax.swing.JPanel {
         manageMedicalCondition.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageMedicalCondition.setForeground(new java.awt.Color(255, 255, 255));
         manageMedicalCondition.setText("Medical Conditions");
-        manageMedicalCondition.setToolTipText("Shop");
+        manageMedicalCondition.setToolTipText("Medical Conditions");
         manageMedicalCondition.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageMedicalConditionMousePressed(evt);

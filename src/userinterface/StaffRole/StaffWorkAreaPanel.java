@@ -80,7 +80,7 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/dashboard.png"))); // NOI18N
 
         manageDashboard.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageDashboard.setForeground(new java.awt.Color(255, 255, 255));
@@ -358,8 +358,8 @@ public class StaffWorkAreaPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(sideBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 992, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 1002, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

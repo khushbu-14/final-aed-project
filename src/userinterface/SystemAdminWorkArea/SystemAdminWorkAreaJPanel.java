@@ -97,7 +97,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/dashboard.png"))); // NOI18N
 
         manageDashboard.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageDashboard.setForeground(new java.awt.Color(255, 255, 255));
@@ -140,7 +140,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconHospital.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconHospital.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/hospital.png"))); // NOI18N
 
         manageHospital.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageHospital.setForeground(new java.awt.Color(255, 255, 255));
@@ -183,7 +183,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconShop.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconShop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconShop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/store-1.png"))); // NOI18N
 
         manageShop.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageShop.setForeground(new java.awt.Color(255, 255, 255));
@@ -226,7 +226,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconFitness.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconFitness.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconFitness.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/fitness.png"))); // NOI18N
 
         manageFitness.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageFitness.setForeground(new java.awt.Color(255, 255, 255));
@@ -269,7 +269,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconUsers.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/users-1.png"))); // NOI18N
 
         manageUsers.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageUsers.setForeground(new java.awt.Color(255, 255, 255));
@@ -312,7 +312,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconType.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconType.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/type.png"))); // NOI18N
 
         manageType.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageType.setForeground(new java.awt.Color(255, 255, 255));
@@ -355,7 +355,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconAmbulance.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconAmbulance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconAmbulance.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/ambulance.png"))); // NOI18N
 
         manageAmbulance.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageAmbulance.setForeground(new java.awt.Color(255, 255, 255));
@@ -397,7 +397,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconDeliveryMan.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDeliveryMan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/delivery-man-1.png"))); // NOI18N
 
         ManageDeliveryman.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         ManageDeliveryman.setForeground(new java.awt.Color(255, 255, 255));
@@ -439,12 +439,12 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconJTree.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconJTree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconJTree.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/jtree.png"))); // NOI18N
 
         manageJTree.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageJTree.setForeground(new java.awt.Color(255, 255, 255));
         manageJTree.setText("JTree");
-        manageJTree.setToolTipText("Users");
+        manageJTree.setToolTipText("jTree");
         manageJTree.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 manageJTreeMousePressed(evt);
@@ -468,7 +468,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(manageJTreePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(iconJTree, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(manageJTree, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(12, 12, 12))
         );
 
         javax.swing.GroupLayout navbarLayout = new javax.swing.GroupLayout(navbar);
@@ -511,7 +511,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(manageDeliveryManPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(manageJTreePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
+                .addGap(0, 26, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -738,7 +738,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageAmbulance.setForeground(nonActiveTxtColor);
         ManageDeliveryman.setForeground(nonActiveTxtColor);
         manageType.setForeground(nonActiveTxtColor);
-        manageJTree.setBackground(notActiveColor);
+        manageJTree.setForeground(nonActiveTxtColor);
 
         if ("dashboard".equalsIgnoreCase(type)) {
             manageDashboardPanel.setBackground(activeColor);

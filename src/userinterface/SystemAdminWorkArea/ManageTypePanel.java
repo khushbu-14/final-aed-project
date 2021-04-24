@@ -167,6 +167,7 @@ public class ManageTypePanel extends javax.swing.JPanel {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblTitle.setText(" Manage Hospital");
 
+        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
