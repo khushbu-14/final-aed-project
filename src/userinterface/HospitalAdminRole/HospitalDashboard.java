@@ -125,7 +125,7 @@ public class HospitalDashboard extends javax.swing.JPanel {
         lblIconStudent.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconStudent.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/student-dash.png"))); // NOI18N
+        lblIconStudent.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/maintenance.png"))); // NOI18N
 
         lblOrders1.setForeground(new java.awt.Color(102, 102, 102));
         lblOrders1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -479,7 +479,7 @@ public class HospitalDashboard extends javax.swing.JPanel {
         lblIconStudent5.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent5.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconStudent5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconStudent5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/student-dash.png"))); // NOI18N
+        lblIconStudent5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/man.png"))); // NOI18N
 
         lblOrders3.setForeground(new java.awt.Color(102, 102, 102));
         lblOrders3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

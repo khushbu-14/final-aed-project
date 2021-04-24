@@ -120,7 +120,7 @@ public class FitnessStaffDashboard extends javax.swing.JPanel {
         lblIconCourse.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/courses-dashboard.png"))); // NOI18N
+        lblIconCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/class.png"))); // NOI18N
 
         lblShops.setForeground(new java.awt.Color(102, 102, 102));
         lblShops.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -312,7 +312,7 @@ public class FitnessStaffDashboard extends javax.swing.JPanel {
         lblIconCourse5.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse5.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconCourse5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconCourse5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/courses-dashboard.png"))); // NOI18N
+        lblIconCourse5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/webinar.png"))); // NOI18N
 
         lblShops1.setForeground(new java.awt.Color(102, 102, 102));
         lblShops1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -352,7 +352,7 @@ public class FitnessStaffDashboard extends javax.swing.JPanel {
         lblIconStudent4.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent4.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconStudent4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconStudent4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/student-dash.png"))); // NOI18N
+        lblIconStudent4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/presentation.png"))); // NOI18N
 
         lblUsers1.setForeground(new java.awt.Color(102, 102, 102));
         lblUsers1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -541,15 +541,14 @@ public class FitnessStaffDashboard extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelTopStudents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(125, 125, 125)
-                        .addComponent(panelTopStudents2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))
+                        .addComponent(panelTopStudents2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(boxCountCourse5, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
                         .addComponent(boxStudentsCount4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(30, 30, 30)
-                        .addComponent(boxCountCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16))))
+                        .addComponent(boxCountCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {boxCountCourse5, boxStudentsCount4});
@@ -559,9 +558,8 @@ public class FitnessStaffDashboard extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(boxCountCourse5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(boxStudentsCount4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(boxCountCourse5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(boxStudentsCount4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(boxCountCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

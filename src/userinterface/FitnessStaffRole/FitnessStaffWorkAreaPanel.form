@@ -180,7 +180,7 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="6f" green="50" red="3" type="rgb"/>
             </Property>
-            <Property name="toolTipText" type="java.lang.String" value="Manage Hospital"/>
+            <Property name="toolTipText" type="java.lang.String" value="Session / Events"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Hand Cursor"/>
             </Property>
@@ -227,7 +227,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/dinner.png"/>
+                  <Image iconType="3" name="/assets/small/students-teacher-and-blackboard.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -240,7 +240,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Session / Events"/>
-                <Property name="toolTipText" type="java.lang.String" value="Dashboard"/>
+                <Property name="toolTipText" type="java.lang.String" value="Session / Events"/>
               </Properties>
               <Events>
                 <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="manageSessionsMousePressed"/>
@@ -327,7 +327,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/dinner.png"/>
+                  <Image iconType="3" name="/assets/small/profile.png"/>
                 </Property>
               </Properties>
             </Component>

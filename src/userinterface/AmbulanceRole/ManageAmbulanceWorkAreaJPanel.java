@@ -139,7 +139,7 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconDashboard1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/ambulance.png"))); // NOI18N
         iconDashboard1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 iconDashboard1KeyPressed(evt);
@@ -206,7 +206,7 @@ public class ManageAmbulanceWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         iconDashboard2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/shopping-list-1.png"))); // NOI18N
 
         manageAmbulanceBooking.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageAmbulanceBooking.setForeground(new java.awt.Color(255, 255, 255));

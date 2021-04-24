@@ -142,6 +142,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
 
         btnSubmit.setBackground(new java.awt.Color(3, 80, 111));
         btnSubmit.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
         btnSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
         btnSubmit.setText("Add Department");
         btnSubmit.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
@@ -182,6 +183,7 @@ public class FcAddDepartmentPanel extends javax.swing.JPanel {
 
         errorContactNumber.setForeground(new java.awt.Color(255, 0, 0));
 
+        jComboType.setBackground(new java.awt.Color(255, 255, 255));
         jComboType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

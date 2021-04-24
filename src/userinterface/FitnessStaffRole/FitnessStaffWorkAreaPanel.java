@@ -124,7 +124,7 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
         );
 
         manageSessionsPanel.setBackground(new java.awt.Color(3, 80, 111));
-        manageSessionsPanel.setToolTipText("Manage Hospital");
+        manageSessionsPanel.setToolTipText("Session / Events");
         manageSessionsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         manageSessionsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -133,7 +133,7 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/students-teacher-and-blackboard.png"))); // NOI18N
 
         manageSessions.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageSessions.setForeground(new java.awt.Color(255, 255, 255));
@@ -195,7 +195,7 @@ public class FitnessStaffWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/profile.png"))); // NOI18N
 
         manageSessionsReg.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageSessionsReg.setForeground(new java.awt.Color(255, 255, 255));
