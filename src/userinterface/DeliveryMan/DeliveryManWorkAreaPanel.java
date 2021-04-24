@@ -70,7 +70,7 @@ public class DeliveryManWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconProducts.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconProducts.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/box.png"))); // NOI18N
 
         manageOrders.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageOrders.setForeground(new java.awt.Color(255, 255, 255));
@@ -132,7 +132,7 @@ public class DeliveryManWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconProfile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/profile.png"))); // NOI18N
 
         manageProfile.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageProfile.setForeground(new java.awt.Color(255, 255, 255));
