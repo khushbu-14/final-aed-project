@@ -10,12 +10,12 @@ package Business.Hospital;
  * @author kunal
  */
 public class ConsultFormDoctor {
-    private String docsPrescription;
-    private String docsComment;
-    private String nextConsulationDate;
-    private String prescriptionDate;
-    private String docsName;
-    private String docsDesignation;
+    private String docsPrescription ="NA";
+    private String docsComment="NA";
+    private String nextConsulationDate = "NA";
+    private String prescriptionDate = "NA";
+    private String docsName = "NA";
+    private String docsDesignation = "NA";
     
     
     

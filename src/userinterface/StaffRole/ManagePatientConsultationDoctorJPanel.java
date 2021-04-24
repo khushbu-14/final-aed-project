@@ -43,6 +43,7 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
         this.userAccount = userAccount;
+        this.staff1 = (Staff) userAccount;
         initComponents();
         populateTable();
     }
@@ -202,7 +203,7 @@ public class ManagePatientConsultationDoctorJPanel extends javax.swing.JPanel {
             ArrayList<HospitalDepartment> hd = h.getDepartmentDirectory().getDepartmentList();
             for (HospitalDepartment d : hd) {
                 ArrayList<Staff> staff = d.getStaffDirectory().getStaffList();
-                staff1 = d.getStaffDirectory().getStaffByUserName(userAccount.getUsername());
+                Staff staff2 = d.getStaffDirectory().getStaffByUserName(userAccount.getUsername());
                 for (Staff s : staff) {
                     if (s.getUsername().equalsIgnoreCase(userAccount.getUsername())) {
                         int count = 1;

@@ -317,6 +317,7 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
             util.showErrorToast("Please input valid prescription");
         }else{
             sess.setStatus("Completed");
+            sess.getConsultDoc().setDocsComment(comment);
             sess.getConsultDoc().setDocsDesignation(staff.getDesignation());
             sess.getConsultDoc().setDocsName(staff.getName());
 //            sess.getConsultDoc().setDocsIdentifier(staff.getUsername());
@@ -344,6 +345,10 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
             sess.getConsultDoc().setDocsComment("NA");
             sess.getConsultDoc().setDocsPrescription("NA");
             sess.getConsultDoc().setNextConsulationDate("NA");
+            sess.getConsultDoc().setDocsDesignation("NA");
+            sess.getConsultDoc().setDocsPrescription("NA");
+            sess.getConsultDoc().setPrescriptionDate("NA");
+            
         }
     }//GEN-LAST:event_jcomboAddPresActionPerformed
 
