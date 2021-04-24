@@ -130,7 +130,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/dinner.png"/>
+                  <Image iconType="3" name="/assets/small/dashboard.png"/>
                 </Property>
               </Properties>
               <Events>
@@ -233,7 +233,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/dinner.png"/>
+                  <Image iconType="3" name="/assets/small/pills.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -333,7 +333,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/dinner.png"/>
+                  <Image iconType="3" name="/assets/small/profile.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -433,7 +433,7 @@
               <Properties>
                 <Property name="horizontalAlignment" type="int" value="0"/>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/assets/dinner.png"/>
+                  <Image iconType="3" name="/assets/small/box.png"/>
                 </Property>
               </Properties>
             </Component>
