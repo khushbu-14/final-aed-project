@@ -77,6 +77,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageJTreePanel = new javax.swing.JPanel();
         iconJTree = new javax.swing.JLabel();
         manageJTree = new javax.swing.JLabel();
+        manageAnalyticsPanel = new javax.swing.JPanel();
+        iconJTree1 = new javax.swing.JLabel();
+        manageAnalytics = new javax.swing.JLabel();
         mainPanel = new javax.swing.JPanel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -471,6 +474,48 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGap(12, 12, 12))
         );
 
+        manageAnalyticsPanel.setBackground(new java.awt.Color(3, 80, 111));
+        manageAnalyticsPanel.setToolTipText("jTree");
+        manageAnalyticsPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        manageAnalyticsPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageAnalyticsPanelMousePressed(evt);
+            }
+        });
+
+        iconJTree1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        iconJTree1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/jtree.png"))); // NOI18N
+
+        manageAnalytics.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        manageAnalytics.setForeground(new java.awt.Color(255, 255, 255));
+        manageAnalytics.setText("Analytics");
+        manageAnalytics.setToolTipText("Analytics");
+        manageAnalytics.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                manageAnalyticsMousePressed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout manageAnalyticsPanelLayout = new javax.swing.GroupLayout(manageAnalyticsPanel);
+        manageAnalyticsPanel.setLayout(manageAnalyticsPanelLayout);
+        manageAnalyticsPanelLayout.setHorizontalGroup(
+            manageAnalyticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageAnalyticsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(iconJTree1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageAnalytics, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        manageAnalyticsPanelLayout.setVerticalGroup(
+            manageAnalyticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(manageAnalyticsPanelLayout.createSequentialGroup()
+                .addGroup(manageAnalyticsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(iconJTree1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(manageAnalytics, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12))
+        );
+
         javax.swing.GroupLayout navbarLayout = new javax.swing.GroupLayout(navbar);
         navbar.setLayout(navbarLayout);
         navbarLayout.setHorizontalGroup(
@@ -478,18 +523,19 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
             .addComponent(manageDashboardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(navbarLayout.createSequentialGroup()
                 .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(manageHospitalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(navbarLayout.createSequentialGroup()
+                .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(manageShopPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manageUsersPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manageDeliveryManPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manageFitnessPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manageJTreePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageTypePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(manageTypePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manageAnalyticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(navbarLayout.createSequentialGroup()
-                .addGroup(navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(manageHospitalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manageAmbulancePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         navbarLayout.setVerticalGroup(
             navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -511,7 +557,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(manageDeliveryManPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(manageJTreePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manageAnalyticsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         mainPanel.setBackground(new java.awt.Color(244, 249, 249));
@@ -624,6 +672,16 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageJTree();
     }//GEN-LAST:event_manageJTreePanelMousePressed
 
+    private void manageAnalyticsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAnalyticsMousePressed
+        // TODO add your handling code here:
+        manageAnalytics();
+    }//GEN-LAST:event_manageAnalyticsMousePressed
+
+    private void manageAnalyticsPanelMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageAnalyticsPanelMousePressed
+        // TODO add your handling code here:
+        manageAnalytics();
+    }//GEN-LAST:event_manageAnalyticsPanelMousePressed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ManageDeliveryman;
     private javax.swing.JPanel adminPanel;
@@ -633,12 +691,15 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel iconFitness;
     private javax.swing.JLabel iconHospital;
     private javax.swing.JLabel iconJTree;
+    private javax.swing.JLabel iconJTree1;
     private javax.swing.JLabel iconShop;
     private javax.swing.JLabel iconType;
     private javax.swing.JLabel iconUsers;
     private javax.swing.JPanel mainPanel;
     private javax.swing.JLabel manageAmbulance;
     private javax.swing.JPanel manageAmbulancePanel;
+    private javax.swing.JLabel manageAnalytics;
+    private javax.swing.JPanel manageAnalyticsPanel;
     private javax.swing.JLabel manageDashboard;
     private javax.swing.JPanel manageDashboardPanel;
     private javax.swing.JPanel manageDeliveryManPanel;
@@ -729,6 +790,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         manageDeliveryManPanel.setBackground(notActiveColor);
         manageTypePanel.setBackground(notActiveColor);
         manageJTreePanel.setBackground(notActiveColor);
+        manageAnalyticsPanel.setBackground(notActiveColor);
 
         manageDashboard.setForeground(nonActiveTxtColor);
         manageHospital.setForeground(nonActiveTxtColor);
@@ -739,6 +801,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         ManageDeliveryman.setForeground(nonActiveTxtColor);
         manageType.setForeground(nonActiveTxtColor);
         manageJTree.setForeground(nonActiveTxtColor);
+        manageAnalytics.setForeground(nonActiveTxtColor);
 
         if ("dashboard".equalsIgnoreCase(type)) {
             manageDashboardPanel.setBackground(activeColor);
@@ -767,6 +830,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         } else if ("jtree".equalsIgnoreCase(type)) {
             manageJTreePanel.setBackground(activeColor);
             manageJTree.setForeground(activeTxtColor);
+        } else if ("analytics".equalsIgnoreCase(type)) {
+            manageAnalyticsPanel.setBackground(activeColor);
+            manageAnalytics.setForeground(activeTxtColor);
         }
     }
 
@@ -790,5 +856,14 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         CardLayout layout = (CardLayout) mainPanel.getLayout();
         layout.next(mainPanel);
 
+    }
+
+    private void manageAnalytics() {
+        changeBtnBgs("analytics");
+        ManageAnalytics manageAnalytics = new ManageAnalytics(mainPanel);
+        mainPanel.add("manageAnalytics", manageAnalytics);
+
+        CardLayout layout = (CardLayout) mainPanel.getLayout();
+        layout.next(mainPanel);
     }
 }
