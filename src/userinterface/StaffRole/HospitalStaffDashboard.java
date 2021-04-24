@@ -238,7 +238,7 @@ public class HospitalStaffDashboard extends javax.swing.JPanel {
         lblIconCourse5.setBackground(new java.awt.Color(0, 153, 255));
         lblIconCourse5.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconCourse5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconCourse5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/courses-dashboard.png"))); // NOI18N
+        lblIconCourse5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/appointment.png"))); // NOI18N
 
         lblShops1.setForeground(new java.awt.Color(102, 102, 102));
         lblShops1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -278,7 +278,7 @@ public class HospitalStaffDashboard extends javax.swing.JPanel {
         lblIconStudent4.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent4.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconStudent4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconStudent4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/student-dash.png"))); // NOI18N
+        lblIconStudent4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/stethoscope.png"))); // NOI18N
 
         lblUsers1.setForeground(new java.awt.Color(102, 102, 102));
         lblUsers1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -318,7 +318,7 @@ public class HospitalStaffDashboard extends javax.swing.JPanel {
         lblIconStudent5.setBackground(new java.awt.Color(0, 153, 255));
         lblIconStudent5.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         lblIconStudent5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblIconStudent5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/student-dash.png"))); // NOI18N
+        lblIconStudent5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bed.png"))); // NOI18N
 
         lblOrders3.setForeground(new java.awt.Color(102, 102, 102));
         lblOrders3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
