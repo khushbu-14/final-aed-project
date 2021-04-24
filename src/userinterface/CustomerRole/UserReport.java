@@ -757,6 +757,7 @@ public class UserReport extends javax.swing.JPanel {
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
+        jcomboBoxList.setBackground(new java.awt.Color(255, 255, 255));
         jcomboBoxList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Allergies", "CurrentMedication", "PastMedication", "ChronicDisease", "Surgeries" }));
         jcomboBoxList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

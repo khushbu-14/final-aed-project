@@ -326,7 +326,7 @@ public class ManageStaffConsultationDetailsPanel extends javax.swing.JPanel {
         });
 
         btnAcceptOrder1.setBackground(new java.awt.Color(255, 255, 255));
-        btnAcceptOrder1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save.png"))); // NOI18N
+        btnAcceptOrder1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/save_1.png"))); // NOI18N
         btnAcceptOrder1.setText("Process");
         btnAcceptOrder1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 255, 255), 1, true));
         btnAcceptOrder1.setBorderPainted(false);
