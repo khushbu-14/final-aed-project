@@ -49,7 +49,8 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
     SessionsMedStaff sess;
     Staff staff;
     DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-    public ConsultationFormDoctor(JPanel mainWorkArea, EcoSystem ecosystem,User user,SessionsMedStaff sess,Staff staff) {
+
+    public ConsultationFormDoctor(JPanel mainWorkArea, EcoSystem ecosystem, User user, SessionsMedStaff sess, Staff staff) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.ecosystem = ecosystem;
@@ -57,12 +58,12 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         this.isUpdatePage = isUpdatePage;
         util = new Utils();
         this.user = user;
-        this.sess=sess;
+        this.sess = sess;
         txtComment.setEnabled(false);
         presArea.setEnabled(false);
         jcomboNextCon.setEnabled(false);
         nextConsultation.setEnabled(false);
-        
+
     }
 
     /**
@@ -297,9 +298,9 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
     private void jcomboNextConActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboNextConActionPerformed
         // TODO add your handling code here:
         String st = jcomboNextCon.getSelectedItem().toString();
-        if(st.toLowerCase().equals("yes")){
+        if (st.toLowerCase().equals("yes")) {
             nextConsultation.setEnabled(true);
-           isNextConsultation = true;
+            isNextConsultation = true;
         }
     }//GEN-LAST:event_jcomboNextConActionPerformed
 
@@ -307,15 +308,15 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
         // TODO add your handling code here:
         String comment = txtComment.getText();
         String prescription = presArea.getText();
-        String nextDate="NA";
-        if(isNextConsultation){
-              nextDate = formatter.format(nextConsultation.getDate());
+        String nextDate = "NA";
+        if (isNextConsultation) {
+            nextDate = formatter.format(nextConsultation.getDate());
         }
-        if(!util.isStringInputValid(comment)){
+        if (!util.isStringInputValid(comment)) {
             util.showErrorToast("Please input valid comment");
-        }else if(!util.isStringInputValid(prescription)){
+        } else if (!util.isStringInputValid(prescription)) {
             util.showErrorToast("Please input valid prescription");
-        }else{
+        } else {
             sess.setStatus("Completed");
             sess.getConsultDoc().setDocsDesignation(staff.getDesignation());
             sess.getConsultDoc().setDocsName(staff.getName());
@@ -324,8 +325,8 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
             sess.getConsultDoc().setDocsPrescription(prescription);
             sess.getConsultDoc().setDocsComment(comment);
             sess.getConsultDoc().setNextConsulationDate(nextDate);
-            
-            ManageStaffConsultationDetailsPanel manageUserOrderDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user, sess,staff);
+
+            ManageStaffConsultationDetailsPanel manageUserOrderDetailsPanel = new ManageStaffConsultationDetailsPanel(mainWorkArea, userAccount, ecosystem, user, sess, staff);
             mainWorkArea.add("ManageUserOrderDetailsPanel", manageUserOrderDetailsPanel);
             CardLayout layout = (CardLayout) mainWorkArea.getLayout();
             layout.next(mainWorkArea);
@@ -336,7 +337,7 @@ public class ConsultationFormDoctor extends javax.swing.JPanel {
     private void jcomboAddPresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboAddPresActionPerformed
         // TODO add your handling code here:
         String st = jcomboAddPres.getSelectedItem().toString();
-        if(st.toLowerCase().equals("yes")){
+        if (st.toLowerCase().equals("yes")) {
             txtComment.setEnabled(true);
             presArea.setEnabled(true);
             btnSubmit.setEnabled(true);
