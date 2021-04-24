@@ -5,6 +5,8 @@
  */
 package userinterface;
 
+import java.awt.Color;
+
 /**
  *
  * @author khushbu
@@ -14,8 +16,10 @@ public class Dialog extends javax.swing.JFrame {
     /**
      * Creates new form Dialog
      */
-    public Dialog() {
+    public Dialog(String txt) {
         initComponents();
+        this.setBackground(Color.WHITE);
+        lblTitle.setText(txt);
     }
 
     /**
@@ -27,23 +31,52 @@ public class Dialog extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        success = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
+        btnSubmit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
+        getContentPane().setLayout(null);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 487, Short.MAX_VALUE)
-        );
+        success.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        success.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/success.gif"))); // NOI18N
+        getContentPane().add(success);
+        success.setBounds(130, 20, 240, 210);
 
-        setSize(new java.awt.Dimension(580, 487));
+        lblTitle.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("Login Successful!");
+        getContentPane().add(lblTitle);
+        lblTitle.setBounds(50, 260, 420, 30);
+
+        btnSubmit.setBackground(new java.awt.Color(3, 80, 111));
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
+        btnSubmit.setText("Continue");
+        btnSubmit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnSubmitMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnSubmit);
+        btnSubmit.setBounds(160, 330, 190, 50);
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/bg.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(-4, 2, 520, 410);
+
+        setSize(new java.awt.Dimension(517, 415));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_btnSubmitMouseClicked
 
     /**
      * @param args the command line arguments
@@ -75,11 +108,15 @@ public class Dialog extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dialog().setVisible(true);
+                new Dialog("Successful").setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSubmit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JLabel success;
     // End of variables declaration//GEN-END:variables
 }

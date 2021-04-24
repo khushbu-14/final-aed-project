@@ -705,9 +705,11 @@ public class MainJFrame1 extends javax.swing.JFrame {
 
             toggleForm("LOGIN");
 
-            JOptionPane.showMessageDialog(this, "Account created successfully!",
-                    "Success", JOptionPane.INFORMATION_MESSAGE);
+            Dialog d = new Dialog("Account created successfully!");
+            d.setVisible(true);
 
+//            JOptionPane.showMessageDialog(this, "Account created successfully!",
+//                    "Success", JOptionPane.INFORMATION_MESSAGE);
             String emailSubject = "Care4U Account Created";
 
             String emailBodyMessage = "<h4>Hi, " + name + "</h4> <font color='green'> "
@@ -814,12 +816,12 @@ public class MainJFrame1 extends javax.swing.JFrame {
             //  JOptionPane.showMessageDialog(null, "Plesae enter valid user name");
             util.showErrorToast("Plesae enter valid user name");
             //            JOptionPane.showMessageDialog(this, "Plesae enter valid user name",
-                //                    "Error", JOptionPane.ERROR_MESSAGE);
+            //                    "Error", JOptionPane.ERROR_MESSAGE);
         } else if (!util.isStringInputValid(password)) {
             util.showErrorToast("Plesae enter valid password");
             //  JOptionPane.showMessageDialog(null, "Plesae enter valid password");
             //            JOptionPane.showMessageDialog(this, "Plesae enter valid password",
-                //                    "Error", JOptionPane.ERROR_MESSAGE);
+            //                    "Error", JOptionPane.ERROR_MESSAGE);
         } else {
             userName = userName.toLowerCase();
 
@@ -828,10 +830,14 @@ public class MainJFrame1 extends javax.swing.JFrame {
             if (userAccount == null) {
                 util.showErrorToast("Invalid credentials");
                 //                JOptionPane.showMessageDialog(this, "Invalid credentials",
-                    //                        "Error", JOptionPane.ERROR_MESSAGE);
+                //                        "Error", JOptionPane.ERROR_MESSAGE);
 
                 //                JOptionPane.showMessageDialog(null, "Invalid credentials");
             } else {
+
+                Dialog d = new Dialog("Login Successful");
+                d.setVisible(true);
+
                 userNameJTextField.setText("");
                 txtPassword.setText("");
                 changePanel(userAccount);
@@ -934,7 +940,7 @@ public class MainJFrame1 extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void changePanel(UserAccount userAccount) {
-        
+
         if (userAccount != null) {
             String greetings = "Admin";
 
