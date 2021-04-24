@@ -77,7 +77,7 @@ public class HospitalWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/dashboard.png"))); // NOI18N
         iconDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 iconDashboardMousePressed(evt);
@@ -144,7 +144,7 @@ public class HospitalWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDepartment.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDepartment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDepartment.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/jtree.png"))); // NOI18N
 
         manageDepartments.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageDepartments.setForeground(new java.awt.Color(255, 255, 255));
@@ -206,7 +206,7 @@ public class HospitalWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconStaff.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconStaff.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/users-1.png"))); // NOI18N
 
         manageStaffs.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         manageStaffs.setForeground(new java.awt.Color(255, 255, 255));
@@ -268,7 +268,7 @@ public class HospitalWorkAreaPanel extends javax.swing.JPanel {
         });
 
         iconDashboard4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        iconDashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/dinner.png"))); // NOI18N
+        iconDashboard4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/small/profile.png"))); // NOI18N
 
         managePersonalInfo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         managePersonalInfo.setForeground(new java.awt.Color(255, 255, 255));
